@@ -29,6 +29,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#resources">Resources</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pipeline">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#AverageComplexity">Average Complexity</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#NC_HDC">NC and HDC</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Fingerprint</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#PhylogeneticTree">Tree</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
@@ -51,17 +52,22 @@
                     <h3 class="section-subheading text-muted">Supplementary Material To The Article.</h3>
                 </div>
                 <div class="row text-center">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-chart-bar fa-stack-1x fa-inverse"></i></span>
                         <h4 class="my-3">Average Complexity</h4>
                         <p class="text-muted">Average complexity of each author for different levels of quantization in paintings.</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-chart-area fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">Combining NC and HDC</h4>
+                        <p class="text-muted">Combining the NC with the roughness exponent of HDC function</p>
+                    </div>
+                    <div class="col-md-3">
                         <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-fingerprint fa-stack-1x fa-inverse"></i></span>
                         <h4 class="my-3">Complexity Fingerprint</h4>
                         <p class="text-muted">Fingerprint of the authors' complexity.</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fab fa-galactic-republic fa-stack-1x fa-inverse"></i></span>
                         <h4 class="my-3">Phylogenetic Tree</h4>
                         <p class="text-muted">Phylogenetic tree of Relationship between authors' fingerprints.</p>
@@ -104,7 +110,18 @@
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-image">
+                    <li class="timeline">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/5.png" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Combining NC and  HDC</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Study the combination of average author in NC with the roughness exponent &alpha; of HDC function regarding stylistic movements  </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -115,7 +132,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
+                    <li class="timeline">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.png" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -177,8 +194,21 @@
                 </div>
             </div>
         </section>
+        <!-- NC vs HDC -->
+        <section class="page-section bg-light" id="NC_HDC">
+            <div class="container"> 
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Combining NC and HDC</h2>
+                    <h3 class="section-subheading text-muted"> Combining the NC with the roughness exponent of HDC function  &alpha;</h3>
+                </div>
+                <div class="col-lg-12">
+                    <img src="assets/img/nc_hdc/nc_hdc.png" class="img-fluid">
+                </div>
+            </div>
+        </section>
+ 
         <!-- Portfolio Grid-->
-        <section class="page-section bg-light" id="portfolio">
+        <section class="page-section" id="portfolio">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Complexity Fingerprint</h2>
@@ -1470,7 +1500,7 @@
             </div>
         </section>
         <!-- Phylogenetic-->
-        <section class="page-section" id="PhylogeneticTree">
+        <section class="page-section bg-light" id="PhylogeneticTree">
             <div class="container"> 
                 <div class="row justify-content-center">
                     <h2 class="section-heading text-uppercase">Artists Phylogenetic Tree</h2>
@@ -1482,7 +1512,7 @@
             </div>
         </section>
         <!-- Team-->
-        <section class="page-section bg-light" id="team" >
+        <section class="page-section" id="team" >
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Research Team</h2>
