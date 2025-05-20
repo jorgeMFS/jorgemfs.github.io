@@ -230,9 +230,9 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
-  background: url("../img/hero-bg.webp") top center;
-  background-size: cover;
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  background: url("../img/hero-bg.webp") center center / cover no-repeat;
 }
 
 #hero:before {
@@ -309,7 +309,8 @@ h6 {
     font-size: 18px;
   }
   #hero .hero-container {
-    margin-left:-50px;
+    margin-left: 0;
+    margin-top: 80px;
   }
 }
 
