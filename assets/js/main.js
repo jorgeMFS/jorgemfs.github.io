@@ -5,11 +5,19 @@
 * License: https://bootstrapmade.com/license/
 */
 
-
-
-
 (function() {
   "use strict";
+
+  /**
+   * Maintain correct viewport height on mobile devices
+   */
+  const setHeroHeight = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+  window.addEventListener('load', setHeroHeight);
+  window.addEventListener('resize', setHeroHeight);
+  window.addEventListener('orientationchange', setHeroHeight);
 
   /**
    * Easy selector helper function
