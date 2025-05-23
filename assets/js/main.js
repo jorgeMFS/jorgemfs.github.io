@@ -273,4 +273,37 @@
    */
   new PureCounter();
 
+  /**
+   * Theme toggle functionality
+   */
+  const themeToggleBtn = select('#theme-toggle');
+  const themeIcon = select('#theme-icon');
+
+  const applyTheme = (mode) => {
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+      if (themeIcon) {
+        themeIcon.classList.remove('bi-moon');
+        themeIcon.classList.add('bi-sun');
+      }
+    } else {
+      document.body.classList.remove('dark-mode');
+      if (themeIcon) {
+        themeIcon.classList.remove('bi-sun');
+        themeIcon.classList.add('bi-moon');
+      }
+    }
+  };
+
+  let savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      savedTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+      applyTheme(savedTheme);
+      localStorage.setItem('theme', savedTheme);
+    });
+  }
+
 })()
