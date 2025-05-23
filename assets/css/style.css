@@ -1139,3 +1139,44 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+/*--------------------------------------------------------------
+# Theme Toggle
+--------------------------------------------------------------*/
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*--------------------------------------------------------------
+# Dark Mode
+--------------------------------------------------------------*/
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode a {
+  color: #9fceff;
+}
+
+body.dark-mode a:hover {
+  color: #b2dfff;
+}
+
+body.dark-mode #header,
+body.dark-mode #footer {
+  background: #1e1e1e;
+}
+
+body.dark-mode #header .profile .social-links a {
+  background: #282c34;
+  color: #fff;
+}
