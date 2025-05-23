@@ -15,4 +15,3 @@ The site is published via **GitHub Pages**. Pushing changes to the repository's 
 ## Credits
 
 The design is based on the [iPortfolio](https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/) template by [BootstrapMade](https://bootstrapmade.com/).
-
