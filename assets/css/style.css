@@ -1313,3 +1313,18 @@ body.dark-mode .pub-authors {
 body.dark-mode .pub-link-icon {
   color: #9fceff !important;
 }
+
+/* Dark mode improvements */
+body.dark-mode .skills .progress .skill,
+body.dark-mode .skills .progress .skill .val {
+  color: #e0e0e0;
+}
+
+body.dark-mode .altmetric-embed,
+body.dark-mode .altmetric-embed * {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .altmetric-embed img {
+  filter: brightness(1.2) invert(0.1);
+}
