@@ -10,7 +10,9 @@ This is a static site built with HTML, CSS and JavaScript. You can preview it lo
 python3 -m http.server
 ```
 
-The site is published via **GitHub Pages**. Pushing changes to the repository's main branch updates the content served at `jorgemfs.com`.
+The site is published via **GitHub Pages**. Pushing changes to the repository's `master` branch updates the content served at `jorgemfs.com`.
+
+The template originally provided a PHP-based contact form. That functionality is disabled in this repository because it depends on a proprietary library that is not included. See `forms/Readme.txt` for details.
 
 ## Credits
 
