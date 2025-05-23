@@ -1155,6 +1155,19 @@ section {
   justify-content: center;
 }
 
+/* Publication styles */
+.pub-title {
+  color: #173b6c;
+}
+
+.pub-authors {
+  color: #000;
+}
+
+.pub-link-icon {
+  color: #173b6c;
+}
+
 /*--------------------------------------------------------------
 # Dark Mode
 --------------------------------------------------------------*/
@@ -1236,4 +1249,67 @@ body.dark-mode .skills .progress-bar-wrap {
 
 body.dark-mode .skills .progress-bar {
   background-color: #9fceff;
+}
+
+/* Improved dark mode readability */
+body.dark-mode .facts .count-box i {
+  color: #9fceff;
+}
+
+body.dark-mode .facts .count-box span {
+  color: #e0e0e0;
+}
+
+body.dark-mode .facts .count-box p {
+  color: #cccccc;
+}
+
+body.dark-mode .facts .count-box a {
+  color: #9fceff;
+}
+
+body.dark-mode .facts .count-box a:hover {
+  color: #b2dfff;
+}
+
+body.dark-mode .resume .resume-title,
+body.dark-mode .resume .resume-item h4,
+body.dark-mode .resume .resume-item p,
+body.dark-mode .resume .resume-item ul li {
+  color: #e0e0e0;
+}
+
+body.dark-mode .resume .resume-item h5 {
+  color: #e0e0e0;
+  background: #333333;
+}
+
+body.dark-mode .resume .resume-item::before {
+  background: #9fceff;
+  border: 2px solid #9fceff;
+}
+
+body.dark-mode .portfolio #portfolio-flters {
+  background: #1e1e1e;
+}
+
+body.dark-mode .portfolio #portfolio-flters li {
+  color: #d0d0d0;
+}
+
+body.dark-mode .portfolio #portfolio-flters li:hover,
+body.dark-mode .portfolio #portfolio-flters li.filter-active {
+  color: #9fceff;
+}
+
+body.dark-mode .pub-title {
+  color: #9fceff !important;
+}
+
+body.dark-mode .pub-authors {
+  color: #cccccc !important;
+}
+
+body.dark-mode .pub-link-icon {
+  color: #9fceff !important;
 }
