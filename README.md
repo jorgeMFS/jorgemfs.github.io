@@ -1,9 +1,17 @@
-# jorgemfs.github.io
+# jorgemfs.com Website
 
-This repository contains the static files for [jorgeMFS's](https://github.com/jorgeMFS) personal website.
+This repository contains the source code for my personal website hosted at [jorgemfs.com](https://jorgemfs.com). The site presents my professional profile and related information.
 
-## Contact Section
+## Building and running
 
-The original theme included a PHP/AJAX contact form that relies on a proprietary library. That library is not included here, so no contact form is active on the site.
+This is a static site built with HTML, CSS and JavaScript. You can preview it locally using any HTTP server, for example:
 
-If you wish to get in touch, please use the email address listed on the site instead of a form.
+```bash
+python3 -m http.server
+```
+
+The site is published via **GitHub Pages**. Pushing changes to the repository's main branch updates the content served at `jorgemfs.com`.
+
+## Credits
+
+The design is based on the [iPortfolio](https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/) template by [BootstrapMade](https://bootstrapmade.com/).
