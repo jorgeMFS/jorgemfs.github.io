@@ -1313,3 +1313,72 @@ body.dark-mode .pub-authors {
 body.dark-mode .pub-link-icon {
   color: #9fceff !important;
 }
+
+/* Dark mode improvements */
+body.dark-mode .skills .progress .skill,
+body.dark-mode .skills .progress .skill .val {
+  color: #e0e0e0;
+}
+
+body.dark-mode .altmetric-embed,
+body.dark-mode .altmetric-embed * {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .altmetric-embed img {
+  /* brighten badge and invert slightly so score pops */
+  filter: brightness(1.4) invert(0.2) contrast(1.2);
+}
+
+/* Dark mode contact section */
+body.dark-mode .contact .info {
+  background: #1e1e1e;
+  box-shadow: 0 0 24px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .contact .info i {
+  color: #9fceff;
+  background: #282c34;
+}
+
+body.dark-mode .contact .info h4 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .contact .info p {
+  color: #cccccc;
+}
+
+body.dark-mode .contact .info .social-links a {
+  background: #282c34;
+}
+
+body.dark-mode .contact .info .social-links a:hover {
+  background: #9fceff;
+}
+
+body.dark-mode .contact .php-email-form {
+  background: #1e1e1e;
+  box-shadow: 0 0 24px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .contact .php-email-form input,
+body.dark-mode .contact .php-email-form textarea {
+  background: #282c34;
+  border: 1px solid #444;
+  color: #e0e0e0;
+}
+
+body.dark-mode .contact .php-email-form button[type=submit] {
+  background: #9fceff;
+  color: #1e1e1e;
+}
+
+body.dark-mode .contact .php-email-form button[type=submit]:hover {
+  background: #b2dfff;
+}
+
+body.dark-mode .contact .php-email-form .loading {
+  background: #282c34;
+  color: #e0e0e0;
+}
