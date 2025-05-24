@@ -1327,8 +1327,8 @@ body.dark-mode .altmetric-embed * {
 }
 
 body.dark-mode .altmetric-embed img {
-  /* brighten badge and invert slightly so score pops */
-  filter: brightness(1.6) invert(0.1) contrast(1.3);
+  /* keep original badge colors */
+  filter: none;
 }
 
 /* Dark mode contact section */
