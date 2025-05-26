@@ -183,6 +183,19 @@
         itemSelector: '.portfolio-item'
       });
 
+      let portfolioImages = select('.portfolio-container img', true);
+      portfolioImages.forEach(img => {
+        if (img.complete) {
+          portfolioIsotope.layout();
+          AOS.refresh();
+        } else {
+          img.addEventListener('load', () => {
+            portfolioIsotope.layout();
+            AOS.refresh();
+          });
+        }
+      });
+
       let portfolioFilters = select('#portfolio-flters li', true);
 
       on('click', '#portfolio-flters li', function(e) {
