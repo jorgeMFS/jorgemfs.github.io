@@ -2,7 +2,8 @@
 title: Federated Learning
 layout: page
 permalink: /federated-learning/
-description: A comprehensive guide to federated learning principles, frameworks, and best practices for privacy-preserving machine learning.
+description: A comprehensive guide to federated learning principles, frameworks,
+  and best practices for privacy-preserving machine learning.
 ---
 
 ## Description
