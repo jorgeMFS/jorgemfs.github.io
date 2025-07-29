@@ -4,7 +4,7 @@ layout: page
 permalink: /federated-learning/
 description: A comprehensive guide to federated learning principles, frameworks,
   and best practices for privacy-preserving machine learning.
----
+------
 
 ## Description
 
@@ -86,12 +86,12 @@ programming languages, maturity levels and security features:
   validation on distributed datasets, has been used by hospitals and
   biotech companies, and can simulate federated workflows on a single
   machine for testing.
-* **[Yjs](https://yjs.dev){:.tool}** – a JavaScript library implementing conflict‑free replicated
-  data types (CRDTs) for collaborative software.  Yjs exposes shared
-  types that behave like normal data structures but sync automatically
-  across peers, even offline.  It does not provide machine‑learning
-  algorithms but offers network‑agnostic synchronisation that can
-  support peer‑to‑peer data sharing.
+* **[Yjs](https://yjs.dev){:.tool}** – a JavaScript library implementing
+  conflict‑free replicated data types (CRDTs) for collaborative software.
+  Yjs exposes shared types that behave like normal data structures but sync
+  automatically across peers, even offline.  It does not provide
+  machine‑learning algorithms but offers network‑agnostic synchronisation
+  that can support peer‑to‑peer data sharing.
 
 When choosing a framework, consider compatibility with your existing code,
 support for secure aggregation and the maturity of the community.
@@ -223,7 +223,9 @@ The following software and services support federated learning:
   – outlines how to package federated workflow runs using the RO‑Crate
   standard for provenance capture.
 
-> **RO‑Crate Example:** A minimal `ro-crate-metadata.json` for a federated training run:
+> **RO‑Crate Example:** A minimal `ro-crate-metadata.json` for a federated
+> training run:
+>
 > ```json
 > {
 >   "@context": ["https://w3id.org/ro/crate/1.1/context"],
@@ -236,6 +238,7 @@ The following software and services support federated learning:
 >   ]
 > }
 > ```
+>
 > Full implementation available in the **[Five Safes RO‑Crate record](https://zenodo.org/records/10376350)**.
 
 ## Real‑world examples
@@ -253,17 +256,17 @@ The following software and services support federated learning:
 
 ## Related pages
 
-[Data security](#)
+[Data security](#security/)
 
-[Data sensitivity](#)
+[Data sensitivity](#sensitivity/)
 
-[Data provenance](#)
+[Data provenance](#provenance/)
 
-[Data quality](#)
+[Data quality](#quality/)
 
-[Trusted research environments](#)
+[Trusted research environments]({{ site.baseurl }}/trusted_research_environments/)
 
-[Data protection impact assessment](#)
+[Data protection impact assessment](#protection_impact_assessment/)
 
 ## References
 
