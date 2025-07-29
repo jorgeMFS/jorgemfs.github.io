@@ -1,26 +1,8 @@
 ---
-title: Federated learning
-type: your_tasks
-summary: Federated learning enables privacy‑preserving machine learning by training models across multiple sites without sharing raw data.
-description: This page explains the principles of federated learning, security layers and governance frameworks, highlights key FL frameworks and tools, and provides training materials and real‑world examples for implementing federated learning in practice.
-contributors:
-  - name: "Jorge Miguel F. da Silva"
-    orcid: "0000-0002-6331-6091"
-    affiliation: "IEETA, Universidade de Aveiro"
-  - name: "Ana Teresa Freitas"
-    orcid: "0000-0002-2997-5990"
-    affiliation: "INESC‑ID, Instituto Superior Técnico"
-
-editors:
-  - name: "RDMKit editorial team"
-tags:
-  - analysis
-  - privacy
-license: cc-by-4.0
-page_created_on: 2025-08-01
-last_updated_on: 2025-08-10
-aliases: ["federated_learning"]
-icon: ti-share
+title: Federated Learning
+layout: page
+permalink: /federated-learning/
+description: A comprehensive guide to federated learning principles, frameworks, and best practices for privacy-preserving machine learning.
 ---
 
 ## Description
@@ -65,7 +47,7 @@ clinical data at another.  Understanding how the data are split helps
 select appropriate federated algorithms and security mechanisms.
 
 <div align="center">
-  <img src="{{ site.baseurl }}/assets/img/your_tasks/federated_learning/fl_topology.png"
+  <img src="/assets/img/federated_learning/fl_topology.png"
        alt="Federated learning topology"
        style="max-width: 600px; width: 100%; height: auto;">
   <br>
@@ -281,17 +263,17 @@ RO‑Crate record](https://zenodo.org/records/10376350)**.
 
 ## Related pages
 
-[Data security]({{ site.baseurl }}/data_security/)
+[Data security](#)
 
-[Data sensitivity]({{ site.baseurl }}/data_sensitivity/)
+[Data sensitivity](#)
 
-[Data provenance]({{ site.baseurl }}/data_provenance/)
+[Data provenance](#)
 
-[Data quality]({{ site.baseurl }}/data_quality/)
+[Data quality](#)
 
-[Trusted research environments]({{ site.baseurl }}/trusted_research_environments/)
+[Trusted research environments](#)
 
-[Data protection impact assessment]({{ site.baseurl }}/data_protection_impact_assessment/)
+[Data protection impact assessment](#)
 
 ## References
 

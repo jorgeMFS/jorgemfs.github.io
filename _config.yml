@@ -1,0 +1,30 @@
+# Jekyll configuration for GitHub Pages
+title: Jorge Miguel Silva
+description: Personal website of Jorge Miguel Silva - Research Fellow at IEETA
+url: "https://jorgemfs.com"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Default layout for pages
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default" 
