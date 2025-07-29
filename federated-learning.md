@@ -18,7 +18,7 @@ decentralised approach preserves data sovereignty and allows hospitals,
 biobanks and other organisations to collaborate on joint models while keeping
 raw data local.  FL was originally designed for mobile keyboard prediction and
 has demonstrated simulations with ≈ 15 million clients
-:contentReference[oaicite:0]{index=0}; in healthcare deployments the typical
+; in healthcare deployments the typical
 federation size is 5–100 nodes.
 
 ## Why is this important?
@@ -30,12 +30,12 @@ summary statistics.  As a result, researchers can pool statistical power
 across sites while complying with the EU General Data Protection Regulation
 (GDPR) and ethical frameworks such as the
 [Five Safes](https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/)
-:contentReference[oaicite:1]{index=1}.
+.
 
 The EUCAIM cancer‑imaging infrastructure adopts a hybrid centralised‑federated
 architecture to train AI tools on sensitive imaging data; its current public
 prototype runs **synchronous FedAvg** while asynchronous variants are still under
-evaluation :contentReference[oaicite:2]{index=2}.
+evaluation.
 
 ## Considerations and best practices
 
@@ -55,7 +55,7 @@ select appropriate federated algorithms and security mechanisms.
 
 Beyond FedAvg, vertical federations can use **SplitNN** or PyVertical to train
 deep models where each party holds disjoint features
-:contentReference[oaicite:3]{index=3}, and statistical alternatives such as
+, and statistical alternatives such as
 FedSVD exist for genome‑wide association studies.
 
 <div align="center">
@@ -75,16 +75,16 @@ programming languages, maturity levels and security features:
 * **[Flower](https://flower.ai){:.tool}** – flexible Python framework
   (PyTorch/TensorFlow).  
   Secure aggregation (SecAgg, SecAgg+) is available as a _preview_ "mod" and
-  must be enabled explicitly from ≥ v1.8 :contentReference[oaicite:4]{index=4}.
+  must be enabled explicitly from ≥ v1.8.
 * **[FATE](https://fate.fedai.org){:.tool}** – production‑ready, Java/Python,
-  homomorphic encryption :contentReference[oaicite:5]{index=5}.
+  homomorphic encryption.
 * **[NVIDIA FLARE](https://developer.nvidia.com/flare){:.tool}** – SDK with
-  FedAvg/FedOpt/FedProx :contentReference[oaicite:6]{index=6}.
+  FedAvg/FedOpt/FedProx.
 * **[Substra](https://github.com/substra){:.tool}** – Python API + web UI for
   clinical FL at scale.
 * **[Yjs](https://yjs.dev){:.tool}** – high‑performance CRDT engine for
   real‑time collaboration; **not** an ML library and provides no privacy
-  guarantees out‑of‑the‑box :contentReference[oaicite:7]{index=7}.
+  guarantees out‑of‑the‑box.
 
 When choosing a framework, consider compatibility with your existing code,
 support for secure aggregation and the maturity of the community.
@@ -106,7 +106,7 @@ noise addition further reduce the risk of re‑identification, and a
 threat model should guide the choice of protections.
 
 > **Note on protocols**  LightSecAgg offers dropout‑resilient secure aggregation
-> with lower overhead than classic SecAgg and works in asynchronous FL :contentReference[oaicite:8]{index=8}.
+> with lower overhead than classic SecAgg and works in asynchronous FL.
 
 ### Governance using the Five Safes
 
@@ -148,7 +148,7 @@ batch effects, and apply common pre‑processing pipelines (e.g.
   utility for manipulating Workflow Run RO‑Crate packages, can be used to
   package metadata and ensure provenance.
 
-Common data models such as **OMOP CDM** facilitate cross‑site semantics :contentReference[oaicite:9]{index=9}.
+Common data models such as **OMOP CDM** facilitate cross‑site semantics.
 
 ### Monitoring and MLOps
 
@@ -163,7 +163,7 @@ measure and visualise metrics (such as loss and accuracy) across
 training rounds without revealing individual site performance.
 
 Open‑source libraries (e.g. **Evidently AI**) provide drift detection, bias
-dashboards and alerting for production FL :contentReference[oaicite:10]{index=10}.
+dashboards and alerting for production FL.
 
 ### Implementation recommendations
 
@@ -183,44 +183,44 @@ dashboards and alerting for production FL :contentReference[oaicite:10]{index=10
 ## FAIR, metadata & provenance
 
 * Capture dataset‑level metadata with **RO‑Crate 1.3** or
-  Five‑Safes RO‑Crate :contentReference[oaicite:11]{index=11}.  
+  Five‑Safes RO‑Crate.  
 * Document trained models with **Model Cards** to record intended use,
   limitations and demographic performance
-  :contentReference[oaicite:12]{index=12}.  
+ .  
 * Register container digests and environment lock files (e.g. `conda‑lock`)
   inside the crate for full environment capture.
 
 ## Reproducibility & versioning
 
 Follow the **DOME‑ML** checklist (Data, Optimisation, Model, Evaluation)
-:contentReference[oaicite:13]{index=13}.  
+.  
 Track large binaries with **DVC** and code with Git
-:contentReference[oaicite:14]{index=14}.
+.
 
 ## Legal & ethical compliance
 
 * Conduct a GDPR Data‑Protection‑Impact‑Assessment (DPIA) using ICO/CNIL
-  templates before deployment :contentReference[oaicite:15]{index=15}.  
+  templates before deployment.  
 * Map privacy controls to the EDPS **TechDispatch** guidance on FL
-  :contentReference[oaicite:16]{index=16}.  
+ .  
 * Enforce data‑minimisation; retain only aggregated parameters.
 
 ## Bias & equity
 
 Use group‑fairness metrics (demographic parity, equal opportunity) to audit both
-global and per‑site models :contentReference[oaicite:17]{index=17}.  
+global and per‑site models.  
 Mitigation strategies include re‑weighting, constrained optimisation and
 fairness‑aware FedAvg variants.
 
 ## Monitoring, drift & MLOps
 
 Implement concept‑ and data‑drift alarms (Evidently, Prometheus exporters) and
-maintain an audit log for every training round :contentReference[oaicite:18]{index=18}.
+maintain an audit log for every training round.
 
 ## Threat modelling & risk assessment
 
 Apply **LINDDUN‑PRO** for privacy threats and map mitigations to PETs
-(e.g. MPC, DP, SA) :contentReference[oaicite:19]{index=19}.  
+(e.g. MPC, DP, SA).  
 Combine with STRIDE for security coverage.
 
 ## Tools and services
