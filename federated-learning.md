@@ -3,8 +3,10 @@ title: Federated Learning
 layout: page
 permalink: /federated-learning/
 description: A comprehensive guide to federated learning principles, frameworks,
-  and best practices for privacy-preserving machine learning.
-------
+  and best practices for privacy-preserving machine learning. Includes sections
+  on FAIR metadata, reproducibility, legal compliance, bias mitigation, and
+  threat modelling.
+---
 
 ## Description
 
@@ -14,8 +16,10 @@ repository, the learning algorithm is dispatched to each participating
 site and only aggregated model updates are exchanged.  This
 decentralised approach preserves data sovereignty and allows hospitals,
 biobanks and other organisations to collaborate on joint models while keeping
-raw data local.  FL was designed to support large‑scale experiments on
-heterogeneous devices and can scale to millions of clients.
+raw data local.  FL was originally designed for mobile keyboard prediction and
+has demonstrated simulations with ≈ 15 million clients
+:contentReference[oaicite:0]{index=0}; in healthcare deployments the typical
+federation size is 5–100 nodes.
 
 ## Why is this important?
 
@@ -24,15 +28,14 @@ because it requires data to leave its origin.  FL overcomes this
 constraint by bringing computation to the data and exchanging only
 summary statistics.  As a result, researchers can pool statistical power
 across sites while complying with the EU General Data Protection Regulation
-(GDPR) and ethical frameworks such as the [Five Safes](https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/).
+(GDPR) and ethical frameworks such as the
+[Five Safes](https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/)
+:contentReference[oaicite:1]{index=1}.
 
-The EUCAIM cancer imaging infrastructure adopts a hybrid centralised‑federated
-architecture to train AI tools on sensitive imaging data; it links
-processing services of data holders to a central hub, supports both
-synchronous and asynchronous federated learning and emphasises privacy‑
-preserving training.  By keeping data within its
-original jurisdiction and using secure protocols, FL enables cross‑
-institutional collaboration without exposing individual records.
+The EUCAIM cancer‑imaging infrastructure adopts a hybrid centralised‑federated
+architecture to train AI tools on sensitive imaging data; its current public
+prototype runs **synchronous FedAvg** while asynchronous variants are still under
+evaluation :contentReference[oaicite:2]{index=2}.
 
 ## Considerations and best practices
 
@@ -48,6 +51,13 @@ collect different variables, such as genetic data at one site and
 clinical data at another.  Understanding how the data are split helps
 select appropriate federated algorithms and security mechanisms.
 
+#### Horizontal vs. vertical algorithm families  
+
+Beyond FedAvg, vertical federations can use **SplitNN** or PyVertical to train
+deep models where each party holds disjoint features
+:contentReference[oaicite:3]{index=3}, and statistical alternatives such as
+FedSVD exist for genome‑wide association studies.
+
 <div align="center">
   <img src="/assets/img/federated_learning/fl_topology.png"
        alt="Federated learning topology"
@@ -62,36 +72,19 @@ select appropriate federated algorithms and security mechanisms.
 Several open‑source frameworks implement FL, each with different
 programming languages, maturity levels and security features:
 
-* **[Flower](https://flower.ai){:.tool}** – a flexible Python framework that
-  supports PyTorch and TensorFlow.  Flower emphasises ease of use and
-  allows researchers to adapt existing machine‑learning workflows to a
-  federated setting.  It is designed for large‑scale experiments and
-  heterogeneous devices. Flower provides built‑in secure aggregation
-  components via the SecAgg and SecAgg+ protocols.
-* **[FATE](https://fate.fedai.org){:.tool}** – a production‑ready platform
-  initiated by Webank's AI department.  FATE implements secure
-  computation protocols based on homomorphic encryption and multi‑party
-  computation and includes federated versions of logistic regression,
-  tree‑based models and deep learning.  It supports both Python and Java
-  and is well suited to regulated environments.
-* **[NVIDIA FLARE](https://developer.nvidia.com/flare){:.tool}** – a
-  domain‑agnostic, open‑source and extensible Python SDK that allows
-  researchers and data scientists to adapt existing ML/DL workflows to a
-  federated paradigm.  It provides built‑in algorithms such as FedAvg,
-  FedOpt and FedProx and includes privacy‑preserving techniques to
-  protect model updates.
-* **[Substra](https://github.com/substra){:.tool}** – an open‑source federated
-  learning platform offering a flexible Python interface and a web
-  application for deploying FL at scale.  Substra enables training and
-  validation on distributed datasets, has been used by hospitals and
-  biotech companies, and can simulate federated workflows on a single
-  machine for testing.
-* **[Yjs](https://yjs.dev){:.tool}** – a JavaScript library implementing
-  conflict‑free replicated data types (CRDTs) for collaborative software.
-  Yjs exposes shared types that behave like normal data structures but sync
-  automatically across peers, even offline.  It does not provide
-  machine‑learning algorithms but offers network‑agnostic synchronisation
-  that can support peer‑to‑peer data sharing.
+* **[Flower](https://flower.ai){:.tool}** – flexible Python framework
+  (PyTorch/TensorFlow).  
+  Secure aggregation (SecAgg, SecAgg+) is available as a _preview_ "mod" and
+  must be enabled explicitly from ≥ v1.8 :contentReference[oaicite:4]{index=4}.
+* **[FATE](https://fate.fedai.org){:.tool}** – production‑ready, Java/Python,
+  homomorphic encryption :contentReference[oaicite:5]{index=5}.
+* **[NVIDIA FLARE](https://developer.nvidia.com/flare){:.tool}** – SDK with
+  FedAvg/FedOpt/FedProx :contentReference[oaicite:6]{index=6}.
+* **[Substra](https://github.com/substra){:.tool}** – Python API + web UI for
+  clinical FL at scale.
+* **[Yjs](https://yjs.dev){:.tool}** – high‑performance CRDT engine for
+  real‑time collaboration; **not** an ML library and provides no privacy
+  guarantees out‑of‑the‑box :contentReference[oaicite:7]{index=7}.
 
 When choosing a framework, consider compatibility with your existing code,
 support for secure aggregation and the maturity of the community.
@@ -111,6 +104,9 @@ SecAgg or SecAgg+, where each client encrypts its updates and the
 server only decrypts the sum.  Differential privacy and
 noise addition further reduce the risk of re‑identification, and a
 threat model should guide the choice of protections.
+
+> **Note on protocols**  LightSecAgg offers dropout‑resilient secure aggregation
+> with lower overhead than classic SecAgg and works in asynchronous FL :contentReference[oaicite:8]{index=8}.
 
 ### Governance using the Five Safes
 
@@ -152,6 +148,8 @@ batch effects, and apply common pre‑processing pipelines (e.g.
   utility for manipulating Workflow Run RO‑Crate packages, can be used to
   package metadata and ensure provenance.
 
+Common data models such as **OMOP CDM** facilitate cross‑site semantics :contentReference[oaicite:9]{index=9}.
+
 ### Monitoring and MLOps
 
 Good operational practices are vital for reliable federated systems.
@@ -164,10 +162,13 @@ include unit tests and simulated federated runs.  When possible,
 measure and visualise metrics (such as loss and accuracy) across
 training rounds without revealing individual site performance.
 
+Open‑source libraries (e.g. **Evidently AI**) provide drift detection, bias
+dashboards and alerting for production FL :contentReference[oaicite:10]{index=10}.
+
 ### Implementation recommendations
 
-* Use **Flower** (≥1.6) with TLS encryption and SecAgg+ for horizontal
-  federated learning experiments.
+* Use **Flower** (≥1.8) with TLS encryption and SecAgg+ for horizontal
+  federated learning experiments (enable preview "mod" for secure aggregation).
 * For regulated environments, deploy **FATE** with homomorphic encryption
   to train logistic regression or tree‑based models.
 * Configure **FLARE** or **Substra** to run simulations and validate
@@ -178,6 +179,49 @@ training rounds without revealing individual site performance.
   train authorised personnel, use secure settings and vet outputs.
 * Monitor training with drift detection and audit logging, and apply
   differential privacy when sharing aggregated models.
+
+## FAIR, metadata & provenance
+
+* Capture dataset‑level metadata with **RO‑Crate 1.3** or
+  Five‑Safes RO‑Crate :contentReference[oaicite:11]{index=11}.  
+* Document trained models with **Model Cards** to record intended use,
+  limitations and demographic performance
+  :contentReference[oaicite:12]{index=12}.  
+* Register container digests and environment lock files (e.g. `conda‑lock`)
+  inside the crate for full environment capture.
+
+## Reproducibility & versioning
+
+Follow the **DOME‑ML** checklist (Data, Optimisation, Model, Evaluation)
+:contentReference[oaicite:13]{index=13}.  
+Track large binaries with **DVC** and code with Git
+:contentReference[oaicite:14]{index=14}.
+
+## Legal & ethical compliance
+
+* Conduct a GDPR Data‑Protection‑Impact‑Assessment (DPIA) using ICO/CNIL
+  templates before deployment :contentReference[oaicite:15]{index=15}.  
+* Map privacy controls to the EDPS **TechDispatch** guidance on FL
+  :contentReference[oaicite:16]{index=16}.  
+* Enforce data‑minimisation; retain only aggregated parameters.
+
+## Bias & equity
+
+Use group‑fairness metrics (demographic parity, equal opportunity) to audit both
+global and per‑site models :contentReference[oaicite:17]{index=17}.  
+Mitigation strategies include re‑weighting, constrained optimisation and
+fairness‑aware FedAvg variants.
+
+## Monitoring, drift & MLOps
+
+Implement concept‑ and data‑drift alarms (Evidently, Prometheus exporters) and
+maintain an audit log for every training round :contentReference[oaicite:18]{index=18}.
+
+## Threat modelling & risk assessment
+
+Apply **LINDDUN‑PRO** for privacy threats and map mitigations to PETs
+(e.g. MPC, DP, SA) :contentReference[oaicite:19]{index=19}.  
+Combine with STRIDE for security coverage.
 
 ## Tools and services
 
@@ -256,17 +300,17 @@ The following software and services support federated learning:
 
 ## Related pages
 
-[Data security](#security/)
+[Data security](#/)
 
-[Data sensitivity](#sensitivity/)
+[Data sensitivity](#/)
 
-[Data provenance](#provenance/)
+[Data provenance](#/)
 
-[Data quality](#quality/)
+[Data quality](#/)
 
-[Trusted research environments]({{ site.baseurl }}/trusted_research_environments/)
+[Trusted research environments](#/)
 
-[Data protection impact assessment](#protection_impact_assessment/)
+[Data protection impact assessment](#/)
 
 ## References
 
