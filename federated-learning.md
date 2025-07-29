@@ -25,6 +25,7 @@ constraint by bringing computation to the data and exchanging only
 summary statistics.  As a result, researchers can pool statistical power
 across sites while complying with the EU General Data Protection Regulation
 (GDPR) and ethical frameworks such as the [Five Safes](https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/).
+
 The EUCAIM cancer imaging infrastructure adopts a hybrid centralised‑federated
 architecture to train AI tools on sensitive imaging data; it links
 processing services of data holders to a central hub, supports both
@@ -61,31 +62,31 @@ select appropriate federated algorithms and security mechanisms.
 Several open‑source frameworks implement FL, each with different
 programming languages, maturity levels and security features:
 
-* **[Flower](https://flower.ai)** – a flexible Python framework that
+* **[Flower](https://flower.ai){:.tool}** – a flexible Python framework that
   supports PyTorch and TensorFlow.  Flower emphasises ease of use and
   allows researchers to adapt existing machine‑learning workflows to a
   federated setting.  It is designed for large‑scale experiments and
   heterogeneous devices. Flower provides built‑in secure aggregation
   components via the SecAgg and SecAgg+ protocols.
-* **[FATE](https://fate.fedai.org)** – a production‑ready platform
+* **[FATE](https://fate.fedai.org){:.tool}** – a production‑ready platform
   initiated by Webank's AI department.  FATE implements secure
   computation protocols based on homomorphic encryption and multi‑party
   computation and includes federated versions of logistic regression,
   tree‑based models and deep learning.  It supports both Python and Java
   and is well suited to regulated environments.
-* **[NVIDIA FLARE](https://developer.nvidia.com/flare)** – a
+* **[NVIDIA FLARE](https://developer.nvidia.com/flare){:.tool}** – a
   domain‑agnostic, open‑source and extensible Python SDK that allows
   researchers and data scientists to adapt existing ML/DL workflows to a
   federated paradigm.  It provides built‑in algorithms such as FedAvg,
   FedOpt and FedProx and includes privacy‑preserving techniques to
   protect model updates.
-* **[Substra](https://github.com/substra)** – an open‑source federated
+* **[Substra](https://github.com/substra){:.tool}** – an open‑source federated
   learning platform offering a flexible Python interface and a web
   application for deploying FL at scale.  Substra enables training and
   validation on distributed datasets, has been used by hospitals and
   biotech companies, and can simulate federated workflows on a single
   machine for testing.
-* **[Yjs](https://yjs.dev)** – a JavaScript library implementing conflict‑free replicated
+* **[Yjs](https://yjs.dev){:.tool}** – a JavaScript library implementing conflict‑free replicated
   data types (CRDTs) for collaborative software.  Yjs exposes shared
   types that behave like normal data structures but sync automatically
   across peers, even offline.  It does not provide machine‑learning
@@ -147,7 +148,7 @@ common data model or phenotype dictionary to align variable names and
 units.  Perform quality control to detect outliers, missing values and
 batch effects, and apply common pre‑processing pipelines (e.g.
   normalisation or imaging correction) across sites.  Tools such as
-  [runcrate](https://github.com/ResearchObject/runcrate), a command‑line
+  [runcrate](https://github.com/ResearchObject/runcrate){:.tool}, a command‑line
   utility for manipulating Workflow Run RO‑Crate packages, can be used to
   package metadata and ensure provenance.
 
@@ -163,7 +164,7 @@ include unit tests and simulated federated runs.  When possible,
 measure and visualise metrics (such as loss and accuracy) across
 training rounds without revealing individual site performance.
 
-## Solutions
+### Implementation recommendations
 
 * Use **Flower** (≥1.6) with TLS encryption and SecAgg+ for horizontal
   federated learning experiments.
@@ -201,7 +202,7 @@ The following software and services support federated learning:
   command‑line toolkit for creating and manipulating Workflow Run
   RO‑Crate packages, useful for packaging federated training runs and
   preserving provenance.
-* **[EUCAIM federated processing API](https://eucaim.gitbook.io/architecture-of-eucaim/4.-detailed-architecture)**
+* **[EUCAIM federated processing API](https://eucaim.gitbook.io/architecture-of-eucaim/4.-detailed-architecture){:.tool}**
   – RESTful interface that orchestrates federated computation across
   secure nodes within the EUCAIM platform.
 
@@ -222,29 +223,20 @@ The following software and services support federated learning:
   – outlines how to package federated workflow runs using the RO‑Crate
   standard for provenance capture.
 
-## RO‑Crate walk‑through
-
-A Workflow Run RO‑Crate captures the execution of a federated analysis as
-a collection of metadata and results.  Below is a minimal
-`ro-crate-metadata.json` illustrating a run where a workflow hasPart two
-result files and declares a license:
-
-```json
-{
-  "@context": ["https://w3id.org/ro/crate/1.1/context", {"@base": "https://example.org/crate/"}],
-  "@graph": [
-    { "@id": "ro-crate-metadata.json", "@type": "CreativeWork", "conformsTo": { "@id": "https://w3id.org/ro/crate/1.1" }, "about": { "@id": "./" } },
-    { "@id": "./", "@type": "WorkflowRunCrate", "name": "Federated training run", "hasPart": [ { "@id": "model.pkl" }, { "@id": "metrics.json" } ], "license": { "@id": "https://creativecommons.org/licenses/by/4.0/" } },
-    { "@id": "model.pkl", "@type": "File", "encodingFormat": "application/octet-stream" },
-    { "@id": "metrics.json", "@type": "File", "encodingFormat": "application/json" }
-  ]
-}
-```
-
-These metadata ensure that anyone can understand the inputs, outputs and
-provenance of the training run.  A full implementation, including Five
-Safes metadata, is available in the **[Five Safes
-RO‑Crate record](https://zenodo.org/records/10376350)**.
+> **RO‑Crate Example:** A minimal `ro-crate-metadata.json` for a federated training run:
+> ```json
+> {
+>   "@context": ["https://w3id.org/ro/crate/1.1/context"],
+>   "@graph": [
+>     { "@id": "ro-crate-metadata.json", "@type": "CreativeWork" },
+>     { "@id": "./", "@type": "WorkflowRunCrate", "name": "Federated training run", 
+>       "hasPart": [ { "@id": "model.pkl" }, { "@id": "metrics.json" } ] },
+>     { "@id": "model.pkl", "@type": "File" },
+>     { "@id": "metrics.json", "@type": "File" }
+>   ]
+> }
+> ```
+> Full implementation available in the **[Five Safes RO‑Crate record](https://zenodo.org/records/10376350)**.
 
 ## Real‑world examples
 
