@@ -247,19 +247,16 @@ RO‑Crate record](https://zenodo.org/records/10376350)**.
 
 ## Real‑world examples
 
-* **[Flower MNIST with differential privacy and secure aggregation](https://flower.ai/docs/examples/fl-dp-sa.html)**
-  – demonstrates how to combine central differential privacy with secure
-  aggregation to train a classifier on MNIST without revealing individual
-  contributions.
-* **[Federated genome‑wide association study (GWAS)](https://github.com/EuCAIM/gwas-demo)**
-  – the EUCAIM infrastructure includes a federated GWAS demonstration
-  that links processing services of data holders to a central hub.  It
-  showcases how federated processing enables secure analysis on
-  distributed cancer imaging data.
-* **["Hello World" Galaxy workflow RO‑Crate](https://doi.org/10.5281/zenodo.7733953)**
-  – a simple example of a federated analysis packaged as a RO‑Crate that
-  includes workflow definitions and minimal metadata for reproducibility
-  and provenance tracking.
+* **[Flower MNIST with differential privacy + secure aggregation](https://flower.ai/docs/examples/fl-dp-sa.html)**
+  – step‑by‑step notebook showing central DP combined with Flower SecAgg+
+  on the MNIST dataset.
+* **[EUCAIM federated GWAS showcase](https://pmc.ncbi.nlm.nih.gov/articles/PMC11850660/)**
+  – describes how EUCAIM's cancer‑imaging platform orchestrates a
+  cross‑site GWAS on imaging‑derived features while keeping primary data
+  inside hospital nodes (see "Federated analytics" section).
+* **["Hello World" Galaxy workflow RO‑Crate](https://about.workflowhub.eu/Workflow-RO-Crate/example/ro-crate-preview.html)**
+  – a minimal Galaxy workflow packaged as a RO‑Crate, illustrating how
+  provenance can be captured and shared.
 
 ## Related pages
 
