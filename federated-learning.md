@@ -3,9 +3,10 @@ title: Federated Learning
 layout: page
 permalink: /federated-learning/
 description: A comprehensive guide to federated learning principles, frameworks,
-  and best practices for privacy-preserving machine learning. Includes sections
-  on FAIR metadata, reproducibility, legal compliance, bias mitigation, and
-  threat modelling.
+  security layers, governance frameworks, and best practices for privacy-preserving
+  machine learning. Covers FAIR metadata, reproducibility, legal compliance,
+  bias mitigation, and threat modelling for implementing federated learning
+  in practice.
 ---
 
 ## Description
@@ -74,8 +75,8 @@ programming languages, maturity levels and security features:
 
 * **[Flower](https://flower.ai){:.tool}** – flexible Python framework
   (PyTorch/TensorFlow).  
-  Secure aggregation (SecAgg, SecAgg+) is available as a _preview_ "mod" and
-  must be enabled explicitly from ≥ v1.8.
+  Secure aggregation (SecAgg, SecAgg+) is available as _experimental_ "mods" and
+  must be enabled explicitly with `--enable-preview` from ≥ v1.8.
 * **[FATE](https://fate.fedai.org){:.tool}** – production‑ready, Java/Python,
   homomorphic encryption.
 * **[NVIDIA FLARE](https://developer.nvidia.com/flare){:.tool}** – SDK with
@@ -162,13 +163,15 @@ include unit tests and simulated federated runs.  When possible,
 measure and visualise metrics (such as loss and accuracy) across
 training rounds without revealing individual site performance.
 
-Open‑source libraries (e.g. **Evidently AI**) provide drift detection, bias
-dashboards and alerting for production FL.
+Implement concept‑ and data‑drift alarms using tools like **Evidently AI** and
+**Prometheus exporters** for production monitoring. Maintain comprehensive
+audit logs for every training round to ensure compliance and traceability
+.
 
 ### Implementation recommendations
 
 * Use **Flower** (≥1.8) with TLS encryption and SecAgg+ for horizontal
-  federated learning experiments (enable preview "mod" for secure aggregation).
+  federated learning experiments (enable experimental mods with `--enable-preview`).
 * For regulated environments, deploy **FATE** with homomorphic encryption
   to train logistic regression or tree‑based models.
 * Configure **FLARE** or **Substra** to run simulations and validate
@@ -180,24 +183,41 @@ dashboards and alerting for production FL.
 * Monitor training with drift detection and audit logging, and apply
   differential privacy when sharing aggregated models.
 
-## FAIR, metadata & provenance
+## FAIR, metadata and provenance
 
 * Capture dataset‑level metadata with **RO‑Crate 1.3** or
   Five‑Safes RO‑Crate.  
 * Document trained models with **Model Cards** to record intended use,
   limitations and demographic performance
- .  
+ . Example YAML snippet:
+  
+  ```yaml
+  model_details:
+    name: "Federated MNIST Classifier"
+    version: "1.0"
+    training_algorithm: "FedAvg"
+    rounds: 100
+    participants: 5
+  intended_use:
+    primary_use: "Handwritten digit classification"
+    out_of_scope: "Medical imaging, document analysis"
+  performance:
+    metric: "accuracy"
+    global_model: 0.98
+    fairness_assessment: "Evaluated across demographic groups"
+  ```
+
 * Register container digests and environment lock files (e.g. `conda‑lock`)
   inside the crate for full environment capture.
 
-## Reproducibility & versioning
+## Reproducibility and versioning
 
 Follow the **DOME‑ML** checklist (Data, Optimisation, Model, Evaluation)
 .  
 Track large binaries with **DVC** and code with Git
 .
 
-## Legal & ethical compliance
+## Legal and ethical compliance
 
 * Conduct a GDPR Data‑Protection‑Impact‑Assessment (DPIA) using ICO/CNIL
   templates before deployment.  
@@ -205,19 +225,14 @@ Track large binaries with **DVC** and code with Git
  .  
 * Enforce data‑minimisation; retain only aggregated parameters.
 
-## Bias & equity
+## Bias and equity
 
 Use group‑fairness metrics (demographic parity, equal opportunity) to audit both
 global and per‑site models.  
 Mitigation strategies include re‑weighting, constrained optimisation and
 fairness‑aware FedAvg variants.
 
-## Monitoring, drift & MLOps
-
-Implement concept‑ and data‑drift alarms (Evidently, Prometheus exporters) and
-maintain an audit log for every training round.
-
-## Threat modelling & risk assessment
+## Threat modelling and risk assessment
 
 Apply **LINDDUN‑PRO** for privacy threats and map mitigations to PETs
 (e.g. MPC, DP, SA).  
@@ -225,23 +240,8 @@ Combine with STRIDE for security coverage.
 
 ## Tools and services
 
-The following software and services support federated learning:
+The following supporting tools and services complement FL frameworks:
 
-* **[Flower](https://flower.ai)** – open‑source Python framework for
-  federated learning; integrates with PyTorch and TensorFlow and
-  includes secure aggregation modules.
-* **[FATE](https://fate.fedai.org)** – industrial‑grade federated AI
-  platform providing homomorphic encryption, multi‑party computation and
-  a library of algorithms.
-* **[NVIDIA FLARE](https://developer.nvidia.com/flare)** –
-  domain‑agnostic SDK that adapts existing ML workflows to a federated
-  paradigm, with built‑in algorithms and privacy‑preserving features.
-* **[Substra](https://github.com/substra)** – open‑source platform
-  with a Python interface and web application, enabling training and
-  validation on distributed datasets and supporting simulations.
-* **[Yjs](https://yjs.dev)** – JavaScript CRDT library for
-  collaborative applications that automatically synchronises shared
-  data structures and works offline.
 * **[runcrate](https://github.com/ResearchObject/runcrate)** –
   command‑line toolkit for creating and manipulating Workflow Run
   RO‑Crate packages, useful for packaging federated training runs and
@@ -249,6 +249,9 @@ The following software and services support federated learning:
 * **[EUCAIM federated processing API](https://eucaim.gitbook.io/architecture-of-eucaim/4.-detailed-architecture){:.tool}**
   – RESTful interface that orchestrates federated computation across
   secure nodes within the EUCAIM platform.
+* **[Evidently AI](https://www.evidentlyai.com)** – open‑source ML monitoring
+  framework for drift detection, bias dashboards and model performance
+  tracking in production FL deployments.
 
 ## Training materials
 
@@ -300,17 +303,17 @@ The following software and services support federated learning:
 
 ## Related pages
 
-[Data security](#/)
+[Data security]({{ site.baseurl }}/data_security/)
 
-[Data sensitivity](#/)
+[Data sensitivity]({{ site.baseurl }}/data_sensitivity/)
 
-[Data provenance](#/)
+[Data provenance]({{ site.baseurl }}/data_provenance/)
 
-[Data quality](#/)
+[Data quality]({{ site.baseurl }}/data_quality/)
 
-[Trusted research environments](#/)
+[Trusted research environments]({{ site.baseurl }}/trusted_research_environments/)
 
-[Data protection impact assessment](#/)
+[Data protection impact assessment]({{ site.baseurl }}/data_protection_impact_assessment/)
 
 ## References
 
