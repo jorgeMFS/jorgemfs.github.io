@@ -595,18 +595,15 @@ frameworks:
 
 ## Related pages
 
-[Data security](https://rdmkit.elixir-europe.org/data_security/)
+[Data security](https://rdmkit.elixir-europe.org/data_security)
 
-[Data sensitivity](https://rdmkit.elixir-europe.org/data_sensitivity/)
+[Data sensitivity](https://rdmkit.elixir-europe.org/data_sensitivity)
 
-[Data provenance](https://rdmkit.elixir-europe.org/data_provenance/)
+[Data provenance](https://rdmkit.elixir-europe.org/data_provenance)
 
-[Data quality](https://rdmkit.elixir-europe.org/data_quality/)
+[Data quality](https://rdmkit.elixir-europe.org/data_quality)
 
-[Trusted research environments](https://rdmkit.elixir-europe.org/trusted_research_environments/)
-
-[Data protection impact assessment](https://rdmkit.elixir-europe.org/data_protection_impact_assessment/)
-
+[GDPR compliance](https://rdmkit.elixir-europe.org/gdpr_compliance)
 
 ## References
 
