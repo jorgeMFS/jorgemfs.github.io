@@ -20,6 +20,8 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - federated-learning-main.md
+  - "*-backup.md"
 
 # Default layout for pages
 defaults:
