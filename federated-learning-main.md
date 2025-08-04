@@ -261,11 +261,11 @@ A full JSON profile and example crates are available
 
 ## Advanced topics
 
-* **[Threat modelling & risk assessment]({% link federated_learning_threats.md %})**
+* **[Threat modelling & risk assessment]({% link federated-learning-threats.md %})**
   – detailed STRIDE + LINDDUN security analysis for federated learning systems
-* **[Operational MLOps & monitoring]({% link federated_learning_ops.md %})**
+* **[Operational MLOps & monitoring]({% link federated-learning-ops.md %})**
   – production practices including SLIs, reproducibility, and cost optimisation
-* **[Environmental sustainability]({% link federated_learning_green.md %})**
+* **[Environmental sustainability]({% link federated-learning-green.md %})**
   – carbon footprint monitoring and green AI practices
 
 * **Resource optimisation** – use Flower simulation guides
