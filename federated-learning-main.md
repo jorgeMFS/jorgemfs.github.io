@@ -40,7 +40,8 @@ last_updated_on: 2025-08-10
 aliases: ["federated_learning", "federated-learning"]
 icon: ti-cloud
 status: in_review
-has_children: truedmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
+has_children: true
+dmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
 training:
   - name: Federated Learning for Health Data Tutorial
     description: Hands-on tutorial for FL in health data contexts
