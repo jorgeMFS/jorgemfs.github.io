@@ -1,5 +1,6 @@
 ---
 title: Federated learning
+layout: page
 type: your_tasks
 page_id: federated_learning
 summary: Federated learning enables privacy‑preserving machine learning by
