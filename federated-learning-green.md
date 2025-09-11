@@ -1,6 +1,6 @@
 ---
 title: Federated learning — environmental sustainability
-layout: your_tasks
+layout: page
 parent: federated_learning
 page_id: federated_learning_green
 summary: Carbon footprint monitoring and green AI practices for federated learning.
@@ -11,6 +11,7 @@ related_pages:
     - energy_consumption
 tags: [sustainability, green_ai, carbon_footprint]
 tool: false
+permalink: /federated-learning/green/
 ---
 
 ### Environmental sustainability
