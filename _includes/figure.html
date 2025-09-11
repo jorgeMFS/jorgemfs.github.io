@@ -1,5 +1,5 @@
 <figure>
-  <img src="{{ path | absolute_url }}" alt="{{ alt }}">
+  <img src="{{ '/' | append: path | absolute_url }}" alt="{{ alt }}">
   {% if caption %}
   <figcaption>{{ caption }}</figcaption>
   {% endif %}
