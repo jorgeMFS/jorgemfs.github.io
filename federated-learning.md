@@ -1,6 +1,5 @@
 ---
 title: Federated learning
-layout: page
 type: your_tasks
 page_id: federated_learning
 summary: Federated learning enables privacy‑preserving machine learning by
@@ -41,8 +40,7 @@ last_updated_on: 2025-08-10
 aliases: ["federated_learning", "federated-learning"]
 icon: ti-cloud
 status: in_review
-has_children: true
-dmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
+has_children: truedmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
 training:
   - name: Federated Learning for Health Data Tutorial
     description: Hands-on tutorial for FL in health data contexts
@@ -83,7 +81,7 @@ related_pages:
 This page is intended for **researchers, data scientists, and IT professionals**
 who need to analyse sensitive data distributed across multiple institutions
 without centralising it. This includes those working with health data, genomic
-information, financial records, or any other privacy‑sensitive datasets where
+information, or any other privacy‑sensitive datasets where
 regulatory constraints prevent data sharing.
 
 ### Background
@@ -209,7 +207,7 @@ The original LightSecAgg design [13] details bandwidth
 savings compared to traditional secure aggregation protocols.
 
 {% include figure.html
-   path="assets/img/federated_learning/fl_topology.png"
+   path="assets/img/your_tasks/federated_learning/fl_topology.png"
    caption="Figure 1. Federated learning topology showing a central
    coordinator and distributed clients"
    alt="Diagram of a star‑topology FL system with one aggregator and N client
@@ -262,11 +260,11 @@ A full JSON profile and example crates are available
 
 ## Advanced topics
 
-* **[Threat modelling & risk assessment]({% link federated-learning-threats.md %})**
+* **[Threat modelling & risk assessment]({% link federated_learning_threats.md %})**
   – detailed STRIDE + LINDDUN security analysis for federated learning systems
-* **[Operational MLOps & monitoring]({% link federated-learning-ops.md %})**
+* **[Operational MLOps & monitoring]({% link federated_learning_ops.md %})**
   – production practices including SLIs, reproducibility, and cost optimisation
-* **[Environmental sustainability]({% link federated-learning-green.md %})**
+* **[Environmental sustainability]({% link federated_learning_green.md %})**
   – carbon footprint monitoring and green AI practices
 
 * **Resource optimisation** – use Flower simulation guides
@@ -297,7 +295,7 @@ frameworks:
 * **[Flower secure aggregation example](https://flower.ai/docs/examples/flower-secure-aggregation.html)**
   – shows how to implement the SecAgg+ protocol for privacy‑preserving
   federated learning.
-* **[FATE quick‑start tutorial](https://fate.fedai.org/quick_start/)**
+* **[FATE quick‑start tutorial](https://fate.readthedocs.io/en/develop/_build_temp/examples/pipeline/README.html#quick-start)**
   – guides you through setting up FATE and running a first horizontal
   federated training job.
 * **[Workflow Run RO‑Crate: Process Run Crate profile](https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/)**
@@ -321,7 +319,7 @@ frameworks:
 * **["Hello World" Galaxy workflow RO‑Crate](https://about.workflowhub.eu/Workflow-RO-Crate/example/ro-crate-preview.html)**
   – a minimal Galaxy workflow packaged as a RO‑Crate, illustrating how
   provenance can be captured and shared.
-* **[OHDSI federated network](https://www.iqvia.com/solutions/real-world-evidence/ohdsi)**
+* **[OHDSI federated network](https://www.ohdsi.org/)**
   – more than 500 million patient records mapped to OMOP CDM across >30
   countries, enabling federated analytics while maintaining data sovereignty.
 
@@ -340,7 +338,7 @@ frameworks:
 [Machine Learning](https://rdmkit.elixir-europe.org/machine_learning)
 
 
-## References
+## Bibliography
 
 1. (2018). Federated Learning for Mobile Keyboard Prediction. *arXiv preprint arXiv:1811.03604*. Available at: [https://arxiv.org/abs/1811.03604](https://arxiv.org/abs/1811.03604)
 
@@ -380,4 +378,4 @@ frameworks:
 
 19. Flower Labs (2025). *How-to run simulations*. https://flower.ai/docs/framework/how-to-run-simulations.html.
 
-20. Martí-Bonmatí, Luis, Blanquer, Ignacio, Tsiknakis, Manolis, Tsakou, Gianna, Martinez, Ricard, Capella-Gutierrez, Salvador, Zullino, Sara, Meszaros, Janos, Bron, Esther E, Gelpi, Jose Luis, others (2025). Empowering cancer research in Europe: the EUCAIM cancer imaging infrastructure. *Insights into Imaging*, 16, 47. DOI: [10.1186/s13244-025-01913-x](https://doi.org/10.1186/s13244-025-01913-x)
+20. Mart\'-Bonmat\', Luis, Blanquer, Ignacio, Tsiknakis, Manolis, Tsakou, Gianna, Martinez, Ricard, Capella-Gutierrez, Salvador, Zullino, Sara, Meszaros, Janos, Bron, Esther E, Gelpi, Jose Luis, others (2025). Empowering cancer research in Europe: the EUCAIM cancer imaging infrastructure. *Insights into Imaging*, 16, 47. DOI: [10.1186/s13244-025-01913-x](https://doi.org/10.1186/s13244-025-01913-x)

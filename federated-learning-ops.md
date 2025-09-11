@@ -1,7 +1,16 @@
 ---
 title: Federated learning — operational practices
-layout: page
+layout: your_tasks
+parent: federated_learning
+page_id: federated_learning_ops
 summary: MLOps, monitoring, reproducibility and operational best practices for federated learning systems.
+status: draft
+has_children: false
+related_pages:
+  your_tasks:
+    - mlops
+tags: [mlops, monitoring, reproducibility]
+tool: false
 ---
 
 ### Monitoring and MLOps
@@ -162,7 +171,7 @@ Example YAML snippet:
 
 #### RO‑Crate example
 
-The Workflow-Run RO-Crate (Process Run Crate) profile [19]
+The Workflow-Run RO-Crate (Process Run Crate) profile [?]
 formalises provenance for executions.
 metadata capture for computational workflows. A minimal `ro-crate-metadata.json`
 for a federated training run is:
@@ -211,15 +220,15 @@ for a federated training run is:
 
 If your run was orchestrated by a workflow engine (e.g., CWL/Galaxy), use the
 Workflow-Run Crate profile (change the conformsTo URI accordingly)
-[19].
+[?].
 Full implementations for secure TRE contexts are available in the Five Safes
-RO-Crate record (Zenodo) [20].
+RO-Crate record (Zenodo) [19].
 
 ### Reproducibility checklist
 
 #### DOME-ML framework for FL reproducibility
 
-Follow the DOME‑ML recommendations [21] for reproducible
+Follow the DOME‑ML recommendations [20] for reproducible
 machine learning validation:
 
 ✓ **Data**
@@ -227,7 +236,7 @@ machine learning validation:
 * Version control data schemas with semantic versioning
 * Document data splits and partitioning strategies  
 * Track preprocessing pipelines with [DVC user guide](https://dvc.org/doc/user-guide)
-  [22].
+  [21].
 
 ✓ **Optimisation**
 
@@ -260,9 +269,9 @@ machine learning validation:
 * **SISA training**: Train on data shards for easier unlearning
 * **Differential privacy**: Natural forgetting through noise addition
 * **Certified removal**: Mathematical guarantees of data influence removal
-  [23]
+  [22]
 
-For a comprehensive survey on certified removal [24].
+For a comprehensive survey on certified removal [23].
 
 ### Disaster recovery and business continuity
 
@@ -326,14 +335,12 @@ guidelines for systematic bias assessment across federated model performance.
 
 18. ELIXIR Europe (2025). *Data Management Plan (RDMKit task page)*. https://rdmkit.elixir-europe.org/data_management_plan.
 
-19. ResearchObject.org (2023). Workflow Run RO-Crate: RO-Crate profiles to capture the provenance of workflow runs. ResearchObject.org. Available at: [https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/](https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/)
+19. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/. DOI: [10.5281/zenodo.10376350](https://doi.org/10.5281/zenodo.10376350)
 
-20. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/. DOI: [10.5281/zenodo.10376350](https://doi.org/10.5281/zenodo.10376350)
+20. Walsh, Christopher J., Ross, Kenneth N., Mills, James G., et al. (2021). DOME: recommendations for supervised machine learning validation in biology. *Nature Methods*, 18, 1122--1127. DOI: [10.1038/s41592-021-01205-4](https://doi.org/10.1038/s41592-021-01205-4)
 
-21. Walsh, Christopher J., Ross, Kenneth N., Mills, James G., et al. (2021). DOME: recommendations for supervised machine learning validation in biology. *Nature Methods*, 18, 1122--1127. DOI: [10.1038/s41592-021-01205-4](https://doi.org/10.1038/s41592-021-01205-4)
+21. Iterative, Inc. (2025). *Data Version Control User Guide (v3.1)*. Available at: [https://dvc.org/doc/user-guide](https://dvc.org/doc/user-guide)
 
-22. Iterative, Inc. (2025). *Data Version Control User Guide (v3.1)*. Available at: [https://dvc.org/doc/user-guide](https://dvc.org/doc/user-guide)
+22. Metz, Cade (2023). *Now That Machines Can Learn, Can They Unlearn?*. https://www.wired.com/story/machines-can-learn-can-they-unlearn/.
 
-23. Metz, Cade (2023). *Now That Machines Can Learn, Can They Unlearn?*. https://www.wired.com/story/machines-can-learn-can-they-unlearn/.
-
-24. Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Konecný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374--388. DOI: [10.1109/SP40001.2021.00019](https://doi.org/10.1109/SP40001.2021.00019)
+23. Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Konecný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374--388. DOI: [10.1109/SP40001.2021.00019](https://doi.org/10.1109/SP40001.2021.00019)
