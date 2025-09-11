@@ -1,6 +1,6 @@
 ---
 title: Federated learning — operational practices
-layout: page
+layout: your_tasks
 parent: federated_learning
 page_id: federated_learning_ops
 summary: MLOps, monitoring, reproducibility and operational best practices for federated learning systems.
@@ -11,7 +11,6 @@ related_pages:
     - mlops
 tags: [mlops, monitoring, reproducibility]
 tool: false
-permalink: /federated-learning/ops/
 ---
 
 ### Monitoring and MLOps
@@ -345,3 +344,4 @@ guidelines for systematic bias assessment across federated model performance.
 22. Metz, Cade (2023). *Now That Machines Can Learn, Can They Unlearn?*. https://www.wired.com/story/machines-can-learn-can-they-unlearn/.
 
 23. Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Konecný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374--388. DOI: [10.1109/SP40001.2021.00019](https://doi.org/10.1109/SP40001.2021.00019)
+

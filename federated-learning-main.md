@@ -1,6 +1,5 @@
 ---
 title: Federated learning
-layout: page
 type: your_tasks
 page_id: federated_learning
 summary: Federated learning enables privacy‑preserving machine learning by
@@ -41,8 +40,6 @@ last_updated_on: 2025-08-10
 aliases: ["federated_learning", "federated-learning"]
 icon: ti-cloud
 status: in_review
-dmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
-has_children: true
 permalink: /federated-learning/
 training:
   - name: Federated Learning for Health Data Tutorial

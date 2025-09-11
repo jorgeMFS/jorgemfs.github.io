@@ -259,7 +259,9 @@ def main():
     
     # List of files to process (support hyphen and underscore variants; keep only existing)
     candidates = [
+        'federated-learning-main.md',
         'federated_learning.md',
+        'federated-learning-main.md',
         'federated_learning_threats.md',
         'federated_learning_ops.md',
         'federated_learning_green.md',
