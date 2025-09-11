@@ -9,84 +9,110 @@ import os
 def parse_bibtex():
     with open('_bibliography/references.bib', 'r') as f:
         content = f.read()
-    
+
     references = {}
-    
-    # Find all BibTeX entries - handle entries that might have spaces before closing brace
-    entries = re.findall(r'@(\w+)\{([^,]+),\s*(.*?)\n\}', content, re.DOTALL)
-    
-    for entry_type, key, fields in entries:
-        entry_type = entry_type.lower()
-        key = key.strip()
-        
-        # Extract fields
+
+    i = 0
+    n = len(content)
+    while i < n:
+        if content[i] != '@':
+            i += 1
+            continue
+        # Parse entry type
+        j = i + 1
+        while j < n and content[j].isalpha():
+            j += 1
+        entry_type = content[i+1:j].lower()
+        # Move to opening brace
+        while j < n and content[j] != '{':
+            j += 1
+        if j >= n:
+            break
+        j += 1  # skip '{'
+        # Parse key to comma/newline
+        k = j
+        while k < n and content[k] not in ',\n':
+            k += 1
+        key = content[j:k].strip()
+        # Skip comma
+        if k < n and content[k] == ',':
+            k += 1
+        # Capture fields with balanced braces
+        brace = 1
+        start = k
+        while k < n and brace > 0:
+            if content[k] == '{':
+                brace += 1
+            elif content[k] == '}':
+                brace -= 1
+            k += 1
+        fields_str = content[start:k-1]
+
+        # Parse fields
         ref_data = {'type': entry_type, 'key': key}
-        
-        # Better field extraction that handles nested braces
-        field_pattern = r'(\w+)\s*=\s*\{((?:[^{}]|\{[^{}]*\})*)\}'
-        
-        # Extract all fields using a more robust approach
-        for field_match in re.finditer(field_pattern, fields):
-            field_name = field_match.group(1).lower()
-            field_value = field_match.group(2).strip()
-            
-            # Clean up LaTeX formatting
-            if field_name in ['author', 'title', 'journal', 'booktitle', 'publisher', 'institution', 'howpublished', 'note']:
-                # First handle \url{} commands
-                field_value = re.sub(r'\\url\{([^}]+)\}', r'\1', field_value)
-                
-                # Handle various accent types with better coverage
-                # Acute accents
-                field_value = re.sub(r'\\\'\{([a-zA-Z])\}', lambda m: {'a':'á','A':'Á','e':'é','E':'É','i':'í','I':'Í','o':'ó','O':'Ó','u':'ú','U':'Ú','y':'ý','Y':'Ý'}.get(m.group(1), m.group(1)), field_value)
-                field_value = re.sub(r'\\\'([a-zA-Z])', lambda m: {'a':'á','A':'Á','e':'é','E':'É','i':'í','I':'Í','o':'ó','O':'Ó','u':'ú','U':'Ú','y':'ý','Y':'Ý'}.get(m.group(1), m.group(1)), field_value)
-                
-                # Cedilla
-                field_value = re.sub(r'\\c\{([a-zA-Z])\}', lambda m: {'c':'ç','C':'Ç'}.get(m.group(1), m.group(1)), field_value)
-                
-                # Umlaut
-                field_value = re.sub(r'\\"\{([a-zA-Z])\}', lambda m: {'a':'ä','A':'Ä','e':'ë','E':'Ë','i':'ï','I':'Ï','o':'ö','O':'Ö','u':'ü','U':'Ü'}.get(m.group(1), m.group(1)), field_value)
-                field_value = re.sub(r'\\"([a-zA-Z])', lambda m: {'a':'ä','A':'Ä','e':'ë','E':'Ë','i':'ï','I':'Ï','o':'ö','O':'Ö','u':'ü','U':'Ü'}.get(m.group(1), m.group(1)), field_value)
-                
-                # Tilde
-                field_value = re.sub(r'\\\~\{([a-zA-Z])\}', lambda m: {'n':'ñ','N':'Ñ','a':'ã','A':'Ã','o':'õ','O':'Õ'}.get(m.group(1), m.group(1)), field_value)
-                
-                # Handle malformed accent patterns like {í\i
-                field_value = re.sub(r'\{([áéíóúÁÉÍÓÚàèìòùÀÈÌÒÙäëïöüÄËÏÖÜãñõÃÑÕç])\\[a-z]\}?', r'\1', field_value)
-                
-                # Handle isolated accent marks (disabled to avoid over-replacement)
-                
-                # Clean up any LaTeX commands we might have missed
-                field_value = re.sub(r'\\[a-zA-Z]+\{([^}]*)\}', r'\1', field_value)
-                field_value = re.sub(r'\\[a-zA-Z]+', '', field_value)
-                
-                # Remove protective braces (but keep ones that might be part of titles)
-                # Only remove single-layer braces around words/phrases
-                field_value = re.sub(r'\{([^{}]+)\}', r'\1', field_value)
-                
-                # Handle dashes
-                field_value = field_value.replace('---', '—')  # em dash
-                field_value = field_value.replace('--', '–')   # en dash
-                
-                # Clean up any remaining escaped characters
-                field_value = field_value.replace('\\&', '&')
-                field_value = field_value.replace('\\_', '_')
-                field_value = field_value.replace('\\%', '%')
-                field_value = field_value.replace('\\$', '$')
-                field_value = field_value.replace('\\#', '#')
-                
-                # Remove any unclosed braces at the end
-                if field_value.count('{') > field_value.count('}'):
-                    field_value = field_value.rstrip('{')
-                
-            elif field_name == 'url':
-                # Handle \url{} in URL fields
-                field_value = re.sub(r'\\url\{([^}]+)\}', r'\1', field_value)
-                field_value = field_value.strip('<>')
-            
-            ref_data[field_name] = field_value
-        
+        pos = 0
+        L = len(fields_str)
+        while pos < L:
+            # Skip whitespace and commas
+            while pos < L and fields_str[pos] in ' \t\r\n,':
+                pos += 1
+            if pos >= L:
+                break
+            # Read field name
+            name_start = pos
+            while pos < L and (fields_str[pos].isalnum() or fields_str[pos] == '_'):
+                pos += 1
+            fname = fields_str[name_start:pos].lower().strip()
+            # Skip spaces and '='
+            while pos < L and fields_str[pos].isspace():
+                pos += 1
+            if pos < L and fields_str[pos] == '=':
+                pos += 1
+            while pos < L and fields_str[pos].isspace():
+                pos += 1
+            # Expect '{'
+            if pos >= L or fields_str[pos] != '{':
+                # malformed, skip to next comma
+                while pos < L and fields_str[pos] != ',':
+                    pos += 1
+                continue
+            # Capture balanced value
+            pos += 1  # skip '{'
+            lvl = 1
+            vstart = pos
+            while pos < L and lvl > 0:
+                c = fields_str[pos]
+                if c == '{':
+                    lvl += 1
+                elif c == '}':
+                    lvl -= 1
+                pos += 1
+            fval = fields_str[vstart:pos-1].strip()
+
+            # Cleanup common LaTeX
+            if fname in ['author', 'title', 'journal', 'booktitle', 'publisher', 'institution', 'howpublished', 'note']:
+                fval = re.sub(r'\\url\{([^}]+)\}', r'\1', fval)
+                fval = re.sub(r"\\\'\{([a-zA-Z])\}", lambda m: {'a':'á','A':'Á','e':'é','E':'É','i':'í','I':'Í','o':'ó','O':'Ó','u':'ú','U':'Ú','y':'ý','Y':'Ý'}.get(m.group(1), m.group(1)), fval)
+                fval = re.sub(r'\\c\{([a-zA-Z])\}', lambda m: {'c':'ç','C':'Ç'}.get(m.group(1), m.group(1)), fval)
+                fval = re.sub(r'\"\{([a-zA-Z])\}', lambda m: {'a':'ä','A':'Ä','e':'ë','E':'Ë','i':'ï','I':'Ï','o':'ö','O':'Ö','u':'ü','U':'Ü'}.get(m.group(1), m.group(1)), fval)
+                fval = re.sub(r'\"([a-zA-Z])', lambda m: {'a':'ä','A':'Ä','e':'ë','E':'Ë','i':'ï','I':'Ï','o':'ö','O':'Ö','u':'ü','U':'Ü'}.get(m.group(1), m.group(1)), fval)
+                fval = re.sub(r'\\\~\{([a-zA-Z])\}', lambda m: {'n':'ñ','N':'Ñ','a':'ã','A':'Ã','o':'õ','O':'Õ'}.get(m.group(1), m.group(1)), fval)
+                fval = re.sub(r'\{([^{}]+)\}', r'\1', fval)
+                fval = fval.replace('---', '—').replace('--', '–')
+                fval = (fval
+                        .replace('\\&', '&')
+                        .replace('\\_', '_')
+                        .replace('\\%', '%')
+                        .replace('\\$', '$')
+                        .replace('\\#', '#'))
+            elif fname == 'url':
+                fval = re.sub(r'\\url\{([^}]+)\}', r'\1', fval).strip('<>')
+
+            ref_data[fname] = fval
+            # pos currently at '}' of field; next loop will skip whitespace/commas
         references[key] = ref_data
-    
+        i = k
+
     return references
 
 # Format a single reference
@@ -140,8 +166,9 @@ def format_reference(ref):
         else:
             entry += f"*{title}*. "
     
-    # URL or DOI
-    if 'doi' in ref:
+    # URL or DOI (restrict DOI to scholarly types to avoid leaking across misc entries)
+    scholarly_types = {'article', 'inproceedings', 'book', 'techreport'}
+    if ref.get('type') in scholarly_types and 'doi' in ref:
         entry += f"DOI: [{ref['doi']}](https://doi.org/{ref['doi']})"
     elif 'url' in ref:
         entry += f"Available at: [{ref['url']}]({ref['url']})"
@@ -231,6 +258,9 @@ def process_file(filename, references):
                 print(f"Debug: Empty formatting for reference {i}: {key} - {ref}")
             bibliography += f"{i}. {formatted}\n\n"
         
+        # Remove any stray lines accidentally appended in previous runs
+        content = re.sub(r"^n the.*$", "", content, flags=re.MULTILINE)
+
         # Replace the bibliography section if present; otherwise append
         content_new, replaced_count = re.subn(
             r'## Bibliography\n\n.*?$',
