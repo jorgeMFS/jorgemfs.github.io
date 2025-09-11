@@ -1,6 +1,7 @@
 ---
 title: Federated learning — environmental sustainability
 layout: page
+summary: Carbon footprint monitoring and green AI practices for federated learning.
 ---
 
 ### Environmental sustainability
@@ -36,3 +37,37 @@ emissions [1].
 
 See: [EcoFL framework (arXiv 2023)](https://arxiv.org/pdf/2310.17972).
 
+## Bibliography
+
+1. Benoit Courty and
+                  Victor Schmidt and
+                  Sasha Luccioni and
+                  Goyal-Kamal and
+                  MarionCoutarel and
+                  Boris Feld and
+                  Jérémy Lecourt and
+                  LiamConnell and
+                  Amine Saboni and
+                  Inimaz and
+                  supatomic and
+                  Mathilde Léval and
+                  Luis Blanche and
+                  Alexis Cruveiller and
+                  ouminasara and
+                  Franklin Zhao and
+                  Aditya Joshi and
+                  Alexis Bogroff and
+                  Hugues de Lavoreille and
+                  Niko Laskaris and
+                  Edoardo Abati and
+                  Douglas Blank and
+                  Ziyao Wang and
+                  Armin Catovic and
+                  Marc Alencon and
+                  Michał Stęchły and
+                  Christian Bauer and
+                  Lucas Otávio N. de Araújo and
+                  JPW and
+                  MinervaBooks *mlco2/codecarbon: v2.4.1*. DOI: [10.5281/zenodo.11171501](https://doi.org/10.5281/zenodo.11171501)
+
+2. Mehboob, Talha, Bashir, Noman, Iglesias, Jesus Omana, Zink, Michael, Irwin, David (2023). CEFL: Carbon-efficient federated learning. *arXiv preprint arXiv:2310.17972*. Available at: [https://arxiv.org/abs/2310.17972](https://arxiv.org/abs/2310.17972)

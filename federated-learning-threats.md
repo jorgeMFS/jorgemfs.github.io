@@ -1,6 +1,7 @@
 ---
 title: Federated learning — threat modelling
 layout: page
+summary: Detailed STRIDE + LINDDUN recipes for FL security risk analysis.
 ---
 
 ### Threat modelling and risk assessment
@@ -44,6 +45,9 @@ step‑by‑step templates [1].
 
 Resources:
 
-* [LINDDUN Tutorial PDF](https://linddun.org/downloads/LINDDUN-Tutorial.pdf)
+* [LINDDUN Tutorial PDF](https://downloads.linddun.org/tutorials/pro/v0/tutorial.pdf)
 * [Online privacy‑threat](https://linddun.org/threats/)
 
+## Bibliography
+
+1. Wuyts, Kim, Joosen, Wouter (2015). LINDDUN privacy threat modeling: a tutorial. *CW Reports*. Available at: [https://downloads.linddun.org/tutorials/pro/v0/tutorial.pdf](https://downloads.linddun.org/tutorials/pro/v0/tutorial.pdf)

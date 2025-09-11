@@ -53,9 +53,7 @@ def parse_bibtex():
                 # Handle malformed accent patterns like {í\i
                 field_value = re.sub(r'\{([áéíóúÁÉÍÓÚàèìòùÀÈÌÒÙäëïöüÄËÏÖÜãñõÃÑÕç])\\[a-z]\}?', r'\1', field_value)
                 
-                # Handle isolated accent marks
-                field_value = field_value.replace("\\'", "í")
-                field_value = field_value.replace('\\"', "ü")
+                # Handle isolated accent marks (disabled to avoid over-replacement)
                 
                 # Clean up any LaTeX commands we might have missed
                 field_value = re.sub(r'\\[a-zA-Z]+\{([^}]*)\}', r'\1', field_value)
@@ -206,9 +204,9 @@ def process_file(filename, references):
                     print(f"⚠️  Warning: Citation key '{key}' not found in BibTeX")
                     citation_map[key] = '?'
             
-            nums.append(f"[{citation_map[key]}]")
+            nums.append(str(citation_map[key]))
         
-        return ''.join(nums)
+        return f"[{', '.join(nums)}]"
     
     # Remove the note at the beginning if present
     content = re.sub(
@@ -226,20 +224,25 @@ def process_file(filename, references):
     
     # Build bibliography section
     if cited_refs:
-        bibliography = "\n## References\n\n"
+        bibliography = "\n## Bibliography\n\n"
         for i, (key, ref) in enumerate(cited_refs, 1):
             formatted = format_reference(ref)
             if not formatted:
                 print(f"Debug: Empty formatting for reference {i}: {key} - {ref}")
             bibliography += f"{i}. {formatted}\n\n"
         
-        # Replace the bibliography section
-        content = re.sub(
+        # Replace the bibliography section if present; otherwise append
+        content_new, replaced_count = re.subn(
             r'## Bibliography\n\n.*?$',
             lambda m: bibliography.rstrip(),
             content,
             flags=re.MULTILINE | re.DOTALL
         )
+        if replaced_count == 0:
+            sep = "" if content.endswith("\n") else "\n"
+            content = content + f"{sep}{bibliography}"
+        else:
+            content = content_new
     
     # Write the updated file
     with open(filename, 'w') as f:
@@ -254,13 +257,23 @@ def main():
     references = parse_bibtex()
     print(f"📚 Found {len(references)} references in BibTeX file")
     
-    # List of files to process
-    files_to_process = [
+    # List of files to process (support hyphen and underscore variants; keep only existing)
+    candidates = [
+        'federated_learning.md',
+        'federated_learning_threats.md',
+        'federated_learning_ops.md',
+        'federated_learning_green.md',
         'federated-learning.md',
         'federated-learning-threats.md', 
         'federated-learning-ops.md',
         'federated-learning-green.md'
     ]
+    seen = set()
+    files_to_process = []
+    for fn in candidates:
+        if os.path.exists(fn) and fn not in seen:
+            files_to_process.append(fn)
+            seen.add(fn)
     
     total_citations = 0
     for filename in files_to_process:
