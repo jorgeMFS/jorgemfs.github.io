@@ -40,8 +40,7 @@ last_updated_on: 2025-08-10
 aliases: ["federated_learning", "federated-learning"]
 icon: ti-cloud
 status: in_review
-has_children: true
-dmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
+has_children: truedmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
 training:
   - name: Federated Learning for Health Data Tutorial
     description: Hands-on tutorial for FL in health data contexts
@@ -82,7 +81,7 @@ related_pages:
 This page is intended for **researchers, data scientists, and IT professionals**
 who need to analyse sensitive data distributed across multiple institutions
 without centralising it. This includes those working with health data, genomic
-information, financial records, or any other privacy‑sensitive datasets where
+information, or any other privacy‑sensitive datasets where
 regulatory constraints prevent data sharing.
 
 ### Background
@@ -95,10 +94,10 @@ decentralised approach preserves data sovereignty and allows hospitals,
 biobanks and other organisations to collaborate on joint models while keeping
 raw data local.  FL was first deployed at Google for on‑device keyboard
 prediction, where simulations involved ≈ 1.5 million phones
-{% cite hard2018federated %}; in health‑care case‑studies cohort sizes
+[1]; in health‑care case‑studies cohort sizes
 typically range from five to ≈ three hundred sites, depending
 on governance constraints. However, open challenges such as communication
-cost and fairness remain active research topics {% cite li2022federated %}.
+cost and fairness remain active research topics [2].
 
 ## Why is this important?
 
@@ -126,10 +125,10 @@ select appropriate federated algorithms and security mechanisms.
 
 #### Horizontal vs. vertical algorithm families
 
-Beyond FedAvg, vertical federations can use **SplitNN** {% cite splitnn18 %} or
-**PyVertical** {% cite pyvertical20 %} to train deep models where each party holds
+Beyond FedAvg, vertical federations can use **SplitNN** [3] or
+**PyVertical** [4] to train deep models where each party holds
 disjoint features, and statistical alternatives such as **FedSVD**
-{% cite hartebrodt2024fedsvd %} offers a federated singular‑value‑decomposition
+[5] offers a federated singular‑value‑decomposition
 (SVD) algorithm that has already been applied to genome‑wide association studies
 (GWAS) and other high‑dimensional omics analyses.
 
@@ -142,10 +141,10 @@ units.  Perform quality control to detect outliers, missing values and
 batch effects, and apply common pre‑processing pipelines (such as
   normalisation or imaging correction) across sites.  Tools such as
   [runcrate](https://github.com/ResearchObject/runcrate){:.tool}
-  {% cite runcrate_cli %}, a command‑line utility for manipulating Workflow Run
+  [6], a command‑line utility for manipulating Workflow Run
   RO‑Crate packages, can be used to package metadata and ensure provenance.
 
-The **OMOP Common Data Model (CDM)** {% cite omop_jhu24 %} is widely adopted for
+The **OMOP Common Data Model (CDM)** [7] is widely adopted for
 observational health data and maps well onto federated SQL back‑ends.
 
 ### Interoperability and harmonisation
@@ -158,7 +157,7 @@ concepts, and (3) **Validate** completeness and quality via data quality
 dashboard. See the
 [OHDSI collaborative protocol](https://www.ohdsi.org/data-standardization/)
 for implementation guidance and general OHDSI CDM resources
-{% cite ohdsi2024 %}.
+[8].
 
 For phenotypic data exchange, **GA4GH Phenopackets**
 provide structured JSON representation:
@@ -169,9 +168,9 @@ for complete schema definitions and validation rules.
 
 To let external analysts **discover** which federated shards exist, expose a read‑only
 endpoint using **Beacon v2** (yes/no genomic presence queries)
-{% cite beacon_v2 %}
+[9]
 or the **GA4GH Search/Data‑Connect** API for richer tabular filters
-{% cite ga4gh_search %}.
+[10].
 
 ### FAIR principles mapping for federated learning
 
@@ -190,7 +189,7 @@ level, use Transport Layer Security (TLS) or Virtual Private Networks
 
 Authentication and authorisation can be handled via OpenID Connect
 (OIDC) and token‑based access control. Issue GA4GH Passport 'Visa' tokens
-for mutual OIDC authorisation {% cite ga4gh_passports %}.
+for mutual OIDC authorisation [11].
 
 Aggregated model updates should be computed using secure aggregation
 protocols, such as
@@ -201,14 +200,14 @@ threat model should guide the choice of protections.
 
 > **Research note**  LightSecAgg reduces bandwidth and copes with client
 > drop‑outs, enabling asynchronous FL; LightSecAgg now has a reference
-> implementation {% cite lightsecagg_repo %}, but it is not yet merged into
+> implementation [12], but it is not yet merged into
 > Flower core and still requires manual integration.
 
-The original LightSecAgg design {% cite so2022lightsecagg %} details bandwidth
+The original LightSecAgg design [13] details bandwidth
 savings compared to traditional secure aggregation protocols.
 
 {% include figure.html
-   path="assets/img/federated_learning/fl_topology.png"
+   path="assets/img/your_tasks/federated_learning/fl_topology.png"
    caption="Figure 1. Federated learning topology showing a central
    coordinator and distributed clients"
    alt="Diagram of a star‑topology FL system with one aggregator and N client
@@ -219,7 +218,7 @@ savings compared to traditional secure aggregation protocols.
 ### Governance using the Five Safes
 
 The UK Data Service description of the Five Safes
-{% cite ukdataservice2023 %} provides a structured approach to ethical and
+[14] provides a structured approach to ethical and
 secure data use. Its components can be mapped to federated workflows:
 
 * **Safe data** – De‑identify and harmonise data so that each site
@@ -246,30 +245,30 @@ secure data use. Its components can be mapped to federated workflows:
 
 _Log provenance:_ each Beacon or Search query is captured as a
 `DataDownload` entity inside the Five‑Safes RO‑Crate so auditors can trace
-who accessed which variant count {% cite beacon_v2 %}.
+who accessed which variant count [9].
 
 A full JSON profile and example crates are available
-{% cite rocrate_fivesafes2023 %}.
+[15].
 
 ### Legal and ethical compliance
 
-* Consult the EDPS TechDispatch on Federated Learning {% cite edps2025 %} for
+* Consult the EDPS TechDispatch on Federated Learning [16] for
   a regulators' view.
 * **Data‑protection‑impact assessment (DPIA)** – run a DPIA before production.
-  Free templates are provided by the ICO DPIA template {% cite ico2024dpia %}
-  and CNIL PIA kit {% cite cnil2024pia %}.
+  Free templates are provided by the ICO DPIA template [17]
+  and CNIL PIA kit [18].
 
 ## Advanced topics
 
-* **[Threat modelling & risk assessment]({% link federated-learning-threats.md %})**
+* **[Threat modelling & risk assessment]({% link federated_learning_threats.md %})**
   – detailed STRIDE + LINDDUN security analysis for federated learning systems
-* **[Operational MLOps & monitoring]({% link federated-learning-ops.md %})**
+* **[Operational MLOps & monitoring]({% link federated_learning_ops.md %})**
   – production practices including SLIs, reproducibility, and cost optimisation
-* **[Environmental sustainability]({% link federated-learning-green.md %})**
+* **[Environmental sustainability]({% link federated_learning_green.md %})**
   – carbon footprint monitoring and green AI practices
 
 * **Resource optimisation** – use Flower simulation guides
-  {% cite flower_sim_guide %} with resource flags to test different
+  [19] with resource flags to test different
   configurations before production deployment.
 
 ## Resources
@@ -296,7 +295,7 @@ frameworks:
 * **[Flower secure aggregation example](https://flower.ai/docs/examples/flower-secure-aggregation.html)**
   – shows how to implement the SecAgg+ protocol for privacy‑preserving
   federated learning.
-* **[FATE quick‑start tutorial](https://fate.fedai.org/quick_start/)**
+* **[FATE quick‑start tutorial](https://fate.readthedocs.io/en/develop/_build_temp/examples/pipeline/README.html#quick-start)**
   – guides you through setting up FATE and running a first horizontal
   federated training job.
 * **[Workflow Run RO‑Crate: Process Run Crate profile](https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/)**
@@ -316,11 +315,11 @@ frameworks:
   architecture to train AI tools on sensitive imaging data; its current public
   prototype uses synchronous FedAvg; asynchronous and adaptive strategies are
   under internal evaluation. EUCAIM pilot now evaluates FedOpt for sparse
-  updates {% cite eucaim24 %}.
+  updates [20].
 * **["Hello World" Galaxy workflow RO‑Crate](https://about.workflowhub.eu/Workflow-RO-Crate/example/ro-crate-preview.html)**
   – a minimal Galaxy workflow packaged as a RO‑Crate, illustrating how
   provenance can be captured and shared.
-* **[OHDSI federated network](https://www.iqvia.com/solutions/real-world-evidence/ohdsi)**
+* **[OHDSI federated network](https://www.ohdsi.org/)**
   – more than 500 million patient records mapped to OMOP CDM across >30
   countries, enabling federated analytics while maintaining data sovereignty.
 
@@ -338,6 +337,45 @@ frameworks:
 
 [Machine Learning](https://rdmkit.elixir-europe.org/machine_learning)
 
+
 ## Bibliography
 
-<ol class="bibliography"></ol>
+1. (2018). Federated Learning for Mobile Keyboard Prediction. *arXiv preprint arXiv:1811.03604*. Available at: [https://arxiv.org/abs/1811.03604](https://arxiv.org/abs/1811.03604)
+
+2. LINDDUN Project Team (2023). LINDDUN GO – Worksheet Pack (v1.1). *IEEE Signal Processing Magazine*, 37, 50-60. DOI: [10.1109/MSP.2020.2975749](https://doi.org/10.1109/MSP.2020.2975749)
+
+3. Gupta, Otkrist, Raskar, Ramesh (2018). Distributed learning of deep neural network over multiple agents. *Journal of Network and Computer Applications*, 116, 1-8. DOI: [10.1016/j.jnca.2018.05.003](https://doi.org/10.1016/j.jnca.2018.05.003)
+
+4. OpenMined Community (2020). *PyVertical – Vertical Federated Learning in PyTorch*. https://github.com/OpenMined/PyVertical.
+
+5. Hartebrodt, Anne, Röttger, Richard, Blumenthal, David B (2024). Federated singular value decomposition for high-dimensional data. *Data Mining and Knowledge Discovery*, 38, 938--975. DOI: [10.1007/s10618-023-00983-z](https://doi.org/10.1007/s10618-023-00983-z)
+
+6. ResearchObject.org (2023). *runcrate CLI*. https://github.com/ResearchObject/runcrate.
+
+7. Johns Hopkins Medicine (2024). *OMOP on PMAP – Standardising patient information for global research*. https://pm.jh.edu/discover-data-stream/epic-emr-clinical-data/omop-on-pmap/.
+
+8. Observational Health Data Sciences, Informatics (2024). *Standardized Data: The OMOP Common Data Model*. https://www.ohdsi.org/data-standardization/.
+
+9. Global Alliance for Genomics, Health (2024). *Beacon v2 Specification*. https://docs.genomebeacons.org/.
+
+10. Global Alliance for Genomics, Health (2023). *GA4GH Search and Data Connect API Specification*. https://www.ga4gh.org/product/data-connect/.
+
+11. Global Alliance for Genomics, Health (2024). *GA4GH Passports Specification*. https://www.ga4gh.org/product/ga4gh-passports/.
+
+12. So, Jinhyun (2022). *LightSecAgg – Reference implementation*. https://github.com/LightSecAgg/MLSys2022_anonymous.
+
+13. So, Jinhyun, He, Chaoyang, Yang, Chien-Sheng, Li, Songze, Yu, Qian, E Ali, Ramy, Guler, Basak, Avestimehr, Salman (2022). Lightsecagg: a lightweight and versatile design for secure aggregation in federated learning. *Proceedings of Machine Learning and Systems*, 4, 694--720.
+
+14. UK Data Service (2023). *What is the Five Safes framework?*. https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/.
+
+15. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/. DOI: [10.5281/zenodo.10376350](https://doi.org/10.5281/zenodo.10376350)
+
+16. European Data Protection Supervisor (2025). *TechDispatch #1/2025 - Federated Learning*. https://www.edps.europa.eu/data-protection/our-work/publications/techdispatch/2025-06-10-techdispatch-12025-federated-learning_en.
+
+17. UK Information Commissioner's Office (2024). *DPIA template*. https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/annex-d-dpia-template/.
+
+18. (2024). *Privacy Impact Assessment (PIA)*. https://www.cnil.fr/en/privacy-impact-assessment-pia.
+
+19. Flower Labs (2025). *How-to run simulations*. https://flower.ai/docs/framework/how-to-run-simulations.html.
+
+20. Mart\'-Bonmat\', Luis, Blanquer, Ignacio, Tsiknakis, Manolis, Tsakou, Gianna, Martinez, Ricard, Capella-Gutierrez, Salvador, Zullino, Sara, Meszaros, Janos, Bron, Esther E, Gelpi, Jose Luis, others (2025). Empowering cancer research in Europe: the EUCAIM cancer imaging infrastructure. *Insights into Imaging*, 16, 47. DOI: [10.1186/s13244-025-01913-x](https://doi.org/10.1186/s13244-025-01913-x)
