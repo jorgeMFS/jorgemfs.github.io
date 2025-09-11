@@ -1,6 +1,6 @@
 ---
 title: Federated learning — operational practices
-layout: your_tasks
+layout: page
 parent: federated_learning
 page_id: federated_learning_ops
 summary: MLOps, monitoring, reproducibility and operational best practices for federated learning systems.
@@ -11,6 +11,7 @@ related_pages:
     - mlops
 tags: [mlops, monitoring, reproducibility]
 tool: false
+permalink: /federated-learning/ops/
 ---
 
 ### Monitoring and MLOps
@@ -301,7 +302,7 @@ guidelines for systematic bias assessment across federated model performance.
 
 1. Beyer, Betsy, Jones, Chris, Petoff, Jennifer, Murphy, Niall Richard (2016). *Site reliability engineering: how Google runs production systems*. O'Reilly Media, Inc.. Available at: [https://sre.google/sre-book/](https://sre.google/sre-book/)
 
-2. Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Konečný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374-388. Available at: [https://proceedings.mlsys.org/paper/2019/file/bd686fd640be98efaae0091fa301e613-Paper.pdf](https://proceedings.mlsys.org/paper/2019/file/bd686fd640be98efaae0091fa301e613-Paper.pdf)
+2. Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Kone\vcný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374--388. Available at: [https://proceedings.mlsys.org/paper_files/paper/2019/file/7b770da633baf74895be22a8807f1a8f-Paper.pdf](https://proceedings.mlsys.org/paper_files/paper/2019/file/7b770da633baf74895be22a8807f1a8f-Paper.pdf)
 
 3. Lai, Fan, Dai, Yinwei, Zhu, Xiangfeng, Madhyastha, Harsha V., Chowdhury, Mosharaf (2021). FedScale: Benchmarking Model and System Performance of Federated Learning. In *Proceedings of the First Workshop on Systems Challenges in Reliable and Secure Federated Learning*, pp. 1–3. Association for Computing Machinery. DOI: [10.1145/3477114.3488760](https://doi.org/10.1145/3477114.3488760)
 
@@ -335,7 +336,7 @@ guidelines for systematic bias assessment across federated model performance.
 
 18. ELIXIR Europe (2025). *Data Management Plan (RDMKit task page)*. https://rdmkit.elixir-europe.org/data_management_plan.
 
-19. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/. DOI: [10.5281/zenodo.10376350](https://doi.org/10.5281/zenodo.10376350)
+19. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/.
 
 20. Walsh, Christopher J., Ross, Kenneth N., Mills, James G., et al. (2021). DOME: recommendations for supervised machine learning validation in biology. *Nature Methods*, 18, 1122--1127. DOI: [10.1038/s41592-021-01205-4](https://doi.org/10.1038/s41592-021-01205-4)
 
@@ -343,5 +344,5 @@ guidelines for systematic bias assessment across federated model performance.
 
 22. Metz, Cade (2023). *Now That Machines Can Learn, Can They Unlearn?*. https://www.wired.com/story/machines-can-learn-can-they-unlearn/.
 
-23. Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Konecný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374--388. DOI: [10.1109/SP40001.2021.00019](https://doi.org/10.1109/SP40001.2021.00019)
+23. Bourtoule, Lucas, Chandrasekaran, Varun, Choquette-Choo, Christopher A., Jia, Hengrui, Travers, Adelin, Zhang, Baiwu, Lie, David, Papernot, Nicolas (2021). Machine Unlearning. In *2021 IEEE Symposium on Security and Privacy (SP)*, pp. 141-159. DOI: [10.1109/SP40001.2021.00019](https://doi.org/10.1109/SP40001.2021.00019)
 
