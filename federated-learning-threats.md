@@ -1,6 +1,6 @@
 ---
 title: Federated learning — threat modelling
-layout: your_tasks
+layout: page
 parent: federated_learning
 page_id: federated_learning_threats
 summary: Detailed STRIDE + LINDDUN recipes for FL security risk analysis.
@@ -11,6 +11,7 @@ related_pages:
     - data_security
 tags: [data_security, privacy, governance]
 tool: false
+permalink: /federated-learning/threats/
 ---
 
 ### Threat modelling and risk assessment
