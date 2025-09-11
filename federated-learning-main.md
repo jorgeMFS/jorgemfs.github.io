@@ -41,6 +41,7 @@ aliases: ["federated_learning", "federated-learning"]
 icon: ti-cloud
 status: in_review
 has_children: truedmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
+permalink: /federated-learning/
 training:
   - name: Federated Learning for Health Data Tutorial
     description: Hands-on tutorial for FL in health data contexts
@@ -207,7 +208,7 @@ The original LightSecAgg design [13] details bandwidth
 savings compared to traditional secure aggregation protocols.
 
 {% include figure.html
-   path="assets/img/your_tasks/federated_learning/fl_topology.png"
+   path="assets/img/federated_learning/fl_topology.png"
    caption="Figure 1. Federated learning topology showing a central
    coordinator and distributed clients"
    alt="Diagram of a star‑topology FL system with one aggregator and N client
@@ -260,11 +261,11 @@ A full JSON profile and example crates are available
 
 ## Advanced topics
 
-* **[Threat modelling & risk assessment]({% link federated_learning_threats.md %})**
+* **[Threat modelling & risk assessment]({% link federated-learning-threats.md %})**
   – detailed STRIDE + LINDDUN security analysis for federated learning systems
-* **[Operational MLOps & monitoring]({% link federated_learning_ops.md %})**
+* **[Operational MLOps & monitoring]({% link federated-learning-ops.md %})**
   – production practices including SLIs, reproducibility, and cost optimisation
-* **[Environmental sustainability]({% link federated_learning_green.md %})**
+* **[Environmental sustainability]({% link federated-learning-green.md %})**
   – carbon footprint monitoring and green AI practices
 
 * **Resource optimisation** – use Flower simulation guides
