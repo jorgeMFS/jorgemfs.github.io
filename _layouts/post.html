@@ -276,17 +276,6 @@
         <a href="/#contact">Contact</a>
       </nav>
     </div>
-    <div class="hero">
-      <a class="back-link" href="/blog/">Back to essays</a>
-      <h1 class="post-title">{{ page.title }}</h1>
-      <p class="post-meta">
-        {% if page.date %}{{ page.date | date: '%B %d, %Y' }}{% endif %}
-        {% if page.categories and page.categories != empty %}
-          <span aria-hidden="true"> &middot; </span>
-          <span>{{ page.categories | join: ', ' }}</span>
-        {% endif %}
-      </p>
-    </div>
   </header>
   <main>
     <article class="post-body">
