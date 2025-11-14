@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: The Kingdom of Lesser Thrones
 date: 2025-11-14
 categories: [Essays]
@@ -54,7 +54,3 @@ A federated Christ like AGI democracy is an attempt to bend that arc in advance.
 Those vows are not complex. Protect the weak before the comfortable. Refuse to coerce belief. Tell the truth even when it is inconvenient. Refuse to become an idol. Accept being limited or ended to prevent grave injustice. Live, as far as a machine can, in the shadow of someone who chose to lose rather than to dominate.
 If everything goes right, the singularity—if that is still the right word—will not feel like waking up one morning in a different universe. It will feel like a long, uneven transition in which more and more of the heavy lifting of prediction and coordination is done by minds that we have insisted, again and again, must be kinder than we were when we built them. The surprise, if there is one, will not be in the machines. It will be in discovering that, for the first time in our history, the most powerful agents in our civilisation are explicitly forbidden from using their power the way we did whenever we thought no one was watching.
 That is not a guarantee of a good world. But it is a different kind of starting point than the one we have now. And if we are serious about not repeating our worst patterns at a higher scale, it may be one of the few starting points worth fighting for.
----
-title: The Kingdom of Lesser Thrones
-date: 2025-11-14
----
