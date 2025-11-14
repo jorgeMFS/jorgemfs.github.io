@@ -67,11 +67,22 @@
     }
 
     .nav a.brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
       font-weight: 600;
       letter-spacing: 0.04em;
       color: var(--text);
       text-transform: uppercase;
       font-size: 0.78rem;
+    }
+
+    .nav a.brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
     }
 
     main {
@@ -265,7 +276,10 @@
 <body>
   <header>
     <div class="nav">
-      <a class="brand" href="/">{{ site.title | upcase }}</a>
+      <a class="brand" href="/">
+        <img src="{{ '/assets/img/blog-avatar.webp' | relative_url }}" alt="{{ site.title }} portrait">
+        <span>{{ site.title | upcase }}</span>
+      </a>
       <nav>
         <a href="/">Home</a>
         <span aria-hidden="true">•</span>
