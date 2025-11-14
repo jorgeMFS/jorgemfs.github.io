@@ -42,7 +42,7 @@
     }
 
     header {
-      padding: 3rem 0 2rem;
+      padding: 3.5rem 0 1.5rem;
     }
 
     .nav {
@@ -72,26 +72,6 @@
       font-size: 0.78rem;
     }
 
-    .hero {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 1rem 24px 2.5rem;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .back-link::before {
-      content: '←';
-      font-size: 0.95rem;
-    }
-
     main {
       max-width: 780px;
       margin: 0 auto;
@@ -104,6 +84,24 @@
       padding: clamp(2.2rem, 5vw, 3rem);
       border: 1px solid var(--border);
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .article-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .back-link::before {
+      content: '←';
+      font-size: 0.95rem;
     }
 
     .post-title {
@@ -120,7 +118,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .post-content {
@@ -238,8 +236,18 @@
         gap: 0.75rem;
       }
 
-      .hero {
-        padding: 0.5rem 24px 2rem;
+      article {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+      
+      .post-content {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .back-link {
+        font-size: 0.85rem;
       }
 
       .post-title {
@@ -248,18 +256,6 @@
 
       .post-meta {
         letter-spacing: 0.08em;
-      }
-
-      article {
-        padding: 2rem;
-        border-radius: 16px;
-      }
-      
-      .post-content {
-        text-align: left;
-        text-justify: auto;
-        font-size: 1rem;
-        line-height: 1.75;
       }
     }
   </style>
@@ -294,6 +290,17 @@
   </header>
   <main>
     <article class="post-body">
+      <div class="article-header">
+        <a class="back-link" href="/blog/">Back to essays</a>
+        <h1 class="post-title">{{ page.title }}</h1>
+        <p class="post-meta">
+          {% if page.date %}{{ page.date | date: '%B %d, %Y' }}{% endif %}
+          {% if page.categories and page.categories != empty %}
+            <span aria-hidden="true"> &middot; </span>
+            <span>{{ page.categories | join: ', ' }}</span>
+          {% endif %}
+        </p>
+      </div>
       <div class="post-content">
         {{ content }}
       </div>
