@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Jorge Miguel Silva</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --accent: #1a4bff;
+      --text: #1d1d1f;
+      --muted: #6f6f73;
+      --surface: #ffffff;
+      --background: #f6f6f8;
+      --border: rgba(26, 75, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      padding: 3.5rem 0 1rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .nav a[aria-current='page'] {
+      color: var(--accent);
+    }
+
+    .nav a.brand {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Literata', 'Georgia', serif;
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      font-weight: 600;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 6rem;
+    }
+
+    .post {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2.5rem 2.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 32px 60px rgba(15, 23, 42, 0.08);
+    }
+
+    .post-meta {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .post h2 {
+      font-family: 'Literata', 'Georgia', serif;
+      font-size: 1.9rem;
+      margin: 0 0 1.5rem;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .post h2 a {
+      color: inherit;
+    }
+
+    .post h2 a:hover {
+      color: var(--accent);
+    }
+
+    .post h3 {
+      font-family: 'Literata', 'Georgia', serif;
+      font-size: 1.45rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .post p {
+      margin: 0 0 1.35rem;
+      font-size: 1.05rem;
+    }
+
+    .post p.lede {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .post .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    .post .read-more::after {
+      content: '→';
+      font-size: 1.05rem;
+      transition: transform 0.2s ease;
+    }
+
+    .post .read-more:hover::after {
+      transform: translateX(2px);
+    }
+
+    .post-footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-top: 2.5rem;
+      }
+
+      .post {
+        padding: 2rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .post h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="/">JORGE MIGUEL SILVA</a>
+      <nav>
+        <a href="/">Home</a>
+        <span aria-hidden="true">•</span>
+        <a href="/#about">About</a>
+        <span aria-hidden="true">•</span>
+        <a href="/federated-learning/">Federated Learning</a>
+        <span aria-hidden="true">•</span>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <span aria-hidden="true">•</span>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}
+      <p>{{ page.description }}</p>
+      {% endif %}
+    </div>
+  </header>
+  <main>
+    {% assign posts = page.posts | default: site.posts %}
+    {% if posts and posts != empty %}
+      {% for post in posts %}
+      <article class="post">
+        <div class="post-meta">
+          {% if post.date %}{{ post.date | date: '%B %Y' }}{% endif %}
+          {% if post.categories and post.categories != empty %}
+            {% if post.date %}
+            <span aria-hidden="true"> &middot; </span>
+            {% endif %}
+            <span>{{ post.categories | join: ', ' }}</span>
+          {% endif %}
+        </div>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        {% if post.excerpt %}
+        <p class="lede">{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}</p>
+        {% endif %}
+        <a class="read-more" href="{{ post.url | relative_url }}">Read article</a>
+      </article>
+      {% endfor %}
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </main>
+</body>
+</html>
