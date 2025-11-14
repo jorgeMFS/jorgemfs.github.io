@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --accent: #1a4bff;
+      --text: #1d1d1f;
+      --muted: #6f6f73;
+      --background: #f6f6f8;
+      --surface: #ffffff;
+      --border: rgba(26, 75, 255, 0.12);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      padding: 3rem 0 2rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .nav a[aria-current='page'] {
+      color: var(--accent);
+    }
+
+    .nav a.brand {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 6rem;
+    }
+
+    article {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: clamp(2.2rem, 5vw, 3rem);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .post-title {
+      font-family: 'Literata', 'Georgia', serif;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+
+    .post-meta {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .post-content {
+      font-size: 1.08rem;
+      color: #2b2b30;
+    }
+
+    .post-content > *:first-child {
+      margin-top: 0;
+    }
+
+    .post-content p {
+      margin: 0 0 1.6rem;
+    }
+
+    .post-content h2,
+    .post-content h3,
+    .post-content h4 {
+      font-family: 'Literata', 'Georgia', serif;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 3rem 0 1.4rem;
+      color: var(--text);
+    }
+
+    .post-content h2 {
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+    }
+
+    .post-content h3 {
+      font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+    }
+
+    .post-content blockquote {
+      margin: 2.5rem 0;
+      padding: 1.5rem 1.8rem;
+      background: #f3f4ff;
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      font-style: italic;
+      color: #33344b;
+    }
+
+    .post-content blockquote p {
+      margin: 0;
+    }
+
+    .post-content pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1.2rem 1.4rem;
+      border-radius: 14px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: none;
+    }
+
+    .post-content code {
+      font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      background: rgba(15, 23, 42, 0.08);
+      padding: 0.2rem 0.45rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+
+    .post-content pre code {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .post-content ul,
+    .post-content ol {
+      padding-left: 1.4rem;
+      margin: 0 0 1.7rem;
+    }
+
+    .post-content li {
+      margin-bottom: 0.8rem;
+    }
+
+    .post-content hr {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 3.5rem 0;
+    }
+
+    footer {
+      max-width: 780px;
+      margin: 0 auto 4rem;
+      padding: 0 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: inherit;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding-top: 2.5rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      article {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="/">{{ site.title | upcase }}</a>
+      <nav>
+        <a href="/">Home</a>
+        <span aria-hidden="true">•</span>
+        <a href="/#about">About</a>
+        <span aria-hidden="true">•</span>
+        <a href="/federated-learning/">Federated Learning</a>
+        <span aria-hidden="true">•</span>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <span aria-hidden="true">•</span>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-meta">
+        {% if page.date %}{{ page.date | date: '%B %d, %Y' }}{% endif %}
+        {% if page.categories and page.categories != empty %}
+          <span aria-hidden="true"> &middot; </span>
+          <span>{{ page.categories | join: ', ' }}</span>
+        {% endif %}
+      </p>
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>Written by {{ site.title }}. <a href="/blog/">Back to all essays →</a></p>
+  </footer>
+</body>
+</html>
