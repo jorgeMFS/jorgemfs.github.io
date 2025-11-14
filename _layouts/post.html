@@ -72,6 +72,26 @@
       font-size: 0.78rem;
     }
 
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1rem 24px 2.5rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .back-link::before {
+      content: '←';
+      font-size: 0.95rem;
+    }
+
     main {
       max-width: 780px;
       margin: 0 auto;
@@ -88,7 +108,7 @@
 
     .post-title {
       font-family: 'Literata', 'Georgia', serif;
-      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      font-size: clamp(2.5rem, 5vw, 3.4rem);
       font-weight: 600;
       letter-spacing: -0.02em;
       margin: 0 0 1rem;
@@ -100,12 +120,14 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 2.5rem;
+      margin-bottom: 0;
     }
 
     .post-content {
-      font-size: 1.08rem;
-      color: #2b2b30;
+      font-family: 'Literata', 'Georgia', serif;
+      font-size: clamp(1.05rem, 1.8vw, 1.15rem);
+      line-height: 1.82;
+      color: #1e1f24;
       text-align: justify;
       text-justify: inter-word;
       -webkit-hyphens: auto;
@@ -216,6 +238,18 @@
         gap: 0.75rem;
       }
 
+      .hero {
+        padding: 0.5rem 24px 2rem;
+      }
+
+      .post-title {
+        font-size: 2rem;
+      }
+
+      .post-meta {
+        letter-spacing: 0.08em;
+      }
+
       article {
         padding: 2rem;
         border-radius: 16px;
@@ -224,6 +258,8 @@
       .post-content {
         text-align: left;
         text-justify: auto;
+        font-size: 1rem;
+        line-height: 1.75;
       }
     }
   </style>
@@ -244,9 +280,8 @@
         <a href="/#contact">Contact</a>
       </nav>
     </div>
-  </header>
-  <main>
-    <article>
+    <div class="hero">
+      <a class="back-link" href="/blog/">Back to essays</a>
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="post-meta">
         {% if page.date %}{{ page.date | date: '%B %d, %Y' }}{% endif %}
@@ -255,6 +290,10 @@
           <span>{{ page.categories | join: ', ' }}</span>
         {% endif %}
       </p>
+    </div>
+  </header>
+  <main>
+    <article class="post-body">
       <div class="post-content">
         {{ content }}
       </div>

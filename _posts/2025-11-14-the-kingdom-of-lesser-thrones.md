@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Federation of Gentler Minds
+title: The Kingdom of Lesser Thrones
 date: 2025-11-14
 categories: [Essays]
 ---
