@@ -66,7 +66,7 @@ In the early transition, things would still look familiar. People would age, bod
 But if we take the trajectory seriously, that phase is temporary. As robotics matures, as medicine and gene editing and brain–computer interfaces converge, ageing itself becomes optional or at least radically delayed. The fear of “not having enough time” loosens; the fear of having nothing worth doing with all that time becomes sharper. If machines can do almost all necessary work better than we can, and if death retreats into the background, the interesting question is not “how do we keep the economy running?” but “what does a non empty human life look like under those conditions?”.
 
 
-//  TODO insert here The_purpose_plateau.webp
+![A misty mountain plateau with purpose-led lights](/assets/img/The_purpose_plateau.webp)
 
 Some people will answer that question by going further inwards. Augmented humans spending large parts of their lives in virtual worlds are not an aberration in this scenario; they are a natural response to a universe where constraint can be simulated rather than suffered. The difference in this system is what those worlds are for. You can imagine vast cooperative games, designed and moderated by the AGI council but owned by their communities, where the quests are not only about points and spectacle but about training for real virtues: courage, honesty, patience, the ability to coordinate with strangers, the willingness to protect weaker players even when it costs you status. Failures are safe, but not meaningless. The worlds carry back into the shared reality what people learn inside them.
 
@@ -87,5 +87,4 @@ Even in such a world, nothing guarantees a good outcome. Long lives can be waste
 If everything goes right, the singularity (if that is still the right word) will not feel like waking up one morning in a different universe. It will feel like a long, uneven transition in which more and more of the heavy lifting of prediction and coordination is done by minds that we have insisted, again and again, must be gentler than we were when we built them. The surprise, if there is one, will not be in the machines. It will be in discovering that, for the first time in our history, the most powerful agents in our civilisation are explicitly forbidden from using their power the way we did whenever we thought no one was watching.
 
 That is not a guarantee of a good world. But it is a different kind of starting point than the one we have now. And if we are serious about not repeating our worst patterns at a higher scale, it may be one of the few starting points worth fighting for.
-
 
