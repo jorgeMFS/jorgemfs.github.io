@@ -72,7 +72,7 @@ But if we take the trajectory seriously, that phase is temporary. As robotics ma
        style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 10px; background: white; border-radius: 6px;"
        loading="lazy">
   <p style="font-style: italic; color: #666; margin-top: 10px;">
-    Figure. Purpose Plateau — a reminder that future systems should lift rather than dominate
+    Figure. Purpose Plateau. As AGI is achieved and automation takes over most jobs, while simultaneously longevity escape velocity is reached, humanity transitions from the problem of having **finite time for infinite goals to facing infinite time with potentially finite or obsolete goals.
   </p>
 </div>
 
