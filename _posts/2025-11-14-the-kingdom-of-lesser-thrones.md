@@ -3,6 +3,9 @@ layout: post
 title: The Kingdom of Lesser Thrones
 date: 2025-11-14
 categories: [Essays]
+hero_image: /assets/img/abstract_painting_post1.webp
+hero_alt: Abstract sunrise over a misty ocean in soft pastels
+hero_caption: Dawn over a quiet sea, imagining a gentler shared horizon
 ---
 
 A Federation of Gentler Minds

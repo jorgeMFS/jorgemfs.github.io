@@ -103,6 +103,34 @@
       margin-bottom: 2.5rem;
     }
 
+    .post-hero {
+      margin: clamp(1.5rem, 4vw, 2.8rem) 0 2.5rem;
+    }
+
+    .post-hero figure {
+      margin: 0;
+      background: none;
+      padding: 0;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 35px 80px rgba(15, 23, 42, 0.18);
+    }
+
+    .post-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .post-hero figcaption {
+      margin-top: 0.85rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -332,6 +360,16 @@
           {% endif %}
         </p>
       </div>
+      {% if page.hero_image %}
+      <div class="post-hero">
+        <figure>
+          <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title }}">
+          {% if page.hero_caption %}
+          <figcaption>{{ page.hero_caption }}</figcaption>
+          {% endif %}
+        </figure>
+      </div>
+      {% endif %}
       <div class="post-content">
         {{ content }}
       </div>
