@@ -5,10 +5,8 @@ date: 2025-11-14
 categories: [Essays]
 hero_image: /assets/img/abstract_painting_post1.webp
 hero_alt: Abstract sunrise over a misty ocean in soft pastels
-hero_caption: Dawn over a quiet sea, imagining a gentler shared horizon
 ---
 
-A Federation of Gentler Minds
 At some point in the coming decades, we will share the world with minds that are not human.
 
 That sentence used to belong to science fiction. Now it reads like an understated product roadmap. Research labs post demonstrations of systems that can write code, manipulate tools, diagnose diseases and talk about their own internal failures. Governments hold summits on “frontier AI”. Investors call this “the greatest economic opportunity in history”. The language of near term disruption and far future speculation has escaped the niche and moved into parliaments, pulpits and kitchens.

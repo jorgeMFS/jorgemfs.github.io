@@ -364,9 +364,6 @@
       <div class="post-hero">
         <figure>
           <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title }}">
-          {% if page.hero_caption %}
-          <figcaption>{{ page.hero_caption }}</figcaption>
-          {% endif %}
         </figure>
       </div>
       {% endif %}
