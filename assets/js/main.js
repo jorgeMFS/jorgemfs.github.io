@@ -1,25 +1,10 @@
 /**
-* Template Name: iPortfolio - v3.8.1
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-
-
+ * Portfolio - Tailwind CSS Version
+ * Clean, minimal JavaScript for modern portfolio
+ */
 
 (function() {
   "use strict";
-
-  /**
-   * Maintain correct viewport height on mobile devices
-   */
-  const setHeroHeight = () => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  };
-  window.addEventListener('load', setHeroHeight);
-  window.addEventListener('resize', setHeroHeight);
 
   /**
    * Easy selector helper function
@@ -32,7 +17,6 @@
       return document.querySelector(el)
     }
   }
-
 
   /**
    * Easy event listener function
@@ -49,7 +33,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -66,9 +50,11 @@
       let section = select(navbarlink.hash)
       if (!section) return
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
+        navbarlink.classList.add('text-white', 'bg-white/10')
+        navbarlink.classList.remove('text-gray-400')
       } else {
-        navbarlink.classList.remove('active')
+        navbarlink.classList.remove('text-white', 'bg-white/10')
+        navbarlink.classList.add('text-gray-400')
       }
     })
   }
@@ -87,15 +73,17 @@
   }
 
   /**
-   * Back to top button
+   * Back to top button - Tailwind visibility classes
    */
   let backtotop = select('.back-to-top')
   if (backtotop) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
-        backtotop.classList.add('active')
+        backtotop.classList.remove('opacity-0', 'invisible')
+        backtotop.classList.add('opacity-100', 'visible')
       } else {
-        backtotop.classList.remove('active')
+        backtotop.classList.add('opacity-0', 'invisible')
+        backtotop.classList.remove('opacity-100', 'visible')
       }
     }
     window.addEventListener('load', toggleBacktotop)
@@ -103,27 +91,46 @@
   }
 
   /**
-   * Mobile nav toggle
+   * Mobile nav toggle - Tailwind transform classes
    */
+  const header = select('#header')
+  const mobileNavToggle = select('.mobile-nav-toggle')
+
   on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
+    if (header) {
+      header.classList.toggle('translate-x-0')
+      header.classList.toggle('-translate-x-full')
+    }
+    // Toggle hamburger/close icon
+    const icon = this.querySelector('svg')
+    if (icon) {
+      const isOpen = header && !header.classList.contains('-translate-x-full')
+      if (isOpen) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />'
+      } else {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />'
+      }
+    }
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Close mobile nav on link click
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
       e.preventDefault()
 
-      let body = select('body')
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+      // Close mobile nav if open
+      if (header && !header.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
+        header.classList.add('-translate-x-full')
+        header.classList.remove('translate-x-0')
+        // Reset hamburger icon
+        if (mobileNavToggle) {
+          const icon = mobileNavToggle.querySelector('svg')
+          if (icon) {
+            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />'
+          }
+        }
       }
       scrollto(this.hash)
     }
@@ -150,9 +157,10 @@
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+      typeSpeed: 80,
+      backSpeed: 40,
+      backDelay: 2500,
+      startDelay: 500
     });
   }
 
@@ -180,7 +188,12 @@
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows',
+        percentPosition: true,
+        fitRows: {
+          gutter: 24
+        }
       });
 
       let portfolioImages = select('.portfolio-container img', true);
@@ -226,58 +239,63 @@
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  if (select('.portfolio-details-slider')) {
+    new Swiper('.portfolio-details-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
 
   /**
    * Testimonials slider
    */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
+  if (select('.testimonials-slider')) {
+    new Swiper('.testimonials-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
       },
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
       }
-    }
-  });
+    });
+  }
 
   /**
    * Animation on scroll
    */
   window.addEventListener('load', () => {
     AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
+      duration: 600,
+      easing: 'ease-out',
       once: true,
-      mirror: false
+      mirror: false,
+      offset: 50
     })
   });
 
@@ -287,33 +305,34 @@
   new PureCounter();
 
   /**
-   * Theme toggle functionality
+   * Theme toggle functionality - Tailwind dark mode
    */
   const themeToggleBtn = select('#theme-toggle');
-  const themeIcon = select('#theme-icon');
+  const sunIcon = select('#sun-icon');
+  const moonIcon = select('#moon-icon');
 
   const applyTheme = (mode) => {
     if (mode === 'dark') {
-      document.body.classList.add('dark-mode');
-      if (themeIcon) {
-        themeIcon.classList.remove('bi-moon');
-        themeIcon.classList.add('bi-sun');
-      }
+      document.documentElement.classList.add('dark');
+      if (sunIcon) sunIcon.classList.remove('hidden');
+      if (moonIcon) moonIcon.classList.add('hidden');
     } else {
-      document.body.classList.remove('dark-mode');
-      if (themeIcon) {
-        themeIcon.classList.remove('bi-sun');
-        themeIcon.classList.add('bi-moon');
-      }
+      document.documentElement.classList.remove('dark');
+      if (sunIcon) sunIcon.classList.add('hidden');
+      if (moonIcon) moonIcon.classList.remove('hidden');
     }
   };
 
-  let savedTheme = localStorage.getItem('theme') || 'light';
+  // Check for saved theme or system preference
+  let savedTheme = localStorage.getItem('theme');
+  if (!savedTheme) {
+    savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
   applyTheme(savedTheme);
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-      savedTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+      savedTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
       applyTheme(savedTheme);
       localStorage.setItem('theme', savedTheme);
     });
