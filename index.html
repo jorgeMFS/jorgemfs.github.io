@@ -62,28 +62,28 @@
     .filter-active { background: #111827 !important; color: white !important; }
     .dark .filter-active { background: white !important; color: #111827 !important; }
 
-    /* Portfolio: Use CSS Grid instead of Isotope layout */
-    .portfolio-container {
-      display: grid !important;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 8px;
-      position: relative !important;
+    /* Portfolio: Use CSS Grid on mobile, Isotope on desktop */
+    @media (max-width: 767px) {
+      .portfolio-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        position: relative !important;
+        height: auto !important;
+      }
+      .portfolio-item {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        margin: 0 !important;
+        width: 100% !important;
+        transform: none !important;
+      }
     }
-    @media (min-width: 480px) {
-      .portfolio-container { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 768px) {
-      .portfolio-container { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .portfolio-container { grid-template-columns: repeat(4, 1fr); }
-    }
-    .portfolio-item {
-      position: relative !important;
-      left: auto !important;
-      top: auto !important;
-      margin: 0 !important;
-      width: 100% !important;
+    @media (max-width: 400px) {
+      .portfolio-container {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
 
     /* Altmetric badge dark mode fix - invert only, preserve donut colors */
@@ -269,7 +269,7 @@
   <main id="main" class="lg:ml-72 min-h-screen">
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="min-h-screen relative overflow-hidden">
+    <section id="hero" class="min-h-[100dvh] min-h-screen relative overflow-hidden">
       <!-- Background -->
       <div class="absolute inset-0 z-0">
         <img src="assets/img/hero-bg.webp" alt="" class="w-full h-full object-cover" loading="eager">
