@@ -65,9 +65,12 @@
     /* Portfolio: Use CSS Grid instead of Isotope layout */
     .portfolio-container {
       display: grid !important;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 8px;
       position: relative !important;
+    }
+    @media (min-width: 480px) {
+      .portfolio-container { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 768px) {
       .portfolio-container { grid-template-columns: repeat(3, 1fr); }
@@ -94,9 +97,53 @@
     window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
     plausible.init()
   </script>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jorge Miguel Silva",
+    "givenName": "Jorge Miguel",
+    "familyName": "Silva",
+    "jobTitle": "Postdoctoral Researcher",
+    "url": "https://jorgemfs.com",
+    "image": "https://jorgemfs.com/assets/img/profile-img.webp",
+    "email": "jorge.miguel.ferreira.silva@ua.pt",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "IEETA - Institute of Electronics and Informatics Engineering of Aveiro",
+      "url": "https://www.ieeta.pt"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Aveiro",
+        "url": "https://www.ua.pt"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Porto - FEUP",
+        "url": "https://www.fe.up.pt"
+      }
+    ],
+    "sameAs": [
+      "https://twitter.com/MiguelFSilva1",
+      "https://github.com/jorgeMFS",
+      "https://www.linkedin.com/in/jorge-miguel-ferreira-da-silva/",
+      "https://scholar.google.com/citations?user=N6ZzRPEAAAAJ",
+      "https://orcid.org/0000-0002-6331-6091"
+    ],
+    "knowsAbout": ["Bioinformatics", "Genomics", "Data Compression", "Federated Learning", "Machine Learning"],
+    "award": ["BioASQ Challenge 2023 Winner", "IEEE CBMS 2018 Best Student Paper"]
+  }
+  </script>
 </head>
 
 <body class="font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+  <!-- Mobile Nav Backdrop -->
+  <div id="nav-backdrop" class="lg:hidden fixed inset-0 bg-black/50 z-30 opacity-0 invisible transition-all duration-300"></div>
 
   <!-- Mobile Nav Toggle -->
   <button class="lg:hidden fixed top-4 right-4 z-50 w-11 h-11 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center shadow-lg mobile-nav-toggle">
@@ -117,7 +164,7 @@
       </h1>
 
       <!-- Social Links -->
-      <div class="flex justify-center gap-1.5 mt-3">
+      <div class="flex flex-wrap justify-center gap-1.5 mt-3">
         <a href="https://twitter.com/MiguelFSilva1"
            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
           <i class="bx bxl-twitter text-sm"></i>
@@ -137,6 +184,10 @@
         <a href="https://orcid.org/0000-0002-6331-6091"
            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
           <iconify-icon icon="academicons:orcid" style="font-size: 14px;"></iconify-icon>
+        </a>
+        <a href="https://www.ua.pt/pt/p/80514776"
+           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors" title="UA Profile">
+          <i class="bi bi-mortarboard text-sm"></i>
         </a>
       </div>
     </div>
@@ -226,11 +277,11 @@
       </div>
 
       <!-- Content - Bottom Left -->
-      <div class="absolute bottom-16 lg:bottom-24 left-4 lg:left-8 z-10 max-w-xl" data-aos="fade-up">
-        <h1 class="text-4xl lg:text-6xl font-semibold tracking-tight text-white mb-3">
+      <div class="absolute bottom-16 lg:bottom-24 left-4 lg:left-8 z-10 max-w-xl px-2 sm:px-0" data-aos="fade-up">
+        <h1 class="text-3xl sm:text-4xl lg:text-6xl font-semibold tracking-tight text-white mb-3">
           Jorge Miguel Silva
         </h1>
-        <p class="text-lg lg:text-xl text-white/80">
+        <p class="text-base sm:text-lg lg:text-xl text-white/80">
           I'm a <span class="typed border-b-2 border-white/40 pb-1" data-typed-items="Researcher, Computer Scientist, Developer"></span>
         </p>
       </div>
@@ -374,7 +425,7 @@
     <!-- ======= Facts Section ======= -->
     <section id="facts" class="py-16 bg-gray-50 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 text-center">
 
           <div data-aos="fade-up">
             <div class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
@@ -819,9 +870,16 @@
     <section id="resume" class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="mb-12" data-aos="fade-up">
-          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">Resume</h2>
-          <p class="text-gray-600 dark:text-gray-400">A short resume of my work experience and education.</p>
+        <div class="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4" data-aos="fade-up">
+          <div>
+            <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">Resume</h2>
+            <p class="text-gray-600 dark:text-gray-400">A short resume of my work experience and education.</p>
+          </div>
+          <a href="cv.html" target="_blank"
+             class="inline-flex items-center justify-center gap-2 px-4 py-2 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded-lg hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">
+            <i class="bi bi-file-text"></i>
+            View CV
+          </a>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12">
@@ -1032,15 +1090,15 @@
   </a>
 
   <!-- Vendor JS Files -->
-  <script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script>
+  <script defer src="//cdn.plu.mx/widget-popup.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
-  <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+  <script defer src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

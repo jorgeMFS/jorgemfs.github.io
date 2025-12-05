@@ -95,22 +95,54 @@
    */
   const header = select('#header')
   const mobileNavToggle = select('.mobile-nav-toggle')
+  const navBackdrop = select('#nav-backdrop')
 
-  on('click', '.mobile-nav-toggle', function(e) {
+  const openMobileNav = () => {
     if (header) {
-      header.classList.toggle('translate-x-0')
-      header.classList.toggle('-translate-x-full')
+      header.classList.add('translate-x-0')
+      header.classList.remove('-translate-x-full')
     }
-    // Toggle hamburger/close icon
-    const icon = this.querySelector('svg')
-    if (icon) {
-      const isOpen = header && !header.classList.contains('-translate-x-full')
-      if (isOpen) {
+    if (navBackdrop) {
+      navBackdrop.classList.remove('opacity-0', 'invisible')
+      navBackdrop.classList.add('opacity-100', 'visible')
+    }
+    if (mobileNavToggle) {
+      const icon = mobileNavToggle.querySelector('svg')
+      if (icon) {
         icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />'
-      } else {
+      }
+    }
+  }
+
+  const closeMobileNav = () => {
+    if (header) {
+      header.classList.remove('translate-x-0')
+      header.classList.add('-translate-x-full')
+    }
+    if (navBackdrop) {
+      navBackdrop.classList.add('opacity-0', 'invisible')
+      navBackdrop.classList.remove('opacity-100', 'visible')
+    }
+    if (mobileNavToggle) {
+      const icon = mobileNavToggle.querySelector('svg')
+      if (icon) {
         icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />'
       }
     }
+  }
+
+  on('click', '.mobile-nav-toggle', function(e) {
+    const isOpen = header && !header.classList.contains('-translate-x-full')
+    if (isOpen) {
+      closeMobileNav()
+    } else {
+      openMobileNav()
+    }
+  })
+
+  // Close nav when clicking backdrop
+  on('click', '#nav-backdrop', function(e) {
+    closeMobileNav()
   })
 
   /**
@@ -122,15 +154,7 @@
 
       // Close mobile nav if open
       if (header && !header.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
-        header.classList.add('-translate-x-full')
-        header.classList.remove('translate-x-0')
-        // Reset hamburger icon
-        if (mobileNavToggle) {
-          const icon = mobileNavToggle.querySelector('svg')
-          if (icon) {
-            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />'
-          }
-        }
+        closeMobileNav()
       }
       scrollto(this.hash)
     }
