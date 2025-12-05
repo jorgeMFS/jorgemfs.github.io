@@ -62,8 +62,26 @@
     .filter-active { background: #111827 !important; color: white !important; }
     .dark .filter-active { background: white !important; color: #111827 !important; }
 
-    /* Portfolio item spacing for Isotope */
-    .portfolio-item { margin: 0 12px 24px 12px !important; }
+    /* Portfolio: Use CSS Grid instead of Isotope layout */
+    .portfolio-container {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      position: relative !important;
+    }
+    @media (min-width: 768px) {
+      .portfolio-container { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .portfolio-container { grid-template-columns: repeat(4, 1fr); }
+    }
+    .portfolio-item {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      margin: 0 !important;
+      width: 100% !important;
+    }
 
     /* Altmetric badge dark mode fix - invert only, preserve donut colors */
     .dark .altmetric-embed { filter: invert(1); }
@@ -124,47 +142,58 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 px-3 space-y-0.5">
-      <a href="#hero" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto active">
-        <i class="bx bx-home"></i>
-        <span>Home</span>
-      </a>
-      <a href="#about" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
-        <i class="bx bx-user"></i>
-        <span>About</span>
-      </a>
-      <a href="#projects" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
-        <i class="bx bx-briefcase"></i>
-        <span>Projects</span>
-      </a>
-      <a href="#selected_publications" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
-        <i class="bx bx-book"></i>
-        <span>Publications</span>
-      </a>
-      <a href="#portfolio" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
-        <i class="bi bi-cpu"></i>
-        <span>Portfolio</span>
-      </a>
-      <a href="#skills" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
-        <i class="bx bx-code-alt"></i>
-        <span>Skills</span>
-      </a>
-      <a href="#resume" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
-        <i class="bx bx-file-blank"></i>
-        <span>Resume</span>
-      </a>
-      <a href="federated-learning" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
-        <i class="bi bi-diagram-3"></i>
-        <span>Federated Learning</span>
-      </a>
-      <a href="blog" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
-        <i class="bi bi-journal-text"></i>
-        <span>Blog</span>
-      </a>
-      <a href="#contact" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
-        <i class="bx bx-envelope"></i>
-        <span>Contact</span>
-      </a>
+    <nav class="flex-1 px-3">
+      <!-- Main sections -->
+      <div class="space-y-0.5">
+        <a href="#hero" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto active">
+          <i class="bx bx-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#about" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-user"></i>
+          <span>About</span>
+        </a>
+        <a href="#projects" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-briefcase"></i>
+          <span>Projects</span>
+        </a>
+        <a href="#selected_publications" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-book"></i>
+          <span>Publications</span>
+        </a>
+        <a href="#portfolio" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bi bi-cpu"></i>
+          <span>Portfolio</span>
+        </a>
+        <a href="#skills" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-code-alt"></i>
+          <span>Skills</span>
+        </a>
+        <a href="#resume" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-file-blank"></i>
+          <span>Resume</span>
+        </a>
+        <a href="#contact" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+
+      <!-- Separator -->
+      <div class="my-4 border-t border-gray-700"></div>
+
+      <!-- Other pages -->
+      <div class="space-y-0.5">
+        <span class="px-3 py-1 text-xs font-medium text-gray-500 uppercase tracking-wider">Pages</span>
+        <a href="federated-learning" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+          <i class="bi bi-diagram-3"></i>
+          <span>Federated Learning</span>
+        </a>
+        <a href="blog" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+          <i class="bi bi-journal-text"></i>
+          <span>Blog</span>
+        </a>
+      </div>
     </nav>
 
     <!-- Theme Toggle -->
@@ -568,13 +597,79 @@
         </div>
 
         <!-- Portfolio Grid -->
-        <div class="portfolio-container flex flex-wrap gap-8" data-aos="fade-up">
+        <div class="portfolio-container flex flex-wrap gap-2 justify-center" data-aos="fade-up">
+
+          <!-- VCFX Repo -->
+          <a href="https://github.com/ieeta-pt/VCFX" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/vcfx_repo.webp" alt="VCFX repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">VCFX</h3>
+              <p class="text-xs text-white/60">Repository</p>
+            </div>
+          </a>
+
+          <!-- PhenoQC Repo -->
+          <a href="https://github.com/jorgeMFS/PhenoQC" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/phenoqc_repo.webp" alt="PhenoQC repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">PhenoQC</h3>
+              <p class="text-xs text-white/60">Repository</p>
+            </div>
+          </a>
+
+          <!-- HYMET Repo -->
+          <a href="https://github.com/ieeta-pt/HYMET" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/hymet_repo.webp" alt="HYMET repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">HYMET</h3>
+              <p class="text-xs text-white/60">Repository</p>
+            </div>
+          </a>
+
+          <!-- BioChef Repo -->
+          <a href="https://github.com/ieeta-pt/Biochef" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/biochef_repo.webp" alt="BioChef repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">BioChef</h3>
+              <p class="text-xs text-white/60">Repository</p>
+            </div>
+          </a>
+
+          <!-- BioChef Website -->
+          <a href="https://ieeta-pt.github.io/Biochef/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/biochef_home.webp" alt="BioChef website"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">BioChef</h3>
+              <p class="text-xs text-white/60">Website</p>
+            </div>
+          </a>
+
+          <!-- fed_rf Repo -->
+          <a href="https://github.com/ieeta-pt/fed_rf" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/fed_rf_repo.webp" alt="fed_rf repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">fed_rf</h3>
+              <p class="text-xs text-white/60">Repository</p>
+            </div>
+          </a>
 
           <!-- PANTHER Repo -->
-          <a href="https://github.com/asilab/panther" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-16px)] md:w-[calc(33.333%-22px)] lg:w-[calc(25%-24px)]">
+          <a href="https://github.com/asilab/panther" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
             <img src="assets/img/portfolio/panther_repo.webp" alt="PANTHER repository"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
               <h3 class="font-medium text-sm leading-tight">PANTHER</h3>
               <p class="text-xs text-white/60">Repository</p>
@@ -582,10 +677,10 @@
           </a>
 
           <!-- PANTHER Website -->
-          <a href="http://panther.web.ua.pt/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-16px)] md:w-[calc(33.333%-22px)] lg:w-[calc(25%-24px)]">
+          <a href="http://panther.web.ua.pt/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
             <img src="assets/img/portfolio/panther_home.webp" alt="PANTHER website"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
               <h3 class="font-medium text-sm leading-tight">PANTHER</h3>
               <p class="text-xs text-white/60">Website</p>
@@ -593,10 +688,10 @@
           </a>
 
           <!-- CANVAS Repo -->
-          <a href="https://github.com/jorgeMFS/canvas" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-16px)] md:w-[calc(33.333%-22px)] lg:w-[calc(25%-24px)]">
+          <a href="https://github.com/jorgeMFS/canvas" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
             <img src="assets/img/portfolio/canvas_repo.webp" alt="CANVAS repository"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
               <h3 class="font-medium text-sm leading-tight">CANVAS</h3>
               <p class="text-xs text-white/60">Repository</p>
@@ -604,34 +699,34 @@
           </a>
 
           <!-- CANVAS Website -->
-          <a href="https://asilab.github.io/canvas/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-16px)] md:w-[calc(33.333%-22px)] lg:w-[calc(25%-24px)]">
+          <a href="https://asilab.github.io/canvas/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
             <img src="assets/img/portfolio/canvas_home.webp" alt="CANVAS website"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
               <h3 class="font-medium text-sm leading-tight">CANVAS</h3>
               <p class="text-xs text-white/60">Website</p>
             </div>
           </a>
 
-          <!-- Archaea2 Repo -->
-          <a href="https://github.com/jorgeMFS/Archaea2" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-16px)] md:w-[calc(33.333%-22px)] lg:w-[calc(25%-24px)]">
-            <img src="assets/img/portfolio/archaea2_repo.webp" alt="Archaea2 repository"
+          <!-- TMCompression Repo -->
+          <a href="https://github.com/asilab/TMCompression" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/tmcom_repo.webp" alt="TMCompression repository"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
-              <h3 class="font-medium text-sm leading-tight">Archaea2</h3>
+              <h3 class="font-medium text-sm leading-tight">TMCompression</h3>
               <p class="text-xs text-white/60">Repository</p>
             </div>
           </a>
 
-          <!-- TMCompression Repo -->
-          <a href="https://github.com/asilab/TMCompression" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-16px)] md:w-[calc(33.333%-22px)] lg:w-[calc(25%-24px)]">
-            <img src="assets/img/portfolio/tmcom_repo.webp" alt="TMCompression repository"
+          <!-- Archaea2 Repo -->
+          <a href="https://github.com/jorgeMFS/Archaea2" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="assets/img/portfolio/archaea2_repo.webp" alt="Archaea2 repository"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
             <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
-              <h3 class="font-medium text-sm leading-tight">TMCompression</h3>
+              <h3 class="font-medium text-sm leading-tight">Archaea2</h3>
               <p class="text-xs text-white/60">Repository</p>
             </div>
           </a>

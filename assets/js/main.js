@@ -192,8 +192,9 @@
         layoutMode: 'fitRows',
         percentPosition: true,
         fitRows: {
-          gutter: 24
-        }
+          gutter: 8
+        },
+        horizontalOrder: true
       });
 
       let portfolioImages = select('.portfolio-container img', true);
