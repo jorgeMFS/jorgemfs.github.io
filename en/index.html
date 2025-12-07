@@ -167,123 +167,117 @@ permalink: /en/
   <header id="header" class="fixed inset-y-0 left-0 w-72 bg-gray-950 z-40 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
 
     <!-- Profile -->
-    <div class="p-5 text-center">
+    <div class="p-4 text-center shrink-0">
       <img src="/assets/img/profile_circle-img.webp" alt="Profile avatar"
-           class="w-20 h-20 rounded-full mx-auto border-2 border-white/20 object-cover" loading="lazy">
-      <h1 class="mt-3 text-lg font-semibold text-white">
+           class="w-16 h-16 rounded-full mx-auto border-2 border-white/20 object-cover" loading="lazy">
+      <h1 class="mt-2 text-base font-semibold text-white">
         <a href="/en/" class="hover:text-gray-300 transition-colors">Jorge Miguel Silva</a>
       </h1>
 
       <!-- Social Links -->
-      <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+      <div class="flex flex-wrap justify-center gap-1 mt-2">
         <a href="https://twitter.com/MiguelFSilva1"
-           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+           class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
           <i class="bx bxl-twitter text-sm"></i>
         </a>
         <a href="https://github.com/jorgeMFS"
-           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+           class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
           <i class="bx bxl-github text-sm"></i>
         </a>
         <a href="https://www.linkedin.com/in/jorge-miguel-ferreira-da-silva/"
-           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+           class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
           <i class="bx bxl-linkedin text-sm"></i>
         </a>
         <a href="https://scholar.google.com/citations?user=N6ZzRPEAAAAJ&hl=en"
-           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+           class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
           <i class="bx bxl-google text-sm"></i>
         </a>
         <a href="https://orcid.org/0000-0002-6331-6091"
-           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
-          <iconify-icon icon="academicons:orcid" style="font-size: 14px;"></iconify-icon>
+           class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+          <iconify-icon icon="academicons:orcid" style="font-size: 12px;"></iconify-icon>
         </a>
         <a href="https://www.ua.pt/pt/p/80514776"
-           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors" title="UA Profile">
+           class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors" title="UA Profile">
           <i class="bi bi-mortarboard text-sm"></i>
         </a>
       </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="flex-1 px-3">
+    <!-- Navigation (scrollable) -->
+    <nav class="flex-1 px-3 overflow-y-auto">
       <!-- Main sections -->
       <div class="space-y-0.5">
-        <a href="#hero" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto active">
+        <a href="#hero" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto active">
           <i class="bx bx-home"></i>
           <span>{{ t.nav.home }}</span>
         </a>
-        <a href="#about" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+        <a href="#about" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
           <i class="bx bx-user"></i>
           <span>{{ t.nav.about }}</span>
         </a>
-        <a href="#projects" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+        <a href="#projects" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
           <i class="bx bx-briefcase"></i>
           <span>{{ t.nav.projects }}</span>
         </a>
-        <a href="#selected_publications" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+        <a href="#selected_publications" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
           <i class="bx bx-book"></i>
           <span>{{ t.nav.publications }}</span>
         </a>
-        <a href="#portfolio" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+        <a href="#portfolio" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
           <i class="bi bi-cpu"></i>
           <span>{{ t.nav.portfolio }}</span>
         </a>
-        <a href="#skills" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+        <a href="#skills" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
           <i class="bx bx-code-alt"></i>
           <span>{{ t.nav.skills }}</span>
         </a>
-        <a href="#resume" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+        <a href="#resume" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
           <i class="bx bx-file-blank"></i>
           <span>{{ t.nav.resume }}</span>
         </a>
-        <a href="#contact" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+        <a href="#contact" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
           <i class="bx bx-envelope"></i>
           <span>{{ t.nav.contact }}</span>
         </a>
       </div>
 
       <!-- Separator -->
-      <div class="my-4 border-t border-gray-700"></div>
+      <div class="my-3 border-t border-gray-700"></div>
 
       <!-- Other pages -->
       <div class="space-y-0.5">
         <span class="px-3 py-1 text-xs font-medium text-gray-500 uppercase tracking-wider">{{ t.nav.pages }}</span>
-        <a href="/federated-learning" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+        <a href="/federated-learning" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
           <i class="bi bi-diagram-3"></i>
           <span>{{ t.nav.federated_learning }}</span>
         </a>
-        <a href="/en/blog/" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+        <a href="/en/blog/" class="nav-link flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
           <i class="bi bi-journal-text"></i>
           <span>{{ t.nav.blog }}</span>
         </a>
       </div>
-
-      <!-- Separator -->
-      <div class="my-4 border-t border-gray-700"></div>
-
-      <!-- Language Switcher -->
-      <div class="px-3 py-2">
-        <div class="flex items-center gap-2">
-          <a href="/en/" class="px-3 py-1.5 rounded-md text-sm font-medium bg-white/20 text-white" onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
-          <a href="/pt/" class="px-3 py-1.5 rounded-md text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 transition-colors" onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
-        </div>
-      </div>
     </nav>
 
-    <!-- Theme Toggle -->
-    <div class="p-3 border-t border-gray-800">
-      <button id="theme-toggle"
-              class="w-full px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
-              aria-label="Toggle theme">
-        <!-- Sun icon (shown in dark mode) -->
-        <svg id="sun-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-        <!-- Moon icon (shown in light mode) -->
-        <svg id="moon-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-        <span>{{ t.theme.toggle }}</span>
-      </button>
+    <!-- Footer (always visible) -->
+    <div class="shrink-0 border-t border-gray-800">
+      <!-- Language Switcher + Theme Toggle -->
+      <div class="p-3 flex items-center justify-between">
+        <div class="flex items-center gap-1">
+          <a href="/en/" class="px-2 py-1 rounded text-xs font-medium bg-white/20 text-white" onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+          <a href="/pt/" class="px-2 py-1 rounded text-xs font-medium text-gray-400 hover:text-white hover:bg-white/10 transition-colors" onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+        </div>
+        <button id="theme-toggle"
+                class="px-2 py-1 rounded text-xs text-gray-400 hover:text-white hover:bg-white/5 transition-colors flex items-center gap-1"
+                aria-label="Toggle theme">
+          <svg id="sun-icon" class="w-3.5 h-3.5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg id="moon-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <span>{{ t.theme.toggle }}</span>
+        </button>
+      </div>
     </div>
   </header>
 
