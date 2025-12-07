@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Root redirect page -->
   <url>
     <loc>https://jorgemfs.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/"/>
   </url>
+
+  <!-- English homepage -->
   <url>
-    <loc>https://jorgemfs.com/404.html</loc>
+    <loc>https://jorgemfs.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/"/>
+  </url>
+
+  <!-- Portuguese homepage -->
+  <url>
+    <loc>https://jorgemfs.com/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/"/>
+  </url>
+
+  <!-- English blog -->
+  <url>
+    <loc>https://jorgemfs.com/en/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/blog/"/>
+  </url>
+
+  <!-- Portuguese blog -->
+  <url>
+    <loc>https://jorgemfs.com/pt/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/blog/"/>
+  </url>
+
+  <!-- Federated Learning page (English only) -->
+  <url>
+    <loc>https://jorgemfs.com/federated-learning/</loc>
+  </url>
+
+  <!-- VCFX page (English only) -->
+  <url>
+    <loc>https://jorgemfs.com/vcfx/</loc>
+  </url>
+
+  <!-- CV page -->
+  <url>
+    <loc>https://jorgemfs.com/cv.html</loc>
   </url>
 </urlset>

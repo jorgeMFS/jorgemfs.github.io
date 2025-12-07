@@ -1,5 +1,7 @@
 ---
 layout: post
+lang: en
+ref: kingdom-of-lesser-thrones
 title: The Kingdom of Lesser Thrones
 date: 2025-11-14
 categories: [Essays]

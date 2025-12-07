@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Redirecting...</title>
+  <link rel="canonical" href="https://jorgemfs.com/en/blog/">
+  <link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/blog/">
+  <link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/blog/">
+  <link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/blog/">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #f6f6f8;
+      color: #1d1d1f;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e5e7eb;
+      border-top-color: #1a4bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    a {
+      color: #1a4bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .links {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .links a {
+      margin: 0 0.5rem;
+    }
+  </style>
+  <script>
+    (function() {
+      var stored = localStorage.getItem('preferred_language');
+      if (stored === 'pt' || stored === 'en') {
+        window.location.replace('/' + stored + '/blog/');
+        return;
+      }
+      var browserLang = navigator.language || navigator.userLanguage || 'en';
+      var lang = browserLang.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+      localStorage.setItem('preferred_language', lang);
+      window.location.replace('/' + lang + '/blog/');
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=/en/blog/">
+  </noscript>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner"></div>
+    <p>Redirecting to blog...</p>
+    <div class="links">
+      <a href="/en/blog/">English</a> | <a href="/pt/blog/">Portugues</a>
+    </div>
+  </div>
+</body>
+</html>

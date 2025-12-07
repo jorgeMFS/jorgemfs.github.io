@@ -1,0 +1,166 @@
+# English translations for jorgemfs.com
+# Language: en
+
+# Site metadata
+site:
+  title: "Jorge Miguel Silva Page"
+  description: "Personal website of Jorge Miguel Silva, showcasing research interests, publications, and contact details."
+  keywords: "Researcher"
+
+# Navigation
+nav:
+  home: "Home"
+  about: "About"
+  projects: "Projects"
+  publications: "Publications"
+  portfolio: "Portfolio"
+  skills: "Skills"
+  resume: "Resume"
+  contact: "Contact"
+  pages: "Pages"
+  federated_learning: "Federated Learning"
+  blog: "Blog"
+
+# Theme toggle
+theme:
+  toggle: "Theme"
+
+# Hero section
+hero:
+  typed_items: "Researcher, Computer Scientist, Developer"
+  intro: "I'm a"
+
+# About section
+about:
+  title: "About"
+  intro: "As a Research Fellow at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), I engage in cutting-edge computer science and engineering research. I hold a Master's in Bioengineering from the Faculty of Engineering at the University of Porto and have recently completed my PhD in Computer Science. My primary research interests revolve around Information Theory, Artificial Intelligence, and Compression, focusing on applying these methodologies to genomics."
+  job_title: "Researcher & Computer Scientist"
+  basic_info: "Some basic information"
+  city: "City"
+  city_value: "Aveiro, Portugal"
+  degree: "Degree"
+  degree_value: "PhD"
+  age: "Age"
+  age_value: "33"
+  workplace: "Workplace"
+  workplace_value: "IEETA, Aveiro University"
+  phone: "Phone"
+  phone_value: "(+351) 234 370 500"
+  email: "Email"
+  freelance: "Freelance"
+  freelance_value: "Not available"
+  hobbies: "Hobbies"
+  hobbies_value: "Reading, Music, Painting"
+  collaboration: "I enjoy working in a team, and I am open to national or international collaborations in my areas of interest."
+
+# Projects section
+projects:
+  title: "Projects"
+  subtitle: "Research projects I'm involved with"
+
+# Facts section
+facts:
+  journal_publications: "Journal Publications"
+  conference_papers: "Conference Papers"
+  repositories: "Repositories"
+  citations: "Citations"
+  h_index: "h-index"
+
+# Publications section
+publications:
+  title: "Selected Publications"
+  subtitle: "Here are some of my selected publications."
+  view_more: "View more publications:"
+
+# Portfolio section
+portfolio:
+  title: "Portfolio"
+  subtitle: "Tools and repositories from my research"
+  filter_all: "All"
+  filter_repos: "Repos"
+  filter_web: "Web"
+  repository: "Repository"
+  website: "Website"
+
+# Skills section
+skills:
+  title: "Skills"
+  subtitle: "Technical expertise across programming, research, and infrastructure."
+  programming_languages: "Programming Languages"
+  research_areas: "Research Areas"
+  technologies_tools: "Technologies & Tools"
+  domain_expertise: "Domain Expertise"
+
+# Resume section
+resume:
+  title: "Resume"
+  subtitle: "A short resume of my work experience and education."
+  view_cv: "View CV"
+  summary: "Summary"
+  summary_text: "Researcher in federated genomics, data compression, and biomedical AI. Focus on privacy-preserving data infrastructures and information theory methods applied to genomics and healthcare."
+  education: "Education"
+  awards: "Awards"
+  leadership: "Leadership"
+  professional_experience: "Professional Experience"
+  academic_service: "Academic Service"
+  # Education entries
+  phd_title: "PhD in Computer Engineering"
+  phd_institution: "IEETA, Aveiro University, Portugal"
+  phd_thesis: "Thesis: Algorithmic and Statistical Information Theory methods for data classification and compression in genomics."
+  msc_title: "MSc Bioengineering & Biomedical Engineering"
+  msc_institution: "FEUP, University of Porto, Portugal"
+  # Awards
+  bioasq_title: "BioASQ Challenge 2023"
+  bioasq_desc: "Winner - Task 11B Phase B & MedProcNER"
+  cbms_title: "IEEE CBMS 2018"
+  cbms_desc: "Best Student Paper Award"
+  # Leadership
+  fega_coordinator: "FEGA Portugal Operations Coordinator"
+  fega_org: "European Genomic Data Infrastructure (GDI)"
+  fhd_coordinator: "Portuguese FHD Community Coordinator"
+  fhd_org: "Federated Human Data Community"
+  # Experience
+  postdoc_title: "Postdoctoral Researcher"
+  postdoc_institution: "IEETA, Aveiro University"
+  postdoc_task1: "Technical lead for GDI & FEGA Portugal node"
+  postdoc_task2: "Task leader for FAIR-FEGA project"
+  postdoc_task3: "Principal Investigator - Federated genomic infrastructures"
+  phd_researcher_title: "PhD Researcher (FCT Grant)"
+  phd_researcher_institution: "IEETA, Aveiro University"
+  phd_task1: "Genomic data compression algorithms"
+  phd_task2: "Biomedical NLP and question answering"
+  phd_task3: "Projects: SCREEN-DR, MMIR, EHDEN, EMIF"
+  research_fellow_title: "Research Fellow"
+  research_fellow_institution: "IEETA, Aveiro University"
+  research_fellow_task: "Bioinformatics tools development"
+  # Academic service
+  programme_committee: "Programme Committee"
+  programme_committee_venues: "IEEE CBMS, HealthInf"
+  journal_reviewer: "Journal Reviewer"
+  journal_reviewer_venues: "GigaScience, Scientific Reports, BMC Bioinformatics, Entropy, and 5+ others"
+
+# Contact section
+contact:
+  title: "Contact"
+  subtitle: "If you wish to contact me regarding collaborations, projects or other subjects, please get in touch using the following information."
+  location: "Location"
+  location_value: "IEETA, Aveiro University, Campus Universitário de Santiago, 3810-193 Aveiro"
+  email: "Email"
+  phone: "Phone"
+
+# Blog
+blog:
+  title: "Essays & Field Notes"
+  subtitle: "Thoughts on research, technology, and the spaces between."
+  back_to_essays: "Back to essays"
+  read_article: "Read article"
+  written_by: "Written by"
+
+# Footer / misc
+misc:
+  redirecting: "Redirecting..."
+  click_here: "Click here if not redirected"
+
+# Date formats (for Liquid)
+date:
+  format: "%B %d, %Y"

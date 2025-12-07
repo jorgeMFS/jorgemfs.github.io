@@ -1,83 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Jorge Miguel Silva</title>
+  <meta name="description" content="Page not found">
+  <link rel="icon" href="/assets/img/apple-touch-icon.png">
 
-  <title>Page Not Found - Jorge Miguel Silva</title>
-  <meta name="description" content="404 - page not found">
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="assets/img/apple-touch-icon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f6f6f8 0%, #e9eaef 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1d1d1f;
+      padding: 2rem;
+    }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    .error-code {
+      font-size: clamp(6rem, 20vw, 10rem);
+      font-weight: 700;
+      color: #1a4bff;
+      line-height: 1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1d1d1f;
+    }
+
+    p {
+      color: #6f6f73;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      background: #1a4bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #0039e6;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26, 75, 255, 0.3);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .lang-links {
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: #6f6f73;
+    }
+
+    .lang-links a {
+      color: #1a4bff;
+      text-decoration: none;
+    }
+
+    .lang-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-2bTiM_XkGvY1gCv_2pJzp.js"></script>
   <script>
     window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
-    plausible.init()
+    plausible.init();
   </script>
 </head>
 <body>
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <img src="assets/img/profile_circle-img.webp" alt="Profile avatar" class="img-fluid rounded-circle" loading="lazy">
-        <h1 class="text-light"><a href="index.html">Jorge Miguel Silva</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://twitter.com/MiguelFSilva1" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://github.com/jorgeMFS" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/jorge-miguel-ferreira-da-silva/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://scholar.google.com/citations?user=N6ZzRPEAAAAJ&hl=en-EN" class="google"><i class="bx bxl-google"></i></a>
-          <a href="https://orcid.org/0000-0002-6331-6091" class="ORCID"><i class="bx"></i><iconify-icon icon="academicons:orcid" style="color: white;"></iconify-icon></a>
-        </div>
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="index.html" class="nav-link"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        </ul>
-      </nav>
+  <div class="container">
+    <div class="error-code">404</div>
+    <h1 id="title">Page Not Found</h1>
+    <p id="message">Sorry, the page you're looking for doesn't exist or has been moved.</p>
+    <a id="home-btn" href="/en/" class="btn">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+      </svg>
+      <span id="btn-text">Back to Home</span>
+    </a>
+    <div class="lang-links">
+      <a href="/en/">English</a> | <a href="/pt/">Portugues</a>
     </div>
-  </header>
+  </div>
 
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>404</h1>
-      <p>Sorry, the page you requested could not be found.</p>
-      <a href="index.html" class="btn btn-primary mt-3">Back to Home</a>
-    </div>
-  </section>
+  <script>
+    (function() {
+      var stored = localStorage.getItem('preferred_language');
+      var lang = stored;
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+      if (!lang) {
+        var browserLang = navigator.language || navigator.userLanguage || 'en';
+        lang = browserLang.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+      }
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+      var homeBtn = document.getElementById('home-btn');
+      var title = document.getElementById('title');
+      var message = document.getElementById('message');
+      var btnText = document.getElementById('btn-text');
+
+      homeBtn.href = '/' + lang + '/';
+
+      if (lang === 'pt') {
+        title.textContent = 'Pagina Nao Encontrada';
+        message.textContent = 'Desculpe, a pagina que procura nao existe ou foi movida.';
+        btnText.textContent = 'Voltar ao Inicio';
+      }
+    })();
+  </script>
 </body>
 </html>

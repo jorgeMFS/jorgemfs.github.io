@@ -1,12 +1,17 @@
+{% assign lang = page.lang | default: site.default_lang | default: "en" %}
+{% assign t = site.data.i18n[lang] %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | Jorge Miguel Silva</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>{{ t.blog.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ t.blog.subtitle | default: site.description }}">
   <link rel="icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+
+  {% include head-hreflang.html %}
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
@@ -83,6 +88,38 @@
       border-radius: 50%;
       border: 1px solid var(--border);
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border);
+    }
+
+    .lang-switch a {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .lang-switch a.active {
+      background: var(--accent);
+      color: white;
     }
 
     .hero {
@@ -200,6 +237,12 @@
       justify-content: space-between;
     }
 
+    .no-posts {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--muted);
+    }
+
     @media (max-width: 640px) {
       header {
         padding-top: 2.5rem;
@@ -214,6 +257,16 @@
         gap: 0.75rem;
       }
 
+      .nav-right {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .lang-switch {
+        padding-left: 0;
+        border-left: none;
+      }
+
       .post h2 {
         font-size: 1.6rem;
       }
@@ -223,42 +276,72 @@
   <script async src="https://plausible.io/js/pa-2bTiM_XkGvY1gCv_2pJzp.js"></script>
   <script>
     window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
-    plausible.init()
+    plausible.init();
+    // Track language
+    plausible('pageview', {props: {lang: '{{ lang }}'}});
   </script>
 </head>
 <body>
   <header>
     <div class="nav">
-      <a class="brand" href="/">
-        <img src="{{ '/assets/img/blog-avatar.webp' | relative_url }}" alt="Jorge Miguel Silva portrait">
-        <span>JORGE MIGUEL SILVA</span>
+      <a class="brand" href="/{{ lang }}/">
+        <img src="{{ '/assets/img/blog-avatar.webp' | relative_url }}" alt="{{ site.title }} portrait">
+        <span>{{ site.title | upcase }}</span>
       </a>
-      <nav>
-        <a href="/">Home</a>
-        <span aria-hidden="true">•</span>
-        <a href="/#about">About</a>
-        <span aria-hidden="true">•</span>
-        <a href="/federated-learning/">Federated Learning</a>
-        <span aria-hidden="true">•</span>
-        <a href="/blog/" aria-current="page">Blog</a>
-        <span aria-hidden="true">•</span>
-        <a href="/#contact">Contact</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/{{ lang }}/">{{ t.nav.home }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/{{ lang }}/#about">{{ t.nav.about }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/federated-learning/">{{ t.nav.federated_learning }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/{{ lang }}/blog/" aria-current="page">{{ t.nav.blog }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/{{ lang }}/#contact">{{ t.nav.contact }}</a>
+        </nav>
+        <div class="lang-switch">
+          <a href="/en/blog/" {% if lang == 'en' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+          <a href="/pt/blog/" {% if lang == 'pt' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+        </div>
+      </div>
     </div>
     <div class="hero">
-      <h1>{{ page.title }}</h1>
-      {% if page.description %}
-      <p>{{ page.description }}</p>
-      {% endif %}
+      <h1>{{ t.blog.title }}</h1>
+      <p>{{ t.blog.subtitle }}</p>
     </div>
   </header>
   <main>
-    {% assign posts = page.posts | default: site.posts %}
-    {% if posts and posts != empty %}
+    {% comment %} Filter posts by current language {% endcomment %}
+    {% assign posts = site.posts | where: "lang", lang %}
+
+    {% if posts and posts.size > 0 %}
       {% for post in posts %}
       <article class="post">
         <div class="post-meta">
-          {% if post.date %}{{ post.date | date: '%B %Y' }}{% endif %}
+          {% if post.date %}
+            {% if lang == "pt" %}
+              {% assign month_num = post.date | date: "%-m" %}
+              {% assign year = post.date | date: "%Y" %}
+              {% case month_num %}
+                {% when "1" %}{% assign month_name = "janeiro" %}
+                {% when "2" %}{% assign month_name = "fevereiro" %}
+                {% when "3" %}{% assign month_name = "março" %}
+                {% when "4" %}{% assign month_name = "abril" %}
+                {% when "5" %}{% assign month_name = "maio" %}
+                {% when "6" %}{% assign month_name = "junho" %}
+                {% when "7" %}{% assign month_name = "julho" %}
+                {% when "8" %}{% assign month_name = "agosto" %}
+                {% when "9" %}{% assign month_name = "setembro" %}
+                {% when "10" %}{% assign month_name = "outubro" %}
+                {% when "11" %}{% assign month_name = "novembro" %}
+                {% when "12" %}{% assign month_name = "dezembro" %}
+              {% endcase %}
+              {{ month_name }} {{ year }}
+            {% else %}
+              {{ post.date | date: '%B %Y' }}
+            {% endif %}
+          {% endif %}
           {% if post.categories and post.categories != empty %}
             {% if post.date %}
             <span aria-hidden="true"> &middot; </span>
@@ -270,11 +353,13 @@
         {% if post.excerpt %}
         <p class="lede">{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}</p>
         {% endif %}
-        <a class="read-more" href="{{ post.url | relative_url }}">Read article</a>
+        <a class="read-more" href="{{ post.url | relative_url }}">{{ t.blog.read_article }}</a>
       </article>
       {% endfor %}
     {% else %}
-      {{ content }}
+      <div class="no-posts">
+        <p>{% if lang == "pt" %}Ainda não há publicações neste idioma.{% else %}No posts available yet.{% endif %}</p>
+      </div>
     {% endif %}
   </main>
 </body>

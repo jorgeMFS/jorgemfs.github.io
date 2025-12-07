@@ -1,5 +1,7 @@
+{% assign lang = page.lang | default: site.default_lang | default: "en" %}
+{% assign t = site.data.i18n[lang] %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +9,9 @@
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+
+  {% include head-hreflang.html %}
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
@@ -83,6 +88,38 @@
       border-radius: 50%;
       border: 1px solid var(--border);
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border);
+    }
+
+    .lang-switch a {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .lang-switch a.active {
+      background: var(--accent);
+      color: white;
     }
 
     main {
@@ -303,11 +340,21 @@
         gap: 0.75rem;
       }
 
+      .nav-right {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .lang-switch {
+        padding-left: 0;
+        border-left: none;
+      }
+
       article {
         padding: 2rem;
         border-radius: 16px;
       }
-      
+
       .post-content {
         font-size: 1rem;
         line-height: 1.75;
@@ -330,36 +377,67 @@
   <script async src="https://plausible.io/js/pa-2bTiM_XkGvY1gCv_2pJzp.js"></script>
   <script>
     window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
-    plausible.init()
+    plausible.init();
+    // Track language
+    plausible('pageview', {props: {lang: '{{ lang }}'}});
   </script>
 </head>
 <body>
   <header>
     <div class="nav">
-      <a class="brand" href="/">
+      <a class="brand" href="/{{ lang }}/">
         <img src="{{ '/assets/img/blog-avatar.webp' | relative_url }}" alt="{{ site.title }} portrait">
         <span>{{ site.title | upcase }}</span>
       </a>
-      <nav>
-        <a href="/">Home</a>
-        <span aria-hidden="true">•</span>
-        <a href="/#about">About</a>
-        <span aria-hidden="true">•</span>
-        <a href="/federated-learning/">Federated Learning</a>
-        <span aria-hidden="true">•</span>
-        <a href="/blog/" aria-current="page">Blog</a>
-        <span aria-hidden="true">•</span>
-        <a href="/#contact">Contact</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="/{{ lang }}/">{{ t.nav.home }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/{{ lang }}/#about">{{ t.nav.about }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/federated-learning/">{{ t.nav.federated_learning }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/{{ lang }}/blog/" aria-current="page">{{ t.nav.blog }}</a>
+          <span aria-hidden="true">•</span>
+          <a href="/{{ lang }}/#contact">{{ t.nav.contact }}</a>
+        </nav>
+        <div class="lang-switch">
+          <a href="/en/blog/{{ page.url | remove_first: '/' | remove_first: lang | remove_first: '/blog/' }}" {% if lang == 'en' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+          <a href="/pt/blog/{{ page.url | remove_first: '/' | remove_first: lang | remove_first: '/blog/' }}" {% if lang == 'pt' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+        </div>
+      </div>
     </div>
   </header>
   <main>
     <article class="post-body">
       <div class="article-header">
-        <a class="back-link" href="/blog/">Back to essays</a>
+        <a class="back-link" href="/{{ lang }}/blog/">{{ t.blog.back_to_essays }}</a>
         <h1 class="post-title">{{ page.title }}</h1>
         <p class="post-meta">
-          {% if page.date %}{{ page.date | date: '%B %d, %Y' }}{% endif %}
+          {% if page.date %}
+            {% if lang == "pt" %}
+              {% assign day = page.date | date: "%-d" %}
+              {% assign month_num = page.date | date: "%-m" %}
+              {% assign year = page.date | date: "%Y" %}
+              {% case month_num %}
+                {% when "1" %}{% assign month_name = "janeiro" %}
+                {% when "2" %}{% assign month_name = "fevereiro" %}
+                {% when "3" %}{% assign month_name = "março" %}
+                {% when "4" %}{% assign month_name = "abril" %}
+                {% when "5" %}{% assign month_name = "maio" %}
+                {% when "6" %}{% assign month_name = "junho" %}
+                {% when "7" %}{% assign month_name = "julho" %}
+                {% when "8" %}{% assign month_name = "agosto" %}
+                {% when "9" %}{% assign month_name = "setembro" %}
+                {% when "10" %}{% assign month_name = "outubro" %}
+                {% when "11" %}{% assign month_name = "novembro" %}
+                {% when "12" %}{% assign month_name = "dezembro" %}
+              {% endcase %}
+              {{ day }} de {{ month_name }} de {{ year }}
+            {% else %}
+              {{ page.date | date: '%B %d, %Y' }}
+            {% endif %}
+          {% endif %}
           {% if page.categories and page.categories != empty %}
             <span aria-hidden="true"> &middot; </span>
             <span>{{ page.categories | join: ', ' }}</span>
@@ -379,7 +457,7 @@
     </article>
   </main>
   <footer>
-    <p>Written by {{ site.title }}. <a href="/blog/">Back to all essays →</a></p>
+    <p>{{ t.blog.written_by }} {{ site.title }}. <a href="/{{ lang }}/blog/">{{ t.blog.back_to_essays }} →</a></p>
   </footer>
 </body>
 </html>

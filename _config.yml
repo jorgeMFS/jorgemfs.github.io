@@ -10,6 +10,10 @@ highlighter: rouge
 plugins:
   - jekyll-feed
 
+# Multi-language configuration
+languages: ["en", "pt"]
+default_lang: "en"
+
 # Exclude files from processing
 exclude:
   - README.md
@@ -23,6 +27,7 @@ exclude:
   - backup/
   - new/
   - "*-backup.md"
+  - CLAUDE.md
 
 # Default layout for pages
 defaults:
@@ -31,3 +36,27 @@ defaults:
       type: "pages"
     values:
       layout: "page"
+  # English content defaults
+  - scope:
+      path: "en"
+    values:
+      lang: "en"
+  # Portuguese content defaults
+  - scope:
+      path: "pt"
+    values:
+      lang: "pt"
+  # English posts
+  - scope:
+      path: "_posts/en"
+      type: "posts"
+    values:
+      lang: "en"
+      layout: "post"
+  # Portuguese posts
+  - scope:
+      path: "_posts/pt"
+      type: "posts"
+    values:
+      lang: "pt"
+      layout: "post"

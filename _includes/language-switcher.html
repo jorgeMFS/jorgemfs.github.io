@@ -1,0 +1,39 @@
+{% comment %}
+  Language Switcher Component
+  Shows EN | PT toggle with active state
+  Stores preference in localStorage on click
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: site.default_lang | default: "en" %}
+{% assign other_lang = "pt" %}
+{% if current_lang == "pt" %}
+  {% assign other_lang = "en" %}
+{% endif %}
+
+{% comment %} Build alternate URL {% endcomment %}
+{% assign current_url = page.url | default: "/" %}
+{% if current_url contains "/en/" %}
+  {% assign alternate_url = current_url | replace: "/en/", "/" | append: other_lang | prepend: "/" %}
+  {% assign alternate_url = current_url | replace: "/en", "/pt" %}
+{% elsif current_url contains "/pt/" %}
+  {% assign alternate_url = current_url | replace: "/pt", "/en" %}
+{% else %}
+  {% comment %} Root or unlocalized page {% endcomment %}
+  {% assign alternate_url = "/" | append: other_lang | append: "/" %}
+{% endif %}
+
+<div class="language-switcher flex items-center gap-1 text-sm">
+  <a href="/en/{{ page.url | remove_first: '/' | remove_first: current_lang | remove_first: '/' }}"
+     class="px-2 py-1 rounded transition-colors {% if current_lang == 'en' %}bg-white/20 text-white font-medium{% else %}text-gray-400 hover:text-white hover:bg-white/10{% endif %}"
+     hreflang="en"
+     onclick="localStorage.setItem('preferred_language', 'en')">
+    EN
+  </a>
+  <span class="text-gray-600">|</span>
+  <a href="/pt/{{ page.url | remove_first: '/' | remove_first: current_lang | remove_first: '/' }}"
+     class="px-2 py-1 rounded transition-colors {% if current_lang == 'pt' %}bg-white/20 text-white font-medium{% else %}text-gray-400 hover:text-white hover:bg-white/10{% endif %}"
+     hreflang="pt"
+     onclick="localStorage.setItem('preferred_language', 'pt')">
+    PT
+  </a>
+</div>

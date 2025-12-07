@@ -1,0 +1,181 @@
+# Portuguese translations for jorgemfs.com
+# Language: pt (Portuguese - Portugal)
+
+# Site metadata
+site:
+  title: "Jorge Miguel Silva"
+  description: "Website pessoal de Jorge Miguel Silva, apresentando interesses de investigação, publicações e contactos."
+  keywords: "Investigador"
+
+# Navigation
+nav:
+  home: "Início"
+  about: "Sobre"
+  projects: "Projetos"
+  publications: "Publicações"
+  portfolio: "Portfólio"
+  skills: "Competências"
+  resume: "Currículo"
+  contact: "Contacto"
+  pages: "Páginas"
+  federated_learning: "Aprendizagem Federada"
+  blog: "Blog"
+
+# Theme toggle
+theme:
+  toggle: "Tema"
+
+# Hero section
+hero:
+  typed_items: "Investigador, Cientista de Computação, Programador"
+  intro: "Sou"
+
+# About section
+about:
+  title: "Sobre"
+  intro: "Como Investigador no Instituto de Engenharia Eletrónica e Informática de Aveiro (IEETA), desenvolvo investigação de ponta em ciência da computação e engenharia. Sou Mestre em Bioengenharia pela Faculdade de Engenharia da Universidade do Porto e concluí recentemente o Doutoramento em Ciência de Computadores. Os meus principais interesses de investigação centram-se na Teoria da Informação, Inteligência Artificial e Compressão, com foco na aplicação destas metodologias à genómica."
+  job_title: "Investigador & Cientista de Computação"
+  basic_info: "Algumas informações básicas"
+  city: "Cidade"
+  city_value: "Aveiro, Portugal"
+  degree: "Grau"
+  degree_value: "Doutoramento"
+  age: "Idade"
+  age_value: "33"
+  workplace: "Local de Trabalho"
+  workplace_value: "IEETA, Universidade de Aveiro"
+  phone: "Telefone"
+  phone_value: "(+351) 234 370 500"
+  email: "Email"
+  freelance: "Freelance"
+  freelance_value: "Não disponível"
+  hobbies: "Passatempos"
+  hobbies_value: "Leitura, Música, Pintura"
+  collaboration: "Gosto de trabalhar em equipa e estou aberto a colaborações nacionais ou internacionais nas minhas áreas de interesse."
+
+# Projects section
+projects:
+  title: "Projetos"
+  subtitle: "Projetos de investigação em que participo"
+
+# Facts section
+facts:
+  journal_publications: "Publicações em Revistas"
+  conference_papers: "Artigos de Conferência"
+  repositories: "Repositórios"
+  citations: "Citações"
+  h_index: "Índice h"
+
+# Publications section
+publications:
+  title: "Publicações Selecionadas"
+  subtitle: "Algumas das minhas publicações selecionadas."
+  view_more: "Ver mais publicações:"
+
+# Portfolio section
+portfolio:
+  title: "Portfólio"
+  subtitle: "Ferramentas e repositórios da minha investigação"
+  filter_all: "Todos"
+  filter_repos: "Repos"
+  filter_web: "Web"
+  repository: "Repositório"
+  website: "Website"
+
+# Skills section
+skills:
+  title: "Competências"
+  subtitle: "Experiência técnica em programação, investigação e infraestruturas."
+  programming_languages: "Linguagens de Programação"
+  research_areas: "Áreas de Investigação"
+  technologies_tools: "Tecnologias e Ferramentas"
+  domain_expertise: "Especialização de Domínio"
+
+# Resume section
+resume:
+  title: "Currículo"
+  subtitle: "Um breve resumo da minha experiência profissional e formação."
+  view_cv: "Ver CV"
+  summary: "Resumo"
+  summary_text: "Investigador em genómica federada, compressão de dados e IA biomédica. Foco em infraestruturas de dados com preservação de privacidade e métodos de teoria da informação aplicados à genómica e saúde."
+  education: "Formação"
+  awards: "Prémios"
+  leadership: "Liderança"
+  professional_experience: "Experiência Profissional"
+  academic_service: "Serviço Académico"
+  # Education entries
+  phd_title: "Doutoramento em Engenharia de Computadores"
+  phd_institution: "IEETA, Universidade de Aveiro, Portugal"
+  phd_thesis: "Tese: Métodos de Teoria da Informação Algorítmica e Estatística para classificação e compressão de dados em genómica."
+  msc_title: "Mestrado em Bioengenharia e Engenharia Biomédica"
+  msc_institution: "FEUP, Universidade do Porto, Portugal"
+  # Awards
+  bioasq_title: "BioASQ Challenge 2023"
+  bioasq_desc: "Vencedor - Task 11B Phase B & MedProcNER"
+  cbms_title: "IEEE CBMS 2018"
+  cbms_desc: "Prémio Melhor Artigo de Estudante"
+  # Leadership
+  fega_coordinator: "Coordenador de Operações FEGA Portugal"
+  fega_org: "Infraestrutura Europeia de Dados Genómicos (GDI)"
+  fhd_coordinator: "Coordenador da Comunidade FHD Portuguesa"
+  fhd_org: "Comunidade de Dados Humanos Federados"
+  # Experience
+  postdoc_title: "Investigador de Pós-Doutoramento"
+  postdoc_institution: "IEETA, Universidade de Aveiro"
+  postdoc_task1: "Líder técnico do nó GDI & FEGA Portugal"
+  postdoc_task2: "Líder de tarefa no projeto FAIR-FEGA"
+  postdoc_task3: "Investigador Principal - Infraestruturas genómicas federadas"
+  phd_researcher_title: "Investigador de Doutoramento (Bolsa FCT)"
+  phd_researcher_institution: "IEETA, Universidade de Aveiro"
+  phd_task1: "Algoritmos de compressão de dados genómicos"
+  phd_task2: "PLN biomédico e sistemas de pergunta-resposta"
+  phd_task3: "Projetos: SCREEN-DR, MMIR, EHDEN, EMIF"
+  research_fellow_title: "Bolseiro de Investigação"
+  research_fellow_institution: "IEETA, Universidade de Aveiro"
+  research_fellow_task: "Desenvolvimento de ferramentas de bioinformática"
+  # Academic service
+  programme_committee: "Comité de Programa"
+  programme_committee_venues: "IEEE CBMS, HealthInf"
+  journal_reviewer: "Revisor de Revistas"
+  journal_reviewer_venues: "GigaScience, Scientific Reports, BMC Bioinformatics, Entropy, e mais 5"
+
+# Contact section
+contact:
+  title: "Contacto"
+  subtitle: "Se deseja contactar-me sobre colaborações, projetos ou outros assuntos, por favor utilize as seguintes informações."
+  location: "Localização"
+  location_value: "IEETA, Universidade de Aveiro, Campus Universitário de Santiago, 3810-193 Aveiro"
+  email: "Email"
+  phone: "Telefone"
+
+# Blog
+blog:
+  title: "Ensaios & Notas de Campo"
+  subtitle: "Reflexões sobre investigação, tecnologia e os espaços entre eles."
+  back_to_essays: "Voltar aos ensaios"
+  read_article: "Ler artigo"
+  written_by: "Escrito por"
+
+# Footer / misc
+misc:
+  redirecting: "A redirecionar..."
+  click_here: "Clique aqui se não for redirecionado"
+
+# Date formats (for Liquid)
+# Portuguese months will need JS-based formatting or custom include
+date:
+  format: "%d de %B de %Y"
+  # Month names for custom formatting
+  months:
+    january: "janeiro"
+    february: "fevereiro"
+    march: "março"
+    april: "abril"
+    may: "maio"
+    june: "junho"
+    july: "julho"
+    august: "agosto"
+    september: "setembro"
+    october: "outubro"
+    november: "novembro"
+    december: "dezembro"

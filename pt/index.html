@@ -1,0 +1,1128 @@
+---
+lang: pt
+permalink: /pt/
+---
+{% assign t = site.data.i18n.pt %}
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{{ t.site.title }}</title>
+  <meta content="{{ t.site.description }}" name="description">
+  <meta content="{{ t.site.keywords }}" name="keywords">
+  <meta property="og:title" content="{{ t.site.title }}">
+  <meta property="og:description" content="{{ t.site.description }}">
+  <meta property="og:image" content="https://jorgemfs.com/assets/img/hero-bg.webp">
+  <meta property="og:url" content="https://jorgemfs.com/pt/">
+
+  {% include head-hreflang.html %}
+
+  <!-- Favicons -->
+  <link href="/assets/img/apple-touch-icon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Minimal custom styles -->
+  <style>
+    /* Typed.js cursor */
+    .typed-cursor { opacity: 1; animation: blink 0.7s infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* Email obfuscation */
+    [data-text]::after { content: attr(data-text); }
+
+    /* Smooth scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+    .dark ::-webkit-scrollbar-thumb { background: #374151; }
+
+    /* Portfolio filter active state for Isotope */
+    .filter-active { background: #111827 !important; color: white !important; }
+    .dark .filter-active { background: white !important; color: #111827 !important; }
+
+    /* Portfolio: Use CSS Grid on mobile, Isotope on desktop */
+    @media (max-width: 767px) {
+      .portfolio-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        position: relative !important;
+        height: auto !important;
+      }
+      .portfolio-item {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        margin: 0 !important;
+        width: 100% !important;
+        transform: none !important;
+      }
+    }
+    @media (max-width: 400px) {
+      .portfolio-container {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    /* Altmetric badge dark mode fix - invert only, preserve donut colors */
+    .dark .altmetric-embed { filter: invert(1); }
+    .dark .altmetric-embed svg path { filter: invert(1); }
+  </style>
+
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-2bTiM_XkGvY1gCv_2pJzp.js"></script>
+  <script>
+    window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
+    plausible.init();
+    // Track language
+    plausible('pageview', {props: {lang: 'pt'}});
+  </script>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jorge Miguel Silva",
+    "givenName": "Jorge Miguel",
+    "familyName": "Silva",
+    "jobTitle": "Investigador de Pós-Doutoramento",
+    "url": "https://jorgemfs.com",
+    "image": "https://jorgemfs.com/assets/img/profile-img.webp",
+    "email": "jorge.miguel.ferreira.silva@ua.pt",
+    "inLanguage": "pt",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "IEETA - Instituto de Engenharia Eletrónica e Informática de Aveiro",
+      "url": "https://www.ieeta.pt"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidade de Aveiro",
+        "url": "https://www.ua.pt"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidade do Porto - FEUP",
+        "url": "https://www.fe.up.pt"
+      }
+    ],
+    "sameAs": [
+      "https://twitter.com/MiguelFSilva1",
+      "https://github.com/jorgeMFS",
+      "https://www.linkedin.com/in/jorge-miguel-ferreira-da-silva/",
+      "https://scholar.google.com/citations?user=N6ZzRPEAAAAJ",
+      "https://orcid.org/0000-0002-6331-6091"
+    ],
+    "knowsAbout": ["Bioinformática", "Genómica", "Compressão de Dados", "Aprendizagem Federada", "Machine Learning"],
+    "award": ["Vencedor BioASQ Challenge 2023", "IEEE CBMS 2018 Melhor Artigo de Estudante"]
+  }
+  </script>
+</head>
+
+<body class="font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+  <!-- Mobile Nav Backdrop -->
+  <div id="nav-backdrop" class="lg:hidden fixed inset-0 bg-black/50 z-30 opacity-0 invisible transition-all duration-300"></div>
+
+  <!-- Mobile Nav Toggle -->
+  <button class="lg:hidden fixed top-4 right-4 z-50 w-11 h-11 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center shadow-lg mobile-nav-toggle">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- ======= Sidebar ======= -->
+  <header id="header" class="fixed inset-y-0 left-0 w-72 bg-gray-950 z-40 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 overflow-y-auto">
+
+    <!-- Profile -->
+    <div class="p-5 text-center">
+      <img src="/assets/img/profile_circle-img.webp" alt="Avatar do perfil"
+           class="w-20 h-20 rounded-full mx-auto border-2 border-white/20 object-cover" loading="lazy">
+      <h1 class="mt-3 text-lg font-semibold text-white">
+        <a href="/pt/" class="hover:text-gray-300 transition-colors">Jorge Miguel Silva</a>
+      </h1>
+
+      <!-- Social Links -->
+      <div class="flex flex-wrap justify-center gap-1.5 mt-3">
+        <a href="https://twitter.com/MiguelFSilva1"
+           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+          <i class="bx bxl-twitter text-sm"></i>
+        </a>
+        <a href="https://github.com/jorgeMFS"
+           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+          <i class="bx bxl-github text-sm"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/jorge-miguel-ferreira-da-silva/"
+           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+          <i class="bx bxl-linkedin text-sm"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=N6ZzRPEAAAAJ&hl=en"
+           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+          <i class="bx bxl-google text-sm"></i>
+        </a>
+        <a href="https://orcid.org/0000-0002-6331-6091"
+           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors">
+          <iconify-icon icon="academicons:orcid" style="font-size: 14px;"></iconify-icon>
+        </a>
+        <a href="https://www.ua.pt/pt/p/80514776"
+           class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors" title="Perfil UA">
+          <i class="bi bi-mortarboard text-sm"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-3">
+      <!-- Main sections -->
+      <div class="space-y-0.5">
+        <a href="#hero" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto active">
+          <i class="bx bx-home"></i>
+          <span>{{ t.nav.home }}</span>
+        </a>
+        <a href="#about" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-user"></i>
+          <span>{{ t.nav.about }}</span>
+        </a>
+        <a href="#projects" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-briefcase"></i>
+          <span>{{ t.nav.projects }}</span>
+        </a>
+        <a href="#selected_publications" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-book"></i>
+          <span>{{ t.nav.publications }}</span>
+        </a>
+        <a href="#portfolio" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bi bi-cpu"></i>
+          <span>{{ t.nav.portfolio }}</span>
+        </a>
+        <a href="#skills" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-code-alt"></i>
+          <span>{{ t.nav.skills }}</span>
+        </a>
+        <a href="#resume" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-file-blank"></i>
+          <span>{{ t.nav.resume }}</span>
+        </a>
+        <a href="#contact" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors scrollto">
+          <i class="bx bx-envelope"></i>
+          <span>{{ t.nav.contact }}</span>
+        </a>
+      </div>
+
+      <!-- Separator -->
+      <div class="my-4 border-t border-gray-700"></div>
+
+      <!-- Other pages -->
+      <div class="space-y-0.5">
+        <span class="px-3 py-1 text-xs font-medium text-gray-500 uppercase tracking-wider">{{ t.nav.pages }}</span>
+        <a href="/federated-learning" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+          <i class="bi bi-diagram-3"></i>
+          <span>{{ t.nav.federated_learning }}</span>
+        </a>
+        <a href="/pt/blog/" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+          <i class="bi bi-journal-text"></i>
+          <span>{{ t.nav.blog }}</span>
+        </a>
+      </div>
+
+      <!-- Separator -->
+      <div class="my-4 border-t border-gray-700"></div>
+
+      <!-- Language Switcher -->
+      <div class="px-3 py-2">
+        <div class="flex items-center gap-2">
+          <a href="/en/" class="px-3 py-1.5 rounded-md text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 transition-colors" onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+          <a href="/pt/" class="px-3 py-1.5 rounded-md text-sm font-medium bg-white/20 text-white" onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <div class="p-3 border-t border-gray-800">
+      <button id="theme-toggle"
+              class="w-full px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
+              aria-label="Alternar tema">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="sun-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="moon-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <span>{{ t.theme.toggle }}</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= Main Content ======= -->
+  <main id="main" class="lg:ml-72 min-h-screen">
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="min-h-[100dvh] min-h-screen relative overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 z-0">
+        <img src="/assets/img/hero-bg.webp" alt="" class="w-full h-full object-cover object-[70%_center] md:object-center" loading="eager">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+      </div>
+
+      <!-- Content - Bottom Left -->
+      <div class="absolute bottom-24 sm:bottom-20 lg:bottom-24 left-4 lg:left-8 z-10 max-w-xl px-2 sm:px-0 pb-[env(safe-area-inset-bottom)]" data-aos="fade-up">
+        <h1 class="text-3xl sm:text-4xl lg:text-6xl font-semibold tracking-tight text-white mb-3">
+          Jorge Miguel Silva
+        </h1>
+        <p class="text-base sm:text-lg lg:text-xl text-white/80">
+          {{ t.hero.intro }} <span class="typed border-b-2 border-white/40 pb-1" data-typed-items="{{ t.hero.typed_items }}"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12" data-aos="fade-up">
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.about.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            {{ t.about.intro }}
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-12">
+          <!-- Photo -->
+          <div data-aos="fade-right">
+            <img src="/assets/img/profile-img.webp" alt="Retrato de Jorge Miguel Silva"
+                 class="rounded-xl w-full max-w-[280px] mx-auto lg:mx-0" loading="lazy">
+          </div>
+
+          <!-- Info -->
+          <div class="space-y-6" data-aos="fade-left">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ t.about.job_title }}</h3>
+              <p class="text-gray-500 dark:text-gray-400 italic mt-1">{{ t.about.basic_info }}</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.city }}:</strong>
+                <span>{{ t.about.city_value }}</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.degree }}:</strong>
+                <span>{{ t.about.degree_value }}</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.age }}:</strong>
+                <span>{{ t.about.age_value }}</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.workplace }}:</strong>
+                <span>{{ t.about.workplace_value }}</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.phone }}:</strong>
+                <span>{{ t.about.phone_value }}</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.email }}:</strong>
+                <span data-text="jorge.miguel.ferreira.silva@ua.pt"></span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.freelance }}:</strong>
+                <span>{{ t.about.freelance_value }}</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
+                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
+                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.hobbies }}:</strong>
+                <span>{{ t.about.hobbies_value }}</span>
+              </div>
+            </div>
+
+            <p class="text-gray-600 dark:text-gray-400 pt-2">
+              {{ t.about.collaboration }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Projects Section ======= -->
+    <section id="projects" class="py-16 lg:py-20 bg-white dark:bg-gray-900">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-10" data-aos="fade-up">
+          <h2 class="text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white mb-2">{{ t.projects.title }}</h2>
+          <p class="text-gray-500 dark:text-gray-500 text-sm">{{ t.projects.subtitle }}</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" data-aos="fade-up">
+
+          <!-- GDI -->
+          <a href="https://gdi.onemilliongenomes.eu" target="_blank"
+             class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
+            <img src="/assets/img/projects/gdi-logo.svg" alt="GDI - Genomic Data Infrastructure"
+                 class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
+          </a>
+
+          <!-- FAIR-FEGA -->
+          <a href="https://elixir-europe.org/activities/fair-fega-accelerating-high-quality-fair-data-deposition-federated-ega" target="_blank"
+             class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
+            <img src="/assets/img/projects/fega-logo.png" alt="FAIR-FEGA"
+                 class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
+          </a>
+
+          <!-- Fed-A-Crate (ELIXIR) -->
+          <a href="https://elixir-europe.github.io/fed-a-crate/" target="_blank"
+             class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
+            <img src="/assets/img/projects/fed-a-crate-logo-light.svg" alt="Fed-A-Crate - ELIXIR"
+                 class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 dark:hidden" loading="lazy">
+            <img src="/assets/img/projects/fed-a-crate-logo-dark.svg" alt="Fed-A-Crate - ELIXIR"
+                 class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 hidden dark:block" loading="lazy">
+          </a>
+
+          <!-- SCREEN-DR -->
+          <a href="https://www.cmuportugal.org/screen-dr" target="_blank"
+             class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
+            <img src="/assets/img/projects/screen-dr-logo.png" alt="SCREEN-DR - CMU Portugal"
+                 class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
+          </a>
+
+          <!-- EHDEN -->
+          <a href="https://www.ehden.eu" target="_blank"
+             class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
+            <img src="/assets/img/projects/ehden-logo.png" alt="EHDEN"
+                 class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
+          </a>
+
+          <!-- EMIF -->
+          <a href="https://www.emif.eu" target="_blank"
+             class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
+            <img src="/assets/img/projects/emif-logo.png" alt="EMIF"
+                 class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Facts Section ======= -->
+    <section id="facts" class="py-16 bg-gray-50 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 text-center">
+
+          <div data-aos="fade-up">
+            <div class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter">12</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">{{ t.facts.journal_publications }}</p>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+              <span data-purecounter-start="0" data-purecounter-end="28" data-purecounter-duration="1" class="purecounter">28</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">{{ t.facts.conference_papers }}</p>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+              <span data-purecounter-start="0" data-purecounter-end="38" data-purecounter-duration="1" class="purecounter">38</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">{{ t.facts.repositories }}</p>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="300">
+            <div class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+              <span data-purecounter-start="0" data-purecounter-end="331" data-purecounter-duration="1" class="purecounter">331</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">{{ t.facts.citations }}</p>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="400">
+            <div class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+              <span data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="1" class="purecounter">9</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">{{ t.facts.h_index }}</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Selected Publications Section ======= -->
+    <section id="selected_publications" class="py-20 lg:py-32 bg-white dark:bg-gray-900">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12" data-aos="fade-up">
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.publications.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400">{{ t.publications.subtitle }}</p>
+        </div>
+
+        <div class="space-y-6">
+
+          <!-- Publication 1 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1109/CBMS65348.2025.00159" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                A Federated Random Forest Solution for Secure Distributed Machine Learning
+              </h3>
+              <a href="https://doi.org/10.1109/CBMS65348.2025.00159" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">CBMS, 2025</a>
+              <p class="text-sm text-gray-500 mt-2">A. Cotorobai, J. M. Silva, J. L. Oliveira</p>
+            </div>
+          </article>
+
+          <!-- Publication 2 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giae086" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                AltaiR: a C toolkit for alignment-free and temporal analysis of multi-FASTA data
+              </h3>
+              <a href="https://doi.org/10.1093/gigascience/giae086" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2024</a>
+              <p class="text-sm text-gray-500 mt-2">J. M. Silva, A. J. Pinho, D. Prata</p>
+            </div>
+          </article>
+
+          <!-- Publication 3 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1016/j.artmed.2024.102948" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                Enhancing metagenomic classification with compression-based features
+              </h3>
+              <a href="https://doi.org/10.1016/j.artmed.2024.102948" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Artificial Intelligence in Medicine, 2024</a>
+              <p class="text-sm text-gray-500 mt-2">J. M. Silva, J. R. Almeida</p>
+            </div>
+          </article>
+
+          <!-- Publication 4 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giad101" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                AlcoR: alignment-free simulation, mapping, and visualization of low-complexity regions in biological data
+              </h3>
+              <a href="https://doi.org/10.1093/gigascience/giad101" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2023</a>
+              <p class="text-sm text-gray-500 mt-2">J. M. Silva, W. Qi, A. J. Pinho, D. Pratas</p>
+            </div>
+          </article>
+
+          <!-- Publication 5 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giac079" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                The complexity landscape of viral genomes
+              </h3>
+              <a href="https://doi.org/10.1093/gigascience/giac079" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2022</a>
+              <p class="text-sm text-gray-500 mt-2">J. M. Silva, D. Pratas, T. Caetano, S. Matos</p>
+            </div>
+          </article>
+
+          <!-- Publication 6 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" data-hide-no-mentions="true" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                Feature-Based Classification of Archaeal Sequences Using Compression-Based Methods
+              </h3>
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">ibPRIA, 2022</a>
+              <p class="text-sm text-gray-500 mt-2">J. M. Silva, D. Pratas, T. Caetano, S. Matos</p>
+            </div>
+          </article>
+
+          <!-- Publication 7 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1016/j.patcog.2021.107864" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                Automatic analysis of artistic paintings using information-based measures
+              </h3>
+              <a href="https://doi.org/10.1016/j.patcog.2021.107864" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Pattern Recognition, 2021</a>
+              <p class="text-sm text-gray-500 mt-2">J. M. Silva, D. Pratas, R. Antunes, S. Matos, A. J. Pinho</p>
+            </div>
+          </article>
+
+          <!-- Publication 8 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/bioinformatics/btaa686" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                Persistent minimal sequences of SARS-CoV-2
+              </h3>
+              <a href="https://doi.org/10.1093/bioinformatics/btaa686" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Bioinformatics, 2020</a>
+              <p class="text-sm text-gray-500 mt-2">D. Pratas, J. M. Silva</p>
+            </div>
+          </article>
+
+          <!-- Publication 9 -->
+          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
+            <div class="hidden sm:block shrink-0">
+              <div data-badge-popover="right" data-badge-type="donut" data-doi="https://doi.org/10.3390/e22010105" data-hide-no-mentions="true" class="altmetric-embed"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                Statistical Complexity Analysis of Turing Machine tapes with Fixed Algorithmic Complexity Using the Best-Order Markov Model
+              </h3>
+              <a href="https://doi.org/10.3390/e22010105" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Entropy, 2020</a>
+              <p class="text-sm text-gray-500 mt-2">J. M. Silva, E. Pinho, S. Matos, D. Pratas</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- View More Links -->
+        <div class="mt-12 text-center" data-aos="fade-up">
+          <p class="text-gray-500 mb-6">{{ t.publications.view_more }}</p>
+          <div class="flex justify-center gap-4">
+            <a href="https://orcid.org/0000-0002-6331-6091"
+               class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 transition-colors">
+              <iconify-icon icon="academicons:orcid" style="font-size: 24px;"></iconify-icon>
+            </a>
+            <a href="https://scholar.google.com/citations?user=N6ZzRPEAAAAJ&hl=en"
+               class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 transition-colors">
+              <iconify-icon icon="academicons:google-scholar" style="font-size: 24px;"></iconify-icon>
+            </a>
+            <a href="https://www.researchgate.net/profile/Jorge_Miguel_Silva"
+               class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 transition-colors">
+              <iconify-icon icon="academicons:researchgate" style="font-size: 24px;"></iconify-icon>
+            </a>
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=57194129937"
+               class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 transition-colors">
+              <iconify-icon icon="academicons:scopus" style="font-size: 24px;"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-5" data-aos="fade-up">
+          <div>
+            <h2 class="text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.portfolio.title }}</h2>
+            <p class="text-gray-500 dark:text-gray-500 text-sm mt-1">{{ t.portfolio.subtitle }}</p>
+          </div>
+          <!-- Filters inline with title -->
+          <ul id="portfolio-flters" class="flex flex-wrap gap-1.5">
+            <li data-filter="*" class="filter-active px-2.5 py-1 text-xs font-medium rounded-md cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">{{ t.portfolio.filter_all }}</li>
+            <li data-filter=".filter-app" class="px-2.5 py-1 text-xs font-medium rounded-md cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">{{ t.portfolio.filter_repos }}</li>
+            <li data-filter=".filter-web" class="px-2.5 py-1 text-xs font-medium rounded-md cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">{{ t.portfolio.filter_web }}</li>
+          </ul>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-container flex flex-wrap gap-2 justify-center" data-aos="fade-up">
+
+          <!-- VCFX Project Page -->
+          <a href="/vcfx" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/vcfx_repo.webp" alt="VCFX - VCF Manipulation Toolkit"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">VCFX</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.website }}</p>
+            </div>
+          </a>
+
+          <!-- PhenoQC Repo -->
+          <a href="https://github.com/jorgeMFS/PhenoQC" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/phenoqc_repo.webp" alt="PhenoQC repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">PhenoQC</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+          <!-- HYMET Repo -->
+          <a href="https://github.com/ieeta-pt/HYMET" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/hymet_repo.webp" alt="HYMET repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">HYMET</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+          <!-- BioChef Repo -->
+          <a href="https://github.com/ieeta-pt/Biochef" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/biochef_repo.webp" alt="BioChef repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">BioChef</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+          <!-- BioChef Website -->
+          <a href="https://ieeta-pt.github.io/Biochef/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/biochef_home.webp" alt="BioChef website"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">BioChef</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.website }}</p>
+            </div>
+          </a>
+
+          <!-- fed_rf Repo -->
+          <a href="https://github.com/ieeta-pt/fed_rf" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/fed_rf_repo.webp" alt="fed_rf repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">fed_rf</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+          <!-- PANTHER Repo -->
+          <a href="https://github.com/asilab/panther" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/panther_repo.webp" alt="PANTHER repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">PANTHER</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+          <!-- PANTHER Website -->
+          <a href="http://panther.web.ua.pt/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/panther_home.webp" alt="PANTHER website"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">PANTHER</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.website }}</p>
+            </div>
+          </a>
+
+          <!-- CANVAS Repo -->
+          <a href="https://github.com/jorgeMFS/canvas" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/canvas_repo.webp" alt="CANVAS repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">CANVAS</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+          <!-- CANVAS Website -->
+          <a href="https://asilab.github.io/canvas/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/canvas_home.webp" alt="CANVAS website"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">CANVAS</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.website }}</p>
+            </div>
+          </a>
+
+          <!-- TMCompression Repo -->
+          <a href="https://github.com/asilab/TMCompression" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/tmcom_repo.webp" alt="TMCompression repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">TMCompression</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+          <!-- Archaea2 Repo -->
+          <a href="https://github.com/jorgeMFS/Archaea2" target="_blank" class="portfolio-item filter-app group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+            <img src="/assets/img/portfolio/archaea2_repo.webp" alt="Archaea2 repository"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 text-white">
+              <h3 class="font-medium text-sm leading-tight">Archaea2</h3>
+              <p class="text-xs text-white/60">{{ t.portfolio.repository }}</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="py-20 lg:py-32 bg-white dark:bg-gray-900">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12" data-aos="fade-up">
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.skills.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400">{{ t.skills.subtitle }}</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+
+          <!-- Left Column -->
+          <div class="space-y-8" data-aos="fade-up">
+
+            <!-- Programming Languages -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{{ t.skills.programming_languages }}</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">C/C++</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">Python</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">Bash</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">Perl</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">Java</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">JavaScript</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">R</span>
+              </div>
+            </div>
+
+            <!-- Research Areas -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{{ t.skills.research_areas }}</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Information Theory</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Data Compression</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Genomics</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Bioinformatics</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Machine Learning</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Metagenomics</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Medical Imaging</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-8" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Technologies & Tools -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{{ t.skills.technologies_tools }}</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">Docker</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">Kubernetes</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">Git</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">HPC</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">React</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">WebAssembly</span>
+                <span class="px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-full">CI/CD</span>
+              </div>
+            </div>
+
+            <!-- Domain Expertise -->
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{{ t.skills.domain_expertise }}</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Federated Learning</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">FAIR Data</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Variant Calling</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Genome Assembly</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Deep Learning</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Privacy-Preserving ML</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="py-20 lg:py-32 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4" data-aos="fade-up">
+          <div>
+            <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.resume.title }}</h2>
+            <p class="text-gray-600 dark:text-gray-400">{{ t.resume.subtitle }}</p>
+          </div>
+          <a href="/cv.html" target="_blank"
+             class="inline-flex items-center justify-center gap-2 px-4 py-2 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded-lg hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">
+            <i class="bi bi-file-text"></i>
+            {{ t.resume.view_cv }}
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+
+          <!-- Left Column -->
+          <div data-aos="fade-up">
+
+            <!-- Summary -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6">{{ t.resume.summary }}</h3>
+            <div class="mb-8 pl-6 border-l-2 border-gray-200 dark:border-gray-600">
+              <h4 class="font-semibold text-gray-900 dark:text-white">Jorge Miguel Silva</h4>
+              <p class="text-gray-600 dark:text-gray-400 mt-2 italic">
+                {{ t.resume.summary_text }}
+              </p>
+              <ul class="mt-4 space-y-1 text-gray-600 dark:text-gray-400 text-sm">
+                <li>43 publications • h-index 8 • 200+ citations</li>
+                <li>IEETA, Aveiro University</li>
+                <li><span data-text="jorge.miguel.ferreira.silva@ua.pt"></span></li>
+              </ul>
+            </div>
+
+            <!-- Education -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6">{{ t.resume.education }}</h3>
+            <div class="space-y-6 border-l-2 border-gray-200 dark:border-gray-600 pl-6">
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.phd_title }}</h4>
+                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">2017 - 2023</span>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 italic">{{ t.resume.phd_institution }}</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
+                  {{ t.resume.phd_thesis }}
+                </p>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.msc_title }}</h4>
+                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">2010 - 2016</span>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 italic">{{ t.resume.msc_institution }}</p>
+              </div>
+
+            </div>
+
+            <!-- Awards -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6 mt-8">{{ t.resume.awards }}</h3>
+            <div class="space-y-4 border-l-2 border-gray-200 dark:border-gray-600 pl-6">
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-amber-500"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.bioasq_title }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.bioasq_desc }}</p>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-amber-500"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.cbms_title }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.cbms_desc }}</p>
+              </div>
+
+            </div>
+
+            <!-- Leadership -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6 mt-8">{{ t.resume.leadership }}</h3>
+            <div class="space-y-4 border-l-2 border-gray-200 dark:border-gray-600 pl-6">
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-blue-500"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.fega_coordinator }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.fega_org }}</p>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-blue-500"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.fhd_coordinator }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.fhd_org }}</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div data-aos="fade-up" data-aos-delay="100">
+
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6">{{ t.resume.professional_experience }}</h3>
+            <div class="space-y-6 border-l-2 border-gray-200 dark:border-gray-600 pl-6">
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.postdoc_title }}</h4>
+                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">2023 - Present</span>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 italic">{{ t.resume.postdoc_institution }}</p>
+                <ul class="mt-3 space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+                  <li>• {{ t.resume.postdoc_task1 }}</li>
+                  <li>• {{ t.resume.postdoc_task2 }}</li>
+                  <li>• {{ t.resume.postdoc_task3 }}</li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.phd_researcher_title }}</h4>
+                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">2017 - 2023</span>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 italic">{{ t.resume.phd_researcher_institution }}</p>
+                <ul class="mt-3 space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+                  <li>• {{ t.resume.phd_task1 }}</li>
+                  <li>• {{ t.resume.phd_task2 }}</li>
+                  <li>• {{ t.resume.phd_task3 }}</li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.research_fellow_title }}</h4>
+                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">2016 - 2017</span>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 italic">{{ t.resume.research_fellow_institution }}</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">• {{ t.resume.research_fellow_task }}</p>
+              </div>
+
+            </div>
+
+            <!-- Academic Service -->
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6 mt-8">{{ t.resume.academic_service }}</h3>
+            <div class="space-y-4 border-l-2 border-gray-200 dark:border-gray-600 pl-6">
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-400"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.programme_committee }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.programme_committee_venues }}</p>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-400"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.journal_reviewer }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.journal_reviewer_venues }}</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="py-20 lg:py-32 bg-white dark:bg-gray-900">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12" data-aos="fade-up">
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.contact.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400">{{ t.contact.subtitle }}</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12" data-aos="fade-in">
+
+          <!-- Info -->
+          <div class="space-y-6">
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
+                <i class="bi bi-geo-alt text-xl text-gray-600 dark:text-gray-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.location }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 mt-1">{{ t.contact.location_value }}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
+                <i class="bi bi-envelope text-xl text-gray-600 dark:text-gray-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.email }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 mt-1"><span data-text="jorge.miguel.ferreira.silva@ua.pt"></span></p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
+                <i class="bi bi-telephone text-xl text-gray-600 dark:text-gray-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.phone }}</h4>
+                <p class="text-gray-600 dark:text-gray-400 mt-1">(+351) 234 370 500</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Map -->
+          <div class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
+            <iframe src="https://maps.google.com/maps?q=IEETA,&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    class="w-full h-80" frameborder="0" allowfullscreen loading="lazy"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to top -->
+  <a href="#hero" class="back-to-top fixed bottom-6 right-6 w-11 h-11 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:-translate-y-1 z-50">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </a>
+
+  <!-- Vendor JS Files -->
+  <script defer src="//cdn.plu.mx/widget-popup.js"></script>
+  <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/typed.js/typed.min.js"></script>
+  <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+  <script defer src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

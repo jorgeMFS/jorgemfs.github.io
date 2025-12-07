@@ -1,0 +1,49 @@
+{% comment %}
+  SEO hreflang tags for multi-language support
+  Generates canonical and alternate language links
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: site.default_lang | default: "en" %}
+{% assign base_url = site.url | default: "https://jorgemfs.com" %}
+
+{% comment %} Calculate current and alternate URLs {% endcomment %}
+{% assign current_path = page.url | default: "/" %}
+
+{% comment %} Determine the path without language prefix {% endcomment %}
+{% if current_path contains "/en/" %}
+  {% assign path_without_lang = current_path | replace: "/en/", "/" %}
+{% elsif current_path contains "/pt/" %}
+  {% assign path_without_lang = current_path | replace: "/pt/", "/" %}
+{% elsif current_path == "/en/" or current_path == "/en" %}
+  {% assign path_without_lang = "/" %}
+{% elsif current_path == "/pt/" or current_path == "/pt" %}
+  {% assign path_without_lang = "/" %}
+{% else %}
+  {% assign path_without_lang = current_path %}
+{% endif %}
+
+{% comment %} Build full URLs for each language {% endcomment %}
+{% assign en_url = base_url | append: "/en" | append: path_without_lang %}
+{% assign pt_url = base_url | append: "/pt" | append: path_without_lang %}
+{% assign canonical_url = base_url | append: current_path %}
+
+{% comment %} Clean up double slashes {% endcomment %}
+{% assign en_url = en_url | replace: "//en", "/en" | replace: "///", "/" %}
+{% assign pt_url = pt_url | replace: "//pt", "/pt" | replace: "///", "/" %}
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ canonical_url }}">
+
+<!-- Language alternates -->
+<link rel="alternate" hreflang="en" href="{{ en_url }}">
+<link rel="alternate" hreflang="pt" href="{{ pt_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ base_url }}/en/">
+
+<!-- Open Graph locale -->
+{% if current_lang == "pt" %}
+<meta property="og:locale" content="pt_PT">
+<meta property="og:locale:alternate" content="en_US">
+{% else %}
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_PT">
+{% endif %}
