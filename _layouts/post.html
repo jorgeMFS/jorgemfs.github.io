@@ -402,8 +402,23 @@
           <a href="/{{ lang }}/#contact">{{ t.nav.contact }}</a>
         </nav>
         <div class="lang-switch">
-          <a href="/en/blog/{{ page.url | remove_first: '/' | remove_first: lang | remove_first: '/blog/' }}" {% if lang == 'en' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
-          <a href="/pt/blog/{{ page.url | remove_first: '/' | remove_first: lang | remove_first: '/blog/' }}" {% if lang == 'pt' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+          {% if page.ref %}
+            {% assign en_post = site.posts | where: "ref", page.ref | where: "lang", "en" | first %}
+            {% assign pt_post = site.posts | where: "ref", page.ref | where: "lang", "pt" | first %}
+            {% if en_post %}
+              <a href="{{ en_post.url }}" {% if lang == 'en' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+            {% else %}
+              <a href="/en/blog/" {% if lang == 'en' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+            {% endif %}
+            {% if pt_post %}
+              <a href="{{ pt_post.url }}" {% if lang == 'pt' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+            {% else %}
+              <a href="/pt/blog/" {% if lang == 'pt' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+            {% endif %}
+          {% else %}
+            <a href="/en/blog/" {% if lang == 'en' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+            <a href="/pt/blog/" {% if lang == 'pt' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
+          {% endif %}
         </div>
       </div>
     </div>
