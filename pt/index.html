@@ -60,11 +60,13 @@ permalink: /pt/
     /* Email obfuscation */
     [data-text]::after { content: attr(data-text); }
 
-    /* Smooth scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
-    .dark ::-webkit-scrollbar-thumb { background: #374151; }
+    /* Hide scrollbar but keep functionality */
+    html { scrollbar-width: none; -ms-overflow-style: none; }
+    html::-webkit-scrollbar { display: none; }
+
+    /* Hide sidebar nav scrollbar */
+    nav.overflow-y-auto { scrollbar-width: none; -ms-overflow-style: none; }
+    nav.overflow-y-auto::-webkit-scrollbar { display: none; }
 
     /* Portfolio filter active state for Isotope */
     .filter-active { background: #111827 !important; color: white !important; }
