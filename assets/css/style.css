@@ -61,13 +61,67 @@ html {
 # Print Styles
 --------------------------------------------------------------*/
 @media print {
+  /* Hide non-essential elements */
   #header,
   .back-to-top,
-  .mobile-nav-toggle {
+  .mobile-nav-toggle,
+  .share-buttons,
+  .lang-switch,
+  #nav-backdrop,
+  iframe,
+  .portfolio-filters,
+  .typed-cursor {
     display: none !important;
+  }
+
+  /* Reset layout */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
   }
 
   main {
     margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Show URLs for external links */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+    word-break: break-all;
+  }
+
+  /* Don't show URL for internal links */
+  a[href^="/"]:after,
+  a[href^="#"]:after {
+    content: none;
+  }
+
+  /* Prevent page breaks inside important elements */
+  section,
+  article,
+  .publication-item,
+  .project-card {
+    page-break-inside: avoid;
+  }
+
+  /* Page breaks before major sections */
+  section {
+    page-break-before: auto;
+  }
+
+  /* Ensure images print properly */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Reset dark mode for printing */
+  .dark {
+    background: white !important;
+    color: black !important;
   }
 }

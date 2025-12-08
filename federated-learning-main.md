@@ -210,7 +210,7 @@ The original LightSecAgg design [13] details bandwidth
 savings compared to traditional secure aggregation protocols.
 
 {% include figure.html
-   path="assets/img/federated_learning/fl_topology.png"
+   path="assets/img/federated_learning/fl_topology.webp"
    caption="Figure 1. Federated learning topology showing a central
    coordinator and distributed clients"
    alt="Diagram of a star‑topology FL system with one aggregator and N client

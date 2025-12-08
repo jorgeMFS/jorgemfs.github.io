@@ -1,0 +1,16 @@
+{
+  "name": "Jorge Miguel Silva",
+  "short_name": "JorgeMFS",
+  "description": "PhD Candidate in Bioinformatics - Genomics, Data Compression, Federated Learning",
+  "start_url": "/en/",
+  "display": "standalone",
+  "background_color": "#f6f6f8",
+  "theme_color": "#1a4bff",
+  "icons": [
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

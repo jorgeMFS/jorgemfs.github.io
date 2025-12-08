@@ -18,12 +18,29 @@ permalink: /en/
   <meta property="og:description" content="{{ t.site.description }}">
   <meta property="og:image" content="https://jorgemfs.com/assets/img/hero-bg.webp">
   <meta property="og:url" content="https://jorgemfs.com/en/">
+  <meta property="og:type" content="profile">
+  <meta property="profile:first_name" content="Jorge">
+  <meta property="profile:last_name" content="Silva">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@jaborges21">
+  <meta name="twitter:creator" content="@jaborges21">
+  <meta name="twitter:title" content="{{ t.site.title }}">
+  <meta name="twitter:description" content="{{ t.site.description }}">
+  <meta name="twitter:image" content="https://jorgemfs.com/assets/img/hero-bg.webp">
 
   {% include head-hreflang.html %}
 
   <!-- Favicons -->
   <link href="/assets/img/apple-touch-icon.png" rel="icon">
   <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#1a4bff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -155,12 +172,17 @@ permalink: /en/
 
 <body class="font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
 
+  <!-- Skip to main content link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">
+    Skip to main content
+  </a>
+
   <!-- Mobile Nav Backdrop -->
   <div id="nav-backdrop" class="lg:hidden fixed inset-0 bg-black/50 z-30 opacity-0 invisible transition-all duration-300"></div>
 
   <!-- Mobile Nav Toggle -->
-  <button class="lg:hidden fixed top-4 right-4 z-50 w-11 h-11 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center shadow-lg mobile-nav-toggle">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <button aria-label="Toggle navigation menu" class="lg:hidden fixed top-4 right-4 z-50 w-11 h-11 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center shadow-lg mobile-nav-toggle">
+    <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
@@ -290,8 +312,8 @@ permalink: /en/
     <section id="hero" class="min-h-[100dvh] min-h-screen relative overflow-hidden">
       <!-- Background -->
       <div class="absolute inset-0 z-0">
-        <img src="/assets/img/hero-bg.webp" alt="" class="w-full h-full object-cover object-[70%_center] md:object-center" loading="eager">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+        <img src="/assets/img/hero-bg.webp" alt="" width="1920" height="1080" class="w-full h-full object-cover object-[70%_center] md:object-center" loading="eager">
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
       </div>
 
       <!-- Content - Bottom Left -->
@@ -402,7 +424,7 @@ permalink: /en/
           <!-- FAIR-FEGA -->
           <a href="https://elixir-europe.org/activities/fair-fega-accelerating-high-quality-fair-data-deposition-federated-ega" target="_blank"
              class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
-            <img src="/assets/img/projects/fega-logo.png" alt="FAIR-FEGA"
+            <img src="/assets/img/projects/fega-logo.webp" alt="FAIR-FEGA"
                  class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
           </a>
 
@@ -418,7 +440,7 @@ permalink: /en/
           <!-- SCREEN-DR -->
           <a href="https://www.cmuportugal.org/screen-dr" target="_blank"
              class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
-            <img src="/assets/img/projects/screen-dr-logo.png" alt="SCREEN-DR - CMU Portugal"
+            <img src="/assets/img/projects/screen-dr-logo.webp" alt="SCREEN-DR - CMU Portugal"
                  class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
           </a>
 
@@ -432,7 +454,7 @@ permalink: /en/
           <!-- EMIF -->
           <a href="https://www.emif.eu" target="_blank"
              class="group flex items-center justify-center p-4 h-24 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:shadow-lg">
-            <img src="/assets/img/projects/emif-logo.png" alt="EMIF"
+            <img src="/assets/img/projects/emif-logo.webp" alt="EMIF"
                  class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy">
           </a>
 
@@ -746,7 +768,7 @@ permalink: /en/
           </a>
 
           <!-- PANTHER Website -->
-          <a href="http://panther.web.ua.pt/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
+          <a href="https://panther.web.ua.pt/" target="_blank" class="portfolio-item filter-web group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 w-[calc(50%-4px)] md:w-[calc(33.333%-6px)] lg:w-[calc(25%-6px)]">
             <img src="/assets/img/portfolio/panther_home.webp" alt="PANTHER website"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 group-hover:opacity-100 transition-opacity"></div>
@@ -1090,7 +1112,7 @@ permalink: /en/
 
           <!-- Map -->
           <div class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
-            <iframe src="https://maps.google.com/maps?q=IEETA,&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            <iframe title="IEETA Location Map" src="https://maps.google.com/maps?q=IEETA,&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     class="w-full h-80" frameborder="0" allowfullscreen loading="lazy"></iframe>
           </div>
 
@@ -1101,25 +1123,25 @@ permalink: /en/
   </main>
 
   <!-- Back to top -->
-  <a href="#hero" class="back-to-top fixed bottom-6 right-6 w-11 h-11 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:-translate-y-1 z-50">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <a href="#hero" aria-label="Back to top" class="back-to-top fixed bottom-6 right-6 w-11 h-11 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:-translate-y-1 z-50">
+    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
     </svg>
   </a>
 
   <!-- Vendor JS Files -->
-  <script defer src="//cdn.plu.mx/widget-popup.js"></script>
-  <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="/assets/vendor/aos/aos.js"></script>
-  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/assets/vendor/typed.js/typed.min.js"></script>
-  <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script defer src="https://cdn.plu.mx/widget-popup.js"></script>
+  <script defer src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script defer src="/assets/vendor/aos/aos.js"></script>
+  <script defer src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script defer src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script defer src="/assets/vendor/typed.js/typed.min.js"></script>
+  <script defer src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script defer src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
-  <script defer src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+  <script defer src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="/assets/js/main.js"></script>
+  <script defer src="/assets/js/main.js"></script>
 </body>
 
 </html>

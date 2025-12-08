@@ -155,6 +155,8 @@ blog:
   back_to_essays: "Back to essays"
   read_article: "Read article"
   written_by: "Written by"
+  share: "Share"
+  link_copied: "Link copied!"
 
 # Footer / misc
 misc:
