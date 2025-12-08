@@ -1,6 +1,6 @@
 ---
 title: Federated learning — operational practices
-layout: page
+layout: docs
 parent: federated_learning
 page_id: federated_learning_ops
 summary: MLOps, monitoring, reproducibility and operational best practices for federated learning systems.

@@ -1,6 +1,6 @@
 <figure>
-  <img src="{{ '/' | append: path | absolute_url }}" alt="{{ alt }}">
-  {% if caption %}
-  <figcaption>{{ caption }}</figcaption>
+  <img src="/{{ include.path | remove_first: '/' }}" alt="{{ include.alt }}" loading="lazy">
+  {% if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
   {% endif %}
 </figure>

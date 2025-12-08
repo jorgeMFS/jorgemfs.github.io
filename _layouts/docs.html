@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Jorge Miguel Silva</title>
+    <meta name="description" content="{{ page.summary | default: page.description }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ page.title }} | Jorge Miguel Silva">
+    <meta property="og:description" content="{{ page.summary | default: page.description }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+
+    <!-- Favicons -->
+    <link href="/assets/img/apple-touch-icon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts - Inter + JetBrains Mono for code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                maxWidth: 'none',
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+        .dark ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Prose content styling */
+        .prose h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e5e7eb;
+            color: #111827;
+        }
+        .dark .prose h2 {
+            border-bottom-color: #374151;
+            color: #f9fafb;
+        }
+
+        .prose h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+        .dark .prose h3 { color: #f3f4f6; }
+
+        .prose h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        .dark .prose h4 { color: #e5e7eb; }
+
+        .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #4b5563;
+        }
+        .dark .prose p { color: #d1d5db; }
+
+        .prose a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .prose a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        .dark .prose a { color: #60a5fa; }
+        .dark .prose a:hover { color: #93c5fd; }
+
+        .prose ul, .prose ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        .prose ul { list-style-type: disc; }
+        .prose ol { list-style-type: decimal; }
+        .prose li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        .dark .prose li { color: #d1d5db; }
+
+        .prose code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875em;
+            background: #f3f4f6;
+            padding: 0.2em 0.4em;
+            border-radius: 0.375rem;
+            color: #be185d;
+        }
+        .dark .prose code {
+            background: #1f2937;
+            color: #f472b6;
+        }
+
+        .prose pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border: 1px solid #374151;
+        }
+        .prose pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #3b82f6;
+            background: #eff6ff;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            color: #1e40af;
+        }
+        .dark .prose blockquote {
+            background: #1e3a5f;
+            border-left-color: #60a5fa;
+            color: #bfdbfe;
+        }
+        .prose blockquote p { margin: 0; color: inherit; }
+
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th, .prose td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
+            text-align: left;
+        }
+        .dark .prose th, .dark .prose td {
+            border-color: #374151;
+        }
+        .prose th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #111827;
+        }
+        .dark .prose th {
+            background: #1f2937;
+            color: #f9fafb;
+        }
+        .prose tr:nth-child(even) { background: #f9fafb; }
+        .dark .prose tr:nth-child(even) { background: #111827; }
+
+        .prose img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            margin: 1.5rem auto;
+            display: block;
+        }
+
+        .prose hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 2.5rem 0;
+        }
+        .dark .prose hr { border-top-color: #374151; }
+
+        /* Figure styling */
+        .prose figure {
+            margin: 2rem 0;
+        }
+        .prose figcaption {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+        .dark .prose figcaption { color: #9ca3af; }
+
+        /* Tool links styling */
+        .prose a.tool {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.125rem 0.5rem;
+            background: #dbeafe;
+            border-radius: 0.375rem;
+            font-size: 0.875em;
+        }
+        .dark .prose a.tool {
+            background: #1e3a5f;
+        }
+
+        /* Active TOC link */
+        .toc-link.active {
+            color: #2563eb;
+            font-weight: 600;
+            border-left-color: #2563eb;
+        }
+        .dark .toc-link.active {
+            color: #60a5fa;
+            border-left-color: #60a5fa;
+        }
+
+        /* Bibliography styling */
+        .bibliography {
+            font-size: 0.9rem;
+        }
+        .bibliography li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+        }
+
+        /* Tag styling */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #f3f4f6;
+            color: #4b5563;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+        .tag:hover {
+            background: #e5e7eb;
+        }
+        .dark .tag {
+            background: #374151;
+            color: #d1d5db;
+        }
+        .dark .tag:hover {
+            background: #4b5563;
+        }
+
+        /* Status badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .status-draft { background: #fef3c7; color: #92400e; }
+        .status-in_review { background: #dbeafe; color: #1e40af; }
+        .status-published { background: #d1fae5; color: #065f46; }
+        .dark .status-draft { background: #78350f; color: #fef3c7; }
+        .dark .status-in_review { background: #1e3a8a; color: #bfdbfe; }
+        .dark .status-published { background: #064e3b; color: #d1fae5; }
+
+        /* Page nav links */
+        .page-nav-link {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 1.25rem;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            transition: all 0.15s;
+        }
+        .page-nav-link:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .dark .page-nav-link {
+            background: #1f2937;
+            border-color: #374151;
+        }
+        .dark .page-nav-link:hover {
+            border-color: #60a5fa;
+            background: #1e3a5f;
+        }
+
+        /* Print styles */
+        @media print {
+            .no-print { display: none !important; }
+            .prose { max-width: 100% !important; }
+            body { background: white !important; color: black !important; }
+            .prose a:after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+        }
+    </style>
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-2bTiM_XkGvY1gCv_2pJzp.js"></script>
+    <script>
+        window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
+        plausible.init();
+    </script>
+</head>
+<body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Home -->
+                <a href="/" class="flex items-center gap-3 group">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-sm">
+                        JMS
+                    </div>
+                    <span class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors hidden sm:block">
+                        Jorge Miguel Silva
+                    </span>
+                </a>
+
+                <!-- Center: Breadcrumb -->
+                <div class="hidden md:flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    <a href="/" class="hover:text-gray-900 dark:hover:text-white transition-colors">Home</a>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <a href="/federated-learning/" class="hover:text-gray-900 dark:hover:text-white transition-colors">Federated Learning</a>
+                    {% if page.parent %}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <span class="text-gray-900 dark:text-white font-medium truncate max-w-[200px]">{{ page.title | split: ' — ' | last }}</span>
+                    {% endif %}
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="flex items-center gap-3">
+                    <!-- Dark mode toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </button>
+
+                    <!-- GitHub link -->
+                    <a href="https://github.com/jorgeMFS/federated_learning_page" target="_blank" rel="noopener" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="View on GitHub">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="pt-16 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+            <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
+
+                <!-- Sidebar (Table of Contents) -->
+                <aside class="hidden lg:block no-print">
+                    <div class="sticky top-24">
+                        <!-- Page Info Card -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 mb-6">
+                            {% if page.status %}
+                            <div class="mb-3">
+                                <span class="status-badge status-{{ page.status }}">
+                                    <span class="w-2 h-2 rounded-full {% if page.status == 'draft' %}bg-amber-500{% elsif page.status == 'in_review' %}bg-blue-500{% else %}bg-green-500{% endif %}"></span>
+                                    {{ page.status | replace: '_', ' ' | capitalize }}
+                                </span>
+                            </div>
+                            {% endif %}
+
+                            {% if page.contributors %}
+                            <div class="text-sm">
+                                <p class="text-gray-500 dark:text-gray-400 font-medium mb-2">Contributors</p>
+                                {% for contributor in page.contributors %}
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs font-medium text-gray-600 dark:text-gray-300">
+                                        {{ contributor.name | split: ' ' | map: 'first' | join: '' }}
+                                    </div>
+                                    <div>
+                                        <a href="https://orcid.org/{{ contributor.orcid }}" target="_blank" rel="noopener" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 font-medium">
+                                            {{ contributor.name }}
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if page.last_updated_on %}
+                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                                Last updated: {{ page.last_updated_on }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <nav id="toc" class="text-sm" aria-label="Table of contents">
+                            <p class="font-semibold text-gray-900 dark:text-white mb-4">On this page</p>
+                            <div id="toc-content" class="space-y-1">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </nav>
+
+                        <!-- Related Pages -->
+                        {% if page.has_children or page.parent %}
+                        <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                            <p class="font-semibold text-gray-900 dark:text-white mb-4">Related pages</p>
+                            <div class="space-y-2">
+                                {% unless page.parent %}
+                                <a href="/federated-learning/threats/" class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                                    Threat modelling
+                                </a>
+                                <a href="/federated-learning/ops/" class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                                    Operational practices
+                                </a>
+                                <a href="/federated-learning/green/" class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                                    Environmental sustainability
+                                </a>
+                                {% else %}
+                                <a href="/federated-learning/" class="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+                                    &larr; Main page
+                                </a>
+                                {% endunless %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="min-w-0">
+                    <!-- Mobile back link -->
+                    <div class="lg:hidden mb-6">
+                        <a href="{% if page.parent %}/federated-learning/{% else %}/{% endif %}" class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                            {% if page.parent %}Back to Federated Learning{% else %}Back to Home{% endif %}
+                        </a>
+                    </div>
+
+                    <!-- Article -->
+                    <article class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <!-- Header -->
+                        <header class="px-6 sm:px-8 py-8 sm:py-10 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-800">
+                            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+                                {{ page.title }}
+                            </h1>
+                            {% if page.summary %}
+                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                {{ page.summary }}
+                            </p>
+                            {% endif %}
+
+                            <!-- Tags -->
+                            {% if page.tags %}
+                            <div class="flex flex-wrap gap-2 mt-6">
+                                {% for tag in page.tags %}
+                                <span class="tag">{{ tag | replace: '_', ' ' }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </header>
+
+                        <!-- Content -->
+                        <div class="px-6 sm:px-8 py-8 sm:py-10 prose">
+                            {{ content }}
+                        </div>
+                    </article>
+
+                    <!-- Footer -->
+                    <footer class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-500 dark:text-gray-400">
+                            <div>
+                                <p>
+                                    RDMKit-compliant documentation by
+                                    <a href="/" class="text-blue-600 dark:text-blue-400 hover:underline">Jorge Miguel Silva</a>
+                                </p>
+                                <p class="mt-1">
+                                    <a href="https://github.com/jorgeMFS/federated_learning_page" class="hover:text-gray-900 dark:hover:text-white transition-colors">
+                                        View source on GitHub
+                                    </a>
+                                </p>
+                            </div>
+                            {% if page.license %}
+                            <div class="flex items-center gap-2">
+                                <span>License:</span>
+                                <span class="font-medium text-gray-700 dark:text-gray-300">{{ page.license }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </footer>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved preference or system preference
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Generate Table of Contents
+        function generateTOC() {
+            const content = document.querySelector('.prose');
+            const tocContainer = document.getElementById('toc-content');
+            const headings = content.querySelectorAll('h2, h3');
+
+            if (!tocContainer || headings.length === 0) return;
+
+            headings.forEach((heading, index) => {
+                // Add ID to heading if not present
+                if (!heading.id) {
+                    heading.id = heading.textContent
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, '-')
+                        .replace(/(^-|-$)/g, '');
+                }
+
+                const link = document.createElement('a');
+                link.href = '#' + heading.id;
+                link.className = `toc-link block py-1.5 border-l-2 transition-colors ${
+                    heading.tagName === 'H3' ? 'pl-6 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300' :
+                    'pl-4 border-transparent text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 font-medium'
+                }`;
+                link.textContent = heading.textContent;
+                tocContainer.appendChild(link);
+            });
+
+            // Highlight current section on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '-80px 0px -80% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.id;
+                    const tocLink = tocContainer.querySelector(`a[href="#${id}"]`);
+                    if (tocLink) {
+                        if (entry.isIntersecting) {
+                            tocContainer.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+                            tocLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            headings.forEach(heading => observer.observe(heading));
+        }
+
+        // Run on DOM ready
+        document.addEventListener('DOMContentLoaded', generateTOC);
+    </script>
+</body>
+</html>
