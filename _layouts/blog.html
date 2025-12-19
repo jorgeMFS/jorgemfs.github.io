@@ -7,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ t.blog.title }} | {{ site.title }}</title>
   <meta name="description" content="{{ t.blog.subtitle | default: site.description }}">
-  <link rel="icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/img/favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/favicon-16x16.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
 
   {% include head-hreflang.html %}
 
@@ -275,14 +277,8 @@
       }
     }
   </style>
-  <!-- Privacy-friendly analytics by Plausible -->
-  <script async src="https://plausible.io/js/pa-2bTiM_XkGvY1gCv_2pJzp.js"></script>
-  <script>
-    window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
-    plausible.init();
-    // Track language
-    plausible('pageview', {props: {lang: '{{ lang }}'}});
-  </script>
+  <!-- Privacy-friendly analytics by Umami -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="065913f4-78fe-490e-aa4a-a840fdcf56f1"></script>
 </head>
 <body>
   <header>
