@@ -1,0 +1,65 @@
+# Jorge Miguel Silva
+
+> Researcher at IEETA/DETI, University of Aveiro, Portugal. Works on program synthesis via Kolmogorov complexity approximation (SPTM), federated genomics infrastructure (BioChef), and formal language theory. Writes essays on AI governance grounded in distributed power, conscience, and the principle "love your neighbor as yourself." Builds open-source bioinformatics tools following Unix philosophy.
+
+## About
+
+Jorge Miguel Silva is an Investigador Auxiliar (Assistant Researcher) at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), University of Aveiro. He holds a PhD in Computer Engineering (2023) and an MSc in Bioengineering from FEUP, University of Porto. His research spans information theory, data compression, genomics, federated learning, and AI governance. He has 43+ publications, an h-index of 9, and 330+ citations.
+
+- [Homepage (EN)](https://jorgemfs.com/en/): Full academic profile, projects, publications, portfolio, and CV.
+- [Homepage (PT)](https://jorgemfs.com/pt/): Portuguese version of the academic profile.
+- [CV](https://jorgemfs.com/cv.html): Curriculum vitae with experience, publications, awards, and skills.
+
+## Essays
+
+Long-form writing on AI governance, distributed power, and the ethics of building minds.
+
+- [Against the Quiet Empire](https://jorgemfs.com/essays/2025/12/28/against-the-quiet-empire.html): Structural governance for AGI — chokepoints (electricity, hardware, market access), licensing with teeth, compute passports, frontier compute clubs, social wealth funds, and anti-capture mechanisms. The argument: principles without leverage become PR; enforcement must be mechanical, not moral.
+- [The Kingdom of Lesser Thrones](https://jorgemfs.com/essays/2025/11/14/the-kingdom-of-lesser-thrones.html): On sharing the world with non-human minds. Proposes a federated AGI democracy with constitutional limits, plurality of powerful systems, structural bias toward the vulnerable, coercion of conscience off the table, and no system as final moral authority. Envisions a council of AGIs (mercy, justice, truth, stewardship, conscience) that advise but never rule.
+
+### Ensaios (Português)
+
+- [Contra o Império Silencioso](https://jorgemfs.com/ensaios/2025/12/28/contra-o-imperio-silencioso.html): Versão portuguesa de "Against the Quiet Empire."
+- [O Reino dos Tronos Menores](https://jorgemfs.com/ensaios/2025/11/14/o-reino-dos-tronos-menores.html): Versão portuguesa de "The Kingdom of Lesser Thrones."
+
+## Research Guide: Federated Learning
+
+- [Federated Learning](https://jorgemfs.com/federated-learning/): Comprehensive guide to federated learning for genomics and health data — covers horizontal/vertical partitioning, secure aggregation, the Five Safes framework, OMOP CDM, differential privacy, and practical deployment considerations.
+
+## Tools & Software
+
+- [VCFX](https://jorgemfs.com/vcfx/): 60+ C/C++ command-line tools for VCF file manipulation. Unix philosophy — each tool does one thing well, reads from stdin, writes to stdout. Available via PyPI, Bioconda, Docker, or source. ([GitHub](https://github.com/ieeta-pt/VCFX))
+- [PhenoQC](https://github.com/jorgeMFS/PhenoQC): Quality control toolkit for phenotypic datasets — validation, ontology mapping (HPO, DO, MPO), missing data handling, batch processing.
+- [HYMET](https://github.com/ieeta-pt/HYMET): Metagenomic classification pipeline using compression-based features.
+- [BioChef](https://github.com/ieeta-pt/Biochef): Federated genomics platform for privacy-preserving analysis across distributed nodes. ([Website](https://ieeta-pt.github.io/Biochef/))
+- [fed_rf](https://github.com/ieeta-pt/fed_rf): Federated random forest implementation for secure distributed machine learning.
+- [PANTHER](https://github.com/asilab/panther): Genomic analysis tool. ([Website](https://panther.web.ua.pt/))
+- [CANVAS](https://github.com/jorgeMFS/canvas): Complexity analysis of viral sequences — classification and visualization of viral genomes.
+- [TMCompression](https://github.com/asilab/TMCompression): Turing Machine tape complexity analysis — statistical complexity vs algorithmic complexity.
+- [AlcoR](https://github.com/jorgeMFS/AlcoR): Alignment-free simulation, mapping, and visualization of low-complexity regions in biological data.
+- [AltaiR](https://github.com/jorgeMFS/AltaiR): C toolkit for alignment-free and temporal analysis of multi-FASTA data.
+
+## Selected Publications
+
+- Silva, J.M., Oliveira, J.L. (2025). "VCFX: A Minimalist, Modular Toolkit for Streamlined Variant Analysis." IWBBIO 2025, Springer.
+- Cotorobai, A., Silva, J.M., Oliveira, J.L. (2025). "A Federated Random Forest Solution for Secure Distributed Machine Learning." IEEE CBMS 2025.
+- Silva, J.M., Pinho, A.J., Pratas, D. (2024). "AltaiR: alignment-free simulation, mapping, and visualization of multi-FASTA data." GigaScience.
+- Silva, J.M., Almeida, J.R. (2024). "Enhancing metagenomic classification with compression-based features." Artificial Intelligence in Medicine.
+- Silva, J.M., Qi, W., Pinho, A.J., Pratas, D. (2023). "AlcoR: alignment-free simulation of low-complexity regions." GigaScience.
+- Silva, J.M., Pratas, D., Caetano, T., Matos, S. (2022). "The complexity landscape of viral genomes." GigaScience.
+- Silva, J.M., Pratas, D., Antunes, R., Matos, S., Pinho, A.J. (2021). "Automatic analysis of artistic paintings using information-based measures." Pattern Recognition.
+- Pratas, D., Silva, J.M. (2020). "Persistent minimal sequences of SARS-CoV-2." Bioinformatics.
+- Silva, J.M., Pinho, E., Matos, S., Pratas, D. (2020). "Statistical Complexity Analysis of Turing Machine tapes." Entropy.
+
+## Links
+
+- [GitHub](https://github.com/jorgeMFS)
+- [ORCID](https://orcid.org/0000-0002-6331-6091)
+- [Google Scholar](https://scholar.google.com/citations?user=N6ZzRPEAAAAJ&hl=en)
+- [IEETA](https://www.ieeta.pt)
+
+## Contact
+
+- Email: jorge.miguel.ferreira.silva@ua.pt
+- Location: IEETA, University of Aveiro, Campus Universitário de Santiago, 3810-193 Aveiro, Portugal
+- Phone: (+351) 234 370 500

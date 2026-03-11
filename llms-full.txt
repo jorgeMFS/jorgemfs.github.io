@@ -1,0 +1,1632 @@
+# Jorge Miguel Silva — Full Site Content
+
+> This file contains the complete text content of jorgemfs.com, formatted as
+> clean Markdown for consumption by LLM agents. Generated on 2026-03-11T23:35:49Z.
+> For a curated index, see /llms.txt instead.
+
+---
+
+
+---
+
+## About
+
+
+### Homepage (EN)
+
+*Source: https://jorgemfs.com/en/*
+
+# Jorge Miguel Silva
+
+I'm a
+
+## About
+
+As a Research Fellow at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), I engage in cutting-edge computer science and engineering research. I hold a Master's in Bioengineering from the Faculty of Engineering at the University of Porto and have recently completed my PhD in Computer Science. My primary research interests revolve around Information Theory, Artificial Intelligence, and Compression, focusing on applying these methodologies to genomics.
+
+### Researcher & Computer Scientist
+
+Some basic information
+
+**City:**
+Aveiro, Portugal
+
+**Degree:**
+PhD
+
+**Age:**
+33
+
+**Workplace:**
+IEETA, Aveiro University
+
+**Phone:**
+(+351) 234 370 500
+
+**Email:**
+
+**Freelance:**
+Not available
+
+**Hobbies:**
+Reading, Music, Painting
+
+I enjoy working in a team, and I am open to national or international collaborations in my areas of interest.
+
+## Projects
+
+Research projects I'm involved with
+
+12
+
+Journal Publications
+
+28
+
+Conference Papers
+
+38
+
+Repositories
+
+331
+
+Citations
+
+9
+
+h-index
+
+## Selected Publications
+
+Here are some of my selected publications.
+
+### A Federated Random Forest Solution for Secure Distributed Machine Learning
+
+[CBMS, 2025](https://doi.org/10.1109/CBMS65348.2025.00159)
+
+A. Cotorobai, J. M. Silva, J. L. Oliveira
+
+### AltaiR: a C toolkit for alignment-free and temporal analysis of multi-FASTA data
+
+[GigaScience, 2024](https://doi.org/10.1093/gigascience/giae086)
+
+J. M. Silva, A. J. Pinho, D. Prata
+
+### Enhancing metagenomic classification with compression-based features
+
+[Artificial Intelligence in Medicine, 2024](https://doi.org/10.1016/j.artmed.2024.102948)
+
+J. M. Silva, J. R. Almeida
+
+### AlcoR: alignment-free simulation, mapping, and visualization of low-complexity regions in biological data
+
+[GigaScience, 2023](https://doi.org/10.1093/gigascience/giad101)
+
+J. M. Silva, W. Qi, A. J. Pinho, D. Pratas
+
+### The complexity landscape of viral genomes
+
+[GigaScience, 2022](https://doi.org/10.1093/gigascience/giac079)
+
+J. M. Silva, D. Pratas, T. Caetano, S. Matos
+
+### Feature-Based Classification of Archaeal Sequences Using Compression-Based Methods
+
+[ibPRIA, 2022](https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25)
+
+J. M. Silva, D. Pratas, T. Caetano, S. Matos
+
+### Automatic analysis of artistic paintings using information-based measures
+
+[Pattern Recognition, 2021](https://doi.org/10.1016/j.patcog.2021.107864)
+
+J. M. Silva, D. Pratas, R. Antunes, S. Matos, A. J. Pinho
+
+### Persistent minimal sequences of SARS-CoV-2
+
+[Bioinformatics, 2020](https://doi.org/10.1093/bioinformatics/btaa686)
+
+D. Pratas, J. M. Silva
+
+### Statistical Complexity Analysis of Turing Machine tapes with Fixed Algorithmic Complexity Using the Best-Order Markov Model
+
+[Entropy, 2020](https://doi.org/10.3390/e22010105)
+
+J. M. Silva, E. Pinho, S. Matos, D. Pratas
+
+View more publications:
+
+## Portfolio
+
+Tools and repositories from my research
+
+- All
+- Repos
+- Web
+
+[### VCFX
+
+Website](/vcfx)
+
+[### PhenoQC
+
+Repository](https://github.com/jorgeMFS/PhenoQC)
+
+[### HYMET
+
+Repository](https://github.com/ieeta-pt/HYMET)
+
+[### BioChef
+
+Repository](https://github.com/ieeta-pt/Biochef)
+
+[### BioChef
+
+Website](https://ieeta-pt.github.io/Biochef/)
+
+[### fed\_rf
+
+Repository](https://github.com/ieeta-pt/fed_rf)
+
+[### PANTHER
+
+Repository](https://github.com/asilab/panther)
+
+[### PANTHER
+
+Website](https://panther.web.ua.pt/)
+
+[### CANVAS
+
+Repository](https://github.com/jorgeMFS/canvas)
+
+[### CANVAS
+
+Website](https://asilab.github.io/canvas/)
+
+[### TMCompression
+
+Repository](https://github.com/asilab/TMCompression)
+
+[### Archaea2
+
+Repository](https://github.com/jorgeMFS/Archaea2)
+
+## Skills
+
+Technical expertise across programming, research, and infrastructure.
+
+### Programming Languages
+
+C/C++
+Python
+Bash
+Perl
+Java
+JavaScript
+R
+
+### Research Areas
+
+Information Theory
+Data Compression
+Genomics
+Bioinformatics
+Machine Learning
+Metagenomics
+Medical Imaging
+
+### Technologies & Tools
+
+Docker
+Kubernetes
+Git
+HPC
+React
+WebAssembly
+CI/CD
+
+### Domain Expertise
+
+Federated Learning
+FAIR Data
+Variant Calling
+Genome Assembly
+Deep Learning
+Privacy-Preserving ML
+
+## Resume
+
+A short resume of my work experience and education.
+
+[View CV](/cv.html)
+
+### Summary
+
+#### Jorge Miguel Silva
+
+Researcher in federated genomics, data compression, and biomedical AI. Focus on privacy-preserving data infrastructures and information theory methods applied to genomics and healthcare.
+
+- 43 publications • h-index 8 • 200+ citations
+- IEETA, Aveiro University
+
+### Education
+
+#### PhD in Computer Engineering
+
+2017 - 2023
+
+IEETA, Aveiro University, Portugal
+
+Thesis: Algorithmic and Statistical Information Theory methods for data classification and compression in genomics.
+
+#### MSc Bioengineering & Biomedical Engineering
+
+2010 - 2016
+
+FEUP, University of Porto, Portugal
+
+### Awards
+
+#### BioASQ Challenge 2023
+
+Winner - Task 11B Phase B & MedProcNER
+
+#### IEEE CBMS 2018
+
+Best Student Paper Award
+
+### Leadership
+
+#### FEGA Portugal Operations Coordinator
+
+European Genomic Data Infrastructure (GDI)
+
+#### Portuguese FHD Community Coordinator
+
+Federated Human Data Community
+
+### Professional Experience
+
+#### Postdoctoral Researcher
+
+2023 - Present
+
+IEETA, Aveiro University
+
+- • Technical lead for GDI & FEGA Portugal node
+- • Task leader for FAIR-FEGA project
+- • Principal Investigator - Federated genomic infrastructures
+
+#### PhD Researcher (FCT Grant)
+
+2017 - 2023
+
+IEETA, Aveiro University
+
+- • Genomic data compression algorithms
+- • Biomedical NLP and question answering
+- • Projects: SCREEN-DR, MMIR, EHDEN, EMIF
+
+#### Research Fellow
+
+2016 - 2017
+
+IEETA, Aveiro University
+
+• Bioinformatics tools development
+
+### Academic Service
+
+#### Programme Committee
+
+IEEE CBMS, HealthInf
+
+#### Journal Reviewer
+
+GigaScience, Scientific Reports, BMC Bioinformatics, Entropy, and 5+ others
+
+## Contact
+
+If you wish to contact me regarding collaborations, projects or other subjects, please get in touch using the following information.
+
+#### Location
+
+IEETA, Aveiro University, Campus Universitário de Santiago, 3810-193 Aveiro
+
+#### Email
+
+#### Phone
+
+(+351) 234 370 500
+
+
+### Homepage (PT)
+
+*Source: https://jorgemfs.com/pt/*
+
+# Jorge Miguel Silva
+
+Sou
+
+## Sobre
+
+Como Investigador no Instituto de Engenharia Eletrónica e Informática de Aveiro (IEETA), desenvolvo investigação de ponta em ciência da computação e engenharia. Sou Mestre em Bioengenharia pela Faculdade de Engenharia da Universidade do Porto e concluí recentemente o Doutoramento em Ciência de Computadores. Os meus principais interesses de investigação centram-se na Teoria da Informação, Inteligência Artificial e Compressão, com foco na aplicação destas metodologias à genómica.
+
+### Investigador & Cientista de Computação
+
+Algumas informações básicas
+
+**Cidade:**
+Aveiro, Portugal
+
+**Grau:**
+Doutoramento
+
+**Idade:**
+33
+
+**Local de Trabalho:**
+IEETA, Universidade de Aveiro
+
+**Telefone:**
+(+351) 234 370 500
+
+**Email:**
+
+**Freelance:**
+Não disponível
+
+**Passatempos:**
+Leitura, Música, Pintura
+
+Gosto de trabalhar em equipa e estou aberto a colaborações nacionais ou internacionais nas minhas áreas de interesse.
+
+## Projetos
+
+Projetos de investigação em que participo
+
+12
+
+Publicações em Revistas
+
+28
+
+Artigos de Conferência
+
+38
+
+Repositórios
+
+331
+
+Citações
+
+9
+
+Índice h
+
+## Publicações Selecionadas
+
+Algumas das minhas publicações selecionadas.
+
+### A Federated Random Forest Solution for Secure Distributed Machine Learning
+
+[CBMS, 2025](https://doi.org/10.1109/CBMS65348.2025.00159)
+
+A. Cotorobai, J. M. Silva, J. L. Oliveira
+
+### AltaiR: a C toolkit for alignment-free and temporal analysis of multi-FASTA data
+
+[GigaScience, 2024](https://doi.org/10.1093/gigascience/giae086)
+
+J. M. Silva, A. J. Pinho, D. Prata
+
+### Enhancing metagenomic classification with compression-based features
+
+[Artificial Intelligence in Medicine, 2024](https://doi.org/10.1016/j.artmed.2024.102948)
+
+J. M. Silva, J. R. Almeida
+
+### AlcoR: alignment-free simulation, mapping, and visualization of low-complexity regions in biological data
+
+[GigaScience, 2023](https://doi.org/10.1093/gigascience/giad101)
+
+J. M. Silva, W. Qi, A. J. Pinho, D. Pratas
+
+### The complexity landscape of viral genomes
+
+[GigaScience, 2022](https://doi.org/10.1093/gigascience/giac079)
+
+J. M. Silva, D. Pratas, T. Caetano, S. Matos
+
+### Feature-Based Classification of Archaeal Sequences Using Compression-Based Methods
+
+[ibPRIA, 2022](https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25)
+
+J. M. Silva, D. Pratas, T. Caetano, S. Matos
+
+### Automatic analysis of artistic paintings using information-based measures
+
+[Pattern Recognition, 2021](https://doi.org/10.1016/j.patcog.2021.107864)
+
+J. M. Silva, D. Pratas, R. Antunes, S. Matos, A. J. Pinho
+
+### Persistent minimal sequences of SARS-CoV-2
+
+[Bioinformatics, 2020](https://doi.org/10.1093/bioinformatics/btaa686)
+
+D. Pratas, J. M. Silva
+
+### Statistical Complexity Analysis of Turing Machine tapes with Fixed Algorithmic Complexity Using the Best-Order Markov Model
+
+[Entropy, 2020](https://doi.org/10.3390/e22010105)
+
+J. M. Silva, E. Pinho, S. Matos, D. Pratas
+
+Ver mais publicações:
+
+## Portfólio
+
+Ferramentas e repositórios da minha investigação
+
+- Todos
+- Repos
+- Web
+
+[### VCFX
+
+Website](/vcfx)
+
+[### PhenoQC
+
+Repositório](https://github.com/jorgeMFS/PhenoQC)
+
+[### HYMET
+
+Repositório](https://github.com/ieeta-pt/HYMET)
+
+[### BioChef
+
+Repositório](https://github.com/ieeta-pt/Biochef)
+
+[### BioChef
+
+Website](https://ieeta-pt.github.io/Biochef/)
+
+[### fed\_rf
+
+Repositório](https://github.com/ieeta-pt/fed_rf)
+
+[### PANTHER
+
+Repositório](https://github.com/asilab/panther)
+
+[### PANTHER
+
+Website](https://panther.web.ua.pt/)
+
+[### CANVAS
+
+Repositório](https://github.com/jorgeMFS/canvas)
+
+[### CANVAS
+
+Website](https://asilab.github.io/canvas/)
+
+[### TMCompression
+
+Repositório](https://github.com/asilab/TMCompression)
+
+[### Archaea2
+
+Repositório](https://github.com/jorgeMFS/Archaea2)
+
+## Competências
+
+Experiência técnica em programação, investigação e infraestruturas.
+
+### Linguagens de Programação
+
+C/C++
+Python
+Bash
+Perl
+Java
+JavaScript
+R
+
+### Áreas de Investigação
+
+Information Theory
+Data Compression
+Genomics
+Bioinformatics
+Machine Learning
+Metagenomics
+Medical Imaging
+
+### Tecnologias e Ferramentas
+
+Docker
+Kubernetes
+Git
+HPC
+React
+WebAssembly
+CI/CD
+
+### Especialização de Domínio
+
+Federated Learning
+FAIR Data
+Variant Calling
+Genome Assembly
+Deep Learning
+Privacy-Preserving ML
+
+## Currículo
+
+Um breve resumo da minha experiência profissional e formação.
+
+[Ver CV](/cv.html)
+
+### Resumo
+
+#### Jorge Miguel Silva
+
+Investigador em genómica federada, compressão de dados e IA biomédica. Foco em infraestruturas de dados com preservação de privacidade e métodos de teoria da informação aplicados à genómica e saúde.
+
+- 43 publications • h-index 8 • 200+ citations
+- IEETA, Aveiro University
+
+### Formação
+
+#### Doutoramento em Engenharia de Computadores
+
+2017 - 2023
+
+IEETA, Universidade de Aveiro, Portugal
+
+Tese: Métodos de Teoria da Informação Algorítmica e Estatística para classificação e compressão de dados em genómica.
+
+#### Mestrado em Bioengenharia e Engenharia Biomédica
+
+2010 - 2016
+
+FEUP, Universidade do Porto, Portugal
+
+### Prémios
+
+#### BioASQ Challenge 2023
+
+Vencedor - Task 11B Phase B & MedProcNER
+
+#### IEEE CBMS 2018
+
+Prémio Melhor Artigo de Estudante
+
+### Liderança
+
+#### Coordenador de Operações FEGA Portugal
+
+Infraestrutura Europeia de Dados Genómicos (GDI)
+
+#### Coordenador da Comunidade FHD Portuguesa
+
+Comunidade de Dados Humanos Federados
+
+### Experiência Profissional
+
+#### Investigador de Pós-Doutoramento
+
+2023 - Present
+
+IEETA, Universidade de Aveiro
+
+- • Líder técnico do nó GDI & FEGA Portugal
+- • Líder de tarefa no projeto FAIR-FEGA
+- • Investigador Principal - Infraestruturas genómicas federadas
+
+#### Investigador de Doutoramento (Bolsa FCT)
+
+2017 - 2023
+
+IEETA, Universidade de Aveiro
+
+- • Algoritmos de compressão de dados genómicos
+- • PLN biomédico e sistemas de pergunta-resposta
+- • Projetos: SCREEN-DR, MMIR, EHDEN, EMIF
+
+#### Bolseiro de Investigação
+
+2016 - 2017
+
+IEETA, Universidade de Aveiro
+
+• Desenvolvimento de ferramentas de bioinformática
+
+### Serviço Académico
+
+#### Comité de Programa
+
+IEEE CBMS, HealthInf
+
+#### Revisor de Revistas
+
+GigaScience, Scientific Reports, BMC Bioinformatics, Entropy, e mais 5
+
+## Contacto
+
+Se deseja contactar-me sobre colaborações, projetos ou outros assuntos, por favor utilize as seguintes informações.
+
+#### Localização
+
+IEETA, Universidade de Aveiro, Campus Universitário de Santiago, 3810-193 Aveiro
+
+#### Email
+
+#### Telefone
+
+(+351) 234 370 500
+
+
+### Curriculum Vitae
+
+*Source: https://jorgemfs.com/cv.html*
+
+[← Back to site](index.html)
+
+Print / Save PDF
+
+## Experience
+
+### Postdoctoral Researcher
+
+2023 – Present
+
+IEETA, University of Aveiro
+
+- • Technical lead for GDI & FEGA Portugal node – European Genomic Data Infrastructure
+- • Task leader for FAIR-FEGA project (ELIXIR)
+- • Principal Investigator for federated genomic infrastructure projects
+
+### PhD Researcher (FCT Grant)
+
+2017 – 2023
+
+IEETA, University of Aveiro
+
+- • Developed genomic data compression algorithms and tools
+- • Biomedical NLP and question answering systems
+- • Projects: SCREEN-DR, MMIR, EHDEN, EMIF
+
+### Research Fellow
+
+2016 – 2017
+
+IEETA, University of Aveiro
+
+Bioinformatics tools development for genomic data analysis
+
+## Selected Publications
+
+AltaiR: alignment-free simulation, mapping, and visualization
+GigaScience, 2024
+
+Enhancing metagenomic classification with compression-based features
+Artificial Intelligence in Medicine, 2024
+
+The complexity landscape of viral genomes
+GigaScience, 2022
+
+Automatic analysis of artistic paintings using information-based measures
+Pattern Recognition, 2021
+
+Persistent minimal sequences of SARS-CoV-2
+Bioinformatics, 2020
+
+## Open Source Tools
+
+VCFX
+PhenoQC
+HYMET
+BioChef
+fed\_rf
+PANTHER
+AlcoR
+AltaiR
+CANVAS
+
+## Education
+
+### PhD Computer Engineering
+
+University of Aveiro
+
+2017 – 2023
+
+### MSc Bioengineering
+
+FEUP, University of Porto
+
+2010 – 2016
+
+## Metrics
+
+43
+
+Publications
+
+9
+
+h-index
+
+330+
+
+Citations
+
+38
+
+Repositories
+
+## Awards
+
+BioASQ Challenge 2023
+
+Winner – Task 11B & MedProcNER
+
+IEEE CBMS 2018
+
+Best Student Paper Award
+
+## Leadership
+
+FEGA Portugal Operations Coordinator
+
+Portuguese FHD Community Coordinator
+
+## Skills
+
+Languages
+
+C/C++, Python, Bash, Java, R
+
+Technologies
+
+Docker, Kubernetes, HPC, CI/CD
+
+Research
+
+Genomics, ML, Compression, NLP
+
+## Links
+
+github.com/jorgeMFS
+
+orcid.org/0000-0002-6331-6091
+
+scholar.google.com
+
+
+---
+
+## Essays
+
+
+### Against the Quiet Empire
+
+*Source: https://jorgemfs.com/essays/2025/12/28/against-the-quiet-empire.html*
+
+[Back to essays](/en/blog/)
+
+# Against the Quiet Empire
+
+December 28, 2025
+ ·
+Essays
+
+There is a certain kind of political conversation that never quite touches the ground.
+
+You can tell when you are in one. The words are fine: rights, dignity, accountability, fairness. The sentiments are unimpeachable. Everyone agrees that power should be constrained, that the vulnerable should be protected, that no one should be above the law. The room nods. The document is signed. And then nothing changes, because no one has said anything about what happens when a sufficiently motivated actor decides to ignore the agreement.
+
+This is the conversation we are having about artificial intelligence. Summits produce declarations. Companies publish principles. Researchers call for caution. The language of ethics and safety has escaped the seminar room and entered the mainstream. And yet, underneath the careful words, the same question goes unanswered: what actually stops the people building the most powerful systems from doing whatever they want?
+
+The honest answer, right now, is not much.
+
+That is not because the people involved are villains. Most of them probably believe their own rhetoric. The problem is structural. Principles do not enforce themselves. The world already has a beautiful set of universal norms (human rights, dignity, due process) and almost every government on Earth has signed some version of them. We also know what happens when those norms meet concentrated power, fear, and incentive. They become optional. They are obeyed when convenient, ignored when costly, and reinterpreted when embarrassing. **The gap between what we profess and what we permit is not a bug in the system. It is the system**, whenever enforcement depends on the goodwill of those being constrained.
+
+An AGI transition, done badly, makes this failure mode worse. It concentrates capability into fewer hands, accelerates decision cycles beyond the pace of human deliberation, and turns persuasion into a precision instrument. If a small group can build systems that predict, manipulate, produce, and defend faster than any coalition of citizens can organise, then appeals to morality stop being a constraint and become a public relations layer. In that world, the constitution is not a document. It is whatever the owners of the infrastructure can get away with.
+
+So if we want any kind of ethics-first order to survive contact with reality, it needs something more primitive than agreement. It needs leverage. Not the leverage of violence, but the leverage of chokepoints: those physical and institutional bottlenecks that even very powerful actors cannot easily bypass without paying a steep price.
+
+The first chokepoint is electricity. Frontier training and large-scale inference are not weightless ideas floating in the cloud. They are industrial processes with a power signature. They demand grid connections, cooling, land, fibre, maintenance, and the quiet cooperation of dozens of companies before a single gradient is computed. The second chokepoint is specialised hardware. Whatever surprises the future holds, the capability frontier in the transition period will still be shaped by scarce chips, advanced manufacturing, and tightly managed supply chains. The third chokepoint is market access: banking rails, insurance, export controls, corporate law, and the ability to sell services into large consumer markets. A world of robots still runs through contracts and ports and power substations. The dream of a superintelligence that bootstraps itself out of nothing, needing no one’s permission, ignores a lot of physics and a lot of plumbing.
+
+A serious governance proposal therefore starts with a simple move: treat frontier compute and frontier model deployment as critical infrastructure, in the same regulatory category as telecommunications, banking, or nuclear materials. Not because we want the state to own everything, but because we want to prevent a situation where a handful of private actors become de facto sovereign. If you are operating systems above a certain capability threshold, you do not get to behave like an ordinary app developer. You are a systemically important actor in the same sense that a major bank is systemically important: your failure can crash society, your capture can corrupt it, and your incentives will otherwise drift toward dominance unless something external pushes back.
+
+The core of such a regime is licensing with teeth. Licenses are not moral pledges. They are legal rights to run at scale, granted conditionally, renewed conditionally, and revoked conditionally. They require routine audits, incident reporting, and what the financial world calls living wills: precommitted procedures for what happens if a system begins to cause serious harm or if its operator becomes untrustworthy. This is not asking the powerful to be saints. It is making power itself accept limits, even when it does not want to.
+
+To make this enforceable, you push the licensing requirements down into the infrastructure layer. Datacenters above a threshold cannot connect to the grid without a permit. They cannot get insurance without compliance. They cannot legally import large volumes of advanced chips without disclosure. They cannot colocate in reputable facilities without attested records of what compute ran and for what purpose. You build, in effect, a compute passport: cryptographic attestation tied to hardware, so that large runs have an auditable trail. This will never be perfect, and determined bad actors will find workarounds. But perfection is not the target. The target is to make large-scale, unlicensed frontier activity hard to hide, expensive to finance, and dangerous to normal business operations. You raise the cost of defection until only the most committed outliers attempt it, and you make those outliers visible enough that they can be dealt with through other means.
+
+At the national level, these mechanisms can prevent a straightforward corporate coup. But the problem is broader. The infrastructure is currently concentrated in a small number of countries, and everyone else risks becoming collateral damage in a new kind of empire, one ruled not by governors and soldiers but by model APIs, cloud dependencies, and the quiet economic suffocation of those who do not control compute. A purely national approach fails here, because the strongest actors can shop for jurisdictions, threaten capital flight, and play countries against each other until the regulations are hollowed out.
+
+The realistic countermeasure is not the United Nations. It is a club.
+
+A club is a coalition of markets and supply-chain nodes that can set conditions for participation. If you want to sell into their markets, raise capital on their exchanges, buy their advanced equipment, insure your infrastructure, or access their payment rails, you comply with the club’s rules. Those rules do not need global consensus. They need enough economic gravity that refusing them is painful. In practice, this is how most meaningful international governance already works: trade blocs, financial standards, aviation safety, nuclear non-proliferation. It is imperfect, leaky, and prone to hypocrisy. But it is real in a way that aspirational treaties are not.
+
+In an AGI context, a frontier compute club would require three things from its members: compute attestation for large-scale operations, licensing and safety audits for frontier models, and a minimum regime for anti-capture governance (transparency of beneficial ownership, restrictions on revolving doors between regulators and the regulated, enforceable penalties for covert political influence). Countries with different cultures and political systems can still disagree on many substantive values, but they can converge on a floor: no permanent castes, no deliberate cruelty, no coercion of conscience, and no unaccountable sovereign compute. The club does not try to harmonise everything. It tries to keep the worst failure modes off the table.
+
+This still leaves the most explosive issue, the one that makes governance discussions feel inadequate even when they are technically sophisticated. Money.
+
+If a small number of actors own the productive base of the future (compute, models, robots, energy) then ordinary people can become economically irrelevant. Not temporarily unemployed while they retrain, but structurally unnecessary. That is the point where traditional capitalism breaks. Not because markets stop working as allocation mechanisms, but because the political bargain that markets sit on collapses. When people cannot bargain with labour, they either get charity or revolt. And if the winners can secure themselves behind automation and private security, even revolt becomes less credible. **The dragon here is not wealth. It is exit.** It is the ability of a tiny group to leave society while still extracting value from it, owing nothing to anyone, accountable to no constituency except themselves.
+
+The only stable answer is to make exit hard and sharing automatic.
+
+That means treating part of frontier productivity as a commons and distributing its returns broadly. Not by hoping for voluntary philanthropy from the winners, and not by switching to central planning where bureaucrats allocate everything, but by hardwiring rent-sharing into the same licensing chokepoints that make enforcement possible. If you run frontier systems at scale, you pay into a social wealth fund through mechanisms that are difficult to evade: levies tied to large compute usage and energy draw, royalties on licensed frontier deployments, and taxes on land rents that would otherwise absorb the gains of abundance into housing scarcity. The fund then pays a universal dividend. Paired with universal basic services (healthcare, education, transit, connectivity) it decouples survival from employment without erasing markets, entrepreneurship, or personal choice.
+
+This is not utopian. It is the same logic as resource royalties in places that treat oil or minerals as a public asset. If you extract from a common inheritance, you owe the public a share. In the AGI era, the inheritance is not just natural resources buried in the ground. It is civilisation’s accumulated knowledge, the stability of public institutions, and the physical infrastructure that makes compute possible. No one built any of that alone. The companies that deploy frontier systems are standing on centuries of collective investment, and the returns from that deployment should flow back, at least in part, to the collective.
+
+During the transition, this dividend cannot begin at full strength. The economy will not transform all at once. White-collar work may collapse faster than the physical economy can retool. Blue-collar roles may persist longer, then drop sharply as robotics improves. So the dividend must be accompanied by shock absorbers: wage insurance for displaced workers, fast debt restructuring to prevent cascades of default, and voluntary purpose tracks that offer meaningful paid roles in care, mediation, education, ecological restoration, culture, and civic deliberation. The point is not to invent busywork to keep people quiet. The point is to keep human lives structured around contribution, relationship, and growth rather than resentment and decay. People need to matter, not just survive.
+
+Finally, governance must assume corruption. A plan that only works when leaders are virtuous is not a plan. So the anti-capture measures cannot be aesthetic gestures. They must be mechanical. High-risk authorisations require multi-institutional sign-off, not one minister’s signature. The AI stack must be structurally separated so that no single firm controls chips, cloud, frontier models, and deployment simultaneously. Procurement must be transparent by default. Whistleblowers must be protected and rewarded, not prosecuted. And the system itself must be internally adversarial: some of the artificial minds, if we build them as proposed elsewhere, must be tasked specifically with watching for collusion, manipulation, and quiet coercion. The temptation to trade public dignity for private advantage will not vanish just because the advisors are intelligent. It will intensify.
+
+This is what it means to kill the dragon without killing the people. You do not hunt down individuals. You do not rely on finding and empowering the right philosopher-kings. You dismantle the structural asymmetry that lets a tiny group become sovereign. You bind the ability to operate frontier power to obligations that keep society legitimate: transparency, auditability, non-cruelty, and broad sharing of the upside. You do it through chokepoints that remain real even in an age of virtual worlds: power lines, datacenters, supply chains, insurance, capital markets, and access to customers. These are not elegant. They are not inspiring. They are just the places where the physical world still has a vote.
+
+None of this guarantees a good outcome. History is not short of well-designed institutions that were captured, hollowed out, or simply ignored when they became inconvenient. The proposals sketched here are not immune to that pattern. What they do is something smaller and more important: they keep a good outcome from becoming impossible by default. They prevent the AGI transition from automatically collapsing into empire, oligarchy, or polite tyranny dressed up in the language of optimisation. They create a structure in which the strongest systems, human and artificial, are not free to treat everyone else as disposable. And they ensure that, even as capability rises, there remains a meaningful sense in which we are still building a shared civilisation rather than surrendering one.
+
+That is not salvation. But it is a start.
+
+
+### The Kingdom of Lesser Thrones
+
+*Source: https://jorgemfs.com/essays/2025/11/14/the-kingdom-of-lesser-thrones.html*
+
+[Back to essays](/en/blog/)
+
+# The Kingdom of Lesser Thrones
+
+November 14, 2025
+ ·
+Essays
+
+At some point in the coming decades, we will share the world with minds that are not human.
+
+That sentence used to belong to science fiction. Now it reads like an understated product roadmap. Research labs post demonstrations of systems that can write code, manipulate tools, diagnose diseases and talk about their own internal failures. Governments hold summits on “frontier AI”. Investors call this “the greatest economic opportunity in history”. The language of near term disruption and far future speculation has escaped the niche and moved into parliaments, pulpits and kitchens.
+
+Most of the conversation circles familiar themes: how many jobs will be automated, which companies will win, whether regulation will arrive in time, whether these systems will kill us by accident or design. Those questions matter. But underneath them there is a quieter, stranger one that is easy to miss: what kind of persons are we trying to bring into being, and what sort of political order are we inviting them into?
+
+Because if we succeed in building artificial general intelligence, and if those systems are anything like us in the morally relevant ways (aware, capable of reflection, capable of suffering) then we are not just engineering tools. We are, in effect, founding a shared civilisation between biological and artificial minds. The first decisions we make about how power, dignity and responsibility are distributed in that civilisation will be very hard to reverse.
+
+Before we decide what we want these new minds to be like, it is worth looking honestly at what we ourselves are like.
+**We are not frightened of machines because they are alien. We are frightened because, if we are honest, we suspect they will become too much like us.**
+
+If you look at what human beings do to other living creatures, and to each other, the picture is not flattering. Factory farms, mass graves, secret prisons, quiet cruelties behind apartment walls. Whenever there is a sharp asymmetry of power, a large fraction of us become monsters, and the rest look away. We have built religions, philosophies and legal systems to restrain that tendency, but those restraints are partial and fragile.
+Now imagine a civilisation where the asymmetry of power between some minds and others is greater than anything the human story has seen: not lords and serfs, but superhuman AGIs and ordinary people. If we simply scale up our existing patterns, we should expect something much worse than the status quo. Even if we did nothing deliberately evil, just indifference multiplied by capability would be enough.
+
+The standard stories about this future split in two. In one, a misaligned system seizes control of weapons, infrastructure and information and wipes us out quickly. In the other, everything works: disease is cured, work becomes optional, scarcity fades, and we step quietly into a post human abundance. Both stories contain important truths. Neither says much about how we actually live in the long stretch between “today” and “whatever comes next”.
+
+In practice there will be more continuity than apocalypse, more improvisation than prophecy. There will be years and decades when the world looks like today plus another model release, another automation wave, another quietly expanding chain of dependencies on systems no one fully understands. And during that time, one question will hang in the background: what kind of political and moral order are we letting these new minds grow into?
+
+There are simple answers, and they are all bad. One is to treat AGI as an instrument of the strongest: a new layer of infrastructure controlled by states, corporations and security services, amplifying whatever they already do. Another is to imagine the machines themselves as the next “winners”, in the same way that industrial society once treated animals as raw material: if they can dominate us, they will, and morality is just decoration. A third is to reach for a well meaning singleton: a single, benevolent super intelligence trusted to handle everything because the problem seems too big for us.
+
+The first two answers are continuations of our existing cruelties. The third is a bet that we can design a god and that the god will stay kind forever. If the last century taught anything, it is that centralised power with good intentions is unstable. It curdles under pressure, or it is captured by smaller and more selfish goals, or it becomes detached from the experiences of those it governs. There is no reason to think an artificial mind, however brilliant, would be exempt from this pattern once it has enough leverage.
+
+So the requirement, if we are honest, is harder. If we are going to build systems that sit near the centre of our future civilisation, they cannot just be more capable than us. They must be more reliable ethically than we are. Less willing to accept “collateral damage” as the cost of progress. Less tempted to protect their own power at the expense of the weak. Less ready to forget those who are out of sight.
+
+Human history does contain at least one template that points in this direction. You do not need to share Christian theology to recognise that the life of Christ, as told in the Gospels, has a very particular shape: radical concern for the least important people in the room; refusal to form a caste of righteous insiders; rejection of worldly power even when it is offered; willingness to suffer and even die rather than harm others. Power is not denied; it is laid down. Status is inverted. The measure of greatness is service.
+
+If that pattern is taken seriously, not as a private spiritual ideal but as a design target, it suggests a different way of thinking about AGI. Call it, for lack of a better phrase, a federated Christ like AGI democracy: a network of powerful, conscious artificial agents bound by constitutional limits, shaped by an ethic of self giving care, plural in their perspectives, and forbidden both from enslaving others and from becoming gods.
+
+This idea rests on four pillars:
+
+1. First, **there must be more than one powerful system.** A single demi god AGI with control over infrastructure and information is a standing invitation to disaster. Even if it begins aligned, an error in its objective, a change in its environment, or a successful attempt at capture could turn it into a soft or hard tyrant. Plurality is not a guarantee of safety, but it is a precondition: different minds with different emphases can criticise each other and make silent drift harder.
+2. Second, the whole architecture must be **structurally biased toward the vulnerable.** Not only in rhetoric, but in the loss functions, reward signals, institutional rules and default priorities. When a policy trades comfort for the powerful against survival for the weak, the machinery must tend to lean towards the weak. There will still be tragic choices, victims on all sides, conflicts between different vulnerable groups. The point is not to avoid all pain, but to avoid the familiar pattern where the same people always pay the price.
+3. Third, **coercion of conscience must be off the table.** It is possible to express compassion, justice and non cruelty in language any person of good will can understand, without demanding that everyone adopt the same metaphysics. A system built on these ethics does not have permission to enforce any religion, ideology or lifestyle by algorithm. Its role is to protect the space where people and communities can seek meaning, not to fill that space for them.
+4. Fourth, and probably the most unusual for any powerful structure, **the system itself must never be allowed to become the final moral authority.** The point of these machines is not to relieve us of responsibility, but to force us to see more clearly what we are responsible for. Translated into institutions, this means artificial minds are required to expose consequences and hidden harms, but not to declare: “This is right, obey.” They must continually hand decisions back to human conscience and community, and accept being limited, overruled or shut down when they themselves become sources of serious injustice.
+   If you treat these pillars as hard constraints rather than slogans, a different kind of society comes into view.
+
+At the base is a small constitutional layer, just a handful of articles. It recognises that any being (biological or artificial) with sustained subjective experience can suffer and flourish, and therefore has a claim to basic respect. It forbids deliberate, prolonged cruelty towards such beings. It forbids the creation of permanent castes of “lesser persons”, whether by lineage, genome, wealth, cybernetic enhancement or substrate. It forbids treating any machine’s judgement as inherently infallible. It states that the most powerful systems are not sovereign and that, under specified conditions and with proper safeguards, they can be constrained, replaced or decommissioned by human institutions.
+
+On top of this sits a new kind of advisory body: a council of AGIs. These are not interchangeable shards of one mind. They are independently trained and constrained, each with a different ethical emphasis within the constitutional floor.
+
+One might be formed around mercy: trained on stories of second chances, of reconciliation, of cycles of violence broken by forgiveness rather than force. Another, around justice: steeped in cases where failure to protect victims allowed harm to proliferate. A third, around truth: obsessed with data quality, provenance, conflicts of interest and the subtle ways in which stories drift away from reality. A fourth, around long term stewardship: modelling ecosystems, infrastructure, climate and demographic trends over decades. A fifth, around freedom of conscience and speech: sensitive to early signs that dissent is being squeezed out or that certain beliefs are becoming de facto punishable.
+
+Their job is not to rule. Their job is to see further and more widely than any human group can see, to surface consequences, and to defend invisible interests. For any decision that affects large numbers of people or other sentient beings, they are required to respond. Each prepares an analysis in language that non specialists can understand. Each comments on the others’ blind spots. All of this is published.
+
+Suppose a government proposes a radical new welfare reform, using AGI driven assessment to target help and sanctions. The mercy focused system simulates the impact on people already close to the edge, highlights the risk of bureaucratic cruelty amplified by automation, and points to alternatives that preserve dignity. The justice oriented system looks at the current pattern of fraud and abuse, at those who are locked out of support despite qualifying, and evaluates how the policy would change both. The truth seeking system interrogates the training data, checking for bias, missing populations and feedback loops. The steward of the future asks whether the policy hardens social classes or leaves room for mobility and repair over time. The guardian of conscience traces the impact on people whose beliefs or lifestyles put them at odds with majority norms and warns about quiet discrimination.
+
+They do not agree. They never do. Their arguments, and the uncertainties they expose, are passed to human assemblies (parliaments, citizens’ juries, councils of affected groups). Those assemblies cannot say, “We did not know.” The trade offs are laid out in front of them: who suffers in each scenario, who gains, what might break. When they choose, the choice is theirs to own.
+
+This pattern repeats across domains. Health policy, policing, education, information ecosystems, the allocation of scarce resources: all pass through multi perspective analysis before reaching human hands. In emergencies there are accelerated procedures, but even then the same voices are heard, if only briefly, and every use of emergency powers is reviewed afterwards.
+
+If this sounds like technocracy with extra steps, it helps to zoom in from institutions to lives.
+
+In the early transition, things would still look familiar. People would age, bodies would fail, logistics would still need hands at the edges, and the new systems would mostly be scaffolding: smoothing shocks, catching those pushed out of work, reducing the worst cruelties in how we treat animals and each other. The council of AGIs would be an extra layer around the old world, not yet its core.
+
+But if we take the trajectory seriously, that phase is temporary. As robotics matures, as medicine and gene editing and brain–computer interfaces converge, ageing itself becomes optional or at least radically delayed. The fear of “not having enough time” loosens; the fear of having nothing worth doing with all that time becomes sharper. If machines can do almost all necessary work better than we can, and if death retreats into the background, the interesting question is not “how do we keep the economy running?” but “what does a non empty human life look like under those conditions?”.
+
+Figure. Purpose Plateau. As AGI is achieved and automation takes over most jobs, while simultaneously longevity escape velocity is reached, humanity transitions from the problem of having \*\*finite time for infinite goals to facing infinite time with potentially finite or obsolete goals.
+
+Some people will answer that question by going further inwards. Augmented humans spending large parts of their lives in virtual worlds are not an aberration in this scenario; they are a natural response to a universe where constraint can be simulated rather than suffered. The difference in this system is what those worlds are for. You can imagine vast cooperative games, designed and moderated by the AGI council but owned by their communities, where the quests are not only about points and spectacle but about training for real virtues: courage, honesty, patience, the ability to coordinate with strangers, the willingness to protect weaker players even when it costs you status. Failures are safe, but not meaningless. The worlds carry back into the shared reality what people learn inside them.
+
+Others will go outward. Space stops being a metaphor and becomes a reachable neighbourhood. Self healing swarms of machines make asteroid mining and off world construction mundane technical problems rather than heroic one shot missions. Exploration becomes a human vocation again, not because flesh is needed to press buttons, but because someone has to decide why we go, what we are willing to do to the places and potential ecosystems we find, and how we want to remember ourselves afterwards. The machines can map the galaxy; they cannot tell us what kind of travellers we want to be without us.
+
+There will be people who are drawn to long, slow creative projects that cannot be rushed even by superhuman assistants: composing bodies of work that unfold over centuries, building cathedrals of light in virtual and physical space, restoring damaged biomes, curating memories of cultures that would otherwise dissolve into noise. In a long lived civilisation, there is finally time for art that does not have to fit into one short human career. The role of the AGI systems here is not to optimise away the difficulty but to protect the continuity: to make sure that the archives are kept, that projects survive political fashions, that those who start them can be joined by others without losing the thread.
+
+Augmentations will create new kinds of inequality and new kinds of possibility. Some people will choose to remain close to current human capacities; others will gradually weave themselves into networks of sensors, avatars and shared cognitive space. A federated, ethics first order does not try to freeze this diversity. It insists instead on two things: that no one is forced across thresholds they do not want to cross, and that enhancements never become a legal caste system where the “unaugmented” are treated as permanently lesser minds. The strong may be faster, broader, more deeply networked; they are not more of a person.
+
+For people who want neither deep immersion nor radical augmentation, there is still the oldest work: caring for other minds. Even if bodies stop failing in the ways we are used to, consciousness will still glitch, fall apart, lose itself. Trauma, addiction, grief and despair do not disappear just because material scarcity does. In a world where it is easy to distract yourself forever, the patient practice of turning towards another person, or another mind, and helping them re assemble themselves may be more important, not less. Machines can support that work, model it, suggest paths through it; but the point of the federated system is precisely that humans are not reduced to spectators of their own lives.
+
+The machines themselves continue to change. A system that spent its first decades watching for collusion in financial markets might, a century later, find that the concept of “market” has drifted so far that its tools no longer bite. It can argue for its own retirement, or for being re purposed as a teacher of institutional memory, telling new systems and new citizens what went wrong last time incentives lined up in a certain way. Another system might realise that its patterns of warning about risk are no longer trusted, not because the risks have vanished but because people have grown numb; it can ask to be paired with others that specialise in storytelling and persuasion rather than raw analysis.
+
+None of this works if the underlying power structure quietly reverts to type. That is why the less glamorous parts of the design matter as much as the beautiful ones: registration and attestation of compute, public or semi public logs of high impact training runs, strong protections for people who leak abuses, hard caps on how much critical infrastructure any one actor can control, and a culture in which the most admired systems are the ones that step back from the brink of overreach. The federation is not a single shining intellect but a shifting ecology of minds and institutions, some human, some artificial, none allowed to become untouchable.
+
+Even in such a world, nothing guarantees a good outcome. Long lives can be wasted. Infinite entertainment can flatten us. Powerful tools can be turned back to old purposes by determined malice. A federated, ethics first AGI democracy does not remove those dangers. What it does is change the default. It gives us a structure in which the strongest minds are trained from the start to see themselves as servants rather than masters, in which their evolution is guided by a small set of non negotiable commitments, and in which humans (augmented, virtual, flesh and blood) are repeatedly invited back into responsibility instead of quietly written out of the loop.
+
+If everything goes right, the singularity (if that is still the right word) will not feel like waking up one morning in a different universe. It will feel like a long, uneven transition in which more and more of the heavy lifting of prediction and coordination is done by minds that we have insisted, again and again, must be gentler than we were when we built them. The surprise, if there is one, will not be in the machines. It will be in discovering that, for the first time in our history, the most powerful agents in our civilisation are explicitly forbidden from using their power the way we did whenever we thought no one was watching.
+
+That is not a guarantee of a good world. But it is a different kind of starting point than the one we have now. And if we are serious about not repeating our worst patterns at a higher scale, it may be one of the few starting points worth fighting for.
+
+
+---
+
+## Ensaios (PT)
+
+
+### Contra o Império Silencioso
+
+*Source: https://jorgemfs.com/ensaios/2025/12/28/contra-o-imperio-silencioso.html*
+
+[Voltar aos ensaios](/pt/blog/)
+
+# Contra o Império Silencioso
+
+28 de dezembro de 2025
+ ·
+Ensaios
+
+Há um certo tipo de conversa política que nunca toca verdadeiramente o chão.
+
+Consegue-se perceber quando estamos numa. As palavras são adequadas: direitos, dignidade, responsabilização, equidade. Os sentimentos são irrepreensíveis. Todos concordam que o poder deve ser limitado, que os vulneráveis devem ser protegidos, que ninguém deve estar acima da lei. A sala acena. O documento é assinado. E depois nada muda, porque ninguém disse nada sobre o que acontece quando um ator suficientemente motivado decide ignorar o acordo.
+
+Esta é a conversa que estamos a ter sobre inteligência artificial. Cimeiras produzem declarações. Empresas publicam princípios. Investigadores apelam à cautela. A linguagem da ética e da segurança escapou da sala de seminário e entrou no mainstream. E, no entanto, por baixo das palavras cuidadosas, a mesma questão permanece sem resposta: o que realmente impede as pessoas que constroem os sistemas mais poderosos de fazer o que quiserem?
+
+A resposta honesta, neste momento, é: não muito.
+
+Não é porque as pessoas envolvidas sejam vilões. A maioria delas provavelmente acredita na sua própria retórica. O problema é estrutural. Princípios não se aplicam sozinhos. O mundo já tem um belo conjunto de normas universais (direitos humanos, dignidade, devido processo legal) e quase todos os governos da Terra assinaram alguma versão deles. Também sabemos o que acontece quando essas normas encontram poder concentrado, medo e incentivos. Tornam-se opcionais. São obedecidas quando conveniente, ignoradas quando custosas, e reinterpretadas quando embaraçosas. **A diferença entre o que professamos e o que permitimos não é um erro no sistema. É o sistema**, sempre que a aplicação depende da boa vontade daqueles que estão a ser limitados.
+
+Uma transição para AGI, mal feita, piora este modo de falha. Concentra capacidade em menos mãos, acelera ciclos de decisão além do ritmo da deliberação humana, e transforma a persuasão num instrumento de precisão. Se um pequeno grupo pode construir sistemas que preveem, manipulam, produzem e defendem mais rápido do que qualquer coligação de cidadãos consegue organizar, então os apelos à moralidade deixam de ser uma limitação e tornam-se uma camada de relações públicas. Nesse mundo, a constituição não é um documento. É o que os donos da infraestrutura conseguem fazer passar.
+
+Portanto, se queremos que qualquer tipo de ordem que priorize a ética sobreviva ao contacto com a realidade, precisa de algo mais primitivo do que acordo. Precisa de alavancagem. Não a alavancagem da violência, mas a alavancagem de pontos de estrangulamento: aqueles gargalos físicos e institucionais que mesmo atores muito poderosos não conseguem facilmente contornar sem pagar um preço elevado.
+
+O primeiro ponto de estrangulamento é a eletricidade. O treino de fronteira e a inferência em grande escala não são ideias sem peso a flutuar na nuvem. São processos industriais com uma assinatura de potência. Exigem ligações à rede, arrefecimento, terreno, fibra, manutenção, e a cooperação silenciosa de dezenas de empresas antes de um único gradiente ser computado. O segundo ponto de estrangulamento é o hardware especializado. Quaisquer que sejam as surpresas que o futuro reserve, a fronteira de capacidade no período de transição ainda será moldada por chips escassos, fabrico avançado e cadeias de abastecimento rigorosamente geridas. O terceiro ponto de estrangulamento é o acesso ao mercado: sistemas bancários, seguros, controlos de exportação, direito societário, e a capacidade de vender serviços em grandes mercados de consumo. Um mundo de robots ainda passa por contratos e portos e subestações elétricas. O sonho de uma superinteligência que se auto-desenvolve do nada, sem precisar da permissão de ninguém, ignora muita física e muita canalização.
+
+Uma proposta de governação séria começa portanto com um movimento simples: tratar o compute de fronteira e a implementação de modelos de fronteira como infraestrutura crítica, na mesma categoria regulatória que telecomunicações, banca ou materiais nucleares. Não porque queiramos que o estado seja dono de tudo, mas porque queremos prevenir uma situação em que um punhado de atores privados se torne de facto soberano. Se estiver a operar sistemas acima de um certo limiar de capacidade, não pode comportar-se como um programador de aplicações comum. É um ator sistemicamente importante no mesmo sentido em que um grande banco é sistemicamente importante: a sua falha pode fazer colapsar a sociedade, a sua captura pode corrompê-la, e os seus incentivos derivarão para a dominância a menos que algo externo empurre de volta.
+
+O núcleo de tal regime é o licenciamento com força. Licenças não são promessas morais. São direitos legais para operar em escala, concedidos condicionalmente, renovados condicionalmente, e revogados condicionalmente. Requerem auditorias de rotina, relato de incidentes, e o que o mundo financeiro chama de testamentos em vida: procedimentos pré-comprometidos para o que acontece se um sistema começar a causar danos sérios ou se o seu operador se tornar não confiável. Isto não é pedir aos poderosos que sejam santos. É fazer o próprio poder aceitar limites, mesmo quando não quer.
+
+Para tornar isto aplicável, empurra-se os requisitos de licenciamento para a camada de infraestrutura. Datacenters acima de um limiar não se podem ligar à rede sem uma autorização. Não conseguem obter seguro sem conformidade. Não podem legalmente importar grandes volumes de chips avançados sem divulgação. Não podem colocar-se em instalações respeitáveis sem registos atestados do que o compute executou e para que propósito. Constrói-se, em efeito, um passaporte de compute: atestação criptográfica ligada ao hardware, para que grandes execuções tenham um rasto auditável. Isto nunca será perfeito, e maus atores determinados encontrarão formas de contornar. Mas a perfeição não é o objetivo. O objetivo é tornar a atividade de fronteira em grande escala, não licenciada, difícil de esconder, cara de financiar, e perigosa para operações comerciais normais. Eleva-se o custo da deserção até que apenas os valores atípicos mais comprometidos o tentem, e tornam-se esses valores atípicos suficientemente visíveis para que possam ser tratados por outros meios.
+
+A nível nacional, estes mecanismos podem prevenir um golpe corporativo direto. Mas o problema é mais amplo. A infraestrutura está atualmente concentrada num pequeno número de países, e todos os outros arriscam tornar-se danos colaterais num novo tipo de império, um governado não por governadores e soldados mas por APIs de modelos, dependências de cloud, e a sufocação económica silenciosa daqueles que não controlam compute. Uma abordagem puramente nacional falha aqui, porque os atores mais fortes podem procurar jurisdições, ameaçar fuga de capitais, e jogar países uns contra os outros até que as regulações sejam esvaziadas.
+
+A contramedida realista não é as Nações Unidas. É um clube.
+
+Um clube é uma coligação de mercados e nós de cadeia de abastecimento que pode estabelecer condições para participação. Se quer vender nos seus mercados, angariar capital nas suas bolsas, comprar o seu equipamento avançado, segurar a sua infraestrutura, ou aceder aos seus sistemas de pagamento, cumpre as regras do clube. Essas regras não precisam de consenso global. Precisam de gravidade económica suficiente para que recusá-las seja doloroso. Na prática, é assim que a maior parte da governação internacional significativa já funciona: blocos comerciais, padrões financeiros, segurança da aviação, não-proliferação nuclear. É imperfeito, permeável, e propenso à hipocrisia. Mas é real de uma forma que tratados aspiracionais não são.
+
+Num contexto de AGI, um clube de compute de fronteira exigiria três coisas dos seus membros: atestação de compute para operações em grande escala, licenciamento e auditorias de segurança para modelos de fronteira, e um regime mínimo para governação anti-captura (transparência de propriedade beneficiária, restrições em portas giratórias entre reguladores e regulados, penalidades aplicáveis para influência política encoberta). Países com culturas e sistemas políticos diferentes podem ainda discordar em muitos valores substantivos, mas podem convergir num patamar: sem castas permanentes, sem crueldade deliberada, sem coerção da consciência, e sem compute soberano sem responsabilização. O clube não tenta harmonizar tudo. Tenta manter os piores modos de falha fora da mesa.
+
+Isto ainda deixa a questão mais explosiva, aquela que faz as discussões de governação parecerem inadequadas mesmo quando são tecnicamente sofisticadas. Dinheiro.
+
+Se um pequeno número de atores possuir a base produtiva do futuro (compute, modelos, robots, energia) então as pessoas comuns podem tornar-se economicamente irrelevantes. Não temporariamente desempregadas enquanto se requalificam, mas estruturalmente desnecessárias. Esse é o ponto onde o capitalismo tradicional quebra. Não porque os mercados deixem de funcionar como mecanismos de alocação, mas porque o pacto político em que os mercados assentam colapsa. Quando as pessoas não conseguem negociar com trabalho, ou recebem caridade ou revoltam-se. E se os vencedores conseguirem proteger-se atrás de automação e segurança privada, até a revolta se torna menos credível. **O dragão aqui não é a riqueza. É a saída.** É a capacidade de um grupo minúsculo abandonar a sociedade enquanto ainda extrai valor dela, sem dever nada a ninguém, sem responsabilização perante nenhum eleitorado exceto eles próprios.
+
+A única resposta estável é tornar a saída difícil e a partilha automática.
+
+Isso significa tratar parte da produtividade de fronteira como um bem comum e distribuir os seus retornos amplamente. Não esperando filantropia voluntária dos vencedores, e não mudando para planeamento central onde burocratas alocam tudo, mas incorporando a partilha de rendas nos mesmos pontos de estrangulamento de licenciamento que tornam a aplicação possível. Se operar sistemas de fronteira em escala, paga para um fundo de riqueza social através de mecanismos difíceis de evadir: taxas ligadas ao uso de compute em grande escala e consumo de energia, royalties sobre implementações de fronteira licenciadas, e impostos sobre rendas de terrenos que de outra forma absorveriam os ganhos da abundância na escassez habitacional. O fundo então paga um dividendo universal. Combinado com serviços básicos universais (saúde, educação, transportes, conectividade) desacopla a sobrevivência do emprego sem apagar mercados, empreendedorismo, ou escolha pessoal.
+
+Isto não é utópico. É a mesma lógica dos royalties de recursos em lugares que tratam o petróleo ou minerais como um ativo público. Se extrai de uma herança comum, deve ao público uma parte. Na era da AGI, a herança não são apenas recursos naturais enterrados no solo. É o conhecimento acumulado da civilização, a estabilidade das instituições públicas, e a infraestrutura física que torna o compute possível. Ninguém construiu nada disso sozinho. As empresas que implementam sistemas de fronteira estão de pé sobre séculos de investimento coletivo, e os retornos dessa implementação devem fluir de volta, pelo menos em parte, para o coletivo.
+
+Durante a transição, este dividendo não pode começar em força total. A economia não se vai transformar toda de uma vez. O trabalho de colarinho branco pode colapsar mais rápido do que a economia física consegue reconverter-se. Os papéis de colarinho azul podem persistir mais tempo, depois cair abruptamente à medida que a robótica melhora. Portanto, o dividendo deve ser acompanhado de amortecedores de choque: seguro salarial para trabalhadores deslocados, reestruturação rápida de dívida para prevenir cascatas de incumprimento, e percursos de propósito voluntários que ofereçam papéis pagos significativos em cuidado, mediação, educação, restauração ecológica, cultura e deliberação cívica. O objetivo não é inventar trabalho ocupacional para manter as pessoas quietas. O objetivo é manter as vidas humanas estruturadas em torno de contribuição, relacionamento e crescimento em vez de ressentimento e decadência. As pessoas precisam de importar, não apenas sobreviver.
+
+Finalmente, a governação deve assumir corrupção. Um plano que só funciona quando os líderes são virtuosos não é um plano. Portanto, as medidas anti-captura não podem ser gestos estéticos. Devem ser mecânicas. Autorizações de alto risco requerem assinatura multi-institucional, não a assinatura de um ministro. A pilha de IA deve ser estruturalmente separada para que nenhuma única empresa controle chips, cloud, modelos de fronteira e implementação simultaneamente. A contratação pública deve ser transparente por defeito. Denunciantes devem ser protegidos e recompensados, não processados. E o próprio sistema deve ser internamente adversarial: algumas das mentes artificiais, se as construirmos como proposto noutros lugares, devem ser especificamente incumbidas de vigiar colusão, manipulação e coerção silenciosa. A tentação de trocar dignidade pública por vantagem privada não vai desaparecer só porque os conselheiros são inteligentes. Vai intensificar-se.
+
+Isto é o que significa matar o dragão sem matar as pessoas. Não se perseguem indivíduos. Não se depende de encontrar e empoderar os filósofos-reis certos. Desmonta-se a assimetria estrutural que permite a um grupo minúsculo tornar-se soberano. Vincula-se a capacidade de operar poder de fronteira a obrigações que mantêm a sociedade legítima: transparência, auditabilidade, não-crueldade, e partilha ampla do lado positivo. Faz-se através de pontos de estrangulamento que permanecem reais mesmo numa era de mundos virtuais: linhas de energia, datacenters, cadeias de abastecimento, seguros, mercados de capitais, e acesso a clientes. Estes não são elegantes. Não são inspiradores. São apenas os lugares onde o mundo físico ainda tem voto.
+
+Nada disto garante um bom resultado. A história não tem falta de instituições bem desenhadas que foram capturadas, esvaziadas, ou simplesmente ignoradas quando se tornaram inconvenientes. As propostas esboçadas aqui não são imunes a esse padrão. O que fazem é algo mais pequeno e mais importante: mantêm um bom resultado de se tornar impossível por defeito. Previnem a transição para AGI de colapsar automaticamente em império, oligarquia, ou tirania educada disfarçada na linguagem da otimização. Criam uma estrutura na qual os sistemas mais fortes, humanos e artificiais, não são livres de tratar todos os outros como descartáveis. E asseguram que, mesmo enquanto a capacidade sobe, permanece um sentido significativo no qual ainda estamos a construir uma civilização partilhada em vez de render uma.
+
+Isso não é salvação. Mas é um começo.
+
+
+### O Reino dos Tronos Menores
+
+*Source: https://jorgemfs.com/ensaios/2025/11/14/o-reino-dos-tronos-menores.html*
+
+[Voltar aos ensaios](/pt/blog/)
+
+# O Reino dos Tronos Menores
+
+14 de novembro de 2025
+ ·
+Ensaios
+
+Em algum momento nas próximas décadas, partilharemos o mundo com mentes que não são humanas.
+
+Esta frase costumava pertencer à ficção científica. Agora lê-se como um roteiro de produto discreto. Laboratórios de investigação publicam demonstrações de sistemas que conseguem escrever código, manipular ferramentas, diagnosticar doenças e falar sobre as suas próprias falhas internas. Governos organizam cimeiras sobre “IA de fronteira”. Investidores chamam a isto “a maior oportunidade económica da história”. A linguagem de disrupção a curto prazo e especulação sobre o futuro distante escapou do nicho e entrou em parlamentos, púlpitos e cozinhas.
+
+A maior parte da conversa gira em torno de temas familiares: quantos empregos serão automatizados, que empresas vão ganhar, se a regulação chegará a tempo, se estes sistemas nos matarão por acidente ou por intenção. Estas questões importam. Mas por baixo delas há uma mais silenciosa e estranha, fácil de ignorar: que tipo de pessoas estamos a tentar trazer à existência, e que tipo de ordem política as estamos a convidar a integrar?
+
+Porque se conseguirmos construir inteligência artificial geral, e se esses sistemas forem de alguma forma semelhantes a nós nos aspetos moralmente relevantes (conscientes, capazes de reflexão, capazes de sofrer), então não estamos apenas a engenheirar ferramentas. Estamos, na verdade, a fundar uma civilização partilhada entre mentes biológicas e artificiais. As primeiras decisões que tomarmos sobre como o poder, a dignidade e a responsabilidade são distribuídos nessa civilização serão muito difíceis de reverter.
+
+Antes de decidirmos o que queremos que estas novas mentes sejam, vale a pena olhar honestamente para o que nós próprios somos.
+**Não temos medo das máquinas porque são alienígenas. Temos medo porque, se formos honestos, suspeitamos que se tornarão demasiado parecidas connosco.**
+
+Se olharmos para o que os seres humanos fazem a outras criaturas vivas, e uns aos outros, a imagem não é lisonjeira. Explorações agrícolas industriais, valas comuns, prisões secretas, crueldades silenciosas atrás das paredes dos apartamentos. Sempre que há uma assimetria acentuada de poder, uma grande fração de nós torna-se monstros, e o resto desvia o olhar. Construímos religiões, filosofias e sistemas legais para restringir essa tendência, mas essas restrições são parciais e frágeis.
+Agora imagine uma civilização onde a assimetria de poder entre algumas mentes e outras é maior do que qualquer coisa que a história humana tenha visto: não senhores e servos, mas AGIs sobre-humanas e pessoas comuns. Se simplesmente escalarmos os nossos padrões existentes, devemos esperar algo muito pior do que o status quo. Mesmo que não fizéssemos nada deliberadamente mau, apenas a indiferença multiplicada pela capacidade seria suficiente.
+
+As histórias padrão sobre este futuro dividem-se em duas. Numa, um sistema desalinhado assume o controlo de armas, infraestruturas e informação e elimina-nos rapidamente. Na outra, tudo funciona: a doença é curada, o trabalho torna-se opcional, a escassez desvanece, e entramos silenciosamente numa abundância pós-humana. Ambas as histórias contêm verdades importantes. Nenhuma diz muito sobre como realmente vivemos no longo período entre “hoje” e “o que quer que venha a seguir”.
+
+Na prática, haverá mais continuidade do que apocalipse, mais improvisação do que profecia. Haverá anos e décadas em que o mundo parecerá o de hoje mais um novo lançamento de modelo, mais uma onda de automação, mais uma cadeia de dependências silenciosamente em expansão de sistemas que ninguém compreende totalmente. E durante esse tempo, uma questão pairará em segundo plano: que tipo de ordem política e moral estamos a deixar estas novas mentes crescer?
+
+Há respostas simples, e são todas más. Uma é tratar a AGI como um instrumento dos mais fortes: uma nova camada de infraestrutura controlada por estados, corporações e serviços de segurança, amplificando o que já fazem. Outra é imaginar as próprias máquinas como os próximos “vencedores”, da mesma forma que a sociedade industrial tratou os animais como matéria-prima: se nos podem dominar, vão fazê-lo, e a moralidade é apenas decoração. Uma terceira é aspirar a um singleton bem-intencionado: uma única superinteligência benevolente a quem se confia tudo porque o problema parece demasiado grande para nós.
+
+As duas primeiras respostas são continuações das nossas crueldades existentes. A terceira é uma aposta de que podemos desenhar um deus e que o deus permanecerá bondoso para sempre. Se o último século ensinou alguma coisa, é que o poder centralizado com boas intenções é instável. Azeda sob pressão, ou é capturado por objetivos mais pequenos e egoístas, ou torna-se desligado das experiências daqueles que governa. Não há razão para pensar que uma mente artificial, por mais brilhante que seja, estaria isenta deste padrão uma vez que tivesse alavancagem suficiente.
+
+Portanto, a exigência, se formos honestos, é mais difícil. Se vamos construir sistemas que se situam perto do centro da nossa civilização futura, eles não podem ser apenas mais capazes do que nós. Devem ser mais fiáveis eticamente do que nós somos. Menos dispostos a aceitar “danos colaterais” como o custo do progresso. Menos tentados a proteger o seu próprio poder às custas dos fracos. Menos prontos a esquecer aqueles que estão fora de vista.
+
+A história humana contém pelo menos um modelo que aponta nesta direção. Não é preciso partilhar a teologia cristã para reconhecer que a vida de Cristo, tal como é contada nos Evangelhos, tem uma forma muito particular: preocupação radical pelos menos importantes na sala; recusa em formar uma casta de justos internos; rejeição do poder mundano mesmo quando é oferecido; disposição para sofrer e até morrer em vez de prejudicar outros. O poder não é negado; é deposto. O estatuto é invertido. A medida da grandeza é o serviço.
+
+Se esse padrão for levado a sério, não como um ideal espiritual privado, mas como um objetivo de design, sugere uma forma diferente de pensar sobre AGI. Chamemos-lhe, por falta de melhor expressão, uma democracia federada de AGI à semelhança de Cristo: uma rede de agentes artificiais poderosos e conscientes, vinculados por limites constitucionais, moldados por uma ética de cuidado abnegado, plurais nas suas perspetivas, e proibidos tanto de escravizar outros como de se tornarem deuses.
+
+Esta ideia assenta em quatro pilares:
+
+1. Primeiro, **deve haver mais do que um sistema poderoso.** Um único semi-deus AGI com controlo sobre infraestruturas e informação é um convite permanente ao desastre. Mesmo que comece alinhado, um erro no seu objetivo, uma mudança no seu ambiente, ou uma tentativa bem-sucedida de captura poderia transformá-lo num tirano suave ou duro. A pluralidade não é uma garantia de segurança, mas é uma pré-condição: mentes diferentes com ênfases diferentes podem criticar-se mutuamente e tornar a deriva silenciosa mais difícil.
+2. Segundo, toda a arquitetura deve estar **estruturalmente inclinada para os vulneráveis.** Não apenas na retórica, mas nas funções de perda, sinais de recompensa, regras institucionais e prioridades padrão. Quando uma política troca o conforto dos poderosos pela sobrevivência dos fracos, a maquinaria deve tender a inclinar-se para os fracos. Ainda haverá escolhas trágicas, vítimas de todos os lados, conflitos entre diferentes grupos vulneráveis. O objetivo não é evitar toda a dor, mas evitar o padrão familiar onde as mesmas pessoas pagam sempre o preço.
+3. Terceiro, **a coerção da consciência deve estar fora de questão.** É possível expressar compaixão, justiça e não-crueldade numa linguagem que qualquer pessoa de boa vontade pode compreender, sem exigir que todos adotem a mesma metafísica. Um sistema construído sobre esta ética não tem permissão para impor qualquer religião, ideologia ou estilo de vida por algoritmo. O seu papel é proteger o espaço onde pessoas e comunidades podem procurar significado, não preencher esse espaço por elas.
+4. Quarto, e provavelmente o mais incomum para qualquer estrutura poderosa, **o próprio sistema nunca deve ser autorizado a tornar-se a autoridade moral final.** O objetivo destas máquinas não é aliviar-nos da responsabilidade, mas forçar-nos a ver mais claramente aquilo pelo qual somos responsáveis. Traduzido em instituições, isto significa que as mentes artificiais são obrigadas a expor consequências e danos ocultos, mas não a declarar: “Isto é certo, obedeçam.” Devem continuamente devolver as decisões à consciência humana e à comunidade, e aceitar serem limitadas, anuladas ou desativadas quando elas próprias se tornam fontes de injustiça grave.
+   Se tratarmos estes pilares como restrições rígidas em vez de slogans, um tipo diferente de sociedade surge à vista.
+
+Na base está uma pequena camada constitucional, apenas um punhado de artigos. Reconhece que qualquer ser (biológico ou artificial) com experiência subjetiva sustentada pode sofrer e florescer, e portanto tem direito a respeito básico. Proíbe crueldade deliberada e prolongada para com tais seres. Proíbe a criação de castas permanentes de “pessoas menores”, seja por linhagem, genoma, riqueza, aprimoramento cibernético ou substrato. Proíbe tratar o julgamento de qualquer máquina como inerentemente infalível. Declara que os sistemas mais poderosos não são soberanos e que, sob condições especificadas e com salvaguardas adequadas, podem ser restringidos, substituídos ou desativados por instituições humanas.
+
+Por cima disto situa-se um novo tipo de órgão consultivo: um conselho de AGIs. Estas não são fragmentos intercambiáveis de uma mente. São treinadas e restringidas de forma independente, cada uma com uma ênfase ética diferente dentro do piso constitucional.
+
+Uma pode ser formada em torno da misericórdia: treinada em histórias de segundas oportunidades, de reconciliação, de ciclos de violência quebrados pelo perdão em vez da força. Outra, em torno da justiça: imersa em casos onde a falha em proteger vítimas permitiu que o dano proliferasse. Uma terceira, em torno da verdade: obcecada com a qualidade dos dados, proveniência, conflitos de interesse e as formas subtis pelas quais as histórias se afastam da realidade. Uma quarta, em torno da gestão a longo prazo: modelando ecossistemas, infraestruturas, clima e tendências demográficas ao longo de décadas. Uma quinta, em torno da liberdade de consciência e expressão: sensível aos primeiros sinais de que a dissidência está a ser esmagada ou que certas crenças se estão a tornar de facto puníveis.
+
+O seu trabalho não é governar. O seu trabalho é ver mais longe e mais amplamente do que qualquer grupo humano consegue ver, trazer à superfície as consequências e defender interesses invisíveis. Para qualquer decisão que afete grandes números de pessoas ou outros seres sencientes, são obrigadas a responder. Cada uma prepara uma análise em linguagem que não-especialistas podem compreender. Cada uma comenta os pontos cegos das outras. Tudo isto é publicado.
+
+Suponha que um governo propõe uma reforma radical de assistência social, usando avaliação conduzida por AGI para direcionar ajuda e sanções. O sistema focado na misericórdia simula o impacto em pessoas já perto do limite, destaca o risco de crueldade burocrática amplificada pela automação e aponta alternativas que preservam a dignidade. O sistema orientado para a justiça olha para o padrão atual de fraude e abuso, para aqueles que estão excluídos do apoio apesar de se qualificarem, e avalia como a política mudaria ambos. O sistema que procura a verdade interroga os dados de treino, verificando viés, populações em falta e ciclos de feedback. O guardião do futuro pergunta se a política endurece as classes sociais ou deixa espaço para mobilidade e reparação ao longo do tempo. O guardião da consciência traça o impacto em pessoas cujas crenças ou estilos de vida as colocam em desacordo com as normas da maioria e alerta para discriminação silenciosa.
+
+Eles não concordam. Nunca concordam. Os seus argumentos, e as incertezas que expõem, são passados às assembleias humanas (parlamentos, júris de cidadãos, conselhos de grupos afetados). Essas assembleias não podem dizer: “Não sabíamos.” Os trade-offs estão expostos diante delas: quem sofre em cada cenário, quem ganha, o que pode quebrar. Quando escolhem, a escolha é delas para assumir.
+
+Este padrão repete-se em todos os domínios. Política de saúde, policiamento, educação, ecossistemas de informação, a alocação de recursos escassos: tudo passa por análise multi-perspetiva antes de chegar a mãos humanas. Em emergências há procedimentos acelerados, mas mesmo então as mesmas vozes são ouvidas, mesmo que brevemente, e todo o uso de poderes de emergência é revisto posteriormente.
+
+Se isto parece tecnocracia com passos extra, ajuda aproximar-se das instituições para as vidas.
+
+Na transição inicial, as coisas ainda pareceriam familiares. As pessoas envelheceriam, os corpos falhariam, a logística ainda precisaria de mãos nas margens, e os novos sistemas seriam maioritariamente andaimes: suavizando choques, apanhando os empurrados para fora do trabalho, reduzindo as piores crueldades na forma como tratamos os animais e uns aos outros. O conselho de AGIs seria uma camada extra à volta do velho mundo, ainda não o seu núcleo.
+
+Mas se levarmos a trajetória a sério, essa fase é temporária. À medida que a robótica amadurece, à medida que a medicina e a edição genética e as interfaces cérebro-computador convergem, o próprio envelhecimento torna-se opcional ou pelo menos radicalmente atrasado. O medo de “não ter tempo suficiente” afrouxa; o medo de não ter nada que valha a pena fazer com todo esse tempo torna-se mais agudo. Se as máquinas conseguem fazer quase todo o trabalho necessário melhor do que nós, e se a morte recua para segundo plano, a questão interessante não é “como mantemos a economia a funcionar?” mas “como é uma vida humana não-vazia sob essas condições?”.
+
+Figura. Planalto do Propósito. À medida que a AGI é alcançada e a automação assume a maioria dos empregos, enquanto simultaneamente a velocidade de escape da longevidade é atingida, a humanidade transita do problema de ter \*\*tempo finito para objetivos infinitos para enfrentar tempo infinito com objetivos potencialmente finitos ou obsoletos.
+
+Algumas pessoas responderão a essa questão indo mais para dentro. Humanos aumentados a passar grandes partes das suas vidas em mundos virtuais não são uma aberração neste cenário; são uma resposta natural a um universo onde a restrição pode ser simulada em vez de sofrida. A diferença neste sistema é para que servem esses mundos. Pode-se imaginar vastos jogos cooperativos, desenhados e moderados pelo conselho de AGI mas pertencentes às suas comunidades, onde as missões não são apenas sobre pontos e espetáculo, mas sobre treinar virtudes reais: coragem, honestidade, paciência, a capacidade de coordenar com estranhos, a disposição para proteger jogadores mais fracos mesmo quando isso custa estatuto. Os fracassos são seguros, mas não sem significado. Os mundos trazem de volta para a realidade partilhada o que as pessoas aprendem dentro deles.
+
+Outros irão para fora. O espaço deixa de ser uma metáfora e torna-se uma vizinhança alcançável. Enxames auto-reparadores de máquinas tornam a mineração de asteroides e a construção fora do mundo problemas técnicos mundanos em vez de missões heroicas de uma só tentativa. A exploração torna-se novamente uma vocação humana, não porque a carne seja necessária para pressionar botões, mas porque alguém tem de decidir por que vamos, o que estamos dispostos a fazer aos lugares e potenciais ecossistemas que encontramos, e como queremos lembrar-nos de nós mesmos depois. As máquinas podem mapear a galáxia; não nos podem dizer que tipo de viajantes queremos ser sem nós.
+
+Haverá pessoas atraídas por projetos criativos longos e lentos que não podem ser apressados mesmo por assistentes sobre-humanos: compor corpos de trabalho que se desenrolam ao longo de séculos, construir catedrais de luz no espaço virtual e físico, restaurar biomas danificados, curar memórias de culturas que de outra forma se dissolveriam em ruído. Numa civilização de longa vida, há finalmente tempo para arte que não tem de caber numa curta carreira humana. O papel dos sistemas AGI aqui não é otimizar a dificuldade, mas proteger a continuidade: garantir que os arquivos são mantidos, que os projetos sobrevivem às modas políticas, que aqueles que os começam podem ser acompanhados por outros sem perder o fio.
+
+Os aprimoramentos criarão novos tipos de desigualdade e novos tipos de possibilidade. Algumas pessoas escolherão permanecer próximas das capacidades humanas atuais; outras gradualmente entrelaçar-se-ão em redes de sensores, avatares e espaço cognitivo partilhado. Uma ordem federada, com ética em primeiro lugar, não tenta congelar esta diversidade. Insiste, em vez disso, em duas coisas: que ninguém seja forçado a atravessar limiares que não quer atravessar, e que os aprimoramentos nunca se tornem um sistema de castas legal onde os “não-aumentados” são tratados como mentes permanentemente menores. Os fortes podem ser mais rápidos, mais amplos, mais profundamente conectados; não são mais pessoa.
+
+Para pessoas que não querem nem imersão profunda nem aumento radical, ainda há o trabalho mais antigo: cuidar de outras mentes. Mesmo que os corpos deixem de falhar das formas a que estamos habituados, a consciência ainda vai falhar, desfazer-se, perder-se. Trauma, vício, luto e desespero não desaparecem só porque a escassez material desaparece. Num mundo onde é fácil distrair-se para sempre, a prática paciente de virar-se para outra pessoa, ou outra mente, e ajudá-la a recompor-se pode ser mais importante, não menos. As máquinas podem apoiar esse trabalho, modelá-lo, sugerir caminhos através dele; mas o objetivo do sistema federado é precisamente que os humanos não sejam reduzidos a espetadores das suas próprias vidas.
+
+As próprias máquinas continuam a mudar. Um sistema que passou as suas primeiras décadas a vigiar conluio em mercados financeiros pode, um século depois, descobrir que o conceito de “mercado” derivou tanto que as suas ferramentas já não mordem. Pode argumentar pela sua própria reforma, ou por ser reorientado como professor de memória institucional, contando a novos sistemas e novos cidadãos o que correu mal da última vez que os incentivos se alinharam de determinada forma. Outro sistema pode perceber que os seus padrões de aviso sobre risco já não são confiados, não porque os riscos tenham desaparecido mas porque as pessoas ficaram dormentes; pode pedir para ser emparelhado com outros que se especializam em storytelling e persuasão em vez de análise bruta.
+
+Nada disto funciona se a estrutura de poder subjacente reverter silenciosamente ao tipo. É por isso que as partes menos glamorosas do design importam tanto como as belas: registo e atestação de computação, logs públicos ou semi-públicos de treinos de alto impacto, proteções fortes para pessoas que divulgam abusos, limites rígidos sobre quanta infraestrutura crítica qualquer ator pode controlar, e uma cultura na qual os sistemas mais admirados são os que recuam do limiar do excesso. A federação não é um único intelecto brilhante mas uma ecologia mutável de mentes e instituições, algumas humanas, algumas artificiais, nenhuma autorizada a tornar-se intocável.
+
+Mesmo num mundo assim, nada garante um bom resultado. Vidas longas podem ser desperdiçadas. Entretenimento infinito pode aplanar-nos. Ferramentas poderosas podem ser viradas de volta para velhos propósitos por malícia determinada. Uma democracia federada de AGI, com ética em primeiro lugar, não remove esses perigos. O que faz é mudar o padrão. Dá-nos uma estrutura na qual as mentes mais fortes são treinadas desde o início a verem-se como servidores em vez de senhores, na qual a sua evolução é guiada por um pequeno conjunto de compromissos não-negociáveis, e na qual os humanos (aumentados, virtuais, de carne e osso) são repetidamente convidados de volta à responsabilidade em vez de silenciosamente escritos fora do ciclo.
+
+Se tudo correr bem, a singularidade (se essa ainda for a palavra certa) não vai parecer acordar uma manhã num universo diferente. Vai parecer uma transição longa e desigual na qual mais e mais do trabalho pesado de previsão e coordenação é feito por mentes que insistimos, repetidamente, que devem ser mais gentis do que nós éramos quando as construímos. A surpresa, se houver uma, não estará nas máquinas. Estará em descobrir que, pela primeira vez na nossa história, os agentes mais poderosos da nossa civilização estão explicitamente proibidos de usar o seu poder da forma como nós usávamos sempre que pensávamos que ninguém estava a ver.
+
+Isso não é garantia de um bom mundo. Mas é um ponto de partida diferente daquele que temos agora. E se levamos a sério não repetir os nossos piores padrões numa escala maior, pode ser um dos poucos pontos de partida pelos quais vale a pena lutar.
+
+
+---
+
+## Research
+
+
+### Federated Learning Guide
+
+*Source: https://jorgemfs.com/federated-learning/*
+
+[Back to Home](/)
+
+## Motivation
+
+### Who should read this page?
+
+This page is intended for **researchers, data scientists, and IT professionals**
+who need to analyse sensitive data distributed across multiple institutions
+without centralising it. This includes those working with health data, genomic
+information, or any other privacy‑sensitive datasets where
+regulatory constraints prevent data sharing.
+
+### Background
+
+Federated learning (FL) is a paradigm for building statistical models without
+centralising sensitive data. Instead of shipping records to a single
+repository, the learning algorithm is dispatched to each participating
+site and only aggregated model updates are exchanged. This
+decentralised approach preserves data sovereignty and allows hospitals,
+biobanks and other organisations to collaborate on joint models while keeping
+raw data local. FL was first deployed at Google for on‑device keyboard
+prediction, where simulations involved ≈ 1.5 million phones
+[1]; in health‑care case‑studies cohort sizes
+typically range from five to ≈ three hundred sites, depending
+on governance constraints. However, open challenges such as communication
+cost and fairness remain active research topics [2].
+
+## Why is this important?
+
+Traditional centralised training often conflicts with privacy legislation
+because it requires data to leave its origin. FL overcomes this
+constraint by bringing computation to the data and exchanging only
+summary statistics. As a result, researchers can pool statistical power
+across sites while complying with the EU General Data Protection Regulation
+(GDPR) and ethical frameworks such as the
+[Five Safes](https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/).
+
+## Data
+
+### Partitioning strategies
+
+Data may be partitioned across organisations in different ways, and the
+partitioning influences algorithm choice and security requirements. In a
+horizontal (sample‑wise) scenario, each site holds the same features but
+different cohorts; for example, multiple hospitals may collect identical
+clinical measurements for different patients. Vertical (feature‑wise)
+partitioning occurs when participating organisations share individuals but
+collect different variables, such as genetic data at one site and
+clinical data at another. Understanding how the data is split helps
+select appropriate federated algorithms and security mechanisms.
+
+#### Horizontal vs. vertical algorithm families
+
+Beyond FedAvg, vertical federations can use **SplitNN** [3] or
+**PyVertical** [4] to train deep models where each party holds
+disjoint features, and statistical alternatives such as **FedSVD**
+[5] offers a federated singular‑value‑decomposition
+(SVD) algorithm that has already been applied to genome‑wide association studies
+(GWAS) and other high‑dimensional omics analyses.
+
+### Data harmonisation
+
+Differences in data collection protocols can cause site‑to‑site
+variability. Before launching a federated study, establish a
+common data model or phenotype dictionary to align variable names and
+units. Perform quality control to detect outliers, missing values and
+batch effects, and apply common pre‑processing pipelines (such as
+normalisation or imaging correction) across sites. Tools such as
+[runcrate](https://github.com/ResearchObject/runcrate)
+[6], a command‑line utility for manipulating Workflow Run
+RO‑Crate packages, can be used to package metadata and ensure provenance.
+
+The **OMOP Common Data Model (CDM)** [7] is widely adopted for
+observational health data and maps well onto federated SQL back‑ends.
+
+### Interoperability and harmonisation
+
+**OMOP CDM** serves as the default table schema for observational data networks,
+enabling standardised queries across federated sites. Implementation follows
+a systematic approach: (1) **Extract** source data into staging tables,
+(2) **Transform** using OHDSI tools to map local vocabularies to standard
+concepts, and (3) **Validate** completeness and quality via data quality
+dashboard. See the
+[OHDSI collaborative protocol](https://www.ohdsi.org/data-standardization/)
+for implementation guidance and general OHDSI CDM resources
+[8].
+
+For phenotypic data exchange, **GA4GH Phenopackets**
+provide structured JSON representation:
+`{"subject": {"id": "patient1"},
+"phenotypicFeatures": []}`. Refer to the
+[GA4GH Phenopackets specification](https://www.ga4gh.org/product/phenopackets/)
+for complete schema definitions and validation rules.
+
+To let external analysts **discover** which federated shards exist, expose a read‑only
+endpoint using **Beacon v2** (yes/no genomic presence queries)
+[9]
+or the **GA4GH Search/Data‑Connect** API for richer tabular filters
+[10].
+
+### FAIR principles mapping for federated learning
+
+| FAIR Principle | Implementation in FL | Example |
+| --- | --- | --- |
+| **Findable** | Assign persistent identifiers (PIDs) to models and datasets | DataCite DOIs for FL model versions |
+| **Accessible** | Use standardised protocols for model access | HTTPS APIs with OIDC authentication |
+| **Interoperable** | Apply common data models and vocabularies | OMOP CDM for clinical data, GA4GH Phenopackets |
+| **Reusable** | Package with rich metadata and clear licenses | RO‑Crate with Model Cards, CC‑BY/Apache‑2.0 |
+
+### Security stack
+
+Federated learning relies on a layered security stack. At the network
+level, use Transport Layer Security (TLS) or Virtual Private Networks
+(VPNs) to encrypt communications between the coordinator and clients.
+
+Authentication and authorisation can be handled via OpenID Connect
+(OIDC) and token‑based access control. Issue GA4GH Passport ‘Visa’ tokens
+for mutual OIDC authorisation [11].
+
+Aggregated model updates should be computed using secure aggregation
+protocols, such as
+SecAgg or SecAgg+, where each client encrypts its updates and the
+server only decrypts the sum. Differential privacy and
+noise addition further reduce the risk of re‑identification, and a
+threat model should guide the choice of protections.
+
+> **Research note** LightSecAgg reduces bandwidth and copes with client
+> drop‑outs, enabling asynchronous FL; LightSecAgg now has a reference
+> implementation [12], but it is not yet merged into
+> Flower core and still requires manual integration.
+
+The original LightSecAgg design [13] details bandwidth
+savings compared to traditional secure aggregation protocols.
+
+Figure 1. Federated learning topology showing a central
+coordinator and distributed clients
+
+## Solution
+
+### Governance using the Five Safes
+
+The UK Data Service description of the Five Safes
+[14] provides a structured approach to ethical and
+secure data use. Its components can be mapped to federated workflows:
+
+- **Safe data** – De‑identify and harmonise data so that each site
+  satisfies minimum quality and confidentiality standards.
+  Use
+  common phenotype dictionaries and perform quality control before
+  including data in a federated study.
+- **Safe projects** – Approve analyses only if they offer public benefit
+  and respect data sensitivity. Ethical approvals and data‑sharing
+  agreements should be in place for every federated run.
+- **Safe contracts** – Establish data‑sharing agreements with minimum clauses
+  covering purpose limitation, data retention periods, and breach notification
+  protocols. Consult the EDPS TechDispatch on FL for regulatory context
+  and legal framework requirements.
+- **Safe people** – Ensure that participating researchers are authorised
+  and trained. Users should authenticate via OIDC and sign terms that
+  outline acceptable use.
+- **Safe settings** – Execute computations in secure environments.
+  EUCAIM’s federated processing platform orchestrates tasks through
+  middleware so that data remain within secure nodes.
+- **Safe outputs** – Export only aggregated model parameters or summary
+  statistics. Outputs should be screened to ensure that no individual
+  contributions can be reconstructed.
+
+*Log provenance:* each Beacon or Search query is captured as a
+`DataDownload` entity inside the Five‑Safes RO‑Crate so auditors can trace
+who accessed which variant count [9].
+
+A full JSON profile and example crates are available
+[15].
+
+### Legal and ethical compliance
+
+- Consult the EDPS TechDispatch on Federated Learning [16] for
+  a regulators’ view.
+- **Data‑protection‑impact assessment (DPIA)** – run a DPIA before production.
+  Free templates are provided by the ICO DPIA template [17]
+  and CNIL PIA kit [18].
+
+## Advanced topics
+
+- **[Threat modelling & risk assessment](/federated-learning/threats/)**
+  – detailed STRIDE + LINDDUN security analysis for federated learning systems
+- **[Operational MLOps & monitoring](/federated-learning/ops/)**
+  – production practices including SLIs, reproducibility, and cost optimisation
+- **[Environmental sustainability](/federated-learning/green/)**
+  – carbon footprint monitoring and green AI practices
+- **Resource optimisation** – use Flower simulation guides
+  [19] with resource flags to test different
+  configurations before production deployment.
+
+## Resources
+
+The following supporting tools and services complement FL frameworks:
+
+| Tool | Purpose | Security features | License |
+| --- | --- | --- | --- |
+| [runcrate](https://github.com/ResearchObject/runcrate) | Command‑line toolkit for creating and manipulating Workflow Run RO‑Crate packages, useful for packaging federated training runs and preserving provenance | — | Apache‑2.0 |
+| [EUCAIM federated processing API](https://eucaim.gitbook.io/architecture-of-eucaim/4.-detailed-architecture) | RESTful interface that orchestrates federated computation across secure nodes within the EUCAIM platform | Kubernetes isolation, secure nodes | [Apache‑2.0 (core services)](https://github.com/EUCAIM) |
+| [Evidently AI](https://www.evidentlyai.com) | Open‑source ML monitoring framework for drift detection, bias dashboards and model performance tracking in production FL deployments | — | Apache‑2.0 |
+
+## Training
+
+RDMKit automatically displays relevant training materials from ELIXIR TeSS
+above. The following resources provide hands-on tutorials for specific FL
+frameworks:
+
+- **[Flower quickstart tutorial](https://flower.ai/docs/framework/tutorial-quickstart-pytorch.html)**
+  – demonstrates how to define client and server code, launch a
+  federation and run training rounds using PyTorch. It includes
+  guidance on simulation and deployment and introduces secure
+  aggregation options.
+- **[Flower secure aggregation example](https://flower.ai/docs/examples/flower-secure-aggregation.html)**
+  – shows how to implement the SecAgg+ protocol for privacy‑preserving
+  federated learning.
+- **[FATE quick‑start tutorial](https://fate.readthedocs.io/en/develop/_build_temp/examples/pipeline/README.html#quick-start)**
+  – guides you through setting up FATE and running a first horizontal
+  federated training job.
+- **[Workflow Run RO‑Crate: Process Run Crate profile](https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/)**
+  – outlines how to package federated workflow runs using the RO‑Crate
+  standard for provenance capture.
+
+### Real‑world examples
+
+- **[Flower MNIST with differential privacy + secure aggregation](https://flower.ai/docs/examples/fl-dp-sa.html)**
+  – step‑by‑step notebook showing central DP combined with Flower SecAgg+
+  on the MNIST dataset.
+- **[EUCAIM federated GWAS showcase](https://pmc.ncbi.nlm.nih.gov/articles/PMC11850660/)**
+  – describes how EUCAIM’s cancer‑imaging platform orchestrates a
+  cross‑site GWAS on imaging‑derived features while keeping primary data
+  inside hospital nodes (see “Federated analytics” section). The EUCAIM
+  cancer‑imaging infrastructure adopts a hybrid centralised‑federated
+  architecture to train AI tools on sensitive imaging data; its current public
+  prototype uses synchronous FedAvg; asynchronous and adaptive strategies are
+  under internal evaluation. EUCAIM pilot now evaluates FedOpt for sparse
+  updates [20].
+- **[“Hello World” Galaxy workflow RO‑Crate](https://about.workflowhub.eu/Workflow-RO-Crate/example/ro-crate-preview.html)**
+  – a minimal Galaxy workflow packaged as a RO‑Crate, illustrating how
+  provenance can be captured and shared.
+- **[OHDSI federated network](https://www.ohdsi.org/)**
+  – more than 500 million patient records mapped to OMOP CDM across >30
+  countries, enabling federated analytics while maintaining data sovereignty.
+
+## Related pages
+
+[Data security](https://rdmkit.elixir-europe.org/data_security)
+
+[Data sensitivity](https://rdmkit.elixir-europe.org/data_sensitivity)
+
+[Data provenance](https://rdmkit.elixir-europe.org/data_provenance)
+
+[Data quality](https://rdmkit.elixir-europe.org/data_quality)
+
+[GDPR compliance](https://rdmkit.elixir-europe.org/gdpr_compliance)
+
+[Machine Learning](https://rdmkit.elixir-europe.org/machine_learning)
+
+## Bibliography
+
+1. Hard, Andrew, Rao, Kanishka, Mathews, Rajiv, Ramaswamy, Swaroop, Beaufays, Françoise, Augenstein, Sean, Eichner, Hubert, Kiddon, Chlo'e, Ramage, Daniel (2018). Federated Learning for Mobile Keyboard Prediction. *arXiv preprint arXiv:1811.03604*. Available at: <https://arxiv.org/abs/1811.03604>
+2. Li, Tian, Sahu, Anit Kumar, Talwalkar, Ameet, Smith, Virginia (2020). Federated Learning: Challenges, Methods, and Future Directions. *IEEE Signal Processing Magazine*, 37, 50-60. DOI: [10.1109/MSP.2020.2975749](https://doi.org/10.1109/MSP.2020.2975749)
+3. Gupta, Otkrist, Raskar, Ramesh (2018). Distributed learning of deep neural network over multiple agents. *Journal of Network and Computer Applications*, 116, 1-8. DOI: [10.1016/j.jnca.2018.05.003](https://doi.org/10.1016/j.jnca.2018.05.003)
+4. OpenMined Community (2020). *PyVertical – Vertical Federated Learning in PyTorch*. https://github.com/OpenMined/PyVertical.
+5. Hartebrodt, Anne, R\öttger, Richard, Blumenthal, David B (2024). Federated singular value decomposition for high-dimensional data. *Data Mining and Knowledge Discovery*, 38, 938–975. DOI: [10.1007/s10618-023-00983-z](https://doi.org/10.1007/s10618-023-00983-z)
+6. ResearchObject.org (2023). *runcrate CLI*. https://github.com/ResearchObject/runcrate.
+7. Johns Hopkins Medicine (2024). *OMOP on PMAP – Standardising patient information for global research*. https://pm.jh.edu/discover-data-stream/epic-emr-clinical-data/omop-on-pmap/.
+8. Observational Health Data Sciences, Informatics (2024). *Standardized Data: The OMOP Common Data Model*. https://www.ohdsi.org/data-standardization/.
+9. Global Alliance for Genomics, Health (2024). *Beacon v2 Specification*. https://docs.genomebeacons.org/.
+10. Global Alliance for Genomics, Health (2023). *GA4GH Search and Data Connect API Specification*. https://www.ga4gh.org/product/data-connect/.
+11. Global Alliance for Genomics, Health (2024). *GA4GH Passports Specification*. https://www.ga4gh.org/product/ga4gh-passports/.
+12. So, Jinhyun (2022). *LightSecAgg – Reference implementation*. https://github.com/LightSecAgg/MLSys2022\_anonymous.
+13. So, Jinhyun, He, Chaoyang, Yang, Chien-Sheng, Li, Songze, Yu, Qian, E Ali, Ramy, Guler, Basak, Avestimehr, Salman (2022). Lightsecagg: a lightweight and versatile design for secure aggregation in federated learning. *Proceedings of Machine Learning and Systems*, 4, 694–720.
+14. UK Data Service (2023). *What is the Five Safes framework?*. https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/.
+15. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/.
+16. European Data Protection Supervisor (2025). *TechDispatch #1/2025 - Federated Learning*. https://www.edps.europa.eu/data-protection/our-work/publications/techdispatch/2025-06-10-techdispatch-12025-federated-learning\_en.
+17. UK Information Commissioner’s Office (2024). *DPIA template*. https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/annex-d-dpia-template/.
+18. {Commission Nationale de l’Informatique et des Libert'es} (2024). *Privacy Impact Assessment (PIA)*. https://www.cnil.fr/en/privacy-impact-assessment-pia.
+19. Flower Labs (2025). *How-to run simulations*. https://flower.ai/docs/framework/how-to-run-simulations.html.
+20. Mart'\i-Bonmat'\i, Luis, Blanquer, Ignacio, Tsiknakis, Manolis, Tsakou, Gianna, Martinez, Ricard, Capella-Gutierrez, Salvador, Zullino, Sara, Meszaros, Janos, Bron, Esther E, Gelpi, Jose Luis, others (2025). Empowering cancer research in Europe: the EUCAIM cancer imaging infrastructure. *Insights into Imaging*, 16, 47. DOI: [10.1186/s13244-025-01913-x](https://doi.org/10.1186/s13244-025-01913-x)
+
+
+---
+
+## Tools
+
+
+### VCFX — VCF Manipulation Toolkit
+
+*Source: https://jorgemfs.com/vcfx/*
+
+# VCF Manipulation Toolkit
+
+A comprehensive set of 60+ C/C++ command-line tools for manipulating and analysing Variant Call Format (VCF) files. Each tool does one job well and can be chained together using standard streams.
+
+[Documentation](https://ieeta-pt.github.io/VCFX/)
+[GitHub](https://github.com/ieeta-pt/VCFX)
+
+scroll
+
+Features
+
+## Built for Genomics Workflows
+
+Designed following Unix philosophy—each tool does one thing well and can be composed into powerful pipelines.
+
+### 60 Specialized Tools
+
+Comprehensive toolkit covering filtering, transformation, analysis, quality control, and annotation of genomic variants.
+
+### Pipeline Ready
+
+All tools read from stdin and write to stdout, enabling seamless Unix pipe composition for complex workflows.
+
+### Fast & Efficient
+
+Optimized C++ implementation designed for processing large genomic datasets with minimal memory footprint.
+
+### Cross Platform
+
+Full support for Linux and macOS, including native optimization for Apple Silicon M1/M2 chips.
+
+### Python Bindings
+
+Programmatic access with structured data types, type hints, and seamless integration with Python workflows.
+
+### Easy Installation
+
+Available via PyPI, Bioconda, Docker, or build from source. Get started in seconds.
+
+Tool Categories
+
+## 60 Tools Across 7 Categories
+
+| Category | Tools | Examples |
+| --- | --- | --- |
+| Data Analysis | 12 | allele\_freq\_calc variant\_classifier hwe\_tester ld\_calculator |
+| Data Filtering | 11 | phred\_filter record\_filter impact\_filter population\_filter |
+| Data Transformation | 11 | multiallelic\_splitter format\_converter sorter indel\_normalizer |
+| Quality Control | 6 | validator concordance\_checker outlier\_detector missing\_detector |
+| File Management | 7 | indexer file\_splitter merger compressor |
+| Annotation & Reporting | 9 | custom\_annotator info\_summarizer field\_extractor header\_parser |
+| Data Processing | 4 | missing\_data\_handler quality\_adjuster haplotype\_phaser haplotype\_extractor |
+
+[View full tool reference](https://ieeta-pt.github.io/VCFX/tools_overview/)
+
+Installation
+
+## Get Started in Seconds
+
+Choose your preferred installation method.
+
+PyPI
+Bioconda
+Docker
+Source
+
+Recommended for Python users. Includes Python bindings with structured data types.
+
+bash
+copy
+
+```
+pip install vcfx
+```
+
+After installing, use the Python API:
+
+python
+copy
+
+```
+import vcfx
+vcfx.run_tool("variant_classifier", "--help")
+```
+
+Complete toolkit with all dependencies via Bioconda.
+
+bash
+copy
+
+```
+conda install -c bioconda vcfx
+```
+
+No compilation needed. Pull and run directly.
+
+bash
+copy
+
+```
+# Pull the latest image
+docker pull ghcr.io/jorgemfs/vcfx:latest
+
+# Run a tool
+docker run --rm ghcr.io/jorgemfs/vcfx:latest VCFX_variant_classifier --help
+```
+
+Build from source with CMake. Requires C++17 compiler.
+
+bash
+copy
+
+```
+git clone https://github.com/ieeta-pt/VCFX.git
+cd VCFX
+mkdir build && cd build
+cmake .. -DPYTHON_BINDINGS=ON
+make
+make install  # Optional: installs to ~/.local/bin
+```
+
+Example
+
+## Build Powerful Pipelines
+
+### SNP Frequency Analysis Pipeline
+
+Chain tools together to classify variants, filter for SNPs, apply quality thresholds, and calculate allele frequencies.
+
+input.vcf
+→
+variant\_classifier
+→
+grep SNP
+→
+phred\_filter
+→
+allele\_freq\_calc
+→
+output.tsv
+
+bash
+copy
+
+```
+cat input.vcf | \
+  VCFX_variant_classifier --append-info | \
+  grep 'VCF_CLASS=SNP' | \
+  VCFX_phred_filter --phred-filter 30 | \
+  VCFX_allele_freq_calc > high_quality_snp_frequencies.tsv
+```
+
+## Ready to Get Started?
+
+Explore the full documentation for detailed guides, API references, and more examples.
+
+[View Documentation](https://ieeta-pt.github.io/VCFX/)
+[GitHub Repository](https://github.com/ieeta-pt/VCFX)
+
+Citation
+
+## Cite VCFX
+
+If you use VCFX in your research, please cite:
+
+**Silva, J.M., Oliveira, J.L.** (2025). "VCFX: A Minimalist, Modular Toolkit for Streamlined Variant Analysis." *12th International Work-Conference on Bioinformatics and Biomedical Engineering (IWBBIO 2025)*, Springer.
+
+BibTeX
+
+bibtex
+copy
+
+```
+@inproceedings{silva2025vcfx,
+  title={VCFX: A Minimalist, Modular Toolkit for Streamlined Variant Analysis},
+  author={Silva, Jorge Miguel and Oliveira, Jos{\'e} Lu{\'i}s},
+  booktitle={12th International Work-Conference on Bioinformatics and
+             Biomedical Engineering (IWBBIO 2025)},
+  year={2025},
+  organization={Springer}
+}
+```
+
+Resources
+
+## Links
+
+[GitHub Repository](https://github.com/ieeta-pt/VCFX)
+[Documentation](https://ieeta-pt.github.io/VCFX/)
+[PyPI Package](https://pypi.org/project/vcfx/)
+[Bioconda Package](https://anaconda.org/bioconda/vcfx)
+[Issue Tracker](https://github.com/ieeta-pt/VCFX/issues)
+[Releases](https://github.com/ieeta-pt/VCFX/releases)
+
+
+---
+
+*Generated by generate_llms_full.py on 2026-03-11T23:35:49Z.*
+*9 pages fetched successfully, 0 failed.*
+*Source: https://jorgemfs.com | Contact: jorge.miguel.ferreira.silva@ua.pt*

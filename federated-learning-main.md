@@ -14,12 +14,6 @@ contributors:
   - name: "Jorge Miguel Silva"
     orcid: "0000-0002-6331-6091"
     affiliation: "IEETA, Universidade de Aveiro"
-  - name: "Ana Teresa Freitas"
-    orcid: "0000-0002-2997-5990"
-    affiliation: "INESC‑ID, Instituto Superior Técnico"
-
-editors:
-  - name: "RDMKit editorial team"
 tags:
   - analysis
   - data_security
