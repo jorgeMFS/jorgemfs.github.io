@@ -52,9 +52,19 @@
   var droneFilter = null;
 
   function initAudio() {
-    if (audioCtx) return;
+    if (audioReady) return;
     try {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      // Resume if suspended (browser autoplay policy)
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+
+      // Already set up nodes? Just need resume.
+      if (masterGain) { audioReady = true; return; }
 
       // Master gain
       masterGain = audioCtx.createGain();
@@ -91,7 +101,7 @@
       }
 
       audioReady = true;
-    } catch(e) {}
+    } catch(e) { console.warn("Audio init failed:", e); }
   }
 
   // Build algorithmic reverb impulse response
@@ -110,11 +120,18 @@
     return conv;
   }
 
-  // Unlock audio on first interaction
-  function tryInit() { initAudio(); }
-  document.addEventListener("click", tryInit, { once: true });
-  document.addEventListener("touchstart", tryInit, { once: true });
-  document.addEventListener("mousemove", tryInit, { once: true });
+  // Unlock audio — keep retrying on every interaction until it works
+  function tryInit() {
+    initAudio();
+    if (audioReady && audioCtx && audioCtx.state === "running") {
+      document.removeEventListener("click", tryInit);
+      document.removeEventListener("touchstart", tryInit);
+      document.removeEventListener("keydown", tryInit);
+    }
+  }
+  document.addEventListener("click", tryInit);
+  document.addEventListener("touchstart", tryInit);
+  document.addEventListener("keydown", tryInit);
 
   // Update drone intensity (called every frame)
   function updateDrone(intensity, filterFreq) {
