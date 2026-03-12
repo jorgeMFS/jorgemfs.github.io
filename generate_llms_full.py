@@ -65,6 +65,14 @@ REMOVE_SELECTORS = [
     "#preloader", ".loading",
     "[class*='cookie']",
     "[class*='share']",
+    # Hero section (typed.js animated text leaves fragments)
+    "#hero", ".hero", "[class*='hero']",
+    # Interactive UI elements that leave text noise
+    ".scroll-indicator",
+    ".code-copy", "[class*='code-copy']",
+    ".install-tabs button", ".tab-btn",
+    # Typed.js data attributes
+    "[data-typed-items]",
 ]
 
 # ─────────────────────────────────────────────
@@ -105,8 +113,29 @@ def html_to_clean_markdown(html: str) -> str:
     if main is None:
         main = soup
 
+    # Remove copy buttons and scroll indicators by tag+class before conversion
+    for btn in main.find_all("button"):
+        btn.decompose()
+    for el in main.find_all(class_=re.compile(r"scroll-indicator|code-copy|install-tabs")):
+        # For install-tabs, only remove the tab buttons, keep the content
+        if "install-tabs" in " ".join(el.get("class", [])):
+            for tab_btn in el.find_all("button"):
+                tab_btn.decompose()
+        else:
+            el.decompose()
+
     # Convert to markdown
     content = md(str(main), heading_style="ATX", bullets="-", strip=["img"])
+
+    # Post-processing: remove residual UI noise
+    # Remove standalone "copy", "scroll" lines (UI button text)
+    content = re.sub(r"(?m)^(copy|scroll|Copy|Scroll)\s*$", "", content)
+    # Remove orphaned tab labels like "PyPI\nBioconda\nDocker\nSource" on their own lines
+    content = re.sub(r"(?m)^(PyPI|Bioconda|Docker|Source)\s*$", "", content)
+    # Remove orphaned "I'm a" from typed.js fragments
+    content = re.sub(r"(?m)^I'm a\s*$", "", content)
+    # Remove standalone language labels before code blocks (e.g. "bash", "python" on their own line)
+    content = re.sub(r"(?m)^(bash|python|shell)\s*\n\n```", "\n```", content)
 
     # Clean up excessive whitespace
     content = re.sub(r"\n{4,}", "\n\n\n", content)
