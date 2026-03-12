@@ -42,84 +42,312 @@
 (function(){
   "use strict";
 
-  // ─── AUDIO ───
+  // ─── AUDIO ENGINE — Interstellar Edition ───
   var audioCtx = null;
   var audioReady = false;
+  var masterGain = null;
+  var reverbNode = null;
+  var droneOscs = [];
+  var droneGain = null;
+  var droneFilter = null;
 
   function initAudio() {
     if (audioCtx) return;
     try {
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+      // Master gain
+      masterGain = audioCtx.createGain();
+      masterGain.gain.value = 0.7;
+      masterGain.connect(audioCtx.destination);
+
+      // Convolution reverb (algorithmic — impulse response from noise)
+      reverbNode = createReverb(3.0, 2.5);
+      reverbNode.connect(masterGain);
+
+      // Drone layer — always-on organ pad, very quiet
+      droneGain = audioCtx.createGain();
+      droneGain.gain.value = 0;
+      droneFilter = audioCtx.createBiquadFilter();
+      droneFilter.type = "lowpass";
+      droneFilter.frequency.value = 200;
+      droneFilter.Q.value = 1;
+      droneGain.connect(droneFilter);
+      droneFilter.connect(masterGain);
+
+      // Organ drone: fundamental + 3 harmonics (like a pipe organ's principal stop)
+      var droneFreqs = [55, 110, 165, 220]; // A1 + octave + fifth + 2nd octave
+      var droneAmps = [0.4, 0.25, 0.12, 0.08];
+      for (var di = 0; di < droneFreqs.length; di++) {
+        var o = audioCtx.createOscillator();
+        var g = audioCtx.createGain();
+        o.type = di === 0 ? "sawtooth" : "sine";
+        o.frequency.value = droneFreqs[di];
+        g.gain.value = droneAmps[di];
+        o.connect(g);
+        g.connect(droneGain);
+        o.start();
+        droneOscs.push({ osc: o, gain: g, baseFreq: droneFreqs[di] });
+      }
+
       audioReady = true;
     } catch(e) {}
   }
 
-  // Unlock audio on first interaction
-  document.addEventListener("click", initAudio, { once: true });
-  document.addEventListener("touchstart", initAudio, { once: true });
-  document.addEventListener("mousemove", initAudio, { once: true });
+  // Build algorithmic reverb impulse response
+  function createReverb(duration, decay) {
+    var sr = audioCtx.sampleRate;
+    var len = sr * duration;
+    var buf = audioCtx.createBuffer(2, len, sr);
+    for (var ch = 0; ch < 2; ch++) {
+      var data = buf.getChannelData(ch);
+      for (var i = 0; i < len; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+      }
+    }
+    var conv = audioCtx.createConvolver();
+    conv.buffer = buf;
+    return conv;
+  }
 
-  // Symbol tick — short sine ping, pitch mapped to symbol value
+  // Unlock audio on first interaction
+  function tryInit() { initAudio(); }
+  document.addEventListener("click", tryInit, { once: true });
+  document.addEventListener("touchstart", tryInit, { once: true });
+  document.addEventListener("mousemove", tryInit, { once: true });
+
+  // Update drone intensity (called every frame)
+  function updateDrone(intensity, filterFreq) {
+    if (!audioReady) return;
+    var t = audioCtx.currentTime;
+    droneGain.gain.linearRampToValueAtTime(intensity, t + 0.1);
+    droneFilter.frequency.linearRampToValueAtTime(filterFreq, t + 0.1);
+  }
+
+  // Detune drone for tension (locking phase)
+  function detuneDrone(amount) {
+    if (!audioReady) return;
+    for (var i = 0; i < droneOscs.length; i++) {
+      droneOscs[i].osc.detune.linearRampToValueAtTime(amount * (i + 1), audioCtx.currentTime + 0.3);
+    }
+  }
+
+  // ── THE CLOCK TICK — Interstellar's heartbeat ──
   function tickSymbol(value, maxVal) {
     if (!audioReady) return;
     var t = audioCtx.currentTime;
-    var osc = audioCtx.createOscillator();
-    var gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
 
-    // Pitch: pentatonic feel — base 280Hz, spread ~400Hz across alphabet
-    var freq = 280 + (value / Math.max(maxVal, 1)) * 400;
+    // Layer 1: sharp transient click (the clock mechanism)
+    var clickBuf = audioCtx.createBuffer(1, audioCtx.sampleRate * 0.015, audioCtx.sampleRate);
+    var clickData = clickBuf.getChannelData(0);
+    for (var i = 0; i < clickData.length; i++) {
+      var env = Math.exp(-i / (audioCtx.sampleRate * 0.003));
+      clickData[i] = (Math.random() * 2 - 1) * env;
+    }
+    var clickSrc = audioCtx.createBufferSource();
+    clickSrc.buffer = clickBuf;
+    var clickGain = audioCtx.createGain();
+    clickGain.gain.value = 0.15;
+    var clickFilter = audioCtx.createBiquadFilter();
+    clickFilter.type = "highpass";
+    clickFilter.frequency.value = 2000;
+    clickSrc.connect(clickFilter);
+    clickFilter.connect(clickGain);
+    clickGain.connect(masterGain);
+    // Also send to reverb for tail
+    var clickRevGain = audioCtx.createGain();
+    clickRevGain.gain.value = 0.06;
+    clickFilter.connect(clickRevGain);
+    clickRevGain.connect(reverbNode);
+    clickSrc.start(t);
+
+    // Layer 2: tonal resonance — pitch mapped to symbol, organ-like
+    var osc = audioCtx.createOscillator();
+    var osc2 = audioCtx.createOscillator();
+    var toneGain = audioCtx.createGain();
+    // Pentatonic scale mapped to symbol value: C3, D3, E3, G3, A3, C4, D4, E4
+    var penta = [130.81, 146.83, 164.81, 196.00, 220.00, 261.63, 293.66, 329.63];
+    var idx = Math.round((value / Math.max(maxVal, 1)) * (penta.length - 1));
+    var freq = penta[idx];
+
     osc.type = "sine";
     osc.frequency.setValueAtTime(freq, t);
-    osc.frequency.exponentialRampToValueAtTime(freq * 0.7, t + 0.08);
+    osc2.type = "sine";
+    osc2.frequency.setValueAtTime(freq * 2.01, t); // slight detune on octave — shimmer
 
-    gain.gain.setValueAtTime(0.06, t);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+    var oscGain1 = audioCtx.createGain();
+    var oscGain2 = audioCtx.createGain();
+    oscGain1.gain.value = 0.06;
+    oscGain2.gain.value = 0.025;
+    osc.connect(oscGain1);
+    osc2.connect(oscGain2);
+    oscGain1.connect(toneGain);
+    oscGain2.connect(toneGain);
+
+    toneGain.gain.setValueAtTime(0.001, t);
+    toneGain.gain.linearRampToValueAtTime(1, t + 0.005); // fast attack
+    toneGain.gain.exponentialRampToValueAtTime(0.3, t + 0.06);
+    toneGain.gain.exponentialRampToValueAtTime(0.001, t + 0.5); // long tail
+
+    toneGain.connect(masterGain);
+    // Send tone to reverb too
+    var toneRevGain = audioCtx.createGain();
+    toneRevGain.gain.value = 0.12;
+    toneGain.connect(toneRevGain);
+    toneRevGain.connect(reverbNode);
 
     osc.start(t);
-    osc.stop(t + 0.12);
+    osc2.start(t);
+    osc.stop(t + 0.6);
+    osc2.stop(t + 0.6);
   }
 
-  // Lock thud — deeper, heavier
+  // ── LOCK — organ chord hit, building with each layer ──
   function tickLock(layerIdx) {
     if (!audioReady) return;
     var t = audioCtx.currentTime;
-    var osc = audioCtx.createOscillator();
-    var gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
 
-    var freq = 90 + layerIdx * 30; // 90, 120, 150 Hz
-    osc.type = "triangle";
-    osc.frequency.setValueAtTime(freq, t);
-    osc.frequency.exponentialRampToValueAtTime(freq * 0.4, t + 0.15);
+    // Each lock adds a note to the chord: C2, G2, C3
+    var chordFreqs = [65.41, 98.00, 130.81];
+    var baseFreq = chordFreqs[layerIdx];
 
-    gain.gain.setValueAtTime(0.1, t);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
+    // Organ chord: fundamental + 2nd + 3rd + 8th harmonic
+    var harmonics = [1, 2, 3, 8];
+    var hAmps = [0.12, 0.06, 0.04, 0.015];
 
-    osc.start(t);
-    osc.stop(t + 0.25);
+    for (var hi = 0; hi < harmonics.length; hi++) {
+      var o = audioCtx.createOscillator();
+      var g = audioCtx.createGain();
+      o.type = hi === 0 ? "sawtooth" : "sine";
+      o.frequency.setValueAtTime(baseFreq * harmonics[hi], t);
+
+      g.gain.setValueAtTime(0.001, t);
+      g.gain.linearRampToValueAtTime(hAmps[hi], t + 0.02);
+      g.gain.exponentialRampToValueAtTime(hAmps[hi] * 0.6, t + 0.8);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 2.5);
+
+      o.connect(g);
+      g.connect(masterGain);
+      // Heavy reverb
+      var rg = audioCtx.createGain();
+      rg.gain.value = 0.2;
+      g.connect(rg);
+      rg.connect(reverbNode);
+
+      o.start(t);
+      o.stop(t + 3);
+    }
+
+    // Sub-bass thud
+    var sub = audioCtx.createOscillator();
+    var subG = audioCtx.createGain();
+    sub.type = "sine";
+    sub.frequency.setValueAtTime(baseFreq * 0.5, t);
+    sub.frequency.exponentialRampToValueAtTime(baseFreq * 0.25, t + 0.4);
+    subG.gain.setValueAtTime(0.15, t);
+    subG.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+    sub.connect(subG);
+    subG.connect(masterGain);
+    sub.start(t);
+    sub.stop(t + 0.6);
+
+    // Detune the drone upward with tension
+    detuneDrone((layerIdx + 1) * 15);
   }
 
-  // Release whoosh — noise burst
+  // ── SWELL — the organ builds during locked phase ──
+  var swellOscs = [];
+  function startSwell() {
+    if (!audioReady) return;
+    stopSwell();
+    var t = audioCtx.currentTime;
+
+    // Full organ chord: C2, G2, C3, E3, G3 — open voicing
+    var freqs = [65.41, 98.00, 130.81, 164.81, 196.00];
+    for (var fi = 0; fi < freqs.length; fi++) {
+      var o = audioCtx.createOscillator();
+      var g = audioCtx.createGain();
+      o.type = fi < 2 ? "sawtooth" : "sine";
+      o.frequency.value = freqs[fi];
+      // Slow crescendo
+      g.gain.setValueAtTime(0.001, t);
+      g.gain.linearRampToValueAtTime(0.03 + fi * 0.005, t + 3);
+      o.connect(g);
+      g.connect(masterGain);
+      var rg = audioCtx.createGain();
+      rg.gain.value = 0.15;
+      g.connect(rg);
+      rg.connect(reverbNode);
+      o.start(t);
+      swellOscs.push({ osc: o, gain: g });
+    }
+  }
+
+  function stopSwell() {
+    var t = audioCtx.currentTime;
+    for (var i = 0; i < swellOscs.length; i++) {
+      try {
+        swellOscs[i].gain.gain.linearRampToValueAtTime(0.001, t + 1.5);
+        swellOscs[i].osc.stop(t + 2);
+      } catch(e) {}
+    }
+    swellOscs = [];
+  }
+
+  // ── RELEASE — the black hole: massive downward sweep + noise ──
   function tickRelease() {
     if (!audioReady) return;
     var t = audioCtx.currentTime;
-    // White noise via buffer
-    var dur = 0.4;
+
+    stopSwell();
+    detuneDrone(0); // reset drone tuning
+
+    // Descending sweep — like falling into Gargantua
+    for (var si = 0; si < 3; si++) {
+      var o = audioCtx.createOscillator();
+      var g = audioCtx.createGain();
+      o.type = si === 0 ? "sawtooth" : "sine";
+      var startFreq = 400 - si * 100;
+      o.frequency.setValueAtTime(startFreq, t);
+      o.frequency.exponentialRampToValueAtTime(20, t + 3);
+      g.gain.setValueAtTime(0.06, t);
+      g.gain.linearRampToValueAtTime(0.08, t + 0.3); // brief swell
+      g.gain.exponentialRampToValueAtTime(0.001, t + 3.5);
+      o.connect(g);
+      g.connect(masterGain);
+      var rg = audioCtx.createGain();
+      rg.gain.value = 0.25;
+      g.connect(rg);
+      rg.connect(reverbNode);
+      o.start(t);
+      o.stop(t + 4);
+    }
+
+    // Filtered noise wash
+    var dur = 3;
     var sr = audioCtx.sampleRate;
-    var buf = audioCtx.createBuffer(1, sr * dur, sr);
-    var data = buf.getChannelData(0);
-    for (var i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * 0.03;
-    var src = audioCtx.createBufferSource();
-    src.buffer = buf;
-    var gain = audioCtx.createGain();
-    src.connect(gain);
-    gain.connect(audioCtx.destination);
-    gain.gain.setValueAtTime(0.08, t);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    src.start(t);
+    var buf = audioCtx.createBuffer(2, sr * dur, sr);
+    for (var ch = 0; ch < 2; ch++) {
+      var d = buf.getChannelData(ch);
+      for (var i = 0; i < d.length; i++) {
+        d[i] = (Math.random() * 2 - 1) * 0.02;
+      }
+    }
+    var noiseSrc = audioCtx.createBufferSource();
+    noiseSrc.buffer = buf;
+    var noiseFilter = audioCtx.createBiquadFilter();
+    noiseFilter.type = "bandpass";
+    noiseFilter.frequency.setValueAtTime(800, t);
+    noiseFilter.frequency.exponentialRampToValueAtTime(60, t + dur);
+    noiseFilter.Q.value = 3;
+    var noiseGain = audioCtx.createGain();
+    noiseGain.gain.setValueAtTime(0.12, t);
+    noiseGain.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    noiseSrc.connect(noiseFilter);
+    noiseFilter.connect(noiseGain);
+    noiseGain.connect(masterGain);
+    noiseGain.connect(reverbNode);
+    noiseSrc.start(t);
   }
 
   // ─── THREE.js SETUP ───
@@ -313,7 +541,9 @@
     sparkGeo.attributes.position.needsUpdate = true;
 
     if (phase === 0) {
-      // ── SPINNING ──
+      // ── SPINNING — quiet drone breathes ──
+      updateDrone(0.015 + Math.sin(now * 0.3) * 0.008, 150 + Math.sin(now * 0.2) * 50);
+
       for (var i = 0; i < 3; i++) {
         var L = layers[i];
         L.ax += L.sx * dt; L.ay += L.sy * dt; L.az += L.sz * dt;
@@ -335,7 +565,10 @@
       }
 
     } else if (phase === 1) {
-      // ── LOCKING ──
+      // ── LOCKING — drone builds tension ──
+      var lockProgress = lockIdx / 3;
+      updateDrone(0.025 + lockProgress * 0.04, 200 + lockProgress * 300);
+
       for (var i = 0; i < 3; i++) {
         var L = layers[i];
         if (L.locked) {
@@ -379,6 +612,9 @@
         lastTickTime = now;
         seqRevealed = 0;
         seqDone = false;
+        // Start organ swell
+        startSwell();
+        updateDrone(0.06, 600);
         // Show program and meta immediately
         progEl.textContent = curProg.prog;
         progEl.style.color = "rgba(74,58,140,0.55)";
@@ -392,9 +628,12 @@
       }
 
     } else if (phase === 2) {
-      // ── LOCKED — typewriter + ticks ──
+      // ── LOCKED — typewriter + ticks + organ swell ──
       var lt = now - phaseStart;
       var pulse = Math.sin(lt * 2) * 0.006;
+      // Drone opens up as sequence generates
+      var seqProgress = seqSymbols.length > 0 ? seqRevealed / seqSymbols.length : 0;
+      updateDrone(0.06 + seqProgress * 0.02, 600 + seqProgress * 400);
 
       for (var i = 0; i < 3; i++) {
         var L = layers[i];
@@ -441,10 +680,11 @@
       }
 
     } else if (phase === 3) {
-      // ── RELEASING ──
+      // ── RELEASING — drone fades back to whisper ──
       var elapsed = now - phaseStart;
       var e = Math.min(1, elapsed / 2.5);
       var ee = e * e;
+      updateDrone(lerp(0.06, 0.01, e), lerp(800, 120, e));
 
       for (var i = 0; i < 3; i++) {
         var L = layers[i];
