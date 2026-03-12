@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>K</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#f5f4f1;overflow:hidden;cursor:crosshair;font-family:'JetBrains Mono',monospace}
+  canvas{display:block}
+  .corner{position:fixed;width:20px;height:20px;z-index:20;opacity:.5}
+  .corner::before,.corner::after{content:'';position:absolute;background:rgba(0,0,0,.1)}
+  .corner-tl{top:16px;left:16px}.corner-tl::before{width:20px;height:1px;top:0;left:0}.corner-tl::after{width:1px;height:20px;top:0;left:0}
+  .corner-tr{top:16px;right:16px}.corner-tr::before{width:20px;height:1px;top:0;right:0}.corner-tr::after{width:1px;height:20px;top:0;right:0}
+  .corner-bl{bottom:16px;left:16px}.corner-bl::before{width:20px;height:1px;bottom:0;left:0}.corner-bl::after{width:1px;height:20px;bottom:0;left:0}
+  .corner-br{bottom:16px;right:16px}.corner-br::before{width:20px;height:1px;bottom:0;right:0}.corner-br::after{width:1px;height:20px;bottom:0;right:0}
+  .glyph{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-size:10px;
+    letter-spacing:5px;color:rgba(0,0,0,.08);z-index:20;font-weight:200;user-select:none}
+  #seq{position:fixed;top:40%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
+    user-select:none;font-size:17px;font-weight:300;letter-spacing:8px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.4s}
+  #counter{position:fixed;top:34%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
+    user-select:none;font-size:9px;font-weight:200;letter-spacing:6px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.3s}
+  #prog{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
+    user-select:none;font-size:11px;font-weight:200;letter-spacing:3px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.4s}
+  #meta{position:fixed;top:56%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
+    user-select:none;font-size:9px;font-weight:200;letter-spacing:4px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.5s}
+</style>
+</head>
+<body>
+<div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+<div class="corner corner-bl"></div><div class="corner corner-br"></div>
+<div class="glyph">K(x)</div>
+<div id="counter"></div>
+<div id="seq"></div>
+<div id="prog"></div>
+<div id="meta"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  // ─── AUDIO ───
+  var audioCtx = null;
+  var audioReady = false;
+
+  function initAudio() {
+    if (audioCtx) return;
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      audioReady = true;
+    } catch(e) {}
+  }
+
+  // Unlock audio on first interaction
+  document.addEventListener("click", initAudio, { once: true });
+  document.addEventListener("touchstart", initAudio, { once: true });
+  document.addEventListener("mousemove", initAudio, { once: true });
+
+  // Symbol tick — short sine ping, pitch mapped to symbol value
+  function tickSymbol(value, maxVal) {
+    if (!audioReady) return;
+    var t = audioCtx.currentTime;
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    // Pitch: pentatonic feel — base 280Hz, spread ~400Hz across alphabet
+    var freq = 280 + (value / Math.max(maxVal, 1)) * 400;
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(freq, t);
+    osc.frequency.exponentialRampToValueAtTime(freq * 0.7, t + 0.08);
+
+    gain.gain.setValueAtTime(0.06, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+
+    osc.start(t);
+    osc.stop(t + 0.12);
+  }
+
+  // Lock thud — deeper, heavier
+  function tickLock(layerIdx) {
+    if (!audioReady) return;
+    var t = audioCtx.currentTime;
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    var freq = 90 + layerIdx * 30; // 90, 120, 150 Hz
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(freq, t);
+    osc.frequency.exponentialRampToValueAtTime(freq * 0.4, t + 0.15);
+
+    gain.gain.setValueAtTime(0.1, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
+
+    osc.start(t);
+    osc.stop(t + 0.25);
+  }
+
+  // Release whoosh — noise burst
+  function tickRelease() {
+    if (!audioReady) return;
+    var t = audioCtx.currentTime;
+    // White noise via buffer
+    var dur = 0.4;
+    var sr = audioCtx.sampleRate;
+    var buf = audioCtx.createBuffer(1, sr * dur, sr);
+    var data = buf.getChannelData(0);
+    for (var i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * 0.03;
+    var src = audioCtx.createBufferSource();
+    src.buffer = buf;
+    var gain = audioCtx.createGain();
+    src.connect(gain);
+    gain.connect(audioCtx.destination);
+    gain.gain.setValueAtTime(0.08, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    src.start(t);
+  }
+
+  // ─── THREE.js SETUP ───
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.set(0, 0, 7.5);
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0xf5f4f1, 1);
+  document.body.appendChild(renderer.domElement);
+
+  // ─── COLORS ───
+  var C_LIT  = [0x4a3a8c, 0x1a6b5a, 0x8b4a2b];
+  var C_DIM  = [0x9088b8, 0x6aa090, 0xb89878];
+
+  // ─── THREE POLYHEDRA as rotors ───
+  var L1edges = new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.4, 1));
+  var L1mat = new THREE.LineBasicMaterial({ color: C_DIM[0], transparent: true, opacity: 0.35 });
+  var L1 = new THREE.LineSegments(L1edges, L1mat);
+  scene.add(L1);
+
+  var L2edges = new THREE.EdgesGeometry(new THREE.DodecahedronGeometry(1.55, 0));
+  var L2mat = new THREE.LineBasicMaterial({ color: C_DIM[1], transparent: true, opacity: 0.4 });
+  var L2 = new THREE.LineSegments(L2edges, L2mat);
+  scene.add(L2);
+
+  var L3edges = new THREE.EdgesGeometry(new THREE.OctahedronGeometry(0.8, 0));
+  var L3mat = new THREE.LineBasicMaterial({ color: C_DIM[2], transparent: true, opacity: 0.5 });
+  var L3 = new THREE.LineSegments(L3edges, L3mat);
+  scene.add(L3);
+
+  var coreMat = new THREE.MeshBasicMaterial({ color: 0x807088, transparent: true, opacity: 0.3 });
+  var core = new THREE.Mesh(new THREE.SphereGeometry(0.18, 16, 16), coreMat);
+  scene.add(core);
+
+  var layers = [
+    { mesh: L1, mat: L1mat, colIdx: 0, sx: 0.4, sy: 1.8, sz: 0.15,
+      ax: 0, ay: Math.random() * 6.28, az: 0, tx: 0, ty: 0, tz: 0, locked: false, lockTime: 0 },
+    { mesh: L2, mat: L2mat, colIdx: 1, sx: -0.25, sy: -2.4, sz: 0.6,
+      ax: 0, ay: Math.random() * 6.28, az: 0, tx: 0, ty: 0, tz: 0, locked: false, lockTime: 0 },
+    { mesh: L3, mat: L3mat, colIdx: 2, sx: 0.7, sy: 3.2, sz: -0.3,
+      ax: 0, ay: Math.random() * 6.28, az: 0, tx: 0, ty: 0, tz: 0, locked: false, lockTime: 0 }
+  ];
+
+  // ─── SPARKS ───
+  var NS = 250;
+  var sparkGeo = new THREE.BufferGeometry();
+  var sparkPos = new Float32Array(NS * 3);
+  var sparkHome = [];
+  var sparkVel = [];
+  for (var si = 0; si < NS; si++) {
+    var sth = Math.random() * Math.PI * 2;
+    var sph = Math.acos(2 * Math.random() - 1);
+    var sr = 2 + Math.random() * 7;
+    var hx = sr * Math.sin(sph) * Math.cos(sth);
+    var hy = sr * Math.sin(sph) * Math.sin(sth);
+    var hz = sr * Math.cos(sph);
+    sparkPos[si * 3] = hx;
+    sparkPos[si * 3 + 1] = hy;
+    sparkPos[si * 3 + 2] = hz;
+    sparkHome.push({ x: hx, y: hy, z: hz });
+    sparkVel.push({ vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+                    vz: (Math.random()-0.5)*0.3, phase: Math.random()*6.28 });
+  }
+  sparkGeo.setAttribute("position", new THREE.BufferAttribute(sparkPos, 3));
+  var sparkMat = new THREE.PointsMaterial({ color: 0x807088, size: 0.07, transparent: true, opacity: 0.55, depthWrite: false });
+  scene.add(new THREE.Points(sparkGeo, sparkMat));
+
+  // ─── MOUSE ───
+  var mouseX = 0, mouseY = 0;
+  document.addEventListener("mousemove", function(e) {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  });
+  window.addEventListener("resize", function() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // ─── PROGRAMS ───
+  var programs = [
+    { seq: "0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0", prog: "NOT \u2192 CONCAT \u2192 REPEAT", name: "Thue-Morse", L: 3, col: 0x4a3a8c },
+    { seq: "3 2 6 4 5 1 3 2 6 4 5 1", prog: "MUL_C 3 \u2192 MOD 7", name: "Pow3Mod7", L: 5, col: 0x1a6b5a },
+    { seq: "0 1 0 0 1 0 1 0 0 1 0 0 1", prog: "SHIFT \u2192 CONCAT_INV", name: "Fibonacci", L: 4, col: 0x8b4a2b },
+    { seq: "1 1 1 1 0 1 0 1 0 0 1 0 1 1", prog: "IF_ODD 3n+1 ELSE n/2", name: "Collatz", L: 7, col: 0x8c2a2a }
+  ];
+  var seqEl = document.getElementById("seq");
+  var counterEl = document.getElementById("counter");
+  var progEl = document.getElementById("prog");
+  var metaEl = document.getElementById("meta");
+
+  // ─── STATE ───
+  var phase = 0;
+  var timer = 0;
+  var phaseStart = 0;
+  var lockOrder = [0, 1, 2];
+  var lockIdx = 0;
+  var lastLockTime = 0;
+  var curProg = null;
+  var prevTime = performance.now() / 1000;
+
+  // Typewriter state
+  var seqSymbols = [];     // parsed symbols as integers
+  var seqRevealed = 0;     // how many symbols shown so far
+  var seqMaxVal = 1;       // max symbol value for pitch scaling
+  var lastTickTime = 0;    // when last symbol was revealed
+  var TICK_INTERVAL = 0.18; // seconds between symbols
+  var seqDone = false;     // all symbols revealed
+
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+  }
+
+  function startLocking(now) {
+    phase = 1;
+    phaseStart = now;
+    lockIdx = 0;
+    lastLockTime = now;
+    curProg = programs[Math.floor(Math.random() * programs.length)];
+    lockOrder = [0, 1, 2];
+    shuffle(lockOrder);
+    for (var i = 0; i < 3; i++) layers[i].locked = false;
+    // Prepare typewriter
+    seqSymbols = curProg.seq.split(" ").map(Number);
+    seqMaxVal = Math.max.apply(null, seqSymbols);
+    seqRevealed = 0;
+    seqDone = false;
+    lastTickTime = 0;
+  }
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  // ─── ANIMATE ───
+  function animate() {
+    requestAnimationFrame(animate);
+
+    var now = performance.now() / 1000;
+    var dt = Math.min(0.05, now - prevTime);
+    prevTime = now;
+
+    camera.position.x = mouseX * 0.8;
+    camera.position.y = mouseY * 0.5;
+    camera.position.z = 7.5 + Math.sin(now * 0.04) * 0.2;
+    camera.lookAt(0, 0, 0);
+
+    // ── PARTICLES ──
+    var sp = sparkGeo.attributes.position.array;
+    for (var si = 0; si < NS; si++) {
+      var sv = sparkVel[si];
+      var h = sparkHome[si];
+      var ix = si * 3, iy = si * 3 + 1, iz = si * 3 + 2;
+
+      if (phase === 0) {
+        sp[ix] = h.x + Math.sin(now*0.4+sv.phase)*0.5 + Math.sin(now*0.13+si)*0.3;
+        sp[iy] = h.y + Math.cos(now*0.35+sv.phase*1.3)*0.5 + Math.cos(now*0.17+si)*0.3;
+        sp[iz] = h.z + Math.sin(now*0.28+sv.phase*0.7)*0.4;
+      } else if (phase === 1) {
+        var pull = lockIdx / 3;
+        var strength = 0.03 + pull * pull * 0.15;
+        sp[ix] += (0 - sp[ix]) * strength;
+        sp[iy] += (0 - sp[iy]) * strength;
+        sp[iz] += (0 - sp[iz]) * strength;
+        var dist = Math.sqrt(sp[ix]*sp[ix] + sp[iy]*sp[iy] + sp[iz]*sp[iz]);
+        if (dist > 0.3) {
+          var spiralSpeed = 0.3 + pull * 2;
+          var tempX = sp[ix];
+          sp[ix] += -sp[iy] * spiralSpeed * dt;
+          sp[iy] += tempX * spiralSpeed * dt;
+        }
+      } else if (phase === 2) {
+        var lt = now - phaseStart;
+        var cr = 0.15 + Math.sin(lt*2.5+si*0.5)*0.04;
+        var ca = lt * 0.3 + sv.phase;
+        sp[ix] = cr * Math.cos(ca + si*2.4);
+        sp[iy] = cr * Math.sin(ca + si*1.7);
+        sp[iz] = cr * Math.sin(ca*0.5 + si*3.1) * 0.4;
+      } else if (phase === 3) {
+        var elapsed = now - phaseStart;
+        var e = Math.min(1, elapsed / 2.5);
+        var eo = 1 - (1 - e) * (1 - e);
+        sp[ix] = h.x*eo + Math.sin(now*0.4+sv.phase)*0.5*eo;
+        sp[iy] = h.y*eo + Math.cos(now*0.35+sv.phase*1.3)*0.5*eo;
+        sp[iz] = h.z*eo + Math.sin(now*0.28+sv.phase*0.7)*0.4*eo;
+      }
+    }
+    sparkGeo.attributes.position.needsUpdate = true;
+
+    if (phase === 0) {
+      // ── SPINNING ──
+      for (var i = 0; i < 3; i++) {
+        var L = layers[i];
+        L.ax += L.sx * dt; L.ay += L.sy * dt; L.az += L.sz * dt;
+        L.mesh.rotation.set(L.ax, L.ay, L.az);
+        L.mat.opacity = (i===0?0.35:i===1?0.4:0.5) + Math.sin(now*2+i)*0.03;
+        L.mat.color.lerp(new THREE.Color(C_DIM[L.colIdx]), 0.03);
+      }
+      coreMat.opacity = 0.25 + Math.sin(now*1.5)*0.05;
+      core.scale.setScalar(1 + Math.sin(now*1.5)*0.05);
+      coreMat.color.lerp(new THREE.Color(0x807088), 0.02);
+      sparkMat.opacity = 0.5 + Math.sin(now*2)*0.05;
+      sparkMat.size = 0.07;
+      sparkMat.color.lerp(new THREE.Color(0x807088), 0.03);
+
+      timer += dt;
+      if (timer > 7 + Math.random() * 4) {
+        timer = 0;
+        startLocking(now);
+      }
+
+    } else if (phase === 1) {
+      // ── LOCKING ──
+      for (var i = 0; i < 3; i++) {
+        var L = layers[i];
+        if (L.locked) {
+          var since = now - L.lockTime;
+          var bounce = Math.exp(-since*8) * Math.sin(since*35) * 0.04;
+          L.mesh.rotation.set(L.tx+bounce, L.ty+bounce*0.5, L.tz+bounce*0.3);
+          L.mat.opacity += (0.75 - L.mat.opacity) * 0.08;
+          L.mat.color.lerp(new THREE.Color(C_LIT[L.colIdx]), 0.06);
+        } else {
+          var tension = 1 + lockIdx * 0.8;
+          L.ax += L.sx*dt*tension; L.ay += L.sy*dt*tension; L.az += L.sz*dt*tension;
+          L.mesh.rotation.set(L.ax, L.ay, L.az);
+        }
+      }
+
+      var gap = 0.6;
+      if (lockIdx < 3 && (now - lastLockTime) > gap) {
+        var ri = lockOrder[lockIdx];
+        var L = layers[ri];
+        L.locked = true;
+        L.lockTime = now;
+        L.tx = Math.round(L.ax/0.5)*0.5;
+        L.ty = Math.round(L.ay/0.5)*0.5;
+        L.tz = Math.round(L.az/0.5)*0.5;
+        tickLock(lockIdx);
+        lockIdx++;
+        lastLockTime = now;
+      }
+
+      var ratio = lockIdx / 3;
+      coreMat.opacity = 0.25 + ratio * 0.5;
+      if (curProg) coreMat.color.lerp(new THREE.Color(curProg.col), ratio*0.06);
+      core.scale.setScalar(1 + ratio * 0.4);
+      sparkMat.opacity = 0.5 + ratio * 0.4;
+      sparkMat.size = 0.07 + ratio * 0.06;
+      if (curProg) sparkMat.color.lerp(new THREE.Color(curProg.col), ratio*0.04);
+
+      if (lockIdx >= 3 && (now - lastLockTime) > 0.4) {
+        phase = 2;
+        phaseStart = now;
+        lastTickTime = now;
+        seqRevealed = 0;
+        seqDone = false;
+        // Show program and meta immediately
+        progEl.textContent = curProg.prog;
+        progEl.style.color = "rgba(74,58,140,0.55)";
+        metaEl.textContent = "L = " + curProg.L + "  \u00b7  " + curProg.name;
+        metaEl.style.color = "rgba(139,74,43,0.45)";
+        // Sequence and counter start empty — typewriter fills them
+        seqEl.textContent = "";
+        seqEl.style.color = "rgba(30,20,50,0.75)";
+        counterEl.textContent = "";
+        counterEl.style.color = "rgba(0,0,0,0.12)";
+      }
+
+    } else if (phase === 2) {
+      // ── LOCKED — typewriter + ticks ──
+      var lt = now - phaseStart;
+      var pulse = Math.sin(lt * 2) * 0.006;
+
+      for (var i = 0; i < 3; i++) {
+        var L = layers[i];
+        L.mesh.rotation.set(L.tx+pulse, L.ty+pulse*0.5, L.tz+pulse*0.3);
+      }
+      core.scale.setScalar(1.4 + Math.sin(lt*2)*0.03);
+      coreMat.opacity = 0.75 + Math.sin(lt*2)*0.05;
+      if (curProg) coreMat.color.lerp(new THREE.Color(curProg.col), 0.05);
+      sparkMat.opacity = 0.85 + Math.sin(lt*2)*0.05;
+      sparkMat.size = 0.13;
+      if (curProg) sparkMat.color.lerp(new THREE.Color(curProg.col), 0.05);
+
+      // Typewriter: reveal next symbol
+      if (!seqDone && (now - lastTickTime) >= TICK_INTERVAL) {
+        if (seqRevealed < seqSymbols.length) {
+          var sym = seqSymbols[seqRevealed];
+          tickSymbol(sym, seqMaxVal);
+          seqRevealed++;
+          // Build visible string
+          var shown = [];
+          for (var si = 0; si < seqRevealed; si++) shown.push(seqSymbols[si]);
+          seqEl.textContent = shown.join(" ");
+          counterEl.textContent = "n = " + (seqRevealed - 1);
+          lastTickTime = now;
+        } else {
+          seqDone = true;
+        }
+      }
+
+      // Hold for 1.5s after last symbol, then release
+      var holdAfter = seqDone ? (now - lastTickTime) : 0;
+      if (seqDone && holdAfter > 1.5) {
+        phase = 3;
+        phaseStart = now;
+        tickRelease();
+        seqEl.style.transition = "color 1.5s ease-in";
+        seqEl.style.color = "rgba(0,0,0,0)";
+        counterEl.style.transition = "color 1s ease-in";
+        counterEl.style.color = "rgba(0,0,0,0)";
+        progEl.style.transition = "color 1.2s ease-in";
+        progEl.style.color = "rgba(0,0,0,0)";
+        metaEl.style.transition = "color 1.5s ease-in";
+        metaEl.style.color = "rgba(0,0,0,0)";
+      }
+
+    } else if (phase === 3) {
+      // ── RELEASING ──
+      var elapsed = now - phaseStart;
+      var e = Math.min(1, elapsed / 2.5);
+      var ee = e * e;
+
+      for (var i = 0; i < 3; i++) {
+        var L = layers[i];
+        L.locked = false;
+        L.ax = L.tx + L.sx*elapsed*ee;
+        L.ay = L.ty + L.sy*elapsed*ee;
+        L.az = L.tz + L.sz*elapsed*ee;
+        L.mesh.rotation.set(L.ax, L.ay, L.az);
+        L.mat.opacity = lerp(0.75, i===0?0.35:i===1?0.4:0.5, e);
+        L.mat.color.lerp(new THREE.Color(C_DIM[L.colIdx]), e*0.03);
+      }
+
+      coreMat.opacity = lerp(0.75, 0.25, e);
+      coreMat.color.lerp(new THREE.Color(0x807088), e*0.04);
+      core.scale.setScalar(lerp(1.4, 1, e));
+      sparkMat.opacity = lerp(0.85, 0.5, e);
+      sparkMat.size = lerp(0.13, 0.07, e);
+      sparkMat.color.lerp(new THREE.Color(0x807088), e*0.04);
+
+      if (e >= 1) {
+        phase = 0;
+        timer = 0;
+        seqEl.textContent = "";
+        counterEl.textContent = "";
+        progEl.textContent = "";
+        metaEl.textContent = "";
+        seqEl.style.transition = "color 0.4s";
+        counterEl.style.transition = "color 0.3s";
+        progEl.style.transition = "color 0.4s";
+        metaEl.style.transition = "color 0.5s";
+      }
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+})();
+</script>
+</body>
+</html>
