@@ -4,6 +4,12 @@ layout: docs
 parent: federated_learning
 page_id: federated_learning_green
 summary: Carbon footprint monitoring and green AI practices for federated learning.
+contributors:
+  - name: "Jorge Miguel Silva"
+    orcid: "0000-0002-6331-6091"
+    affiliation: "IEETA, Universidade de Aveiro"
+license: CC-BY-4.0
+last_updated_on: 2025-08-10
 status: draft
 has_children: false
 related_pages:

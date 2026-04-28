@@ -92,6 +92,19 @@
 
   <link rel="stylesheet" href="/assets/css/docs.css">
 
+  <!-- Pre-paint theme: set html.dark before CSS applies, no FOUC -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var dark = saved
+          ? saved === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Privacy-friendly analytics by Umami -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="065913f4-78fe-490e-aa4a-a840fdcf56f1"></script>
 </head>
@@ -301,24 +314,37 @@
   </footer>
 
   <script>
-    // ---- Theme toggle (paper / charcoal) ----
+    // ---- Theme toggle ----
     (function () {
       var html = document.documentElement;
-      var btn = document.getElementById('theme-toggle');
-      var sun = btn.querySelector('.theme-sun');
+      var btn  = document.getElementById('theme-toggle');
+      if (!btn) return;
+      var sun  = btn.querySelector('.theme-sun');
       var moon = btn.querySelector('.theme-moon');
-      var saved = localStorage.getItem('theme');
-      function set(mode) {
-        if (mode === 'dark') { html.classList.add('dark'); sun.style.display = 'none'; moon.style.display = ''; }
-        else { html.classList.remove('dark'); sun.style.display = ''; moon.style.display = 'none'; }
+
+      function syncIcons() {
+        var dark = html.classList.contains('dark');
+        if (sun)  sun.style.display  = dark ? 'none' : '';
+        if (moon) moon.style.display = dark ? '' : 'none';
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
       }
-      if (saved) set(saved);
-      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) set('dark');
-      else set('light');
+      syncIcons();
+
       btn.addEventListener('click', function () {
         var next = html.classList.contains('dark') ? 'light' : 'dark';
-        set(next);
-        localStorage.setItem('theme', next);
+        if (next === 'dark') html.classList.add('dark');
+        else                 html.classList.remove('dark');
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        syncIcons();
+      });
+
+      // Follow system changes only when the user has not made a choice
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener && mq.addEventListener('change', function (e) {
+        if (localStorage.getItem('theme')) return;
+        if (e.matches) html.classList.add('dark');
+        else           html.classList.remove('dark');
+        syncIcons();
       });
     })();
 

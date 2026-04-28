@@ -5,59 +5,48 @@
    ========================================================================= */
 
 :root {
-  --paper:      #FBF7F0;
-  --paper-2:    #F4EEE2;
-  --ink:        #1B1814;
-  --ink-2:      #3A3530;
-  --mid:        #6B635A;
-  --mute:       #948A7E;
-  --rule:       #DCD4C5;
-  --rule-soft:  #EAE2D2;
-  --oxblood:    #7A1F1A;
-  --oxblood-2:  #5C1612;
-  --tint:       #F2D6D2;
-  --tint-soft:  #F8E7E4;
+  /* Aligned with the main page (en/index.html): white + Tailwind grays,
+     #1a4bff brand blue as the single accent. Variable names kept
+     (--oxblood / --tint) so existing rules don't have to be rewritten. */
+  --paper:      #FFFFFF;
+  --paper-2:    #F9FAFB;   /* gray-50 */
+  --ink:        #111827;   /* gray-900 */
+  --ink-2:      #374151;   /* gray-700 */
+  --mid:        #6B7280;   /* gray-500 */
+  --mute:       #9CA3AF;   /* gray-400 */
+  --rule:       #E5E7EB;   /* gray-200 */
+  --rule-soft:  #F3F4F6;   /* gray-100 */
+  --oxblood:    #1A4BFF;   /* brand blue (main page theme-color) */
+  --oxblood-2:  #0033CC;   /* darker hover */
+  --tint:       #DBE2FF;   /* very light blue */
+  --tint-soft:  #EEF1FF;   /* paper-tone blue tint */
 
   --serif-display: "Fraunces", "Source Serif 4", Georgia, serif;
   --serif-body:    "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --sans:          "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:          "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --measure: 68ch;          /* reading column */
+  --measure: 68ch;
   --gutter: 2.5rem;
-  --rhythm: 1.7;            /* base line-height */
+  --rhythm: 1.7;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper:     #16130E;
-    --paper-2:   #1F1B15;
-    --ink:       #E8E1D5;
-    --ink-2:     #C7BFB1;
-    --mid:       #9C9384;
-    --mute:      #756C5F;
-    --rule:      #2D2820;
-    --rule-soft: #221E18;
-    --oxblood:   #C7716A;
-    --oxblood-2: #E89189;
-    --tint:      #3B201D;
-    --tint-soft: #2A1816;
-  }
-}
-
+/* Dark mode: driven exclusively by html.dark (set by JS). The media query
+   approach was removed because it kept overriding the user's explicit
+   choice when the system was set to dark. */
 html.dark {
-  --paper:     #16130E;
-  --paper-2:   #1F1B15;
-  --ink:       #E8E1D5;
-  --ink-2:     #C7BFB1;
-  --mid:       #9C9384;
-  --mute:      #756C5F;
-  --rule:      #2D2820;
-  --rule-soft: #221E18;
-  --oxblood:   #C7716A;
-  --oxblood-2: #E89189;
-  --tint:      #3B201D;
-  --tint-soft: #2A1816;
+  --paper:     #111827;   /* gray-900 — matches main page dark bg */
+  --paper-2:   #1F2937;   /* gray-800 */
+  --ink:       #F9FAFB;
+  --ink-2:     #D1D5DB;
+  --mid:       #9CA3AF;
+  --mute:      #6B7280;
+  --rule:      #374151;   /* gray-700 */
+  --rule-soft: #1F2937;
+  --oxblood:   #5B7BFF;   /* brand blue, lifted for dark bg */
+  --oxblood-2: #93A8FF;
+  --tint:      #1E2A5C;
+  --tint-soft: #172044;
 }
 
 * { box-sizing: border-box; }
