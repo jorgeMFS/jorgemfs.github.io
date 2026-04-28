@@ -1099,57 +1099,41 @@ permalink: /en/
           <p class="text-gray-600 dark:text-gray-400">{{ t.contact.subtitle }}</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12" data-aos="fade-in">
+        <div class="space-y-6 max-w-md" data-aos="fade-in">
 
-          <!-- Info -->
-          <div class="space-y-6">
-
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
-                <i class="bi bi-geo-alt text-xl text-gray-600 dark:text-gray-400"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.location }}</h4>
-                <p class="text-gray-600 dark:text-gray-400 mt-1">{{ t.contact.location_value }}</p>
-              </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
+              <i class="bi bi-geo-alt text-xl text-gray-600 dark:text-gray-400"></i>
             </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
-                <i class="bi bi-envelope text-xl text-gray-600 dark:text-gray-400"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.email }}</h4>
-                <p class="text-gray-600 dark:text-gray-400 mt-1"><span data-text="jorge.miguel.ferreira.silva@ua.pt"></span></p>
-              </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.location }}</h4>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">IEETA, Universidade de Aveiro · 3810-193 Aveiro, Portugal</p>
+              <a href="https://www.openstreetmap.org/?mlat=40.6304&amp;mlon=-8.6585&amp;zoom=16" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-1 mt-2 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-300 dark:border-gray-600 hover:border-amber-600 dark:hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+                Open in map ↗
+              </a>
             </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
-                <i class="bi bi-telephone text-xl text-gray-600 dark:text-gray-400"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.phone }}</h4>
-                <p class="text-gray-600 dark:text-gray-400 mt-1">(+351) 234 370 500</p>
-              </div>
-            </div>
-
           </div>
 
-          <!-- Address block — replaces the Google Maps iframe (no third-party tracking) -->
-          <aside class="rounded-xl border border-gray-200 dark:border-gray-800 p-8 bg-gray-50 dark:bg-gray-800">
-            <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-3">IEETA · DETI</h3>
-            <address class="not-italic text-gray-600 dark:text-gray-400 leading-relaxed">
-              Universidade de Aveiro<br>
-              Campus Universitário de Santiago<br>
-              3810-193 Aveiro, Portugal
-            </address>
-            <p class="font-mono text-xs text-gray-500 mt-4 tracking-wide" style="font-variant-numeric: tabular-nums;">40.6304° N · 8.6585° W</p>
-            <a href="https://www.openstreetmap.org/?mlat=40.6304&amp;mlon=-8.6585&amp;zoom=16" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-1 mt-4 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-300 dark:border-gray-600 hover:border-amber-600 dark:hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
-              Open in map ↗
-            </a>
-          </aside>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
+              <i class="bi bi-envelope text-xl text-gray-600 dark:text-gray-400"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.email }}</h4>
+              <p class="text-gray-600 dark:text-gray-400 mt-1"><span data-text="jorge.miguel.ferreira.silva@ua.pt"></span></p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center shrink-0">
+              <i class="bi bi-telephone text-xl text-gray-600 dark:text-gray-400"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.phone }}</h4>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">(+351) 234 370 500</p>
+            </div>
+          </div>
 
         </div>
       </div>
