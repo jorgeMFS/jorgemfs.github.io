@@ -40,9 +40,22 @@ permalink: /en/
 
   <!-- PWA -->
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#1a4bff">
+  <meta name="theme-color" content="#111827">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Pre-paint theme: set html.dark before CSS applies, no FOUC for dark-mode users -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var dark = saved
+          ? saved === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,6 +131,28 @@ permalink: /en/
     /* Altmetric badge dark mode fix - invert only, preserve donut colors */
     .dark .altmetric-embed { filter: invert(1); }
     .dark .altmetric-embed svg path { filter: invert(1); }
+
+    /* Tabular numerals on counters and dates so widths don't jiggle */
+    .purecounter, time { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum", "lnum"; }
+
+    /* Lift body-copy contrast on light surfaces — text-gray-500 fails AA on bg-white */
+    section p.text-gray-500,
+    section a.text-gray-500,
+    section .text-gray-500 { color: #374151; } /* gray-700 */
+    .dark section p.text-gray-500,
+    .dark section a.text-gray-500,
+    .dark section .text-gray-500 { color: #9CA3AF; } /* gray-400 — keeps the dark-mode contrast as-is */
+
+    /* Honor OS-level reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .typed-cursor { animation: none !important; opacity: 1 !important; }
+    }
   </style>
 
   <!-- Privacy-friendly analytics by Umami -->
@@ -368,11 +403,6 @@ permalink: /en/
                 <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
                 <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.workplace }}:</strong>
                 <span>{{ t.about.workplace_value }}</span>
-              </div>
-              <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
-                <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
-                <strong class="text-gray-900 dark:text-white shrink-0">{{ t.about.phone }}:</strong>
-                <span>{{ t.about.phone_value }}</span>
               </div>
               <div class="flex flex-wrap items-center gap-x-2 text-gray-600 dark:text-gray-400">
                 <i class="bi bi-chevron-right text-gray-400 shrink-0"></i>
@@ -983,13 +1013,13 @@ permalink: /en/
             <div class="space-y-4 border-l-2 border-gray-200 dark:border-gray-600 pl-6">
 
               <div class="relative">
-                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-blue-500"></div>
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
                 <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.fega_coordinator }}</h4>
                 <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.fega_org }}</p>
               </div>
 
               <div class="relative">
-                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-blue-500"></div>
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
                 <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.fhd_coordinator }}</h4>
                 <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ t.resume.fhd_org }}</p>
               </div>
@@ -1106,11 +1136,20 @@ permalink: /en/
 
           </div>
 
-          <!-- Map -->
-          <div class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
-            <iframe title="IEETA Location Map" src="https://maps.google.com/maps?q=IEETA,&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    class="w-full h-80" frameborder="0" allowfullscreen loading="lazy"></iframe>
-          </div>
+          <!-- Address block — replaces the Google Maps iframe (no third-party tracking) -->
+          <aside class="rounded-xl border border-gray-200 dark:border-gray-800 p-8 bg-gray-50 dark:bg-gray-800">
+            <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-3">IEETA · DETI</h3>
+            <address class="not-italic text-gray-600 dark:text-gray-400 leading-relaxed">
+              Universidade de Aveiro<br>
+              Campus Universitário de Santiago<br>
+              3810-193 Aveiro, Portugal
+            </address>
+            <p class="font-mono text-xs text-gray-500 mt-4 tracking-wide" style="font-variant-numeric: tabular-nums;">40.6304° N · 8.6585° W</p>
+            <a href="https://www.openstreetmap.org/?mlat=40.6304&amp;mlon=-8.6585&amp;zoom=16" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1 mt-4 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-300 dark:border-gray-600 hover:border-amber-600 dark:hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+              Open in map ↗
+            </a>
+          </aside>
 
         </div>
       </div>
