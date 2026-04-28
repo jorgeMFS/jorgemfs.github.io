@@ -157,10 +157,18 @@ permalink: /en/
       .typed-cursor { animation: none !important; opacity: 1 !important; }
     }
 
+    /* Editorial-blue accent — same as the federated-learning page.
+       Used for publication-card title hovers, OSM link hover, and the
+       active language pill, so the home shares the FL accent voice. */
+    .group:hover .pub-title { color: #4A6FA5; }
+    html.dark .group:hover .pub-title { color: #93B5DC; }
+    .osm-link:hover { color: #4A6FA5; border-bottom-color: #4A6FA5; }
+    html.dark .osm-link:hover { color: #93B5DC; border-bottom-color: #93B5DC; }
+
     /* Cross-room consistency: in dark mode, shift Tailwind's cool grays
        to the shared slate family so home / federated-learning / blog
        feel like one site. Light mode left alone — home keeps its
-       Tailwind grays + amber accent untouched. */
+       Tailwind grays. */
     html.dark body { background-color: var(--tk-paper); color: var(--tk-ink); }
     html.dark .dark\:bg-gray-900 { background-color: var(--tk-paper) !important; }
     html.dark .dark\:bg-gray-800 { background-color: var(--tk-paper-2) !important; }
@@ -333,7 +341,7 @@ permalink: /en/
       <!-- Language Switcher + Theme Toggle -->
       <div class="p-3 flex items-center justify-between">
         <div class="flex items-center gap-1">
-          <a href="/en/" class="px-2 py-1 rounded text-xs font-medium bg-white/20 text-white" onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
+          <a href="/en/" class="px-2 py-1 rounded text-xs font-medium text-white" style="background-color: #4A6FA5;" onclick="localStorage.setItem('preferred_language', 'en')">EN</a>
           <a href="/pt/" class="px-2 py-1 rounded text-xs font-medium text-gray-400 hover:text-white hover:bg-white/10 transition-colors" onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
         </div>
         <button id="theme-toggle"
@@ -564,7 +572,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1109/CBMS65348.2025.00159" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 A Federated Random Forest Solution for Secure Distributed Machine Learning
               </h3>
               <a href="https://doi.org/10.1109/CBMS65348.2025.00159" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">CBMS, 2025</a>
@@ -578,7 +586,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giae086" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 AltaiR: a C toolkit for alignment-free and temporal analysis of multi-FASTA data
               </h3>
               <a href="https://doi.org/10.1093/gigascience/giae086" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2024</a>
@@ -592,7 +600,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1016/j.artmed.2024.102948" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 Enhancing metagenomic classification with compression-based features
               </h3>
               <a href="https://doi.org/10.1016/j.artmed.2024.102948" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Artificial Intelligence in Medicine, 2024</a>
@@ -606,7 +614,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giad101" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 AlcoR: alignment-free simulation, mapping, and visualization of low-complexity regions in biological data
               </h3>
               <a href="https://doi.org/10.1093/gigascience/giad101" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2023</a>
@@ -620,7 +628,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giac079" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 The complexity landscape of viral genomes
               </h3>
               <a href="https://doi.org/10.1093/gigascience/giac079" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2022</a>
@@ -634,7 +642,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" data-hide-no-mentions="true" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 Feature-Based Classification of Archaeal Sequences Using Compression-Based Methods
               </h3>
               <a href="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">ibPRIA, 2022</a>
@@ -648,7 +656,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1016/j.patcog.2021.107864" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 Automatic analysis of artistic paintings using information-based measures
               </h3>
               <a href="https://doi.org/10.1016/j.patcog.2021.107864" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Pattern Recognition, 2021</a>
@@ -662,7 +670,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/bioinformatics/btaa686" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 Persistent minimal sequences of SARS-CoV-2
               </h3>
               <a href="https://doi.org/10.1093/bioinformatics/btaa686" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Bioinformatics, 2020</a>
@@ -676,7 +684,7 @@ permalink: /en/
               <div data-badge-popover="right" data-badge-type="donut" data-doi="https://doi.org/10.3390/e22010105" data-hide-no-mentions="true" class="altmetric-embed"></div>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
                 Statistical Complexity Analysis of Turing Machine tapes with Fixed Algorithmic Complexity Using the Best-Order Markov Model
               </h3>
               <a href="https://doi.org/10.3390/e22010105" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Entropy, 2020</a>
@@ -1124,7 +1132,7 @@ permalink: /en/
               <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.contact.location }}</h4>
               <p class="text-gray-600 dark:text-gray-400 mt-1">IEETA, Universidade de Aveiro · 3810-193 Aveiro, Portugal</p>
               <a href="https://www.openstreetmap.org/?mlat=40.6304&amp;mlon=-8.6585&amp;zoom=16" target="_blank" rel="noopener"
-                 class="inline-flex items-center gap-1 mt-2 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-300 dark:border-gray-600 hover:border-amber-600 dark:hover:border-amber-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+                 class="osm-link inline-flex items-center gap-1 mt-2 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-300 dark:border-gray-600 transition-colors">
                 Open in map ↗
               </a>
             </div>
