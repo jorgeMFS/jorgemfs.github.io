@@ -126,6 +126,9 @@
         {% else %}
           <span class="here">{{ section_title }}</span>
         {% endif %}
+        {% if page.status and page.status != 'published' %}
+        <span class="runninghead__status status status--{{ page.status }}" aria-label="Page status">{{ page.status | replace: '_', ' ' }}</span>
+        {% endif %}
       </nav>
 
       <div class="runninghead__actions">
@@ -154,39 +157,6 @@
       <p class="editorial__lede">{{ page.summary }}</p>
       {% endif %}
 
-      <dl class="editorial__meta">
-        {% if page.contributors %}
-        <div>
-          <dt>Author{% if page.contributors.size > 1 %}s{% endif %}</dt>
-          {% for c in page.contributors %}
-          <dd>
-            {% if c.orcid %}
-            <a href="https://orcid.org/{{ c.orcid }}" target="_blank" rel="noopener">{{ c.name }}</a>
-            {% else %}{{ c.name }}{% endif %}
-            {% if c.affiliation %}<span style="color:var(--mid);font-size:0.78rem">— {{ c.affiliation }}</span>{% endif %}
-          </dd>
-          {% endfor %}
-        </div>
-        {% endif %}
-        {% if page.last_updated_on %}
-        <div>
-          <dt>Revised</dt>
-          <dd><time datetime="{{ page.last_updated_on }}">{{ page.last_updated_on | date: "%-d %B %Y" }}</time></dd>
-        </div>
-        {% endif %}
-        {% if page.license %}
-        <div>
-          <dt>License</dt>
-          <dd>{{ page.license }}</dd>
-        </div>
-        {% endif %}
-        {% if page.status and page.status != 'published' %}
-        <div>
-          <dt>Status</dt>
-          <dd><span class="status status--{{ page.status }}">{{ page.status | replace: '_', ' ' }}</span></dd>
-        </div>
-        {% endif %}
-      </dl>
 
       {%- comment -%} Topology hero — only on the parent page {%- endcomment -%}
       {% unless page.parent %}
@@ -256,9 +226,6 @@
           </span>
         </div>
         {% endfor %}
-        {% if page.last_updated_on %}
-        <p class="aside__updated">Last revised — <time datetime="{{ page.last_updated_on }}">{{ page.last_updated_on | date: "%-d %B %Y" }}</time></p>
-        {% endif %}
       </section>
 
       <section>

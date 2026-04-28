@@ -134,6 +134,24 @@ body {
   color: var(--ink);
   font-weight: 600;
 }
+.runninghead__status {
+  margin-left: 0.6rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.runninghead__status::before {
+  width: 5px; height: 5px;
+  margin-right: 0.4rem;
+  vertical-align: 0.08em;
+  display: inline-block;
+}
 .runninghead__actions {
   display: flex;
   gap: 0.25rem;
