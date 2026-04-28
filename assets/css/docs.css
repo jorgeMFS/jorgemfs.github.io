@@ -584,8 +584,17 @@ body {
     align-self: start;
     max-height: calc(100vh - 6rem);
     overflow-y: auto;
-    padding-right: 0.25rem;
+    overflow-x: hidden;
+    padding-right: 0.5rem;
+    padding-bottom: 2rem;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
   }
+  .aside::-webkit-scrollbar { width: 6px; }
+  .aside::-webkit-scrollbar-track { background: transparent; }
+  .aside::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+  .aside:hover::-webkit-scrollbar-thumb { background: var(--mute); }
 }
 
 .aside section + section {
@@ -661,60 +670,118 @@ body {
   font-feature-settings: "lnum";
 }
 
-/* TOC: numbered, hairline-anchored */
-.toc { counter-reset: toc-counter; padding: 0; margin: 0; list-style: none; }
+/* TOC: nested, hairline-anchored, collapsible subsections */
+.toc {
+  counter-reset: toc-counter;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.toc__group { position: relative; }
+.toc__row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  position: relative;
+}
 .toc__link {
+  flex: 1 1 auto;
   display: block;
-  padding: 0.32rem 0 0.32rem 2rem;
+  padding: 0.36rem 0 0.36rem 2rem;
   margin-left: -1px;
   border-left: 1px solid var(--rule);
   font-size: 0.85rem;
   font-family: var(--sans);
   color: var(--mid);
   text-decoration: none;
-  transition: color 0.15s, border-left-color 0.15s, padding-left 0.15s;
   line-height: 1.4;
   position: relative;
+  transition: color 0.18s ease, border-left-color 0.18s ease;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .toc__link::before {
   content: counter(toc-counter, decimal-leading-zero);
   counter-increment: toc-counter;
   position: absolute;
-  left: 0.6rem;
+  left: 0.55rem;
+  top: 0.45rem;
   font-size: 0.65rem;
   font-feature-settings: "lnum";
   color: var(--mute);
   letter-spacing: 0.04em;
+  transition: color 0.18s ease;
 }
-.toc__link--h3 {
-  padding-left: 3rem;
-  font-size: 0.8rem;
-  color: var(--mute);
-}
-.toc__link--h3::before {
-  content: "";
-  width: 0.55rem;
-  height: 1px;
-  background: var(--rule);
-  top: 50%;
-  left: 1.7rem;
-}
-.toc__link--h4 {
-  padding-left: 3.6rem;
-  font-size: 0.75rem;
-  color: var(--mute);
-}
-.toc__link--h4::before { content: ""; display: none; }
 .toc__link:hover {
   color: var(--ink);
   border-left-color: var(--ink);
+  white-space: normal;
 }
 .toc__link.is-active {
   color: var(--oxblood);
   border-left: 2px solid var(--oxblood);
   font-weight: 500;
+  white-space: normal;
 }
 .toc__link.is-active::before { color: var(--oxblood); font-weight: 600; }
+
+/* Collapse toggle (chevron) */
+.toc__toggle {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 24px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mute);
+  cursor: pointer;
+  flex: 0 0 auto;
+  margin-top: 0.18rem;
+  border-radius: 3px;
+  transition: color 0.18s ease, background-color 0.18s ease;
+}
+.toc__toggle:hover { color: var(--ink); background: var(--rule-soft); }
+.toc__toggle svg { width: 10px; height: 10px; transition: transform 0.25s ease; }
+.toc__group.is-open > .toc__row > .toc__toggle svg { transform: rotate(90deg); }
+.toc__group.is-leaf > .toc__row > .toc__toggle { visibility: hidden; }
+
+/* Nested h3 sub-list */
+.toc__sub {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.32s ease, opacity 0.22s ease;
+}
+.toc__group.is-open > .toc__sub {
+  max-height: 60rem;       /* large enough for any reasonable section */
+  opacity: 1;
+}
+.toc__sub .toc__link {
+  padding-left: 3.1rem;
+  font-size: 0.78rem;
+  color: var(--mute);
+}
+.toc__sub .toc__link::before {
+  content: "";
+  position: absolute;
+  left: 1.9rem;
+  top: 50%;
+  width: 0.55rem;
+  height: 1px;
+  background: var(--rule);
+  counter-increment: none;
+  letter-spacing: 0;
+  font-size: 0;
+}
+.toc__sub .toc__link:hover::before,
+.toc__sub .toc__link.is-active::before { background: var(--oxblood); }
 
 /* Sibling pages */
 .siblings { padding: 0; margin: 0; list-style: none; }

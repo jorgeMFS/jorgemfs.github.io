@@ -352,7 +352,7 @@
       });
     })();
 
-    // ---- Table of contents ----
+    // ---- Nested, collapsible Table of contents ----
     (function () {
       var article = document.querySelector('.prose');
       var tocEl = document.getElementById('toc');
@@ -378,38 +378,125 @@
         return s;
       }
 
-      var headings = article.querySelectorAll('h2, h3, h4');
-      headings.forEach(function (h) {
-        if (!h.id) h.id = slug(h.textContent);
-        // skip h4s in TOC by default to keep it readable, but show them under h3 hover
-        if (h.tagName === 'H4') return;
+      // Ensure every h2/h3 has a stable id
+      var headings = Array.prototype.slice.call(
+        article.querySelectorAll('h2, h3')
+      );
+      headings.forEach(function (h) { if (!h.id) h.id = slug(h.textContent); });
 
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        a.href = '#' + h.id;
-        a.textContent = h.textContent;
-        a.className = 'toc__link toc__link--' + h.tagName.toLowerCase();
-        li.appendChild(a);
-        tocEl.appendChild(li);
+      // Group h3s under their preceding h2
+      var groups = [];   // [{h2, children: [h3, ...]}, ...]
+      var current = null;
+      headings.forEach(function (h) {
+        if (h.tagName === 'H2') {
+          current = { h2: h, children: [] };
+          groups.push(current);
+        } else if (current) {
+          current.children.push(h);
+        }
       });
 
-      // Active section highlight
-      var links = tocEl.querySelectorAll('.toc__link');
-      var byId = {};
-      links.forEach(function (l) { byId[l.getAttribute('href').slice(1)] = l; });
+      var chevron =
+        '<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="M3.5 2 6.5 5 3.5 8"/></svg>';
+
+      var linkById = {};
+      var groupById = {};   // h2.id -> group element
+
+      groups.forEach(function (g) {
+        var liGroup = document.createElement('li');
+        liGroup.className = 'toc__group' + (g.children.length === 0 ? ' is-leaf' : '');
+
+        var row = document.createElement('div');
+        row.className = 'toc__row';
+
+        var toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'toc__toggle';
+        toggle.innerHTML = chevron;
+        toggle.setAttribute('aria-label', 'Toggle subsections');
+
+        var a = document.createElement('a');
+        a.href = '#' + g.h2.id;
+        a.textContent = g.h2.textContent;
+        a.className = 'toc__link toc__link--h2';
+
+        row.appendChild(toggle);
+        row.appendChild(a);
+        liGroup.appendChild(row);
+        linkById[g.h2.id] = a;
+        groupById[g.h2.id] = liGroup;
+
+        if (g.children.length) {
+          var sub = document.createElement('ol');
+          sub.className = 'toc__sub';
+          g.children.forEach(function (h) {
+            var li = document.createElement('li');
+            var sa = document.createElement('a');
+            sa.href = '#' + h.id;
+            sa.textContent = h.textContent;
+            sa.className = 'toc__link toc__link--h3';
+            li.appendChild(sa);
+            sub.appendChild(li);
+            linkById[h.id] = sa;
+          });
+          liGroup.appendChild(sub);
+        }
+
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          liGroup.classList.toggle('is-open');
+        });
+
+        tocEl.appendChild(liGroup);
+      });
+
+      // ---- Active section highlight + auto-expand ----
+      function setActive(id) {
+        Object.keys(linkById).forEach(function (key) {
+          linkById[key].classList.toggle('is-active', key === id);
+        });
+        // Open the parent group of the active heading; close others
+        groups.forEach(function (g) {
+          var groupEl = groupById[g.h2.id];
+          if (!groupEl) return;
+          var inGroup = g.h2.id === id ||
+            g.children.some(function (c) { return c.id === id; });
+          if (inGroup) groupEl.classList.add('is-open');
+          else         groupEl.classList.remove('is-open');
+        });
+        // Keep the active link visible inside the scrolling sidebar
+        var active = linkById[id];
+        if (active && active.scrollIntoView) {
+          var aside = document.querySelector('.aside');
+          if (aside) {
+            var ar = aside.getBoundingClientRect();
+            var lr = active.getBoundingClientRect();
+            if (lr.top < ar.top + 40 || lr.bottom > ar.bottom - 40) {
+              active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }
+          }
+        }
+      }
 
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          var l = byId[e.target.id];
-          if (!l) return;
-          if (e.isIntersecting) {
-            links.forEach(function (x) { x.classList.remove('is-active'); });
-            l.classList.add('is-active');
-          }
+        // pick the topmost intersecting heading
+        var visible = entries
+          .filter(function (e) { return e.isIntersecting; })
+          .map(function (e) { return e.target; });
+        if (!visible.length) return;
+        visible.sort(function (a, b) {
+          return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
         });
-      }, { rootMargin: '-90px 0px -75% 0px', threshold: 0 });
+        setActive(visible[0].id);
+      }, { rootMargin: '-90px 0px -70% 0px', threshold: 0 });
 
-      headings.forEach(function (h) { if (h.tagName !== 'H4') io.observe(h); });
+      headings.forEach(function (h) { io.observe(h); });
+
+      // First paint: open the first group so the structure is legible
+      if (groups.length && groupById[groups[0].h2.id]) {
+        groupById[groups[0].h2.id].classList.add('is-open');
+      }
     })();
   </script>
 </body>
