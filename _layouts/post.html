@@ -63,15 +63,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+
+  <!-- Site-wide design tokens (shared with home and federated-learning) -->
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <style>
     :root {
       color-scheme: light;
       --accent: #1a4bff;
-      --text: #1d1d1f;
-      --muted: #6f6f73;
-      --background: #f6f6f8;
-      --surface: #ffffff;
-      --border: rgba(26, 75, 255, 0.12);
+      --text: var(--tk-ink);
+      --muted: var(--tk-mid);
+      --background: var(--tk-paper-2);
+      --surface: var(--tk-paper);
+      --border: var(--tk-rule);
     }
 
     *, *::before, *::after {

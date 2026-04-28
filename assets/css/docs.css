@@ -1,25 +1,28 @@
 /* =========================================================================
    docs.css — Editorial scholarly print stylesheet for /federated-learning/
    Type pairing: Fraunces (display) + Source Serif 4 (body) + IBM Plex Sans
-   (chrome) + IBM Plex Mono (code). Single oxblood accent. Hairline rules.
+   (chrome) + IBM Plex Mono (code). Editorial blue accent, hairline rules.
+   Inks and surface tones consume site-wide tokens (assets/css/tokens.css)
+   so home, federated-learning, and blog stay in sync.
    ========================================================================= */
+@import url("/assets/css/tokens.css");
 
 :root {
-  /* Warm-neutral ink (no blue cast), refined editorial blue accent.
-     Variable names kept (--oxblood / --tint) so existing rules don't
-     have to be rewritten. */
-  --paper:      #FFFFFF;
-  --paper-2:    #FAFAF9;   /* warm off-white (stone-50) */
-  --ink:        #1C1917;   /* stone-900 — neutral charcoal, no navy cast */
-  --ink-2:      #44403C;   /* stone-700 */
-  --mid:        #78716C;   /* stone-500 */
-  --mute:       #A8A29E;   /* stone-400 */
-  --rule:       #E7E5E4;   /* stone-200 */
-  --rule-soft:  #F5F5F4;   /* stone-100 */
-  --oxblood:    #4A6FA5;   /* dusty editorial blue, like printer's ink */
-  --oxblood-2:  #2F4D7E;   /* deeper hover */
-  --tint:       #DCE6F2;   /* very light blue */
-  --tint-soft:  #EEF3F9;   /* paper-tone blue tint */
+  /* Surfaces, ink, rules — sourced from site-wide tokens. */
+  --paper:      var(--tk-paper);
+  --paper-2:    var(--tk-paper-2);
+  --ink:        var(--tk-ink);
+  --ink-2:      var(--tk-ink-2);
+  --mid:        var(--tk-mid);
+  --mute:       var(--tk-mute);
+  --rule:       var(--tk-rule);
+  --rule-soft:  var(--tk-rule-soft);
+
+  /* FL accent — editorial blue. Local to this room. */
+  --oxblood:    #4A6FA5;
+  --oxblood-2:  #2F4D7E;
+  --tint:       #DCE6F2;
+  --tint-soft:  #EEF3F9;
 
   --serif-display: "Fraunces", "Source Serif 4", Georgia, serif;
   --serif-body:    "Source Serif 4", "Iowan Old Style", Georgia, serif;
@@ -31,21 +34,10 @@
   --rhythm: 1.7;
 }
 
-/* Dark mode: driven exclusively by html.dark (set by JS). The media query
-   approach was removed because it kept overriding the user's explicit
-   choice when the system was set to dark. */
+/* Dark mode: surfaces / ink come from tokens (slate-800 etc.); only the
+   FL-local accent values change here. */
 html.dark {
-  /* Slate — dark blue-grey, a step lighter than slate-900 so it reads
-     as cool ink rather than vivid navy. */
-  --paper:     #1E293B;   /* slate-800 */
-  --paper-2:   #334155;   /* slate-700 */
-  --ink:       #F8FAFC;   /* slate-50 */
-  --ink-2:     #CBD5E1;   /* slate-300 */
-  --mid:       #94A3B8;   /* slate-400 */
-  --mute:      #64748B;   /* slate-500 */
-  --rule:      #475569;   /* slate-600 */
-  --rule-soft: #334155;
-  --oxblood:   #93B5DC;   /* lifted editorial blue */
+  --oxblood:   #93B5DC;
   --oxblood-2: #BACEE6;
   --tint:      #2C4D7A;
   --tint-soft: #233F66;

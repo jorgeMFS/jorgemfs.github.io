@@ -83,6 +83,9 @@ permalink: /en/
   <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
+  <!-- Site-wide design tokens (shared with /federated-learning/ and /blog/) -->
+  <link href="/assets/css/tokens.css?v={{ site.time | date: '%Y%m%d%H%M' }}" rel="stylesheet">
+
   <!-- Minimal custom styles -->
   <style>
     /* Typed.js cursor */
@@ -153,6 +156,18 @@ permalink: /en/
       }
       .typed-cursor { animation: none !important; opacity: 1 !important; }
     }
+
+    /* Cross-room consistency: in dark mode, shift Tailwind's cool grays
+       to the shared slate family so home / federated-learning / blog
+       feel like one site. Light mode left alone — home keeps its
+       Tailwind grays + amber accent untouched. */
+    html.dark body { background-color: var(--tk-paper); color: var(--tk-ink); }
+    html.dark .dark\:bg-gray-900 { background-color: var(--tk-paper) !important; }
+    html.dark .dark\:bg-gray-800 { background-color: var(--tk-paper-2) !important; }
+    html.dark #header { background-color: #0F172A; } /* slate-900, slightly bluer than gray-950 */
+    html.dark .dark\:border-gray-800,
+    html.dark .dark\:border-gray-700,
+    html.dark .dark\:border-gray-600 { border-color: var(--tk-rule) !important; }
   </style>
 
   <!-- Privacy-friendly analytics by Umami -->

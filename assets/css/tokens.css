@@ -1,0 +1,41 @@
+/* =========================================================================
+   tokens.css — Shared design tokens for jorgemfs.com.
+   Each room (home, federated-learning, blog) keeps its own layout, fonts,
+   and accent, but consumes the same near-black ink, paper / dark surface
+   tones, and rule colors so the site reads as one property.
+
+   Naming: --tk-* prefix to avoid colliding with room-local custom props.
+   ========================================================================= */
+
+:root {
+  /* Surfaces */
+  --tk-paper:      #FFFFFF;
+  --tk-paper-2:    #FAFAF9;     /* warm off-white, stone-50 */
+
+  /* Ink scale — warm-neutral, no blue cast */
+  --tk-ink:        #1C1917;     /* stone-900 */
+  --tk-ink-2:      #44403C;     /* stone-700, secondary text */
+  --tk-mid:        #78716C;     /* stone-500, captions / meta */
+  --tk-mute:       #A8A29E;     /* stone-400, hints / disabled */
+
+  /* Hairline rules */
+  --tk-rule:       #E7E5E4;     /* stone-200 */
+  --tk-rule-soft:  #F5F5F4;     /* stone-100 */
+
+  /* Type fallbacks (rooms still pick their own display + body) */
+  --tk-mono:       "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --tk-fallback-sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --tk-fallback-serif: "Iowan Old Style", Georgia, serif;
+}
+
+html.dark {
+  /* Slate dark, matches FL — clearly cool but not the vivid navy. */
+  --tk-paper:      #1E293B;     /* slate-800 */
+  --tk-paper-2:    #334155;     /* slate-700 */
+  --tk-ink:        #F8FAFC;     /* slate-50 */
+  --tk-ink-2:      #CBD5E1;     /* slate-300 */
+  --tk-mid:        #94A3B8;     /* slate-400 */
+  --tk-mute:       #64748B;     /* slate-500 */
+  --tk-rule:       #475569;     /* slate-600 */
+  --tk-rule-soft:  #334155;
+}
