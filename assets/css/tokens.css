@@ -22,6 +22,10 @@
   --tk-rule:       #E7E5E4;     /* stone-200 */
   --tk-rule-soft:  #F5F5F4;     /* stone-100 */
 
+  /* Editorial blue — the FL accent. Available to any room that wants it. */
+  --tk-accent:     #4A6FA5;     /* dusty editorial blue */
+  --tk-accent-2:   #2F4D7E;     /* deeper hover */
+
   /* Type fallbacks (rooms still pick their own display + body) */
   --tk-mono:       "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --tk-fallback-sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -38,4 +42,6 @@ html.dark {
   --tk-mute:       #64748B;     /* slate-500 */
   --tk-rule:       #475569;     /* slate-600 */
   --tk-rule-soft:  #334155;
+  --tk-accent:     #93B5DC;     /* lifted editorial blue for dark surfaces */
+  --tk-accent-2:   #BACEE6;
 }
