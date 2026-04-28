@@ -107,11 +107,6 @@ body {
   color: var(--ink);
   text-decoration: none;
 }
-.runninghead__mark::before {
-  content: "§ ";
-  color: var(--oxblood);
-  margin-right: 0.1em;
-}
 .runninghead__crumbs {
   display: flex;
   flex-wrap: wrap;
@@ -767,10 +762,8 @@ body {
    ========================================================================= */
 .topology {
   max-width: var(--measure);
-  margin: 0.5rem 0 3rem;
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
+  margin: 2rem 0 2.5rem;
+  padding: 0;
   position: relative;
 }
 .topology__svg {
@@ -781,10 +774,13 @@ body {
 }
 .topology__caption {
   margin-top: 0.75rem;
+  padding-top: 0;
+  border-top: 0;
   font-family: var(--sans);
   font-size: 0.74rem;
   color: var(--mid);
   letter-spacing: 0.04em;
+  text-align: center;
 }
 .topology__caption b {
   color: var(--oxblood);
