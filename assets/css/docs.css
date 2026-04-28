@@ -5,22 +5,21 @@
    ========================================================================= */
 
 :root {
-  /* Aligned with the main page (en/index.html): white + Tailwind grays,
-     amber as the single visible accent (matches publication hover and
-     resume-timeline dots on /en/). Variable names kept (--oxblood /
-     --tint) so existing rules don't have to be rewritten. */
+  /* Warm-neutral ink (no blue cast), refined editorial blue accent.
+     Variable names kept (--oxblood / --tint) so existing rules don't
+     have to be rewritten. */
   --paper:      #FFFFFF;
-  --paper-2:    #F9FAFB;   /* gray-50 */
-  --ink:        #111827;   /* gray-900 */
-  --ink-2:      #374151;   /* gray-700 */
-  --mid:        #6B7280;   /* gray-500 */
-  --mute:       #9CA3AF;   /* gray-400 */
-  --rule:       #E5E7EB;   /* gray-200 */
-  --rule-soft:  #F3F4F6;   /* gray-100 */
-  --oxblood:    #D97706;   /* amber-600 — accent on white */
-  --oxblood-2:  #B45309;   /* amber-700 — deeper hover */
-  --tint:       #FDE68A;   /* amber-200 — light tint */
-  --tint-soft:  #FEF3C7;   /* amber-100 — paper-tone tint */
+  --paper-2:    #FAFAF9;   /* warm off-white (stone-50) */
+  --ink:        #1C1917;   /* stone-900 — neutral charcoal, no navy cast */
+  --ink-2:      #44403C;   /* stone-700 */
+  --mid:        #78716C;   /* stone-500 */
+  --mute:       #A8A29E;   /* stone-400 */
+  --rule:       #E7E5E4;   /* stone-200 */
+  --rule-soft:  #F5F5F4;   /* stone-100 */
+  --oxblood:    #4A6FA5;   /* dusty editorial blue, like printer's ink */
+  --oxblood-2:  #2F4D7E;   /* deeper hover */
+  --tint:       #DCE6F2;   /* very light blue */
+  --tint-soft:  #EEF3F9;   /* paper-tone blue tint */
 
   --serif-display: "Fraunces", "Source Serif 4", Georgia, serif;
   --serif-body:    "Source Serif 4", "Iowan Old Style", Georgia, serif;
@@ -36,18 +35,18 @@
    approach was removed because it kept overriding the user's explicit
    choice when the system was set to dark. */
 html.dark {
-  --paper:     #111827;   /* gray-900 — matches main page dark bg */
-  --paper-2:   #1F2937;   /* gray-800 */
-  --ink:       #F9FAFB;
-  --ink-2:     #D1D5DB;
-  --mid:       #9CA3AF;
-  --mute:      #6B7280;
-  --rule:      #374151;   /* gray-700 */
-  --rule-soft: #1F2937;
-  --oxblood:   #FBBF24;   /* amber-400 — readable on dark gray */
-  --oxblood-2: #FCD34D;   /* amber-300 — hover */
-  --tint:      #422006;   /* amber-950 */
-  --tint-soft: #2A1605;
+  --paper:     #1C1917;   /* warm charcoal — no blue cast */
+  --paper-2:   #292524;   /* stone-800 */
+  --ink:       #FAFAF9;   /* stone-50 */
+  --ink-2:     #D6D3D1;   /* stone-300 */
+  --mid:       #A8A29E;   /* stone-400 */
+  --mute:      #78716C;   /* stone-500 */
+  --rule:      #44403C;   /* stone-700 */
+  --rule-soft: #292524;
+  --oxblood:   #8FB4DC;   /* lifted editorial blue, readable on dark */
+  --oxblood-2: #B7CFE6;
+  --tint:      #1F3253;
+  --tint-soft: #16263F;
 }
 
 * { box-sizing: border-box; }
@@ -670,118 +669,52 @@ body {
   font-feature-settings: "lnum";
 }
 
-/* TOC: nested, hairline-anchored, collapsible subsections */
+/* TOC: always-visible nested tree, fluid scroll, no toggle clutter */
 .toc {
-  counter-reset: toc-counter;
   padding: 0;
   margin: 0;
   list-style: none;
+  border-left: 1px solid var(--rule);
 }
 .toc__group { position: relative; }
-.toc__row {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  position: relative;
-}
-.toc__link {
-  flex: 1 1 auto;
-  display: block;
-  padding: 0.36rem 0 0.36rem 2rem;
-  margin-left: -1px;
-  border-left: 1px solid var(--rule);
-  font-size: 0.85rem;
-  font-family: var(--sans);
-  color: var(--mid);
-  text-decoration: none;
-  line-height: 1.4;
-  position: relative;
-  transition: color 0.18s ease, border-left-color 0.18s ease;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.toc__link::before {
-  content: counter(toc-counter, decimal-leading-zero);
-  counter-increment: toc-counter;
-  position: absolute;
-  left: 0.55rem;
-  top: 0.45rem;
-  font-size: 0.65rem;
-  font-feature-settings: "lnum";
-  color: var(--mute);
-  letter-spacing: 0.04em;
-  transition: color 0.18s ease;
-}
-.toc__link:hover {
-  color: var(--ink);
-  border-left-color: var(--ink);
-  white-space: normal;
-}
-.toc__link.is-active {
-  color: var(--oxblood);
-  border-left: 2px solid var(--oxblood);
-  font-weight: 500;
-  white-space: normal;
-}
-.toc__link.is-active::before { color: var(--oxblood); font-weight: 600; }
-
-/* Collapse toggle (chevron) */
-.toc__toggle {
-  appearance: none;
-  background: transparent;
-  border: 0;
-  width: 24px;
-  height: 28px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--mute);
-  cursor: pointer;
-  flex: 0 0 auto;
-  margin-top: 0.18rem;
-  border-radius: 3px;
-  transition: color 0.18s ease, background-color 0.18s ease;
-}
-.toc__toggle:hover { color: var(--ink); background: var(--rule-soft); }
-.toc__toggle svg { width: 10px; height: 10px; transition: transform 0.25s ease; }
-.toc__group.is-open > .toc__row > .toc__toggle svg { transform: rotate(90deg); }
-.toc__group.is-leaf > .toc__row > .toc__toggle { visibility: hidden; }
-
-/* Nested h3 sub-list */
 .toc__sub {
   list-style: none;
   padding: 0;
   margin: 0;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.32s ease, opacity 0.22s ease;
 }
-.toc__group.is-open > .toc__sub {
-  max-height: 60rem;       /* large enough for any reasonable section */
-  opacity: 1;
+.toc__link {
+  display: block;
+  padding: 0.32rem 0 0.32rem 1rem;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  font-size: 0.85rem;
+  font-family: var(--sans);
+  color: var(--mid);
+  text-decoration: none;
+  line-height: 1.45;
+  transition: color 0.15s ease, border-left-color 0.15s ease, background-color 0.15s ease;
 }
-.toc__sub .toc__link {
-  padding-left: 3.1rem;
-  font-size: 0.78rem;
-  color: var(--mute);
+.toc__link--h2 {
+  font-weight: 500;
+  color: var(--ink-2);
 }
-.toc__sub .toc__link::before {
-  content: "";
-  position: absolute;
-  left: 1.9rem;
-  top: 50%;
-  width: 0.55rem;
-  height: 1px;
-  background: var(--rule);
-  counter-increment: none;
-  letter-spacing: 0;
-  font-size: 0;
+.toc__link--h3 {
+  padding-left: 1.75rem;
+  font-size: 0.8rem;
+  color: var(--mid);
 }
-.toc__sub .toc__link:hover::before,
-.toc__sub .toc__link.is-active::before { background: var(--oxblood); }
+.toc__link:hover {
+  color: var(--ink);
+  border-left-color: var(--mid);
+  background: var(--rule-soft);
+}
+.toc__link.is-active {
+  color: var(--oxblood);
+  border-left-color: var(--oxblood);
+  font-weight: 500;
+  background: var(--tint-soft);
+}
+.toc__link--h2.is-active { font-weight: 600; }
 
 /* Sibling pages */
 .siblings { padding: 0; margin: 0; list-style: none; }
