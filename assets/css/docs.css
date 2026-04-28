@@ -6,8 +6,9 @@
 
 :root {
   /* Aligned with the main page (en/index.html): white + Tailwind grays,
-     #1a4bff brand blue as the single accent. Variable names kept
-     (--oxblood / --tint) so existing rules don't have to be rewritten. */
+     amber as the single visible accent (matches publication hover and
+     resume-timeline dots on /en/). Variable names kept (--oxblood /
+     --tint) so existing rules don't have to be rewritten. */
   --paper:      #FFFFFF;
   --paper-2:    #F9FAFB;   /* gray-50 */
   --ink:        #111827;   /* gray-900 */
@@ -16,10 +17,10 @@
   --mute:       #9CA3AF;   /* gray-400 */
   --rule:       #E5E7EB;   /* gray-200 */
   --rule-soft:  #F3F4F6;   /* gray-100 */
-  --oxblood:    #1A4BFF;   /* brand blue (main page theme-color) */
-  --oxblood-2:  #0033CC;   /* darker hover */
-  --tint:       #DBE2FF;   /* very light blue */
-  --tint-soft:  #EEF1FF;   /* paper-tone blue tint */
+  --oxblood:    #D97706;   /* amber-600 — accent on white */
+  --oxblood-2:  #B45309;   /* amber-700 — deeper hover */
+  --tint:       #FDE68A;   /* amber-200 — light tint */
+  --tint-soft:  #FEF3C7;   /* amber-100 — paper-tone tint */
 
   --serif-display: "Fraunces", "Source Serif 4", Georgia, serif;
   --serif-body:    "Source Serif 4", "Iowan Old Style", Georgia, serif;
@@ -43,10 +44,10 @@ html.dark {
   --mute:      #6B7280;
   --rule:      #374151;   /* gray-700 */
   --rule-soft: #1F2937;
-  --oxblood:   #5B7BFF;   /* brand blue, lifted for dark bg */
-  --oxblood-2: #93A8FF;
-  --tint:      #1E2A5C;
-  --tint-soft: #172044;
+  --oxblood:   #FBBF24;   /* amber-400 — readable on dark gray */
+  --oxblood-2: #FCD34D;   /* amber-300 — hover */
+  --tint:      #422006;   /* amber-950 */
+  --tint-soft: #2A1605;
 }
 
 * { box-sizing: border-box; }
@@ -610,7 +611,7 @@ body {
   margin: 0.4rem 0;
 }
 .aside__contributor .initials {
-  width: 28px; height: 28px;
+  width: 32px; height: 32px;
   border-radius: 50%;
   background: var(--ink);
   color: var(--paper);
@@ -621,6 +622,15 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   font-feature-settings: "lnum";
+  flex-shrink: 0;
+}
+.aside__contributor .avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  flex-shrink: 0;
 }
 .aside__contributor a {
   color: var(--ink);

@@ -219,7 +219,7 @@
           <path class="upd-line" d="M540 189 Q540 140 300 95"/>
         </svg>
         <figcaption class="topology__caption">
-          <b>Schema</b>Each round, clients (sites A–E) compute model updates locally; the aggregator combines them and broadcasts the new global model. No raw record ever leaves a site.
+          <b>Figure 1</b>Federated learning topology — clients (sites A–E) compute model updates locally; the aggregator combines them and broadcasts the new global model. No raw record ever leaves a site.
         </figcaption>
       </figure>
       {% endunless %}
@@ -246,7 +246,11 @@
             {%- assign initials = initials | append: first_char -%}
           {%- endfor -%}
         <div class="aside__contributor">
-          <span class="initials">{{ initials }}</span>
+          {% if c.image %}
+            <img class="avatar" src="{{ c.image }}" alt="{{ c.name }}" loading="lazy" width="32" height="32">
+          {% else %}
+            <span class="initials">{{ initials }}</span>
+          {% endif %}
           <span>
             {% if c.orcid %}
             <a href="https://orcid.org/{{ c.orcid }}" target="_blank" rel="noopener">{{ c.name }}</a>

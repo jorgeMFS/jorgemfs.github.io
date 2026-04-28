@@ -8,6 +8,7 @@ contributors:
   - name: "Jorge Miguel Silva"
     orcid: "0000-0002-6331-6091"
     affiliation: "IEETA, Universidade de Aveiro"
+    image: "/assets/img/profile_circle-img.webp"
 license: CC-BY-4.0
 last_updated_on: 2025-08-10
 status: draft

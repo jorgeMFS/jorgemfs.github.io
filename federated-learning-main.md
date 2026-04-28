@@ -14,6 +14,7 @@ contributors:
   - name: "Jorge Miguel Silva"
     orcid: "0000-0002-6331-6091"
     affiliation: "IEETA, Universidade de Aveiro"
+    image: "/assets/img/profile_circle-img.webp"
 tags:
   - analysis
   - data_security
@@ -180,12 +181,7 @@ threat model should guide the choice of protections.
 The original LightSecAgg design [\[13\]](#ref-13) details bandwidth
 savings compared to traditional secure aggregation protocols.
 
-{% include figure.html
-   path="assets/img/federated_learning/fl_topology.webp"
-   caption="Figure 1. Federated learning topology showing a central
-   coordinator and distributed clients"
-   alt="Diagram of a star‑topology FL system with one aggregator and N client
-   nodes" %}
+_The schematic at the top of this page (Figure 1) shows the star topology this section describes: one central aggregator and N client nodes, with model updates moving inward and the aggregated model returning outward._
 
 ## Solution
 
