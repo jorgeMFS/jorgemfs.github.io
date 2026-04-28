@@ -64,11 +64,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
 
+  <!-- Pre-paint dark mode: set html.dark before CSS, no FOUC -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var dark = saved
+          ? saved === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Site-wide design tokens (shared with home and federated-learning) -->
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <style>
     :root {
-      color-scheme: light;
+      color-scheme: light dark;
       --accent: var(--tk-accent);
       --text: var(--tk-ink);
       --muted: var(--tk-mid);
@@ -254,7 +267,7 @@
       font-family: 'Literata', 'Georgia', serif;
       font-size: clamp(1.05rem, 1.8vw, 1.15rem);
       line-height: 1.82;
-      color: #1e1f24;
+      color: var(--text);
       text-align: justify;
       text-justify: inter-word;
       -webkit-hyphens: auto;
@@ -291,11 +304,11 @@
     .post-content blockquote {
       margin: 2.5rem 0;
       padding: 1.5rem 1.8rem;
-      background: #f3f4ff;
+      background: var(--background);
       border-left: 4px solid var(--accent);
       border-radius: 14px;
       font-style: italic;
-      color: #33344b;
+      color: var(--text);
     }
 
     .post-content blockquote p {
@@ -305,8 +318,8 @@
     .post-content figure {
       margin: 2.5rem auto;
       padding: 1.4rem;
-      background: linear-gradient(180deg, #ffffff 0%, #f9f9ff 100%);
-      border: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 18px;
       box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
       text-align: center;
@@ -340,11 +353,12 @@
     }
 
     .post-content code {
-      font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-      background: rgba(15, 23, 42, 0.08);
+      font-family: var(--tk-mono);
+      background: var(--background);
       padding: 0.2rem 0.45rem;
       border-radius: 6px;
       font-size: 0.92rem;
+      border: 1px solid var(--border);
     }
 
     .post-content pre code {
@@ -423,6 +437,50 @@
         letter-spacing: 0.08em;
       }
     }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      width: 32px; height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: color 0.15s, background-color 0.15s;
+      margin-left: 0.5rem;
+    }
+    .theme-toggle:hover { color: var(--text); background: var(--surface); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+
+    /* Dark-mode adjustments for shadows / hardcoded surfaces. Token-driven
+       colors above already follow the slate dark palette; these tame the
+       drop-shadows that look too heavy on a dark canvas. */
+    html.dark article {
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+    }
+    html.dark .nav a.brand img {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    html.dark .post-hero figure {
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6);
+    }
+    html.dark .post-content figure img {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Honor reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
   <!-- Privacy-friendly analytics by Umami -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="065913f4-78fe-490e-aa4a-a840fdcf56f1"></script>
@@ -465,6 +523,15 @@
             <a href="/pt/blog/" {% if lang == 'pt' %}class="active"{% endif %} onclick="localStorage.setItem('preferred_language', 'pt')">PT</a>
           {% endif %}
         </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4l1.4-1.4M17 7l1.4-1.4"/>
+          </svg>
+          <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+            <path d="M20.5 14.5A8 8 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
@@ -547,5 +614,36 @@
   <footer>
     <p>{{ t.blog.written_by }} {{ site.title }}. <a href="/{{ lang }}/blog/">{{ t.blog.back_to_essays }} →</a></p>
   </footer>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      var sun = btn.querySelector('.theme-sun');
+      var moon = btn.querySelector('.theme-moon');
+      function syncIcons() {
+        var dark = html.classList.contains('dark');
+        if (sun) sun.style.display = dark ? 'none' : '';
+        if (moon) moon.style.display = dark ? '' : 'none';
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      }
+      syncIcons();
+      btn.addEventListener('click', function () {
+        var next = html.classList.contains('dark') ? 'light' : 'dark';
+        if (next === 'dark') html.classList.add('dark');
+        else                 html.classList.remove('dark');
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        syncIcons();
+      });
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener && mq.addEventListener('change', function (e) {
+        if (localStorage.getItem('theme')) return;
+        if (e.matches) html.classList.add('dark');
+        else           html.classList.remove('dark');
+        syncIcons();
+      });
+    })();
+  </script>
 </body>
 </html>
