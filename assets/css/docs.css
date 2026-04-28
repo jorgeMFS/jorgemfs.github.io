@@ -35,19 +35,20 @@
    approach was removed because it kept overriding the user's explicit
    choice when the system was set to dark. */
 html.dark {
-  /* Neutral zinc — no brown cast, no navy cast, dead-center charcoal */
-  --paper:     #18181B;   /* zinc-900 */
-  --paper-2:   #27272A;   /* zinc-800 */
-  --ink:       #FAFAFA;   /* zinc-50 */
-  --ink-2:     #D4D4D8;   /* zinc-300 */
-  --mid:       #A1A1AA;   /* zinc-400 */
-  --mute:      #71717A;   /* zinc-500 */
-  --rule:      #3F3F46;   /* zinc-700 */
-  --rule-soft: #27272A;
-  --oxblood:   #8FB4DC;   /* lifted editorial blue */
-  --oxblood-2: #B7CFE6;
-  --tint:      #1F3253;
-  --tint-soft: #16263F;
+  /* Slate — dark blue-grey, a step lighter than slate-900 so it reads
+     as cool ink rather than vivid navy. */
+  --paper:     #1E293B;   /* slate-800 */
+  --paper-2:   #334155;   /* slate-700 */
+  --ink:       #F8FAFC;   /* slate-50 */
+  --ink-2:     #CBD5E1;   /* slate-300 */
+  --mid:       #94A3B8;   /* slate-400 */
+  --mute:      #64748B;   /* slate-500 */
+  --rule:      #475569;   /* slate-600 */
+  --rule-soft: #334155;
+  --oxblood:   #93B5DC;   /* lifted editorial blue */
+  --oxblood-2: #BACEE6;
+  --tint:      #2C4D7A;
+  --tint-soft: #233F66;
 }
 
 * { box-sizing: border-box; }

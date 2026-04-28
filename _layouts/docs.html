@@ -158,39 +158,6 @@
       {% endif %}
 
 
-      {%- comment -%} Topology hero — only on the parent page {%- endcomment -%}
-      {% unless page.parent %}
-      <figure class="topology" aria-label="Schematic: federated learning topology">
-        <svg class="topology__svg" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img">
-          <line class="axis" x1="40" y1="200" x2="560" y2="200"/>
-          <text class="label" x="40"  y="216">site A</text>
-          <text class="label" x="160" y="216">site B</text>
-          <text class="label" x="280" y="216">site C</text>
-          <text class="label" x="400" y="216">site D</text>
-          <text class="label" x="520" y="216">site E</text>
-
-          <circle class="agg-pulse" cx="300" cy="80" r="14"/>
-          <rect class="node-coord" x="285" y="65" width="30" height="30" rx="2"/>
-          <text class="label label-coord" x="300" y="50" text-anchor="middle">aggregator</text>
-
-          <circle class="node-client" cx="60"  cy="195" r="6"/>
-          <circle class="node-client" cx="180" cy="195" r="6"/>
-          <circle class="node-client" cx="300" cy="195" r="6"/>
-          <circle class="node-client" cx="420" cy="195" r="6"/>
-          <circle class="node-client" cx="540" cy="195" r="6"/>
-
-          <path class="upd-line" d="M60  189 Q60  140 300 95"/>
-          <path class="upd-line" d="M180 189 Q180 140 300 95"/>
-          <path class="upd-line" d="M300 189 L300 100"/>
-          <path class="upd-line" d="M420 189 Q420 140 300 95"/>
-          <path class="upd-line" d="M540 189 Q540 140 300 95"/>
-        </svg>
-        <figcaption class="topology__caption">
-          <b>Figure 1</b>Federated learning topology — clients (sites A–E) compute model updates locally; the aggregator combines them and broadcasts the new global model. No raw record ever leaves a site.
-        </figcaption>
-      </figure>
-      {% endunless %}
-
       <article class="prose">
         {{ content }}
       </article>

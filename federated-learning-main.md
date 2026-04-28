@@ -181,7 +181,7 @@ threat model should guide the choice of protections.
 The original LightSecAgg design [\[13\]](#ref-13) details bandwidth
 savings compared to traditional secure aggregation protocols.
 
-_The schematic at the top of this page (Figure 1) shows the star topology this section describes: one central aggregator and N client nodes, with model updates moving inward and the aggregated model returning outward._
+{% include fl-topology.html %}
 
 ## Solution
 
