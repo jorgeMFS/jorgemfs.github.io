@@ -10,7 +10,6 @@ related_pages:
   your_tasks:
     - mlops
 tags: [mlops, monitoring, reproducibility]
-tool: false
 permalink: /federated-learning/ops/
 ---
 
@@ -35,51 +34,51 @@ impact on convergence and user experience:
 
 | SLI | Why it matters | How to measure |
 |-----|----------------|---------------|
-| **Coordinator availability** | A single coordinator outage halts every training round; Google’s SRE handbook recommends continuous success-probes to detect silent failures [1]. | Expose periodic HTTP/gRPC health probes and alert on SLO burn rate rather than single failures. |
-| **Client-participation rate** | Model quality degrades sharply when too few clients report; large-scale studies see ≥ 8 pp accuracy loss at ≈ 10 % participation [2][3]. | Export `fl_clients_participation_ratio = n_active / n_selected` each round. Flower and NVFLARE expose this metric via Prometheus [4][5]. |
-| **Per-round latency (p95)** | Latency spikes are early warnings of network congestion or stragglers; the _Site Reliability Workbook_ advises alerting when p95 exceeds the agreed SLO budget [6]. | Track `fl_round_duration_seconds` as a histogram and fire an alert when p95 breaches the budget for three consecutive windows. |
+| **Coordinator availability** | A single coordinator outage halts every training round; Google's SRE handbook recommends continuous success-probes to detect silent failures [\[1\]](#ref-1). | Expose periodic HTTP/gRPC health probes and alert on SLO burn rate rather than single failures. |
+| **Client-participation rate** | Model quality degrades sharply when too few clients report; large-scale studies see ≥ 8 pp accuracy loss at ≈ 10 % participation [\[2\]](#ref-2)[\[3\]](#ref-3). | Export `fl_clients_participation_ratio = n_active / n_selected` each round. Flower and NVFLARE expose this metric via Prometheus [\[4\]](#ref-4)[\[5\]](#ref-5). |
+| **Per-round latency (p95)** | Latency spikes are early warnings of network congestion or stragglers; the _Site Reliability Workbook_ advises alerting when p95 exceeds the agreed SLO budget [\[6\]](#ref-6). | Track `fl_round_duration_seconds` as a histogram and fire an alert when p95 breaches the budget for three consecutive windows. |
 
 > _Implementation tip_ – Prometheus dashboards shipped with **Flower ≥ 1.8**
 > and **NVFLARE 2.x** already publish `server_uptime_seconds`,
 > `client_participation_ratio`, and `round_duration_seconds`, so all three SLIs
 > can be monitored without additional coding
-> [4][5].
+> [\[4\]](#ref-4) [\[5\]](#ref-5).
 
 ### Frameworks and language support
 
-The open‑source **Flower** framework [7] and several other
+The open‑source **Flower** framework [\[7\]](#ref-7) and several other
 frameworks implement FL, each with different programming languages, maturity
 levels and security features:
 
 * **[Flower](https://flower.ai){:.tool}** – Python (PyTorch/TensorFlow). Secure
   aggregation via `secagg_mod`/`secaggplus_mod` on the client and
   `SecAgg{,+}Workflow` on the server (≥ v1.8); launch with `flwr run --mods
-  secaggplus_mod` (≥ Flower 1.8) [8].
+  secaggplus_mod` (≥ Flower 1.8) [\[8\]](#ref-8).
   _Lightweight alternative_: **LightSecAgg** protocol offers dropout‑resilient
   secure aggregation for asynchronous FL; still research‑grade and not yet
   merged in Flower core. See the official secure‑aggregation notebook
-  [9] for a minimal working example.
+  [\[9\]](#ref-9) for a minimal working example.
 * **[FATE](https://github.com/FederatedAI/FATE){:.tool}** – production‑ready, Java/Python,
-  homomorphic encryption [10].
+  homomorphic encryption [\[10\]](#ref-10).
 * **[NVIDIA FLARE](https://developer.nvidia.com/flare){:.tool}** – SDK with
-  FedAvg/FedOpt/FedProx [11].
+  FedAvg/FedOpt/FedProx [\[11\]](#ref-11).
 * **[Substra](https://github.com/substra){:.tool}** – Python API + web UI for
-  clinical FL at scale [12].
+  clinical FL at scale [\[12\]](#ref-12).
 * **[Yjs](https://yjs.dev){:.tool}** – high‑performance CRDT engine for
   real‑time collaboration; **not** an ML library and provides no privacy
   guarantees out‑of‑the‑box (secure only if deployed in a TRE with TLS/OIDC)
-  [13].
+  [\[13\]](#ref-13).
   When Yjs transports are wrapped in TLS/OIDC they can meet the same
   confidentiality baseline, but offer no built‑in aggregation privacy.
 
 #### Community and maintenance
 
 * **Flower Slack** – real‑time Q&A and roadmap discussions
-  [14].
+  [\[14\]](#ref-14).
 * **FATE mailing list** – announcements and technical support
-  [15]  [16].
+  [\[15\]](#ref-15) [\[16\]](#ref-16).
 * **ELIXIR Federated‑Human‑Data Slack** – cross‑node help channel
-  [17].
+  [\[17\]](#ref-17).
 
 When choosing a framework, consider compatibility with your existing code,
 support for secure aggregation and the maturity of the community.
@@ -138,7 +137,7 @@ Example (excerpt) from the wizard `dmp.json`:
 
 Access the wizard at: Data Stewardship Wizard [DSW](https://ds-wizard.org/),
 or use your institution’s DMPonline service — https://dmponline.dcc.ac.uk/.
-See also the RDMKit guidance on DMPs [18].
+See also the RDMKit guidance on DMPs [\[18\]](#ref-18).
 
 ### FAIR, metadata and provenance
 
@@ -172,7 +171,7 @@ Example YAML snippet:
 
 #### RO‑Crate example
 
-The Workflow-Run RO-Crate (Process Run Crate) profile [?]
+The Workflow-Run RO-Crate (Process Run Crate) profile [\[24\]](#ref-24)
 formalises provenance for executions.
 metadata capture for computational workflows. A minimal `ro-crate-metadata.json`
 for a federated training run is:
@@ -221,15 +220,15 @@ for a federated training run is:
 
 If your run was orchestrated by a workflow engine (e.g., CWL/Galaxy), use the
 Workflow-Run Crate profile (change the conformsTo URI accordingly)
-[?].
+[\[24\]](#ref-24).
 Full implementations for secure TRE contexts are available in the Five Safes
-RO-Crate record (Zenodo) [19].
+RO-Crate record (Zenodo) [\[19\]](#ref-19).
 
 ### Reproducibility checklist
 
 #### DOME-ML framework for FL reproducibility
 
-Follow the DOME‑ML recommendations [20] for reproducible
+Follow the DOME‑ML recommendations [\[20\]](#ref-20) for reproducible
 machine learning validation:
 
 ✓ **Data**
@@ -237,7 +236,7 @@ machine learning validation:
 * Version control data schemas with semantic versioning
 * Document data splits and partitioning strategies  
 * Track preprocessing pipelines with [DVC user guide](https://dvc.org/doc/user-guide)
-  [21].
+  [\[21\]](#ref-21).
 
 ✓ **Optimisation**
 
@@ -270,9 +269,9 @@ machine learning validation:
 * **SISA training**: Train on data shards for easier unlearning
 * **Differential privacy**: Natural forgetting through noise addition
 * **Certified removal**: Mathematical guarantees of data influence removal
-  [22]
+  [\[22\]](#ref-22)
 
-For a comprehensive survey on certified removal [23].
+For a comprehensive survey on certified removal [\[23\]](#ref-23).
 
 ### Disaster recovery and business continuity
 
@@ -300,49 +299,51 @@ guidelines for systematic bias assessment across federated model performance.
 
 ## Bibliography
 
-1. Beyer, Betsy, Jones, Chris, Petoff, Jennifer, Murphy, Niall Richard (2016). *Site reliability engineering: how Google runs production systems*. O'Reilly Media, Inc.. Available at: [https://sre.google/sre-book/](https://sre.google/sre-book/)
+1. <span id="ref-1"></span>Beyer, Betsy, Jones, Chris, Petoff, Jennifer, Murphy, Niall Richard (2016). *Site reliability engineering: how Google runs production systems*. O'Reilly Media, Inc. Available at: [https://sre.google/sre-book/](https://sre.google/sre-book/)
 
-2. Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Kone\vcný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374--388. Available at: [https://proceedings.mlsys.org/paper_files/paper/2019/file/7b770da633baf74895be22a8807f1a8f-Paper.pdf](https://proceedings.mlsys.org/paper_files/paper/2019/file/7b770da633baf74895be22a8807f1a8f-Paper.pdf)
+2. <span id="ref-2"></span>Bonawitz, Keith, Eichner, Hubert, Grieskamp, Wolfgang, Huba, Dzmitry, Ingerman, Alex, Ivanov, Vladimir, Kiddon, Chloé, Konečný, Jakub, Mazzocchi, Stefano, McMahan, Brendan, Van Overveldt, Timon, Petrou, David, Ramage, Daniel, Roselander, Jason (2019). Towards Federated Learning at Scale: System Design. In *Proceedings of Machine Learning and Systems*, pp. 374–388. Available at: [https://proceedings.mlsys.org/paper_files/paper/2019/file/7b770da633baf74895be22a8807f1a8f-Paper.pdf](https://proceedings.mlsys.org/paper_files/paper/2019/file/7b770da633baf74895be22a8807f1a8f-Paper.pdf)
 
-3. Lai, Fan, Dai, Yinwei, Zhu, Xiangfeng, Madhyastha, Harsha V., Chowdhury, Mosharaf (2021). FedScale: Benchmarking Model and System Performance of Federated Learning. In *Proceedings of the First Workshop on Systems Challenges in Reliable and Secure Federated Learning*, pp. 1–3. Association for Computing Machinery. DOI: [10.1145/3477114.3488760](https://doi.org/10.1145/3477114.3488760)
+3. <span id="ref-3"></span>Lai, Fan, Dai, Yinwei, Zhu, Xiangfeng, Madhyastha, Harsha V., Chowdhury, Mosharaf (2021). FedScale: Benchmarking Model and System Performance of Federated Learning. In *Proceedings of the First Workshop on Systems Challenges in Reliable and Secure Federated Learning*, pp. 1–3. Association for Computing Machinery. DOI: [10.1145/3477114.3488760](https://doi.org/10.1145/3477114.3488760)
 
-4. Flower Labs (2023). *Monitoring Simulation in Flower*. https://flower.ai/blog/2023-02-06-monitoring-simulation-in-flower.
+4. <span id="ref-4"></span>Flower Labs (2023). *Monitoring Simulation in Flower*. https://flower.ai/blog/2023-02-06-monitoring-simulation-in-flower.
 
-5. NVIDIA (2024). *System Monitoring — NVFLARE User Guide*. https://nvflare.readthedocs.io/en/2.6/user_guide/monitoring.html.
+5. <span id="ref-5"></span>NVIDIA (2024). *System Monitoring — NVFLARE User Guide*. https://nvflare.readthedocs.io/en/2.6/user_guide/monitoring.html.
 
-6. Beyer, Betsy, Murphy, Niall Richard, Rensin, David K, Kawahara, Kent, Thorne, Stephen (2018). *The site reliability workbook: practical ways to implement SRE*. O'Reilly Media, Inc.. Available at: [https://sre.google/workbook/alerting-on-slos/](https://sre.google/workbook/alerting-on-slos/)
+6. <span id="ref-6"></span>Beyer, Betsy, Murphy, Niall Richard, Rensin, David K., Kawahara, Kent, Thorne, Stephen (2018). *The Site Reliability Workbook: practical ways to implement SRE*. O'Reilly Media, Inc. Available at: [https://sre.google/workbook/alerting-on-slos/](https://sre.google/workbook/alerting-on-slos/)
 
-7. Beutel, Daniel J., Topal, Taner, Mathur, Akhil, Qiu, Xinchi, Fernandez-Marques, Javier, Gao, Yan, Sani, Lorenzo, Li, Kwing Hei, Parcollet, Titouan, de Gusm\~ao, Pedro P. B., Lane, Nicholas D. (2022). Flower: A Friendly Federated Learning Research Framework. *arXiv preprint arXiv:2007.14390*. Available at: [https://arxiv.org/abs/2007.14390](https://arxiv.org/abs/2007.14390)
+7. <span id="ref-7"></span>Beutel, Daniel J., Topal, Taner, Mathur, Akhil, Qiu, Xinchi, Fernandez-Marques, Javier, Gao, Yan, Sani, Lorenzo, Li, Kwing Hei, Parcollet, Titouan, de Gusmão, Pedro P. B., Lane, Nicholas D. (2022). Flower: A Friendly Federated Learning Research Framework. *arXiv preprint arXiv:2007.14390*. Available at: [https://arxiv.org/abs/2007.14390](https://arxiv.org/abs/2007.14390)
 
-8. Flower Labs (2025). *Secure Aggregation Protocols*. https://flower.ai/docs/framework/contributor-ref-secure-aggregation-protocols.html.
+8. <span id="ref-8"></span>Flower Labs (2025). *Secure Aggregation Protocols*. https://flower.ai/docs/framework/contributor-ref-secure-aggregation-protocols.html.
 
-9. Flower Labs (2025). *Secure aggregation with Flower (the SecAgg+ protocol)*. https://flower.ai/docs/examples/flower-secure-aggregation.html.
+9. <span id="ref-9"></span>Flower Labs (2025). *Secure aggregation with Flower (the SecAgg+ protocol)*. https://flower.ai/docs/examples/flower-secure-aggregation.html.
 
-10. Federated AI Technology Enabler (2024). *FATE documentation*. https://fate.readthedocs.io/en/develop/.
+10. <span id="ref-10"></span>Federated AI Technology Enabler (2024). *FATE documentation*. https://fate.readthedocs.io/en/develop/.
 
-11. NVIDIA Corporation (2025). *NVIDIA FLARE: Federated Learning Application Runtime Environment*. https://github.com/NVIDIA/NVFlare.
+11. <span id="ref-11"></span>NVIDIA Corporation (2025). *NVIDIA FLARE: Federated Learning Application Runtime Environment*. https://github.com/NVIDIA/NVFlare.
 
-12. Owkin, Linux Foundation AI (2025). *Substra: open-source federated learning software*. https://github.com/substra.
+12. <span id="ref-12"></span>Owkin, Linux Foundation AI (2025). *Substra: open-source federated learning software*. https://github.com/substra.
 
-13. Jahns, Kevin (2024). *Yjs: Shared data types for building collaborative software*. https://github.com/yjs/yjs.
+13. <span id="ref-13"></span>Jahns, Kevin (2024). *Yjs: Shared data types for building collaborative software*. https://github.com/yjs/yjs.
 
-14. Flower Labs (2025). *Flower Community Slack Server*. https://friendly-flower.slack.com/.
+14. <span id="ref-14"></span>Flower Labs (2025). *Flower Community Slack Server*. https://friendly-flower.slack.com/.
 
-15. FATE Project (2025). *FATE User Mailing List*. https://lists.lfaidata.foundation/g/Fate-FedAI.
+15. <span id="ref-15"></span>FATE Project (2025). *FATE User Mailing List*. https://lists.lfaidata.foundation/g/Fate-FedAI.
 
-16. Federated AI Technology Enabler (FATE) (2025). *FATE-Community GitHub organisation*. https://github.com/FederatedAI/FATE-Community.
+16. <span id="ref-16"></span>Federated AI Technology Enabler (FATE) (2025). *FATE-Community GitHub organisation*. https://github.com/FederatedAI/FATE-Community.
 
-17. ELIXIR Europe (2025). *ELIXIR Federated Human Data Community*. https://elixir-europe.org/communities/human-data.
+17. <span id="ref-17"></span>ELIXIR Europe (2025). *ELIXIR Federated Human Data Community*. https://elixir-europe.org/communities/human-data.
 
-18. ELIXIR Europe (2025). *Data Management Plan (RDMKit task page)*. https://rdmkit.elixir-europe.org/data_management_plan.
+18. <span id="ref-18"></span>ELIXIR Europe (2025). *Data Management Plan (RDMKit task page)*. https://rdmkit.elixir-europe.org/data_management_plan.
 
-19. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/.
+19. <span id="ref-19"></span>Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/.
 
-20. Walsh, Christopher J., Ross, Kenneth N., Mills, James G., et al. (2021). DOME: recommendations for supervised machine learning validation in biology. *Nature Methods*, 18, 1122--1127. DOI: [10.1038/s41592-021-01205-4](https://doi.org/10.1038/s41592-021-01205-4)
+20. <span id="ref-20"></span>Walsh, Christopher J., Ross, Kenneth N., Mills, James G., et al. (2021). DOME: recommendations for supervised machine learning validation in biology. *Nature Methods*, 18, 1122–1127. DOI: [10.1038/s41592-021-01205-4](https://doi.org/10.1038/s41592-021-01205-4)
 
-21. Iterative, Inc. (2025). *Data Version Control User Guide (v3.1)*. Available at: [https://dvc.org/doc/user-guide](https://dvc.org/doc/user-guide)
+21. <span id="ref-21"></span>Iterative, Inc. (2025). *Data Version Control User Guide (v3.1)*. Available at: [https://dvc.org/doc/user-guide](https://dvc.org/doc/user-guide)
 
-22. Metz, Cade (2023). *Now That Machines Can Learn, Can They Unlearn?*. https://www.wired.com/story/machines-can-learn-can-they-unlearn/.
+22. <span id="ref-22"></span>Metz, Cade (2023). *Now That Machines Can Learn, Can They Unlearn?*. https://www.wired.com/story/machines-can-learn-can-they-unlearn/.
 
-23. Bourtoule, Lucas, Chandrasekaran, Varun, Choquette-Choo, Christopher A., Jia, Hengrui, Travers, Adelin, Zhang, Baiwu, Lie, David, Papernot, Nicolas (2021). Machine Unlearning. In *2021 IEEE Symposium on Security and Privacy (SP)*, pp. 141-159. DOI: [10.1109/SP40001.2021.00019](https://doi.org/10.1109/SP40001.2021.00019)
+23. <span id="ref-23"></span>Bourtoule, Lucas, Chandrasekaran, Varun, Choquette-Choo, Christopher A., Jia, Hengrui, Travers, Adelin, Zhang, Baiwu, Lie, David, Papernot, Nicolas (2021). Machine Unlearning. In *2021 IEEE Symposium on Security and Privacy (SP)*, pp. 141–159. DOI: [10.1109/SP40001.2021.00019](https://doi.org/10.1109/SP40001.2021.00019)
+
+24. <span id="ref-24"></span>Leo, Simone, Crusoe, Michael R., Rodríguez-Navas, Laura, Sirvent, Raül, Kanitz, Alexander, De Geest, Paul, Wittner, Rudolf, Pireddu, Luca, Garijo, Daniel, Fernández, José M., Colonnelli, Iacopo, Gallo, Matej, Ohta, Tazro, Suetake, Hirotaka, Capella-Gutierrez, Salvador, McGrath, Renske, Niewielska, Anna, Kinoshita, Atsuko, Soiland-Reyes, Stian (2024). Recording provenance of workflow runs with RO-Crate. *PLOS ONE*, 19(9), e0309210. DOI: [10.1371/journal.pone.0309210](https://doi.org/10.1371/journal.pone.0309210). See also the [Workflow-Run RO-Crate profile](https://www.researchobject.org/workflow-run-crate/profiles/process_run_crate/).
 

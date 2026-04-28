@@ -10,7 +10,6 @@ related_pages:
   your_tasks:
     - energy_consumption
 tags: [sustainability, green_ai, carbon_footprint]
-tool: false
 permalink: /federated-learning/green/
 ---
 
@@ -21,7 +20,7 @@ permalink: /federated-learning/green/
 **Measurement tools:**
 
 * **[CodeCarbon](https://codecarbon.io/)**: Python package for tracking CO₂
-emissions [1].
+emissions [\[1\]](#ref-1).
 
   ```python
   from codecarbon import EmissionsTracker
@@ -43,42 +42,13 @@ emissions [1].
 * Implement early stopping based on carbon budget.
 * Prefer edge devices over cloud GPUs when possible.
 * Adaptive client‑selection (EcoLearn) cuts CO₂ by up to ten × without
-  accuracy loss [2].
+  accuracy loss [\[2\]](#ref-2).
 
 See: [EcoFL framework (arXiv 2023)](https://arxiv.org/pdf/2310.17972).
 
 ## Bibliography
 
-1. Benoit Courty and
-                  Victor Schmidt and
-                  Sasha Luccioni and
-                  Goyal-Kamal and
-                  MarionCoutarel and
-                  Boris Feld and
-                  Jérémy Lecourt and
-                  LiamConnell and
-                  Amine Saboni and
-                  Inimaz and
-                  supatomic and
-                  Mathilde Léval and
-                  Luis Blanche and
-                  Alexis Cruveiller and
-                  ouminasara and
-                  Franklin Zhao and
-                  Aditya Joshi and
-                  Alexis Bogroff and
-                  Hugues de Lavoreille and
-                  Niko Laskaris and
-                  Edoardo Abati and
-                  Douglas Blank and
-                  Ziyao Wang and
-                  Armin Catovic and
-                  Marc Alencon and
-                  Michał Stęchły and
-                  Christian Bauer and
-                  Lucas Otávio N. de Araújo and
-                  JPW and
-                  MinervaBooks *mlco2/codecarbon: v2.4.1*. DOI: [10.5281/zenodo.11171501](https://doi.org/10.5281/zenodo.11171501)
+1. <span id="ref-1"></span>Courty, Benoit, Schmidt, Victor, Luccioni, Sasha, et al. (2024). *mlco2/codecarbon: v2.4.1*. DOI: [10.5281/zenodo.11171501](https://doi.org/10.5281/zenodo.11171501)
 
-2. Mehboob, Talha, Bashir, Noman, Iglesias, Jesus Omana, Zink, Michael, Irwin, David (2023). CEFL: Carbon-efficient federated learning. *arXiv preprint arXiv:2310.17972*. Available at: [https://arxiv.org/abs/2310.17972](https://arxiv.org/abs/2310.17972)
+2. <span id="ref-2"></span>Mehboob, Talha, Bashir, Noman, Iglesias, Jesus Omana, Zink, Michael, Irwin, David (2023). CEFL: Carbon-efficient federated learning. *arXiv preprint arXiv:2310.17972*. Available at: [https://arxiv.org/abs/2310.17972](https://arxiv.org/abs/2310.17972)
 

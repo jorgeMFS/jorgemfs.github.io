@@ -10,7 +10,6 @@ related_pages:
   your_tasks:
     - data_security
 tags: [data_security, privacy, governance]
-tool: false
 permalink: /federated-learning/threats/
 ---
 
@@ -51,7 +50,7 @@ security coverage.
 | **Elevation of privilege** | — | Unauthorised API use | RBAC and short‑lived tokens |
 
 See the **LINDDUN tutorial** and the companion **worksheet pack** for
-step‑by‑step templates [1].
+step‑by‑step templates [\[1\]](#ref-1).
 
 Resources:
 
@@ -60,5 +59,5 @@ Resources:
 
 ## Bibliography
 
-1. Wuyts, Kim, Joosen, Wouter (2015). LINDDUN privacy threat modeling: a tutorial. *CW Reports*. Available at: [https://downloads.linddun.org/tutorials/pro/v0/tutorial.pdf](https://downloads.linddun.org/tutorials/pro/v0/tutorial.pdf)
+1. <span id="ref-1"></span>Wuyts, Kim, Joosen, Wouter (2015). LINDDUN privacy threat modeling: a tutorial. *CW Reports*. Available at: [https://downloads.linddun.org/tutorials/pro/v0/tutorial.pdf](https://downloads.linddun.org/tutorials/pro/v0/tutorial.pdf)
 

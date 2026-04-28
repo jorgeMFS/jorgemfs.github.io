@@ -32,32 +32,9 @@ keywords:
 license: CC-BY-4.0
 page_created_on: 2025-08-01
 last_updated_on: 2025-08-10
-aliases: ["federated_learning", "federated-learning"]
-icon: ti-cloud
 status: in_review
 has_children: true
-dmponline_template: "ELIXIR-CONVERGE-federated-study-preset"
 permalink: /federated-learning/
-training:
-  - name: Federated Learning for Health Data Tutorial
-    description: Hands-on tutorial for FL in health data contexts
-    registry: TeSS
-    url: https://tess.elixir-europe.org/materials/federated-learning-health
-  - name: Privacy-Preserving Machine Learning Workshop
-    description: Workshop on privacy techniques including FL
-    registry: TeSS  
-    url: https://tess.elixir-europe.org/materials/privacy-preserving-ml
-  - name: ELIXIR-CONVERGE Federated Analysis Training
-    description: Comprehensive training on federated data analysis
-    registry: TeSS
-    url: https://tess.elixir-europe.org/events/elixir-converge-federated
-resources:
-  - name: ELIXIR Federated Human Data Community
-    description: Community resources for federated analysis of sensitive data
-    url: https://elixir-europe.org/communities/human-data
-  - name: RO-Crate
-    description: Lightweight approach to packaging research data with metadata
-    url: https://www.researchobject.org/ro-crate/
 related_pages:
   your_tasks:
     - bias_and_equity
@@ -91,10 +68,10 @@ decentralised approach preserves data sovereignty and allows hospitals,
 biobanks and other organisations to collaborate on joint models while keeping
 raw data local.  FL was first deployed at Google for on‑device keyboard
 prediction, where simulations involved ≈ 1.5 million phones
-[1]; in health‑care case‑studies cohort sizes
+[\[1\]](#ref-1); in health‑care case‑studies cohort sizes
 typically range from five to ≈ three hundred sites, depending
 on governance constraints. However, open challenges such as communication
-cost and fairness remain active research topics [2].
+cost and fairness remain active research topics [\[2\]](#ref-2).
 
 ## Why is this important?
 
@@ -122,10 +99,10 @@ select appropriate federated algorithms and security mechanisms.
 
 #### Horizontal vs. vertical algorithm families
 
-Beyond FedAvg, vertical federations can use **SplitNN** [3] or
-**PyVertical** [4] to train deep models where each party holds
+Beyond FedAvg, vertical federations can use **SplitNN** [\[3\]](#ref-3) or
+**PyVertical** [\[4\]](#ref-4) to train deep models where each party holds
 disjoint features, and statistical alternatives such as **FedSVD**
-[5] offers a federated singular‑value‑decomposition
+[\[5\]](#ref-5) offers a federated singular‑value‑decomposition
 (SVD) algorithm that has already been applied to genome‑wide association studies
 (GWAS) and other high‑dimensional omics analyses.
 
@@ -138,10 +115,10 @@ units.  Perform quality control to detect outliers, missing values and
 batch effects, and apply common pre‑processing pipelines (such as
   normalisation or imaging correction) across sites.  Tools such as
   [runcrate](https://github.com/ResearchObject/runcrate){:.tool}
-  [6], a command‑line utility for manipulating Workflow Run
+  [\[6\]](#ref-6), a command‑line utility for manipulating Workflow Run
   RO‑Crate packages, can be used to package metadata and ensure provenance.
 
-The **OMOP Common Data Model (CDM)** [7] is widely adopted for
+The **OMOP Common Data Model (CDM)** [\[7\]](#ref-7) is widely adopted for
 observational health data and maps well onto federated SQL back‑ends.
 
 ### Interoperability and harmonisation
@@ -154,7 +131,7 @@ concepts, and (3) **Validate** completeness and quality via data quality
 dashboard. See the
 [OHDSI collaborative protocol](https://www.ohdsi.org/data-standardization/)
 for implementation guidance and general OHDSI CDM resources
-[8].
+[\[8\]](#ref-8).
 
 For phenotypic data exchange, **GA4GH Phenopackets**
 provide structured JSON representation:
@@ -165,9 +142,9 @@ for complete schema definitions and validation rules.
 
 To let external analysts **discover** which federated shards exist, expose a read‑only
 endpoint using **Beacon v2** (yes/no genomic presence queries)
-[9]
+[\[9\]](#ref-9)
 or the **GA4GH Search/Data‑Connect** API for richer tabular filters
-[10].
+[\[10\]](#ref-10).
 
 ### FAIR principles mapping for federated learning
 
@@ -186,7 +163,7 @@ level, use Transport Layer Security (TLS) or Virtual Private Networks
 
 Authentication and authorisation can be handled via OpenID Connect
 (OIDC) and token‑based access control. Issue GA4GH Passport 'Visa' tokens
-for mutual OIDC authorisation [11].
+for mutual OIDC authorisation [\[11\]](#ref-11).
 
 Aggregated model updates should be computed using secure aggregation
 protocols, such as
@@ -197,10 +174,10 @@ threat model should guide the choice of protections.
 
 > **Research note**  LightSecAgg reduces bandwidth and copes with client
 > drop‑outs, enabling asynchronous FL; LightSecAgg now has a reference
-> implementation [12], but it is not yet merged into
+> implementation [\[12\]](#ref-12), but it is not yet merged into
 > Flower core and still requires manual integration.
 
-The original LightSecAgg design [13] details bandwidth
+The original LightSecAgg design [\[13\]](#ref-13) details bandwidth
 savings compared to traditional secure aggregation protocols.
 
 {% include figure.html
@@ -215,7 +192,7 @@ savings compared to traditional secure aggregation protocols.
 ### Governance using the Five Safes
 
 The UK Data Service description of the Five Safes
-[14] provides a structured approach to ethical and
+[\[14\]](#ref-14) provides a structured approach to ethical and
 secure data use. Its components can be mapped to federated workflows:
 
 * **Safe data** – De‑identify and harmonise data so that each site
@@ -242,18 +219,18 @@ secure data use. Its components can be mapped to federated workflows:
 
 _Log provenance:_ each Beacon or Search query is captured as a
 `DataDownload` entity inside the Five‑Safes RO‑Crate so auditors can trace
-who accessed which variant count [9].
+who accessed which variant count [\[9\]](#ref-9).
 
 A full JSON profile and example crates are available
-[15].
+[\[15\]](#ref-15).
 
 ### Legal and ethical compliance
 
-* Consult the EDPS TechDispatch on Federated Learning [16] for
+* Consult the EDPS TechDispatch on Federated Learning [\[16\]](#ref-16) for
   a regulators' view.
 * **Data‑protection‑impact assessment (DPIA)** – run a DPIA before production.
-  Free templates are provided by the ICO DPIA template [17]
-  and CNIL PIA kit [18].
+  Free templates are provided by the ICO DPIA template [\[17\]](#ref-17)
+  and CNIL PIA kit [\[18\]](#ref-18).
 
 ## Advanced topics
 
@@ -265,7 +242,7 @@ A full JSON profile and example crates are available
   – carbon footprint monitoring and green AI practices
 
 * **Resource optimisation** – use Flower simulation guides
-  [19] with resource flags to test different
+  [\[19\]](#ref-19) with resource flags to test different
   configurations before production deployment.
 
 ## Resources
@@ -312,7 +289,7 @@ frameworks:
   architecture to train AI tools on sensitive imaging data; its current public
   prototype uses synchronous FedAvg; asynchronous and adaptive strategies are
   under internal evaluation. EUCAIM pilot now evaluates FedOpt for sparse
-  updates [20].
+  updates [\[20\]](#ref-20).
 * **["Hello World" Galaxy workflow RO‑Crate](https://about.workflowhub.eu/Workflow-RO-Crate/example/ro-crate-preview.html)**
   – a minimal Galaxy workflow packaged as a RO‑Crate, illustrating how
   provenance can be captured and shared.
@@ -337,42 +314,42 @@ frameworks:
 
 ## Bibliography
 
-1. Hard, Andrew, Rao, Kanishka, Mathews, Rajiv, Ramaswamy, Swaroop, Beaufays, Françoise, Augenstein, Sean, Eichner, Hubert, Kiddon, Chlo\'e, Ramage, Daniel (2018). Federated Learning for Mobile Keyboard Prediction. *arXiv preprint arXiv:1811.03604*. Available at: [https://arxiv.org/abs/1811.03604](https://arxiv.org/abs/1811.03604)
+1. <span id="ref-1"></span>Hard, Andrew, Rao, Kanishka, Mathews, Rajiv, Ramaswamy, Swaroop, Beaufays, Françoise, Augenstein, Sean, Eichner, Hubert, Kiddon, Chloé, Ramage, Daniel (2018). Federated Learning for Mobile Keyboard Prediction. *arXiv preprint arXiv:1811.03604*. Available at: [https://arxiv.org/abs/1811.03604](https://arxiv.org/abs/1811.03604)
 
-2. Li, Tian, Sahu, Anit Kumar, Talwalkar, Ameet, Smith, Virginia (2020). Federated Learning: Challenges, Methods, and Future Directions. *IEEE Signal Processing Magazine*, 37, 50-60. DOI: [10.1109/MSP.2020.2975749](https://doi.org/10.1109/MSP.2020.2975749)
+2. <span id="ref-2"></span>Li, Tian, Sahu, Anit Kumar, Talwalkar, Ameet, Smith, Virginia (2020). Federated Learning: Challenges, Methods, and Future Directions. *IEEE Signal Processing Magazine*, 37, 50-60. DOI: [10.1109/MSP.2020.2975749](https://doi.org/10.1109/MSP.2020.2975749)
 
-3. Gupta, Otkrist, Raskar, Ramesh (2018). Distributed learning of deep neural network over multiple agents. *Journal of Network and Computer Applications*, 116, 1-8. DOI: [10.1016/j.jnca.2018.05.003](https://doi.org/10.1016/j.jnca.2018.05.003)
+3. <span id="ref-3"></span>Gupta, Otkrist, Raskar, Ramesh (2018). Distributed learning of deep neural network over multiple agents. *Journal of Network and Computer Applications*, 116, 1-8. DOI: [10.1016/j.jnca.2018.05.003](https://doi.org/10.1016/j.jnca.2018.05.003)
 
-4. OpenMined Community (2020). *PyVertical – Vertical Federated Learning in PyTorch*. https://github.com/OpenMined/PyVertical.
+4. <span id="ref-4"></span>OpenMined Community (2020). *PyVertical – Vertical Federated Learning in PyTorch*. https://github.com/OpenMined/PyVertical.
 
-5. Hartebrodt, Anne, R\öttger, Richard, Blumenthal, David B (2024). Federated singular value decomposition for high-dimensional data. *Data Mining and Knowledge Discovery*, 38, 938--975. DOI: [10.1007/s10618-023-00983-z](https://doi.org/10.1007/s10618-023-00983-z)
+5. <span id="ref-5"></span>Hartebrodt, Anne, Röttger, Richard, Blumenthal, David B (2024). Federated singular value decomposition for high-dimensional data. *Data Mining and Knowledge Discovery*, 38, 938–975. DOI: [10.1007/s10618-023-00983-z](https://doi.org/10.1007/s10618-023-00983-z)
 
-6. ResearchObject.org (2023). *runcrate CLI*. https://github.com/ResearchObject/runcrate.
+6. <span id="ref-6"></span>ResearchObject.org (2023). *runcrate CLI*. https://github.com/ResearchObject/runcrate.
 
-7. Johns Hopkins Medicine (2024). *OMOP on PMAP – Standardising patient information for global research*. https://pm.jh.edu/discover-data-stream/epic-emr-clinical-data/omop-on-pmap/.
+7. <span id="ref-7"></span>Johns Hopkins Medicine (2024). *OMOP on PMAP – Standardising patient information for global research*. https://pm.jh.edu/discover-data-stream/epic-emr-clinical-data/omop-on-pmap/.
 
-8. Observational Health Data Sciences, Informatics (2024). *Standardized Data: The OMOP Common Data Model*. https://www.ohdsi.org/data-standardization/.
+8. <span id="ref-8"></span>Observational Health Data Sciences, Informatics (2024). *Standardized Data: The OMOP Common Data Model*. https://www.ohdsi.org/data-standardization/.
 
-9. Global Alliance for Genomics, Health (2024). *Beacon v2 Specification*. https://docs.genomebeacons.org/.
+9. <span id="ref-9"></span>Global Alliance for Genomics, Health (2024). *Beacon v2 Specification*. https://docs.genomebeacons.org/.
 
-10. Global Alliance for Genomics, Health (2023). *GA4GH Search and Data Connect API Specification*. https://www.ga4gh.org/product/data-connect/.
+10. <span id="ref-10"></span>Global Alliance for Genomics, Health (2023). *GA4GH Search and Data Connect API Specification*. https://www.ga4gh.org/product/data-connect/.
 
-11. Global Alliance for Genomics, Health (2024). *GA4GH Passports Specification*. https://www.ga4gh.org/product/ga4gh-passports/.
+11. <span id="ref-11"></span>Global Alliance for Genomics, Health (2024). *GA4GH Passports Specification*. https://www.ga4gh.org/product/ga4gh-passports/.
 
-12. So, Jinhyun (2022). *LightSecAgg – Reference implementation*. https://github.com/LightSecAgg/MLSys2022_anonymous.
+12. <span id="ref-12"></span>So, Jinhyun (2022). *LightSecAgg – Reference implementation*. https://github.com/LightSecAgg/MLSys2022_anonymous.
 
-13. So, Jinhyun, He, Chaoyang, Yang, Chien-Sheng, Li, Songze, Yu, Qian, E Ali, Ramy, Guler, Basak, Avestimehr, Salman (2022). Lightsecagg: a lightweight and versatile design for secure aggregation in federated learning. *Proceedings of Machine Learning and Systems*, 4, 694--720.
+13. <span id="ref-13"></span>So, Jinhyun, He, Chaoyang, Yang, Chien-Sheng, Li, Songze, Yu, Qian, E Ali, Ramy, Guler, Basak, Avestimehr, Salman (2022). LightSecAgg: a lightweight and versatile design for secure aggregation in federated learning. *Proceedings of Machine Learning and Systems*, 4, 694–720.
 
-14. UK Data Service (2023). *What is the Five Safes framework?*. https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/.
+14. <span id="ref-14"></span>UK Data Service (2023). *What is the Five Safes framework?*. https://ukdataservice.ac.uk/help/secure-lab/what-is-the-five-safes-framework/.
 
-15. Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/.
+15. <span id="ref-15"></span>Soiland-Reyes, Stian, Wheater, Stuart (2023). *Five Safes RO-Crate profile*. https://trefx.uk/5s-crate/0.4/.
 
-16. European Data Protection Supervisor (2025). *TechDispatch #1/2025 - Federated Learning*. https://www.edps.europa.eu/data-protection/our-work/publications/techdispatch/2025-06-10-techdispatch-12025-federated-learning_en.
+16. <span id="ref-16"></span>European Data Protection Supervisor (2025). *TechDispatch #1/2025 - Federated Learning*. https://www.edps.europa.eu/data-protection/our-work/publications/techdispatch/2025-06-10-techdispatch-12025-federated-learning_en.
 
-17. UK Information Commissioner's Office (2024). *DPIA template*. https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/annex-d-dpia-template/.
+17. <span id="ref-17"></span>UK Information Commissioner's Office (2024). *DPIA template*. https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/annex-d-dpia-template/.
 
-18. {Commission Nationale de l'Informatique et des Libert\'es} (2024). *Privacy Impact Assessment (PIA)*. https://www.cnil.fr/en/privacy-impact-assessment-pia.
+18. <span id="ref-18"></span>Commission Nationale de l'Informatique et des Libertés (2024). *Privacy Impact Assessment (PIA)*. https://www.cnil.fr/en/privacy-impact-assessment-pia.
 
-19. Flower Labs (2025). *How-to run simulations*. https://flower.ai/docs/framework/how-to-run-simulations.html.
+19. <span id="ref-19"></span>Flower Labs (2025). *How-to run simulations*. https://flower.ai/docs/framework/how-to-run-simulations.html.
 
-20. Mart\'\i-Bonmat\'\i, Luis, Blanquer, Ignacio, Tsiknakis, Manolis, Tsakou, Gianna, Martinez, Ricard, Capella-Gutierrez, Salvador, Zullino, Sara, Meszaros, Janos, Bron, Esther E, Gelpi, Jose Luis, others (2025). Empowering cancer research in Europe: the EUCAIM cancer imaging infrastructure. *Insights into Imaging*, 16, 47. DOI: [10.1186/s13244-025-01913-x](https://doi.org/10.1186/s13244-025-01913-x)
+20. <span id="ref-20"></span>Martí-Bonmatí, Luis, Blanquer, Ignacio, Tsiknakis, Manolis, Tsakou, Gianna, Martinez, Ricard, Capella-Gutierrez, Salvador, Zullino, Sara, Meszaros, Janos, Bron, Esther E, Gelpi, Jose Luis, others (2025). Empowering cancer research in Europe: the EUCAIM cancer imaging infrastructure. *Insights into Imaging*, 16, 47. DOI: [10.1186/s13244-025-01913-x](https://doi.org/10.1186/s13244-025-01913-x)
