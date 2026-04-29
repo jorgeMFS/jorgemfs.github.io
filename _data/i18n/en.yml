@@ -81,6 +81,7 @@ portfolio:
   filter_web: "Web"
   repository: "Repository"
   website: "Website"
+  app: "App"
 
 # Skills section
 skills:
