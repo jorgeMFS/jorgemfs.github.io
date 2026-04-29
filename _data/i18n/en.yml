@@ -32,6 +32,7 @@ hero:
 
 # About section
 about:
+  eyebrow: "Profile"
   title: "About"
   intro: "As a Research Fellow at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), I engage in cutting-edge computer science and engineering research. I hold a Master's in Bioengineering from the Faculty of Engineering at the University of Porto and have recently completed my PhD in Computer Science. My primary research interests revolve around Information Theory, Artificial Intelligence, and Compression, focusing on applying these methodologies to genomics."
   job_title: "Researcher & Computer Scientist"
@@ -55,6 +56,7 @@ about:
 
 # Projects section
 projects:
+  eyebrow: "Research"
   title: "Projects"
   subtitle: "Research projects I'm involved with"
 
@@ -68,12 +70,14 @@ facts:
 
 # Publications section
 publications:
+  eyebrow: "Papers"
   title: "Selected Publications"
   subtitle: "Here are some of my selected publications."
   view_more: "View more publications:"
 
 # Portfolio section
 portfolio:
+  eyebrow: "Tools & Code"
   title: "Portfolio"
   subtitle: "Tools and repositories from my research"
   filter_all: "All"
@@ -85,6 +89,7 @@ portfolio:
 
 # Skills section
 skills:
+  eyebrow: "Practice"
   title: "Skills"
   subtitle: "Technical expertise across programming, research, and infrastructure."
   programming_languages: "Programming Languages"
@@ -94,6 +99,7 @@ skills:
 
 # Resume section
 resume:
+  eyebrow: "Career"
   title: "Resume"
   subtitle: "A short resume of my work experience and education."
   view_cv: "View CV"
@@ -142,6 +148,7 @@ resume:
 
 # Contact section
 contact:
+  eyebrow: "Reach"
   title: "Contact"
   subtitle: "If you wish to contact me regarding collaborations, projects or other subjects, please get in touch using the following information."
   location: "Location"

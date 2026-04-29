@@ -32,6 +32,7 @@ hero:
 
 # About section
 about:
+  eyebrow: "Perfil"
   title: "Sobre"
   intro: "Como Investigador no Instituto de Engenharia Eletrónica e Informática de Aveiro (IEETA), desenvolvo investigação de ponta em ciência da computação e engenharia. Sou Mestre em Bioengenharia pela Faculdade de Engenharia da Universidade do Porto e concluí recentemente o Doutoramento em Ciência de Computadores. Os meus principais interesses de investigação centram-se na Teoria da Informação, Inteligência Artificial e Compressão, com foco na aplicação destas metodologias à genómica."
   job_title: "Investigador & Cientista de Computação"
@@ -55,6 +56,7 @@ about:
 
 # Projects section
 projects:
+  eyebrow: "Investigação"
   title: "Projetos"
   subtitle: "Projetos de investigação em que participo"
 
@@ -68,12 +70,14 @@ facts:
 
 # Publications section
 publications:
+  eyebrow: "Artigos"
   title: "Publicações Selecionadas"
   subtitle: "Algumas das minhas publicações selecionadas."
   view_more: "Ver mais publicações:"
 
 # Portfolio section
 portfolio:
+  eyebrow: "Ferramentas e Código"
   title: "Portfólio"
   subtitle: "Ferramentas e repositórios da minha investigação"
   filter_all: "Todos"
@@ -85,6 +89,7 @@ portfolio:
 
 # Skills section
 skills:
+  eyebrow: "Prática"
   title: "Competências"
   subtitle: "Experiência técnica em programação, investigação e infraestruturas."
   programming_languages: "Linguagens de Programação"
@@ -94,6 +99,7 @@ skills:
 
 # Resume section
 resume:
+  eyebrow: "Carreira"
   title: "Currículo"
   subtitle: "Um breve resumo da minha experiência profissional e formação."
   view_cv: "Ver CV"
@@ -142,6 +148,7 @@ resume:
 
 # Contact section
 contact:
+  eyebrow: "Encontrar"
   title: "Contacto"
   subtitle: "Se deseja contactar-me sobre colaborações, projetos ou outros assuntos, por favor utilize as seguintes informações."
   location: "Localização"

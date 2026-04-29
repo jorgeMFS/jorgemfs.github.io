@@ -167,7 +167,7 @@ permalink: /en/
 
     /* ----- Portfolio refinements: editorial eyebrow, text-toggle filters,
        softer tile chrome with paper-tone caption strip (no heavy gradient) */
-    .portfolio-eyebrow {
+    .section-eyebrow {
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.18em;
@@ -175,7 +175,7 @@ permalink: /en/
       color: #4A6FA5;
       margin: 0 0 0.5rem;
     }
-    html.dark .portfolio-eyebrow { color: #93B5DC; }
+    html.dark .section-eyebrow { color: #93B5DC; }
 
     .portfolio-filters {
       list-style: none;
@@ -485,8 +485,9 @@ permalink: /en/
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-12" data-aos="fade-up">
-          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.about.title }}</h2>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p class="section-eyebrow">{{ t.about.eyebrow }}</p>
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.about.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl leading-relaxed">
             {{ t.about.intro }}
           </p>
         </div>
@@ -556,8 +557,9 @@ permalink: /en/
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-10" data-aos="fade-up">
-          <h2 class="text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white mb-2">{{ t.projects.title }}</h2>
-          <p class="text-gray-500 dark:text-gray-500 text-sm">{{ t.projects.subtitle }}</p>
+          <p class="section-eyebrow">{{ t.projects.eyebrow }}</p>
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.projects.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-md">{{ t.projects.subtitle }}</p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" data-aos="fade-up">
@@ -659,8 +661,9 @@ permalink: /en/
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-12" data-aos="fade-up">
-          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.publications.title }}</h2>
-          <p class="text-gray-600 dark:text-gray-400">{{ t.publications.subtitle }}</p>
+          <p class="section-eyebrow">{{ t.publications.eyebrow }}</p>
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.publications.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl">{{ t.publications.subtitle }}</p>
         </div>
 
         <div class="space-y-6">
@@ -866,7 +869,7 @@ permalink: /en/
 
         <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div>
-            <p class="portfolio-eyebrow">Portfolio</p>
+            <p class="section-eyebrow">{{ t.portfolio.eyebrow }}</p>
             <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.portfolio.title }}</h2>
             <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-md">{{ t.portfolio.subtitle }}</p>
           </div>
@@ -1032,8 +1035,9 @@ permalink: /en/
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-12" data-aos="fade-up">
-          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.skills.title }}</h2>
-          <p class="text-gray-600 dark:text-gray-400">{{ t.skills.subtitle }}</p>
+          <p class="section-eyebrow">{{ t.skills.eyebrow }}</p>
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.skills.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl">{{ t.skills.subtitle }}</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12">
@@ -1113,8 +1117,9 @@ permalink: /en/
 
         <div class="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4" data-aos="fade-up">
           <div>
-            <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.resume.title }}</h2>
-            <p class="text-gray-600 dark:text-gray-400">{{ t.resume.subtitle }}</p>
+            <p class="section-eyebrow">{{ t.resume.eyebrow }}</p>
+            <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.resume.title }}</h2>
+            <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl">{{ t.resume.subtitle }}</p>
           </div>
           <a href="/cv.html" target="_blank"
              class="inline-flex items-center justify-center gap-2 px-4 py-2 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white text-sm font-medium rounded-lg hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">
@@ -1270,8 +1275,9 @@ permalink: /en/
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="mb-12" data-aos="fade-up">
-          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white mb-4">{{ t.contact.title }}</h2>
-          <p class="text-gray-600 dark:text-gray-400">{{ t.contact.subtitle }}</p>
+          <p class="section-eyebrow">{{ t.contact.eyebrow }}</p>
+          <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.contact.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl">{{ t.contact.subtitle }}</p>
         </div>
 
         <div class="space-y-6 max-w-md" data-aos="fade-in">
