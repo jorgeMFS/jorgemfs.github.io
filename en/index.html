@@ -165,6 +165,73 @@ permalink: /en/
     .osm-link:hover { color: #4A6FA5; border-bottom-color: #4A6FA5; }
     html.dark .osm-link:hover { color: #93B5DC; border-bottom-color: #93B5DC; }
 
+    /* ----- Publications: academic citation list, hairline-divided.
+       Year on the left as a small mono kicker, title as the visual anchor,
+       venue italic + authors muted, donut chip on the right. */
+    .pub-list {
+      border-top: 1px solid var(--tk-rule);
+    }
+    .pub-entry {
+      display: grid;
+      grid-template-columns: 4rem 1fr auto;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--tk-rule);
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .pub-entry {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+      .pub-entry__metric { display: none; }
+    }
+    .pub-entry__year {
+      font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--tk-mid);
+      font-variant-numeric: tabular-nums lining-nums;
+      padding-top: 6px;
+      margin: 0;
+    }
+    .pub-entry__title {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.42;
+      letter-spacing: -0.005em;
+      color: var(--tk-ink);
+      text-decoration: none;
+      margin: 0;
+      transition: color 0.18s ease;
+    }
+    .pub-entry__title:hover { color: #4A6FA5; }
+    html.dark .pub-entry__title:hover { color: #93B5DC; }
+    .pub-entry__meta {
+      margin: 0.4rem 0 0;
+      font-size: 0.85rem;
+      color: var(--tk-mid);
+      line-height: 1.5;
+    }
+    .pub-entry__meta .venue {
+      font-style: italic;
+      color: var(--tk-ink-2);
+    }
+    .pub-entry__meta .dot {
+      margin: 0 0.5rem;
+      color: var(--tk-mute);
+    }
+    .pub-entry__meta .self {
+      color: var(--tk-ink);
+      font-weight: 500;
+    }
+    .pub-entry__metric {
+      padding-top: 4px;
+      align-self: start;
+    }
+
     /* ----- Portfolio refinements: editorial eyebrow, text-toggle filters,
        softer tile chrome with paper-tone caption strip (no heavy gradient) */
     .section-eyebrow {
@@ -666,174 +733,114 @@ permalink: /en/
           <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl">{{ t.publications.subtitle }}</p>
         </div>
 
-        <div class="space-y-6">
+        <div class="pub-list">
 
-          <!-- BioChef (BMC Bioinformatics, 2026) -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1186/s12859-026-06431-1" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry" data-aos="fade-up">
+            <p class="pub-entry__year">2026</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                BioChef: a client-side WebAssembly-based workflow builder for genomic data analysis
-              </h3>
-              <a href="https://doi.org/10.1186/s12859-026-06431-1" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">BMC Bioinformatics, 2026</a>
-              <p class="text-sm text-gray-500 mt-2">J. Rosa, J. Andrade, J. M. Silva, J. L. Oliveira</p>
+              <a href="https://doi.org/10.1186/s12859-026-06431-1" class="pub-entry__title">BioChef: a client-side WebAssembly-based workflow builder for genomic data analysis</a>
+              <p class="pub-entry__meta"><span class="venue">BMC Bioinformatics</span><span class="dot">·</span>J. Rosa, J. Andrade, <span class="self">J. M. Silva</span>, J. L. Oliveira</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1186/s12859-026-06431-1" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- HYMET (GigaScience, 2026) -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giag024" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2026</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                HYMET: a hybrid metagenomic pipeline for accurate and efficient taxonomic classification
-              </h3>
-              <a href="https://doi.org/10.1093/gigascience/giag024" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2026</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, I. Martins, J. R. Almeida</p>
+              <a href="https://doi.org/10.1093/gigascience/giag024" class="pub-entry__title">HYMET: a hybrid metagenomic pipeline for accurate and efficient taxonomic classification</a>
+              <p class="pub-entry__meta"><span class="venue">GigaScience</span><span class="dot">·</span><span class="self">J. M. Silva</span>, I. Martins, J. R. Almeida</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1093/gigascience/giag024" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Systematic review (Computers in Biology and Medicine, 2026) -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1016/j.compbiomed.2026.111600" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2026</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                A systematic review and benchmarking of modern metagenomic tools for taxonomic classification
-              </h3>
-              <a href="https://doi.org/10.1016/j.compbiomed.2026.111600" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Computers in Biology and Medicine, 2026</a>
-              <p class="text-sm text-gray-500 mt-2">I. B. Martins, J. M. Silva, J. R. Almeida</p>
+              <a href="https://doi.org/10.1016/j.compbiomed.2026.111600" class="pub-entry__title">A systematic review and benchmarking of modern metagenomic tools for taxonomic classification</a>
+              <p class="pub-entry__meta"><span class="venue">Computers in Biology and Medicine</span><span class="dot">·</span>I. B. Martins, <span class="self">J. M. Silva</span>, J. R. Almeida</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1016/j.compbiomed.2026.111600" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 1 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1109/CBMS65348.2025.00159" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2025</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                A Federated Random Forest Solution for Secure Distributed Machine Learning
-              </h3>
-              <a href="https://doi.org/10.1109/CBMS65348.2025.00159" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">CBMS, 2025</a>
-              <p class="text-sm text-gray-500 mt-2">A. Cotorobai, J. M. Silva, J. L. Oliveira</p>
+              <a href="https://doi.org/10.1109/CBMS65348.2025.00159" class="pub-entry__title">A Federated Random Forest Solution for Secure Distributed Machine Learning</a>
+              <p class="pub-entry__meta"><span class="venue">CBMS</span><span class="dot">·</span>A. Cotorobai, <span class="self">J. M. Silva</span>, J. L. Oliveira</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1109/CBMS65348.2025.00159" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 2 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giae086" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2024</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                AltaiR: a C toolkit for alignment-free and temporal analysis of multi-FASTA data
-              </h3>
-              <a href="https://doi.org/10.1093/gigascience/giae086" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2024</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, A. J. Pinho, D. Prata</p>
+              <a href="https://doi.org/10.1093/gigascience/giae086" class="pub-entry__title">AltaiR: a C toolkit for alignment-free and temporal analysis of multi-FASTA data</a>
+              <p class="pub-entry__meta"><span class="venue">GigaScience</span><span class="dot">·</span><span class="self">J. M. Silva</span>, A. J. Pinho, D. Prata</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1093/gigascience/giae086" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 3 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1016/j.artmed.2024.102948" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2024</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                Enhancing metagenomic classification with compression-based features
-              </h3>
-              <a href="https://doi.org/10.1016/j.artmed.2024.102948" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Artificial Intelligence in Medicine, 2024</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, J. R. Almeida</p>
+              <a href="https://doi.org/10.1016/j.artmed.2024.102948" class="pub-entry__title">Enhancing metagenomic classification with compression-based features</a>
+              <p class="pub-entry__meta"><span class="venue">Artificial Intelligence in Medicine</span><span class="dot">·</span><span class="self">J. M. Silva</span>, J. R. Almeida</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1016/j.artmed.2024.102948" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 4 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giad101" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2023</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                AlcoR: alignment-free simulation, mapping, and visualization of low-complexity regions in biological data
-              </h3>
-              <a href="https://doi.org/10.1093/gigascience/giad101" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2023</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, W. Qi, A. J. Pinho, D. Pratas</p>
+              <a href="https://doi.org/10.1093/gigascience/giad101" class="pub-entry__title">AlcoR: alignment-free simulation, mapping, and visualization of low-complexity regions in biological data</a>
+              <p class="pub-entry__meta"><span class="venue">GigaScience</span><span class="dot">·</span><span class="self">J. M. Silva</span>, W. Qi, A. J. Pinho, D. Pratas</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1093/gigascience/giad101" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 5 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/gigascience/giac079" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2022</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                The complexity landscape of viral genomes
-              </h3>
-              <a href="https://doi.org/10.1093/gigascience/giac079" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">GigaScience, 2022</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, D. Pratas, T. Caetano, S. Matos</p>
+              <a href="https://doi.org/10.1093/gigascience/giac079" class="pub-entry__title">The complexity landscape of viral genomes</a>
+              <p class="pub-entry__meta"><span class="venue">GigaScience</span><span class="dot">·</span><span class="self">J. M. Silva</span>, D. Pratas, T. Caetano, S. Matos</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1093/gigascience/giac079" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 6 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" data-hide-no-mentions="true" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2022</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                Feature-Based Classification of Archaeal Sequences Using Compression-Based Methods
-              </h3>
-              <a href="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">ibPRIA, 2022</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, D. Pratas, T. Caetano, S. Matos</p>
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" class="pub-entry__title">Feature-Based Classification of Archaeal Sequences Using Compression-Based Methods</a>
+              <p class="pub-entry__meta"><span class="venue">ibPRIA</span><span class="dot">·</span><span class="self">J. M. Silva</span>, D. Pratas, T. Caetano, S. Matos</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="https://link.springer.com/chapter/10.1007/978-3-031-04881-4_25" data-hide-no-mentions="true" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 7 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1016/j.patcog.2021.107864" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2021</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                Automatic analysis of artistic paintings using information-based measures
-              </h3>
-              <a href="https://doi.org/10.1016/j.patcog.2021.107864" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Pattern Recognition, 2021</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, D. Pratas, R. Antunes, S. Matos, A. J. Pinho</p>
+              <a href="https://doi.org/10.1016/j.patcog.2021.107864" class="pub-entry__title">Automatic analysis of artistic paintings using information-based measures</a>
+              <p class="pub-entry__meta"><span class="venue">Pattern Recognition</span><span class="dot">·</span><span class="self">J. M. Silva</span>, D. Pratas, R. Antunes, S. Matos, A. J. Pinho</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1016/j.patcog.2021.107864" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 8 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1093/bioinformatics/btaa686" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2020</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                Persistent minimal sequences of SARS-CoV-2
-              </h3>
-              <a href="https://doi.org/10.1093/bioinformatics/btaa686" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Bioinformatics, 2020</a>
-              <p class="text-sm text-gray-500 mt-2">D. Pratas, J. M. Silva</p>
+              <a href="https://doi.org/10.1093/bioinformatics/btaa686" class="pub-entry__title">Persistent minimal sequences of SARS-CoV-2</a>
+              <p class="pub-entry__meta"><span class="venue">Bioinformatics</span><span class="dot">·</span>D. Pratas, <span class="self">J. M. Silva</span></p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="10.1093/bioinformatics/btaa686" class="altmetric-embed"></div></div>
           </article>
 
-          <!-- Publication 9 -->
-          <article class="group p-5 rounded-xl bg-gray-50/50 dark:bg-white/[0.02] hover:bg-gray-100/80 dark:hover:bg-white/[0.05] transition-all duration-300 flex gap-5" data-aos="fade-up">
-            <div class="hidden sm:block shrink-0">
-              <div data-badge-popover="right" data-badge-type="donut" data-doi="https://doi.org/10.3390/e22010105" data-hide-no-mentions="true" class="altmetric-embed"></div>
-            </div>
+          <article class="pub-entry">
+            <p class="pub-entry__year">2020</p>
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white pub-title transition-colors">
-                Statistical Complexity Analysis of Turing Machine tapes with Fixed Algorithmic Complexity Using the Best-Order Markov Model
-              </h3>
-              <a href="https://doi.org/10.3390/e22010105" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 mt-1 inline-block">Entropy, 2020</a>
-              <p class="text-sm text-gray-500 mt-2">J. M. Silva, E. Pinho, S. Matos, D. Pratas</p>
+              <a href="https://doi.org/10.3390/e22010105" class="pub-entry__title">Statistical Complexity Analysis of Turing Machine tapes with Fixed Algorithmic Complexity Using the Best-Order Markov Model</a>
+              <p class="pub-entry__meta"><span class="venue">Entropy</span><span class="dot">·</span><span class="self">J. M. Silva</span>, E. Pinho, S. Matos, D. Pratas</p>
             </div>
+            <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-doi="https://doi.org/10.3390/e22010105" data-hide-no-mentions="true" class="altmetric-embed"></div></div>
           </article>
 
         </div>
