@@ -83,6 +83,7 @@ portfolio:
   filter_all: "All"
   filter_repos: "Repos"
   filter_web: "Web"
+  filter_app: "App"
   repository: "Repository"
   website: "Website"
   app: "App"
