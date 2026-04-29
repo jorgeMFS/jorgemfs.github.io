@@ -165,6 +165,105 @@ permalink: /en/
     .osm-link:hover { color: #4A6FA5; border-bottom-color: #4A6FA5; }
     html.dark .osm-link:hover { color: #93B5DC; border-bottom-color: #93B5DC; }
 
+    /* ----- Portfolio refinements: editorial eyebrow, text-toggle filters,
+       softer tile chrome with paper-tone caption strip (no heavy gradient) */
+    .portfolio-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #4A6FA5;
+      margin: 0 0 0.5rem;
+    }
+    html.dark .portfolio-eyebrow { color: #93B5DC; }
+
+    .portfolio-filters {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+    }
+    .portfolio-filters li {
+      cursor: pointer;
+      color: var(--tk-mid);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      font-weight: 500;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.18s ease, border-bottom-color 0.18s ease;
+    }
+    .portfolio-filters li:hover { color: var(--tk-ink); }
+    .portfolio-filters li.filter-active {
+      color: var(--tk-ink) !important;
+      border-bottom-color: #4A6FA5;
+      background: transparent !important;
+    }
+    html.dark .portfolio-filters li.filter-active {
+      color: var(--tk-ink) !important;
+      border-bottom-color: #93B5DC;
+      background: transparent !important;
+    }
+
+    .portfolio-container { gap: 1rem !important; }
+    @media (min-width: 768px) { .portfolio-container { gap: 1.25rem !important; } }
+
+    .portfolio-item {
+      border: 1px solid var(--tk-rule);
+      background: var(--tk-paper-2) !important;
+      border-radius: 8px !important;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .portfolio-item:hover {
+      border-color: #4A6FA5;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+    html.dark .portfolio-item:hover {
+      border-color: #93B5DC;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    .portfolio-item img {
+      filter: grayscale(0.85) contrast(0.96);
+      transition: filter 0.4s ease;
+      transform: none !important;
+    }
+    .portfolio-item:hover img {
+      filter: grayscale(0) contrast(1);
+    }
+    /* Hide the heavy black gradient overlay */
+    .portfolio-item > .absolute.inset-0 { display: none !important; }
+    /* Refined caption — thin paper-tone band, refined typography */
+    .portfolio-item > .absolute.bottom-0 {
+      padding: 0.5rem 0.8rem !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      color: var(--tk-ink) !important;
+      border-top: 1px solid var(--tk-rule);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    html.dark .portfolio-item > .absolute.bottom-0 {
+      background: rgba(30, 41, 59, 0.94) !important;
+      border-top-color: var(--tk-rule);
+    }
+    .portfolio-item > .absolute.bottom-0 h3 {
+      color: var(--tk-ink) !important;
+      font-size: 0.82rem !important;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      margin: 0;
+    }
+    .portfolio-item > .absolute.bottom-0 p {
+      color: var(--tk-mid) !important;
+      font-size: 0.62rem !important;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 2px;
+    }
+
     /* Cross-room consistency: in dark mode, shift Tailwind's cool grays
        to the shared slate family so home / federated-learning / blog
        feel like one site. Light mode left alone — home keeps its
@@ -765,16 +864,16 @@ permalink: /en/
     <section id="portfolio" class="py-16 lg:py-20 bg-gray-50 dark:bg-gray-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-5" data-aos="fade-up">
+        <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div>
-            <h2 class="text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.portfolio.title }}</h2>
-            <p class="text-gray-500 dark:text-gray-500 text-sm mt-1">{{ t.portfolio.subtitle }}</p>
+            <p class="portfolio-eyebrow">Portfolio</p>
+            <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.portfolio.title }}</h2>
+            <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-md">{{ t.portfolio.subtitle }}</p>
           </div>
-          <!-- Filters inline with title -->
-          <ul id="portfolio-flters" class="flex flex-wrap gap-1.5">
-            <li data-filter="*" class="filter-active px-2.5 py-1 text-xs font-medium rounded-md cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">{{ t.portfolio.filter_all }}</li>
-            <li data-filter=".filter-app" class="px-2.5 py-1 text-xs font-medium rounded-md cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">{{ t.portfolio.filter_repos }}</li>
-            <li data-filter=".filter-web" class="px-2.5 py-1 text-xs font-medium rounded-md cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">{{ t.portfolio.filter_web }}</li>
+          <ul id="portfolio-flters" class="portfolio-filters">
+            <li data-filter="*" class="filter-active">{{ t.portfolio.filter_all }}</li>
+            <li data-filter=".filter-app">{{ t.portfolio.filter_repos }}</li>
+            <li data-filter=".filter-web">{{ t.portfolio.filter_web }}</li>
           </ul>
         </div>
 
