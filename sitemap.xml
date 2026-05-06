@@ -1,58 +1,71 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Root redirect page -->
-  <url>
-    <loc>https://jorgemfs.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/"/>
-  </url>
 
   <!-- English homepage -->
   <url>
-    <loc>https://jorgemfs.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/"/>
+    <loc>{{ '/en/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="{{ '/pt/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/en/' | absolute_url }}"/>
   </url>
 
   <!-- Portuguese homepage -->
   <url>
-    <loc>https://jorgemfs.com/pt/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/"/>
+    <loc>{{ '/pt/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="{{ '/pt/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/en/' | absolute_url }}"/>
   </url>
 
-  <!-- English blog -->
+  <!-- English blog index -->
   <url>
-    <loc>https://jorgemfs.com/en/blog/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/blog/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/blog/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/blog/"/>
+    <loc>{{ '/en/blog/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/blog/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="{{ '/pt/blog/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/en/blog/' | absolute_url }}"/>
   </url>
 
-  <!-- Portuguese blog -->
+  <!-- Portuguese blog index -->
   <url>
-    <loc>https://jorgemfs.com/pt/blog/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jorgemfs.com/en/blog/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://jorgemfs.com/pt/blog/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jorgemfs.com/en/blog/"/>
+    <loc>{{ '/pt/blog/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/blog/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="{{ '/pt/blog/' | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/en/blog/' | absolute_url }}"/>
   </url>
 
-  <!-- Federated Learning page (English only) -->
+  <!-- Blog posts (auto-generated, paired by frontmatter `ref`) -->
+  {%- for post in site.posts -%}
+    {%- assign en_post = site.posts | where: "ref", post.ref | where: "lang", "en" | first -%}
+    {%- assign pt_post = site.posts | where: "ref", post.ref | where: "lang", "pt" | first -%}
   <url>
-    <loc>https://jorgemfs.com/federated-learning/</loc>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    {%- if en_post %}
+    <xhtml:link rel="alternate" hreflang="en" href="{{ en_post.url | absolute_url }}"/>
+    {%- endif -%}
+    {%- if pt_post %}
+    <xhtml:link rel="alternate" hreflang="pt" href="{{ pt_post.url | absolute_url }}"/>
+    {%- endif -%}
+    {%- if en_post %}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ en_post.url | absolute_url }}"/>
+    {%- endif %}
   </url>
+  {%- endfor %}
+
+  <!-- Federated Learning pages (English only) -->
+  <url><loc>{{ '/federated-learning/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/federated-learning/green/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/federated-learning/ops/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/federated-learning/threats/' | absolute_url }}</loc></url>
 
   <!-- VCFX page (English only) -->
-  <url>
-    <loc>https://jorgemfs.com/vcfx/</loc>
-  </url>
+  <url><loc>{{ '/vcfx/' | absolute_url }}</loc></url>
 
   <!-- CV page -->
-  <url>
-    <loc>https://jorgemfs.com/cv.html</loc>
-  </url>
+  <url><loc>{{ '/cv.html' | absolute_url }}</loc></url>
 </urlset>

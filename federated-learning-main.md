@@ -33,7 +33,7 @@ keywords:
 license: CC-BY-4.0
 page_created_on: 2025-08-01
 last_updated_on: 2025-08-10
-status: in_review
+status: published
 has_children: true
 permalink: /federated-learning/
 related_pages:
