@@ -18,15 +18,16 @@
   .corner-bl{bottom:16px;left:16px}.corner-bl::before{width:20px;height:1px;bottom:0;left:0}.corner-bl::after{width:1px;height:20px;bottom:0;left:0}
   .corner-br{bottom:16px;right:16px}.corner-br::before{width:20px;height:1px;bottom:0;right:0}.corner-br::after{width:1px;height:20px;bottom:0;right:0}
   .glyph{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-size:10px;
-    letter-spacing:5px;color:rgba(0,0,0,.08);z-index:20;font-weight:200;user-select:none}
+    letter-spacing:5px;color:rgba(0,0,0,.2);z-index:20;font-weight:200;user-select:none}
   #seq{position:fixed;top:40%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
-    user-select:none;font-size:clamp(12px,2.4vw,17px);font-weight:300;letter-spacing:clamp(3px,.9vw,8px);line-height:1.7;text-align:center;width:min(92vw,880px);color:rgba(0,0,0,0);transition:color 0.4s}
-  #counter{position:fixed;top:34%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
-    user-select:none;font-size:9px;font-weight:200;letter-spacing:6px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.3s}
+    user-select:none;font-size:clamp(12px,2.4vw,17px);font-weight:300;letter-spacing:clamp(3px,.9vw,8px);line-height:1.7;text-align:center;width:min(92vw,880px);color:rgba(0,0,0,0);transition:color 0.4s,text-shadow 0.4s}
   #prog{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
-    user-select:none;font-size:11px;font-weight:200;letter-spacing:3px;text-align:center;width:min(92vw,880px);color:rgba(0,0,0,0);transition:color 0.4s}
+    user-select:none;font-size:13px;font-weight:300;letter-spacing:1.5px;text-align:center;width:min(92vw,880px);color:rgba(0,0,0,0);transition:color 0.4s,text-shadow 0.4s}
   #meta{position:fixed;top:56%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
-    user-select:none;font-size:9px;font-weight:200;letter-spacing:4px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.5s}
+    user-select:none;font-size:11px;font-weight:300;letter-spacing:1.5px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.5s,text-shadow 0.5s}
+  /* a soft halo in the background colour, only while the text is showing, so the wireframe does not cross the letters */
+  #seq,#prog,#meta{text-shadow:0 0 6px rgba(245,244,241,0),0 0 12px rgba(245,244,241,0)}
+  #seq.halo,#prog.halo,#meta.halo{text-shadow:0 0 6px #f5f4f1,0 0 12px #f5f4f1}
 
   /* after the first cycle: a quiet way back, and the info layer */
   #back{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:40;font-size:10px;font-weight:300;letter-spacing:4px;
@@ -38,7 +39,7 @@
   body.ready #panel{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
   #panel::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-46px;bottom:-34px;pointer-events:none;
     background:linear-gradient(to top,rgba(245,244,241,.94) 55%,rgba(245,244,241,0))}
-  #panel .lab{font-size:9px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:rgba(30,20,50,.4);margin-bottom:6px}
+  #panel .lab{font-size:9px;font-weight:300;letter-spacing:2px;text-transform:uppercase;color:rgba(30,20,50,.4);margin-bottom:6px}
   #panel input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(30,20,50,.22);outline:0;text-align:center;
     font:300 15px 'JetBrains Mono',monospace;letter-spacing:5px;color:rgba(30,20,50,.85);padding:6px 0 8px;border-radius:0}
   #panel input::placeholder{color:rgba(30,20,50,.22)}
@@ -63,18 +64,17 @@
 <div class="corner corner-bl"></div><div class="corner corner-br"></div>
 <a id="back" href="/en/">jorgemfs.com</a>
 <div class="glyph">K(x)</div>
-<div id="counter"></div>
 <div id="seq"></div>
 <div id="prog"></div>
 <div id="meta"></div>
 
 <div id="panel">
-  <div id="why">K(x) is the length of the shortest program that prints x. It cannot be computed, only searched for. What you watch here is that search, and the preprint is about what it costs.</div>
-  <div class="lab">give it a sequence</div>
+  <div id="why">K(x) is the length of the shortest program that prints x. No algorithm can compute it; it can only be bounded from above by finding short programs. This page runs a small search in a toy language. The preprint is about what that search costs in general.</div>
+  <div class="lab">type a sequence</div>
   <input id="seqIn" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120" placeholder="0 1 1 0 1 0 0 1" aria-label="A sequence of numbers">
   <div id="chips"></div>
   <div id="res" aria-live="polite"></div>
-  <div id="links"><a href="https://arxiv.org/abs/2606.13799" target="_blank" rel="noopener">preprint</a><a href="https://github.com/jorgeMFS/omnis" target="_blank" rel="noopener">OMNIS</a><a href="https://doi.org/10.5281/zenodo.20634955" target="_blank" rel="noopener">doi</a><button id="snd" type="button" aria-pressed="true">sound on</button></div>
+  <div id="links"><a href="https://arxiv.org/abs/2606.13799" target="_blank" rel="noopener">preprint</a><a href="https://github.com/jorgeMFS/omnis" target="_blank" rel="noopener">OMNIS</a><a href="https://doi.org/10.5281/zenodo.20634955" target="_blank" rel="noopener">doi</a><button id="snd" type="button" aria-pressed="false">sound off</button></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
@@ -82,11 +82,8 @@
 (function(){
   "use strict";
 
-  // ─── SOUND — a few soft pentatonic notes, nothing else ───
-  // No drone, no noise: each symbol that appears plays one gentle note, and each ring that locks plays a low one.
-  var audioCtx = null, master = null, verb = null;
-  var soundOn = true;
-  try { soundOn = localStorage.getItem("k-sound") !== "off"; } catch (e) {}
+  // ─── SOUND — off by default. Only the "sound" button creates the audio context; only the soft tick plays ───
+  var audioCtx = null, master = null, verb = null, soundOn = false;
   var SCALE = [0, 2, 4, 7, 9];           // major pentatonic: any order of notes stays consonant
 
   function createReverb(duration, decay) {
@@ -98,28 +95,23 @@
     }
     var conv = audioCtx.createConvolver(); conv.buffer = buf; return conv;
   }
-  function initAudio() {
-    try {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        master = audioCtx.createGain(); master.gain.value = 0.55; master.connect(audioCtx.destination);
-        verb = createReverb(1.8, 3.4);
-        var wet = audioCtx.createGain(); wet.gain.value = 0.32; verb.connect(wet); wet.connect(master);
-      }
-      if (audioCtx.state === "suspended") audioCtx.resume();
-    } catch (e) {}
-  }
-  function tryInit() {                    // browsers only allow sound after a click, tap or key
-    initAudio();
-    if (audioCtx && audioCtx.state === "running") {
-      document.removeEventListener("click", tryInit);
-      document.removeEventListener("touchstart", tryInit);
-      document.removeEventListener("keydown", tryInit);
+  function setSound(on) {
+    soundOn = !!on;
+    if (soundOn) {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          master = audioCtx.createGain(); master.gain.value = 0.55; master.connect(audioCtx.destination);
+          verb = createReverb(1.8, 3.4);
+          var wet = audioCtx.createGain(); wet.gain.value = 0.32; verb.connect(wet); wet.connect(master);
+        }
+        if (audioCtx.state === "suspended") audioCtx.resume();
+      } catch (e) { soundOn = false; }
     }
+    return soundOn;
   }
-  document.addEventListener("click", tryInit);
-  document.addEventListener("touchstart", tryInit);
-  document.addEventListener("keydown", tryInit);
+  window.kSound = setSound;
+  window.kSoundIsOn = function () { return soundOn; };
 
   function note(freq, vol, dur) {
     if (!soundOn || !audioCtx || audioCtx.state !== "running") return;
@@ -136,15 +128,13 @@
   }
   var semiHz = function (semi) { return 261.63 * Math.pow(2, semi / 12); };   // C4 = 261.63 Hz
 
-  function tickSymbol(value) { note(semiHz(SCALE[value % 5] + 12 * (Math.floor(value / 5) % 2)), 0.07, 1.1); }
-  function tickLock(layerIdx) { note(semiHz([-12, -5, 4][layerIdx % 3]), 0.09, 1.7); }
-  function updateDrone() {}               // the old drone, swell and "black hole" sweep are gone
+  function tickSymbol(value) { note(semiHz(SCALE[value % 5] + 12 * (Math.floor(value / 5) % 2)), 0.035, 1.1); }
+  function tickLock() {}                  // the rest of the old soundtrack is gone: drone, swell, chords, release sweep
+  function updateDrone() {}
   function detuneDrone() {}
   function startSwell() {}
   function stopSwell() {}
   function tickRelease() {}
-  window.kSound = function (on) { soundOn = on; try { localStorage.setItem("k-sound", on ? "on" : "off"); } catch (e) {} if (on) tryInit(); return soundOn; };
-  window.kSoundIsOn = function () { return soundOn; };
 
   // ─── THREE.js SETUP ───
   var scene = new THREE.Scene();
@@ -225,15 +215,8 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
-  // ─── PROGRAMS ───
-  var programs = [
-    { seq: "0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0", prog: "NOT \u2192 CONCAT \u2192 REPEAT", name: "Thue-Morse", L: 3, col: 0x4a3a8c },
-    { seq: "3 2 6 4 5 1 3 2 6 4 5 1", prog: "MUL_C 3 \u2192 MOD 7", name: "Pow3Mod7", L: 5, col: 0x1a6b5a },
-    { seq: "0 1 0 0 1 0 1 0 0 1 0 0 1", prog: "SHIFT \u2192 CONCAT_INV", name: "Fibonacci", L: 4, col: 0x8b4a2b },
-    { seq: "1 1 1 1 0 1 0 1 0 0 1 0 1 1", prog: "IF_ODD 3n+1 ELSE n/2", name: "Collatz", L: 7, col: 0x8c2a2a }
-  ];
+  // The intro uses real search results too: see window.kIntro in the second script. No hard-coded programs here.
   var seqEl = document.getElementById("seq");
-  var counterEl = document.getElementById("counter");
   var progEl = document.getElementById("prog");
   var metaEl = document.getElementById("meta");
 
@@ -268,7 +251,7 @@
     phaseStart = now;
     lockIdx = 0;
     lastLockTime = now;
-    curProg = forced || programs[Math.floor(Math.random() * programs.length)];
+    curProg = forced || window.kIntro();
     forced = null;
     lockOrder = [0, 1, 2];
     shuffle(lockOrder);
@@ -357,7 +340,7 @@
       sparkMat.color.lerp(new THREE.Color(0x807088), 0.03);
 
       timer += dt;
-      if (timer > 7 + Math.random() * 4) {
+      if (timer > 7 + Math.random() * 4 && (forced || window.kIntro)) {
         timer = 0;
         startLocking(now);
       }
@@ -415,14 +398,15 @@
         updateDrone(0.06, 600);
         // Show program and meta immediately
         progEl.textContent = curProg.prog;
-        progEl.style.color = "rgba(74,58,140,0.55)";
-        metaEl.textContent = "L = " + curProg.L + "  \u00b7  " + curProg.name;
-        metaEl.style.color = "rgba(139,74,43,0.45)";
-        // Sequence and counter start empty — typewriter fills them
+        progEl.style.color = "rgba(74,58,140,0.8)";
+        progEl.classList.add("halo");
+        metaEl.textContent = curProg.meta;
+        metaEl.style.color = "rgba(139,74,43,0.7)";
+        metaEl.classList.add("halo");
+        // The sequence starts empty: the typewriter fills it
         seqEl.textContent = "";
         seqEl.style.color = "rgba(30,20,50,0.75)";
-        counterEl.textContent = "";
-        counterEl.style.color = "rgba(0,0,0,0.12)";
+        seqEl.classList.add("halo");
       }
 
     } else if (phase === 2) {
@@ -454,7 +438,6 @@
           var shown = [];
           for (var si = 0; si < seqRevealed; si++) shown.push(seqSymbols[si]);
           seqEl.textContent = shown.join(" ");
-          counterEl.textContent = "n = " + (seqRevealed - 1);
           lastTickTime = now;
         } else {
           seqDone = true;
@@ -467,14 +450,12 @@
         phase = 3;
         phaseStart = now;
         tickRelease();
-        seqEl.style.transition = "color 1.5s ease-in";
-        seqEl.style.color = "rgba(0,0,0,0)";
-        counterEl.style.transition = "color 1s ease-in";
-        counterEl.style.color = "rgba(0,0,0,0)";
-        progEl.style.transition = "color 1.2s ease-in";
-        progEl.style.color = "rgba(0,0,0,0)";
-        metaEl.style.transition = "color 1.5s ease-in";
-        metaEl.style.color = "rgba(0,0,0,0)";
+        seqEl.style.transition = "color 1.5s ease-in, text-shadow 1.5s ease-in";
+        seqEl.style.color = "rgba(0,0,0,0)"; seqEl.classList.remove("halo");
+        progEl.style.transition = "color 1.2s ease-in, text-shadow 1.2s ease-in";
+        progEl.style.color = "rgba(0,0,0,0)"; progEl.classList.remove("halo");
+        metaEl.style.transition = "color 1.5s ease-in, text-shadow 1.5s ease-in";
+        metaEl.style.color = "rgba(0,0,0,0)"; metaEl.classList.remove("halo");
       }
 
     } else if (phase === 3) {
@@ -506,13 +487,11 @@
         phase = 0;
         timer = forced ? 100 : 0;
         seqEl.textContent = "";
-        counterEl.textContent = "";
         progEl.textContent = "";
         metaEl.textContent = "";
-        seqEl.style.transition = "color 0.4s";
-        counterEl.style.transition = "color 0.3s";
-        progEl.style.transition = "color 0.4s";
-        metaEl.style.transition = "color 0.5s";
+        seqEl.style.transition = "color 0.4s, text-shadow 0.4s";
+        progEl.style.transition = "color 0.4s, text-shadow 0.4s";
+        metaEl.style.transition = "color 0.5s, text-shadow 0.5s";
       }
     }
 
@@ -593,20 +572,37 @@
   var back = document.getElementById("back"); if (back && /\/pt(\/|$)/.test(document.referrer)) back.href = "/pt/";
   var input = document.getElementById("seqIn"), res = document.getElementById("res"), chips = document.getElementById("chips");
   function show(html) { res.innerHTML = html; }
+  var plural = function (n, one, many) { return n + " " + (n === 1 ? one : many); };
+  // The name is shown only when it tells you something the program text does not ("PRIMES" says it already).
+  function nameAdds(prog, name) {
+    var key = function (t) { return t.replace(/[^a-z0-9]/gi, "").toLowerCase(); }, pk = key(prog), nk = key(name);
+    return !(pk === nk || pk.indexOf(nk) === 0 || nk.indexOf(pk) === 0);
+  }
+  // Everything on the page (the examples, the typed sequences, the intro cycles) goes through here, so nothing can disagree.
+  function program(x) {
+    var r = search(x), n = 0; for (var i = 0; i < r.name.length; i++) n += r.name.charCodeAt(i);
+    var adds = r.found && nameAdds(r.prog, r.name);
+    return { seq: x.join(" "), prog: r.prog, name: r.name, L: r.L, found: r.found, col: COLS[n % COLS.length], adds: adds,
+      meta: r.found ? plural(r.L, "instruction", "instructions") + (adds ? " \u00b7 " + r.name.toLowerCase() : "") : "no shorter program" };
+  }
+  var INTRO = ["thue-morse", "powers of 3 mod 7", "fibonacci mod 10", "collatz 27"];
+  window.kIntro = function () {
+    var pool = EXAMPLES.filter(function (e) { return INTRO.indexOf(e[0]) >= 0; });
+    return program(pool[Math.floor(Math.random() * pool.length)][1]());
+  };
   function run(x) {
     if (x.length < 4 || x.length > 32) { show("give it between 4 and 32 numbers"); return; }
-    var r = search(x), N = x.length;
-    if (r.found) show(N + " symbols → " + r.L + " instructions<small>" + r.prog + " · " + r.name + " · K(x) ≤ " + r.L + " in this little language</small>");
-    else show(N + " symbols → no shorter program found<small>in this little language the shortest description is the sequence itself · K(x) ≤ " + N + "</small>");
-    var n = 0; for (var i = 0; i < r.name.length; i++) n += r.name.charCodeAt(i);
-    window.kRun && window.kRun({ seq: x.join(" "), prog: r.prog, name: r.name, L: r.L, col: COLS[n % COLS.length] });
+    var q = program(x), N = x.length;
+    if (q.found) show(plural(N, "number", "numbers") + ", " + plural(q.L, "instruction", "instructions") + "<small>" + q.prog + (q.adds ? " \u00b7 " + q.name : "") + "</small>");
+    else show(plural(N, "number", "numbers") + ", no shorter program<small>here the shortest description is the sequence itself</small>");
+    window.kRun && window.kRun(q);
   }
   function parse(str) { return str.split(/[^0-9]+/).filter(Boolean).map(Number).filter(function (v) { return v <= 100000; }); }
   EXAMPLES.forEach(function (e) { var b = document.createElement("button"); b.type = "button"; b.textContent = e[0];
     b.addEventListener("click", function () { var x = e[1](); input.value = x.join(" "); run(x); }); chips.appendChild(b); });
   var snd = document.getElementById("snd");
   function paintSnd() { var on = window.kSoundIsOn && window.kSoundIsOn(); snd.textContent = on ? "sound on" : "sound off"; snd.setAttribute("aria-pressed", on ? "true" : "false"); }
-  snd.addEventListener("click", function () { window.kSound(!window.kSoundIsOn()); paintSnd(); });
+  snd.addEventListener("click", function () { window.kSound(!window.kSoundIsOn()); paintSnd(); });   // only this button creates the audio context
   paintSnd();
   input.addEventListener("keydown", function (ev) { if (ev.key === "Enter") run(parse(input.value)); });
 })();
