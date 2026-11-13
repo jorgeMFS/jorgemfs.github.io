@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>K</title>
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+<meta name="description" content="K(x), the length of the shortest program that prints x, cannot be computed, only searched for. Give it a sequence and watch a small search find a program for it.">
+<title>K(x) — Jorge Miguel Silva</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
@@ -19,23 +20,60 @@
   .glyph{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-size:10px;
     letter-spacing:5px;color:rgba(0,0,0,.08);z-index:20;font-weight:200;user-select:none}
   #seq{position:fixed;top:40%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
-    user-select:none;font-size:17px;font-weight:300;letter-spacing:8px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.4s}
+    user-select:none;font-size:clamp(12px,2.4vw,17px);font-weight:300;letter-spacing:clamp(3px,.9vw,8px);line-height:1.7;text-align:center;width:min(92vw,880px);color:rgba(0,0,0,0);transition:color 0.4s}
   #counter{position:fixed;top:34%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
     user-select:none;font-size:9px;font-weight:200;letter-spacing:6px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.3s}
   #prog{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
-    user-select:none;font-size:11px;font-weight:200;letter-spacing:3px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.4s}
+    user-select:none;font-size:11px;font-weight:200;letter-spacing:3px;text-align:center;width:min(92vw,880px);color:rgba(0,0,0,0);transition:color 0.4s}
   #meta{position:fixed;top:56%;left:50%;transform:translate(-50%,-50%);z-index:30;pointer-events:none;
     user-select:none;font-size:9px;font-weight:200;letter-spacing:4px;color:rgba(0,0,0,0);white-space:nowrap;transition:color 0.5s}
+
+  /* after the first cycle: a quiet way back, and the info layer */
+  #back{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:40;font-size:10px;font-weight:300;letter-spacing:4px;
+    color:rgba(30,20,50,.38);text-decoration:none;transition:color .3s}
+  #back:hover{color:rgba(30,20,50,.8)}
+  #panel{position:fixed;left:50%;bottom:34px;transform:translate(-50%,14px);z-index:40;width:min(94vw,600px);text-align:center;
+    color:rgba(30,20,50,.62);font-size:11px;font-weight:300;letter-spacing:.5px;line-height:1.75;
+    opacity:0;pointer-events:none;transition:opacity 1.6s ease,transform 1.6s ease}
+  body.ready #panel{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+  #panel::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-46px;bottom:-34px;pointer-events:none;
+    background:linear-gradient(to top,rgba(245,244,241,.94) 55%,rgba(245,244,241,0))}
+  #panel .lab{font-size:9px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:rgba(30,20,50,.4);margin-bottom:6px}
+  #panel input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(30,20,50,.22);outline:0;text-align:center;
+    font:300 15px 'JetBrains Mono',monospace;letter-spacing:5px;color:rgba(30,20,50,.85);padding:6px 0 8px;border-radius:0}
+  #panel input::placeholder{color:rgba(30,20,50,.22)}
+  #panel input:focus{border-bottom-color:rgba(74,58,140,.6)}
+  #chips{margin:10px 0 2px;display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:center}
+  #chips button{background:none;border:0;padding:2px 0;cursor:pointer;font:300 10px 'JetBrains Mono',monospace;letter-spacing:2px;
+    color:rgba(30,20,50,.45);border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+  #chips button:hover{color:rgba(74,58,140,.95);border-bottom-color:rgba(74,58,140,.4)}
+  #res{min-height:2.7em;margin-top:8px;color:rgba(74,58,140,.85)}
+  #res small{display:block;color:rgba(30,20,50,.4);font-size:10px;letter-spacing:.3px}
+  #why{margin-top:10px;color:rgba(30,20,50,.5);font-size:10.5px}
+  #links{margin-top:8px;font-size:10px;letter-spacing:3px}
+  #links a{color:rgba(30,20,50,.5);text-decoration:none;margin:0 8px;border-bottom:1px solid rgba(30,20,50,.15);transition:color .2s}
+  #links a:hover{color:rgba(74,58,140,.95)}
+  @media (max-width:560px){#panel{bottom:18px;font-size:10.5px}#panel input{font-size:13px;letter-spacing:3px}#why{display:none}}
 </style>
 </head>
 <body>
 <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
 <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+<a id="back" href="/en/">jorgemfs.com</a>
 <div class="glyph">K(x)</div>
 <div id="counter"></div>
 <div id="seq"></div>
 <div id="prog"></div>
 <div id="meta"></div>
+
+<div id="panel" aria-live="polite">
+  <div class="lab">give it a sequence</div>
+  <input id="seqIn" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120" placeholder="0 1 1 0 1 0 0 1" aria-label="A sequence of numbers">
+  <div id="chips"></div>
+  <div id="res"></div>
+  <div id="why">K(x) is the length of the shortest program that prints x. It cannot be computed, only searched for. What you watched is that search, and the preprint is about what it costs.</div>
+  <div id="links"><a href="https://arxiv.org/abs/2606.13799" target="_blank" rel="noopener">preprint</a><a href="https://github.com/jorgeMFS/omnis" target="_blank" rel="noopener">OMNIS</a><a href="https://doi.org/10.5281/zenodo.20634955" target="_blank" rel="noopener">doi</a></div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
 <script>
@@ -466,6 +504,8 @@
   var lockIdx = 0;
   var lastLockTime = 0;
   var curProg = null;
+  var forced = null;          // a program asked for by the visitor: used on the next cycle
+  var firstDone = false;      // the info layer appears after the first cycle
   var prevTime = performance.now() / 1000;
 
   // Typewriter state
@@ -488,7 +528,8 @@
     phaseStart = now;
     lockIdx = 0;
     lastLockTime = now;
-    curProg = programs[Math.floor(Math.random() * programs.length)];
+    curProg = forced || programs[Math.floor(Math.random() * programs.length)];
+    forced = null;
     lockOrder = [0, 1, 2];
     shuffle(lockOrder);
     for (var i = 0; i < 3; i++) layers[i].locked = false;
@@ -683,6 +724,7 @@
       // Hold for 1.5s after last symbol, then release
       var holdAfter = seqDone ? (now - lastTickTime) : 0;
       if (seqDone && holdAfter > 1.5) {
+        if (!firstDone) { firstDone = true; document.body.classList.add("ready"); }
         phase = 3;
         phaseStart = now;
         tickRelease();
@@ -723,7 +765,7 @@
 
       if (e >= 1) {
         phase = 0;
-        timer = 0;
+        timer = forced ? 100 : 0;
         seqEl.textContent = "";
         counterEl.textContent = "";
         progEl.textContent = "";
@@ -738,7 +780,91 @@
     renderer.render(scene, camera);
   }
 
+  // the visitor's own program: starts on the next cycle (straight away if the rings are idle)
+  window.kRun = function (p) { forced = p; if (phase === 0) timer = 100; };
   animate();
+})();
+</script>
+
+<script>
+// A small search for a short program, in a deliberately tiny language. It is a demonstration, not OMNIS: every
+// program it reports is run and compared against your sequence, so it is never wrong, only limited.
+(function () {
+  "use strict";
+  var COLS = [0x4a3a8c, 0x1a6b5a, 0x8b4a2b, 0x8c2a2a], ARROW = " → ";
+  var gen = function (n, f) { var a = []; for (var i = 0; i < n; i++) a.push(f(i)); return a; };
+  var same = function (a, b) { if (a.length !== b.length) return false; for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) return false; return true; };
+  var primes = []; for (var q = 2; primes.length < 80; q++) { var ok = true; for (var d = 2; d * d <= q; d++) if (q % d === 0) { ok = false; break; } if (ok) primes.push(q); }
+  var fact = function (n) { var r = 1; for (var i = 2; i <= n; i++) r *= i; return r; };
+  var pop = function (n) { var c = 0; while (n) { c += n & 1; n >>= 1; } return c; };
+  var fibLike = function (n, a, b, m) { var y = [a, b]; for (var i = 2; i < n; i++) { var v = y[i - 1] + y[i - 2]; y.push(m ? v % m : v); } return y.slice(0, n); };
+
+  function search(x) {
+    var N = x.length, mx = Math.max.apply(null, x);
+    var best = { L: N, prog: "PRINT literal", name: "no shorter program found", found: false, cap: Math.floor(N / 2) };
+    function offer(L, prog, name, y) { if (L <= best.cap && L < best.L && same(x, y)) best = { L: L, prog: prog, name: name, found: true, cap: best.cap }; }
+
+    offer(2, "CONST " + x[0] + ARROW + "REPEAT", "Constant", gen(N, function () { return x[0]; }));
+    for (var p = 2; p <= N / 2; p++) (function (p) { var pat = x.slice(0, p); offer(p + 1, "[" + pat.join(" ") + "]" + ARROW + "REPEAT", "Periodic, period " + p, gen(N, function (i) { return pat[i % p]; })); })(p);
+
+    var d = x[1] - x[0];
+    if (d !== 0) offer(2, "START " + x[0] + ARROW + "ADD " + d, "Arithmetic", gen(N, function (i) { return x[0] + d * i; }));
+    for (var m = 2; m <= 64; m++) (function (m) { if (mx >= m) return; var dd = (((x[1] - x[0]) % m) + m) % m; if (!dd) return;
+      offer(3, "START " + x[0] + ARROW + "ADD " + dd + ARROW + "MOD " + m, "Arithmetic mod " + m, gen(N, function (i) { return (x[0] + dd * i) % m; })); })(m);
+
+    for (var m2 = Math.max(2, mx + 1); m2 <= 64; m2++) for (var a = 0; a < m2; a++) {
+      var b = (((x[1] - a * x[0]) % m2) + m2) % m2, L = 2 + (a !== 1 ? 1 : 0) + (b !== 0 ? 1 : 0);
+      if (L >= best.L || L > best.cap) continue;
+      var y = [x[0]]; for (var i = 1; i < N; i++) y.push((a * y[i - 1] + b) % m2);
+      offer(L, "START " + x[0] + (a !== 1 ? ARROW + "MUL " + a : "") + (b !== 0 ? ARROW + "ADD " + b : "") + ARROW + "MOD " + m2,
+        (b === 0 && a > 1) ? "Powers of " + a + " mod " + m2 : "Affine recurrence mod " + m2, y);
+    }
+
+    if (N >= 4) {
+      offer(3, "SEED " + x[0] + " " + x[1] + ARROW + "ADD_PREV", "Fibonacci-like", fibLike(N, x[0], x[1], 0));
+      for (var m3 = Math.max(2, mx + 1); m3 <= 64; m3++) offer(4, "SEED " + x[0] + " " + x[1] + ARROW + "ADD_PREV" + ARROW + "MOD " + m3, "Fibonacci-like mod " + m3, fibLike(N, x[0], x[1], m3));
+    }
+    var lib = [["PRIMES", function (i, k) { return primes[i + k]; }, 40], ["SQUARES", function (i, k) { return (i + k) * (i + k); }, 12],
+      ["CUBES", function (i, k) { return Math.pow(i + k, 3); }, 12], ["POWERS_OF_2", function (i, k) { return Math.pow(2, i + k); }, 12],
+      ["TRIANGULAR", function (i, k) { return (i + k) * (i + k + 1) / 2; }, 12], ["FACTORIALS", function (i, k) { return fact(i + k); }, 6],
+      ["FIBONACCI", function (i, k) { return fibLike(i + k + 1, 0, 1, 0)[i + k]; }, 12]];
+    lib.forEach(function (e) { for (var k = 0; k <= e[2]; k++) { if (N + k > 80 || (e[0] === "FACTORIALS" && N + k > 18)) break;
+      offer(k ? 2 : 1, e[0] + (k ? ARROW + "SKIP " + k : ""), e[0].charAt(0) + e[0].slice(1).toLowerCase().replace(/_/g, " "), gen(N, function (i) { return e[1](i, k); })); } });
+
+    offer(3, "NOT" + ARROW + "CONCAT" + ARROW + "REPEAT", "Thue-Morse", gen(N, function (i) { return pop(i) & 1; }));
+    var fw = "0"; var prev = "0"; var cur = "01"; while (cur.length < N) { var t = cur + prev; prev = cur; cur = t; }
+    offer(4, "SHIFT" + ARROW + "CONCAT_INV", "Fibonacci word", cur.slice(0, N).split("").map(Number));
+    if (x[0] >= 1) offer(4, "START " + x[0] + ARROW + "IF_ODD 3n+1 ELSE n/2", "Collatz", gen(N, function (i) { return i; }).reduce(function (a, _, i) { a.push(i ? (a[i - 1] % 2 ? 3 * a[i - 1] + 1 : a[i - 1] / 2) : x[0]); return a; }, []));
+    return best;
+  }
+
+  // ---- examples ----
+  var rnd = function (n, m) { return gen(n, function () { return Math.floor(Math.random() * m); }); };
+  var collatz = function (n, len) { var a = [n]; while (a.length < len) { var v = a[a.length - 1]; a.push(v % 2 ? 3 * v + 1 : v / 2); } return a; };
+  var EXAMPLES = [
+    ["thue-morse", function () { return gen(16, function (i) { return pop(i) & 1; }); }],
+    ["powers of 3 mod 7", function () { return gen(12, function (i) { return [3, 2, 6, 4, 5, 1][i % 6]; }); }],
+    ["primes", function () { return primes.slice(0, 10); }],
+    ["collatz 27", function () { return collatz(27, 18); }],
+    ["fibonacci mod 10", function () { return fibLike(20, 0, 1, 10); }],
+    ["random", function () { return rnd(16, 10); }]
+  ];
+
+  var back = document.getElementById("back"); if (back && /\/pt(\/|$)/.test(document.referrer)) back.href = "/pt/";
+  var input = document.getElementById("seqIn"), res = document.getElementById("res"), chips = document.getElementById("chips");
+  function show(html) { res.innerHTML = html; }
+  function run(x) {
+    if (x.length < 4 || x.length > 32) { show("give it between 4 and 32 numbers"); return; }
+    var r = search(x), N = x.length;
+    if (r.found) show(N + " symbols → " + r.L + " instructions<small>" + r.prog + " · " + r.name + " · K(x) ≤ " + r.L + " in this little language</small>");
+    else show(N + " symbols → no shorter program found<small>in this little language the shortest description is the sequence itself · K(x) ≤ " + N + "</small>");
+    var n = 0; for (var i = 0; i < r.name.length; i++) n += r.name.charCodeAt(i);
+    window.kRun && window.kRun({ seq: x.join(" "), prog: r.prog, name: r.name, L: r.L, col: COLS[n % COLS.length] });
+  }
+  function parse(str) { return str.split(/[^0-9]+/).filter(Boolean).map(Number).filter(function (v) { return v <= 100000; }); }
+  EXAMPLES.forEach(function (e) { var b = document.createElement("button"); b.type = "button"; b.textContent = e[0];
+    b.addEventListener("click", function () { var x = e[1](); input.value = x.join(" "); run(x); }); chips.appendChild(b); });
+  input.addEventListener("keydown", function (ev) { if (ev.key === "Enter") run(parse(input.value)); });
 })();
 </script>
 </body>

@@ -26,6 +26,10 @@ Long-form writing on AI governance, distributed power, and the ethics of buildin
 
 - [Federated Learning](https://jorgemfs.com/federated-learning/): Comprehensive guide to federated learning for genomics and health data — covers horizontal/vertical partitioning, secure aggregation, the Five Safes framework, OMOP CDM, differential privacy, and practical deployment considerations.
 
+## Interactive
+
+- [K(x)](https://jorgemfs.com/k/): A small interactive piece on Kolmogorov complexity. Give it a sequence of numbers and a tiny in-browser search looks for a short program that generates it, with the program shown on screen. A demonstration in a deliberately small language, not OMNIS.
+
 ## Tools & Software
 
 - [OMNIS](https://github.com/jorgeMFS/omnis): Program-search engine for integer sequences. Searches a canonical register-machine instruction set for a short program that reproduces a sequence exactly (Observational Minimal-length Nonparametric Inductive Synthesis). ([DOI](https://doi.org/10.5281/zenodo.20634955))

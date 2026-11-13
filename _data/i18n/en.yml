@@ -20,6 +20,7 @@ nav:
   pages: "Pages"
   federated_learning: "Federated Learning"
   blog: "Blog"
+  k: "K(x)"
 
 # Theme toggle
 theme:
