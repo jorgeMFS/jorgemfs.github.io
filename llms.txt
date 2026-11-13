@@ -36,13 +36,13 @@ Long-form writing on AI governance, distributed power, and the ethics of buildin
 - [VCFX](https://jorgemfs.com/vcfx/): 60+ C/C++ command-line tools for VCF file manipulation. Unix philosophy — each tool does one thing well, reads from stdin, writes to stdout. Available via PyPI, Bioconda, Docker, or source. ([GitHub](https://github.com/ieeta-pt/VCFX))
 - [PhenoQC](https://github.com/jorgeMFS/PhenoQC): Quality control toolkit for phenotypic datasets — validation, ontology mapping (HPO, DO, MPO), missing data handling, batch processing.
 - [HYMET](https://github.com/ieeta-pt/HYMET): Metagenomic classification pipeline using compression-based features.
-- [BioChef](https://github.com/ieeta-pt/Biochef): Federated genomics platform for privacy-preserving analysis across distributed nodes. ([Website](https://ieeta-pt.github.io/Biochef/))
+- [BioChef](https://github.com/ieeta-pt/biochef-app): Federated genomics platform for privacy-preserving analysis across distributed nodes. ([Website](https://biochef.app/))
 - [fed_rf](https://github.com/ieeta-pt/fed_rf): Federated random forest implementation for secure distributed machine learning.
 - [PANTHER](https://github.com/asilab/panther): Genomic analysis tool. ([Website](https://panther.web.ua.pt/))
 - [CANVAS](https://github.com/jorgeMFS/canvas): Complexity analysis of viral sequences — classification and visualization of viral genomes.
 - [TMCompression](https://github.com/asilab/TMCompression): Turing Machine tape complexity analysis — statistical complexity vs algorithmic complexity.
-- [AlcoR](https://github.com/jorgeMFS/AlcoR): Alignment-free simulation, mapping, and visualization of low-complexity regions in biological data.
-- [AltaiR](https://github.com/jorgeMFS/AltaiR): C toolkit for alignment-free and temporal analysis of multi-FASTA data.
+- [AlcoR](https://github.com/cobilab/alcor): Alignment-free simulation, mapping, and visualization of low-complexity regions in biological data.
+- [AltaiR](https://github.com/cobilab/altair): C toolkit for alignment-free and temporal analysis of multi-FASTA data.
 
 ## Selected Publications
 

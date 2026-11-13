@@ -155,11 +155,11 @@ Repository](https://github.com/ieeta-pt/HYMET)
 
 [### BioChef
 
-Repository](https://github.com/ieeta-pt/Biochef)
+Repository](https://github.com/ieeta-pt/biochef-app)
 
 [### BioChef
 
-Website](https://ieeta-pt.github.io/Biochef/)
+Website](https://biochef.app/)
 
 [### fed\_rf
 
@@ -490,11 +490,11 @@ Repositório](https://github.com/ieeta-pt/HYMET)
 
 [### BioChef
 
-Repositório](https://github.com/ieeta-pt/Biochef)
+Repositório](https://github.com/ieeta-pt/biochef-app)
 
 [### BioChef
 
-Website](https://ieeta-pt.github.io/Biochef/)
+Website](https://biochef.app/)
 
 [### fed\_rf
 
