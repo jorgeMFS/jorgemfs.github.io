@@ -347,7 +347,7 @@ permalink: /pt/
     "name": "Jorge Miguel Silva",
     "givenName": "Jorge Miguel",
     "familyName": "Silva",
-    "jobTitle": "Investigador de Pós-Doutoramento",
+    "jobTitle": "Investigador Auxiliar",
     "url": "https://jorgemfs.com",
     "image": "https://jorgemfs.com/assets/img/profile-img.webp",
     "email": "jorge.miguel.ferreira.silva@ua.pt",
@@ -376,7 +376,7 @@ permalink: /pt/
       "https://scholar.google.com/citations?user=N6ZzRPEAAAAJ",
       "https://orcid.org/0000-0002-6331-6091"
     ],
-    "knowsAbout": ["Bioinformática", "Genómica", "Compressão de Dados", "Aprendizagem Federada", "Machine Learning"],
+    "knowsAbout": ["Complexidade de Kolmogorov", "Teoria Algorítmica da Informação", "Síntese de Programas", "Compressão de Dados", "Aprendizagem Automática", "Aprendizagem Federada", "Genómica"],
     "award": ["Vencedor BioASQ Challenge 2023", "IEEE CBMS 2018 Melhor Artigo de Estudante"]
   }
   </script>
@@ -742,6 +742,7 @@ permalink: /pt/
             <div class="pub-entry__metric"><div data-badge-popover="left" data-badge-type="donut" data-arxiv-id="2606.13799" class="altmetric-embed"></div></div>
           </article>
 
+
           <article class="pub-entry" data-aos="fade-up">
             <p class="pub-entry__year">2026</p>
             <div>
@@ -1078,6 +1079,8 @@ permalink: /pt/
             <div>
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{{ t.skills.research_areas }}</h3>
               <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Algorithmic Information Theory</span>
+                <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Kolmogorov Complexity</span>
                 <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Information Theory</span>
                 <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Data Compression</span>
                 <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-full">Genomics</span>
@@ -1230,8 +1233,19 @@ permalink: /pt/
 
               <div class="relative">
                 <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
+                <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.assistant_title }}</h4>
+                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">Dez 2025 - Presente</span>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 italic">{{ t.resume.assistant_institution }}</p>
+                <ul class="mt-3 space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+                  <li>• {{ t.resume.assistant_task1 }}</li>
+                  <li>• {{ t.resume.assistant_task2 }}</li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-3 h-3 rounded-full bg-gray-900 dark:bg-white"></div>
                 <h4 class="font-semibold text-gray-900 dark:text-white">{{ t.resume.postdoc_title }}</h4>
-                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">2023 - Present</span>
+                <span class="inline-block mt-1 px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full">2023 - 2025</span>
                 <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 italic">{{ t.resume.postdoc_institution }}</p>
                 <ul class="mt-3 space-y-2 text-gray-600 dark:text-gray-400 text-sm">
                   <li>• {{ t.resume.postdoc_task1 }}</li>
@@ -1370,11 +1384,14 @@ permalink: /pt/
     maxOnScreen: 2,
     intervalMs: 2600,
     anchors: [
-      { scope: '#about .fd-para', phrase: 'ciência da computação', trigger: 'auto', tex: ['U(p)=x', 'K(x)'] },
-      { scope: '#about .fd-para', phrase: 'Teoria da Informação', trigger: 'auto', tex: ['H(X)', '\\textstyle -\\sum p\\log p'] },
-      { scope: '#about .fd-para', phrase: 'Inteligência Artificial', trigger: 'auto', tex: ['\\textstyle\\sum 2^{-|p|}', 'M(x)'] },
-      { scope: '#about .fd-para', phrase: 'Compressão', trigger: 'auto', tex: ['\\mathrm{NCD}(x,y)', 'C(x)\\approx K(x)'] },
-      { scope: '#about .fd-para', phrase: 'genómica', trigger: 'auto', tex: ['\\{A,C,G,T\\}^{n}', '-\\log_2 P(x)'] },
+      { scope: '#about .fd-para', phrase: 'programa mais curto', trigger: 'auto', tex: ['K(x)', 'U(p)=x'] },
+      { scope: '#about .fd-para', phrase: 'melhor explicação', trigger: 'auto', tex: ['L(M)+L(D|M)'] },
+      { scope: '#about .fd-para', phrase: 'não pode ser calculado', trigger: 'auto', tex: ['K(x)\\leq|x|'] },
+      { scope: '#about .fd-para', phrase: 'motor', trigger: 'auto', tex: ['\\textstyle\\sum 2^{-|p|}', 'M(x)'] },
+      { scope: '#about .fd-para', phrase: 'teoria da informação', trigger: 'auto', tex: ['H(X)', '\\textstyle -\\sum p\\log p'] },
+      { scope: '#about .fd-para', phrase: 'aprendizagem automática', trigger: 'auto', tex: ['\\theta \\leftarrow \\theta - \\eta\\nabla L'] },
+      { scope: '#about .fd-para', phrase: 'aprender com os dados uns dos outros', trigger: 'auto', tex: ['\\textstyle\\sum_k \\frac{n_k}{n} w_k'] },
+      { scope: '#about .fd-para', phrase: 'sem os partilhar', trigger: 'auto', tex: ['e^{\\varepsilon}'] },
     { scope: '#selected_publications', phrase: 'workflow',                   trigger: 'auto', tex: ['f_3\\circ f_2\\circ f_1(x)'] },
     { scope: '#selected_publications', phrase: 'taxonomic classification',   trigger: 'auto', tex: ['\\arg\\max_t P(t\\mid x)'] },
     { scope: '#selected_publications', phrase: 'benchmarking',               trigger: 'auto', tex: ['F_1'] },

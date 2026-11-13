@@ -18,7 +18,7 @@
 
 ## About
 
-As a Research Fellow at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), I engage in cutting-edge computer science and engineering research. I hold a Master's in Bioengineering from the Faculty of Engineering at the University of Porto and have recently completed my PhD in Computer Science. My primary research interests revolve around Information Theory, Artificial Intelligence, and Compression, focusing on applying these methodologies to genomics.
+I am a researcher at the University of Aveiro. I work on an old question. Given some data, what is the shortest program that could have produced it? That program is the best explanation of the data and the best guide to what comes next, and in general it cannot be computed. I study when it can be found anyway, and I build an engine that finds it. This work is a bridge between the theory of information and machine learning, where I study how models remember and how they learn to write correct code. It is also a bridge to medicine, where I build systems that let hospitals and laboratories learn from each other's data without sharing it.
 
 ### Researcher & Computer Scientist
 
@@ -242,7 +242,7 @@ A short resume of my work experience and education.
 
 #### Jorge Miguel Silva
 
-Researcher in federated genomics, data compression, and biomedical AI. Focus on privacy-preserving data infrastructures and information theory methods applied to genomics and healthcare.
+I study when the shortest program for some data can be found, and I build an engine that finds it. I also build systems that let hospitals and laboratories learn from each other's data without sharing it.
 
 - 51 publications • h-index 11 • 440+ citations
 - IEETA, Aveiro University
@@ -285,9 +285,18 @@ Federated Human Data Community
 
 ### Professional Experience
 
+#### Assistant Researcher
+
+Dec 2025 - Present
+
+IEETA, Aveiro University · Permanent position
+
+- • Algorithmic information theory: SPTM, a search for the smallest program that generates a sequence
+- • OMNIS, an open program-search engine, and the conservation law of program search (arXiv)
+
 #### Postdoctoral Researcher
 
-2023 - Present
+2023 - 2025
 
 IEETA, Aveiro University
 
@@ -344,7 +353,7 @@ IEETA, Aveiro University, Campus Universitário de Santiago, 3810-193 Aveiro
 
 ## Sobre
 
-Como Investigador no Instituto de Engenharia Eletrónica e Informática de Aveiro (IEETA), desenvolvo investigação de ponta em ciência da computação e engenharia. Sou Mestre em Bioengenharia pela Faculdade de Engenharia da Universidade do Porto e concluí recentemente o Doutoramento em Ciência de Computadores. Os meus principais interesses de investigação centram-se na Teoria da Informação, Inteligência Artificial e Compressão, com foco na aplicação destas metodologias à genómica.
+Sou investigador na Universidade de Aveiro. Trabalho numa pergunta antiga. Dado um conjunto de dados, qual é o programa mais curto que os poderia ter produzido? Esse programa é a melhor explicação dos dados e o melhor guia para o que vem a seguir, e em geral não pode ser calculado. Estudo quando é que, ainda assim, pode ser encontrado, e construo um motor que o encontra. Este trabalho é uma ponte entre a teoria da informação e a aprendizagem automática, onde estudo como os modelos memorizam e como aprendem a escrever código correto. É também uma ponte para a medicina, onde construo sistemas que permitem a hospitais e laboratórios aprender com os dados uns dos outros sem os partilhar.
 
 ### Investigador & Cientista de Computação
 
@@ -568,7 +577,7 @@ Um breve resumo da minha experiência profissional e formação.
 
 #### Jorge Miguel Silva
 
-Investigador em genómica federada, compressão de dados e IA biomédica. Foco em infraestruturas de dados com preservação de privacidade e métodos de teoria da informação aplicados à genómica e saúde.
+Estudo quando é que se consegue encontrar o programa mais curto para um conjunto de dados, e construo um motor que o encontra. Também construo sistemas que permitem a hospitais e laboratórios aprender com os dados uns dos outros sem os partilhar.
 
 - 51 publications • h-index 11 • 440+ citations
 - IEETA, Aveiro University
@@ -611,9 +620,18 @@ Comunidade de Dados Humanos Federados
 
 ### Experiência Profissional
 
+#### Investigador Auxiliar
+
+Dez 2025 - Presente
+
+IEETA, Universidade de Aveiro · Lugar permanente
+
+- • Teoria algorítmica da informação: SPTM, a procura do menor programa que gera uma sequência
+- • OMNIS, motor aberto de procura de programas, e a lei de conservação da procura (arXiv)
+
 #### Investigador de Pós-Doutoramento
 
-2023 - Present
+2023 - 2025
 
 IEETA, Universidade de Aveiro
 
@@ -672,9 +690,18 @@ IEETA, Universidade de Aveiro, Campus Universitário de Santiago, 3810-193 Aveir
 
 ## Experience
 
+### Assistant Researcher
+
+Dec 2025 – Present
+
+IEETA, University of Aveiro · Permanent position
+
+- • Algorithmic information theory: SPTM, a search for the smallest program that generates a sequence
+- • OMNIS, an open program-search engine, and the conservation law of program search (arXiv)
+
 ### Postdoctoral Researcher
 
-2023 – Present
+2023 – 2025
 
 IEETA, University of Aveiro
 

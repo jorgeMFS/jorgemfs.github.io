@@ -28,6 +28,7 @@ Long-form writing on AI governance, distributed power, and the ethics of buildin
 
 ## Tools & Software
 
+- [OMNIS](https://github.com/jorgeMFS/omnis): Program-search engine for integer sequences. Searches a canonical register-machine instruction set for a short program that reproduces a sequence exactly (Observational Minimal-length Nonparametric Inductive Synthesis). ([DOI](https://doi.org/10.5281/zenodo.20634955))
 - [VCFX](https://jorgemfs.com/vcfx/): 60+ C/C++ command-line tools for VCF file manipulation. Unix philosophy — each tool does one thing well, reads from stdin, writes to stdout. Available via PyPI, Bioconda, Docker, or source. ([GitHub](https://github.com/ieeta-pt/VCFX))
 - [PhenoQC](https://github.com/jorgeMFS/PhenoQC): Quality control toolkit for phenotypic datasets — validation, ontology mapping (HPO, DO, MPO), missing data handling, batch processing.
 - [HYMET](https://github.com/ieeta-pt/HYMET): Metagenomic classification pipeline using compression-based features.
@@ -41,6 +42,7 @@ Long-form writing on AI governance, distributed power, and the ethics of buildin
 
 ## Selected Publications
 
+- Silva, J.M. (2026). "The program is still there, and searching for it obeys a conservation law." arXiv:2606.13799.
 - Silva, J.M., Oliveira, J.L. (2025). "VCFX: A Minimalist, Modular Toolkit for Streamlined Variant Analysis." IWBBIO 2025, Springer.
 - Cotorobai, A., Silva, J.M., Oliveira, J.L. (2025). "A Federated Random Forest Solution for Secure Distributed Machine Learning." IEEE CBMS 2025.
 - Silva, J.M., Pinho, A.J., Pratas, D. (2024). "AltaiR: alignment-free simulation, mapping, and visualization of multi-FASTA data." GigaScience.

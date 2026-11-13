@@ -34,7 +34,7 @@ hero:
 about:
   eyebrow: "Perfil"
   title: "Sobre"
-  intro: "Como Investigador no Instituto de Engenharia Eletrónica e Informática de Aveiro (IEETA), desenvolvo investigação de ponta em ciência da computação e engenharia. Sou Mestre em Bioengenharia pela Faculdade de Engenharia da Universidade do Porto e concluí recentemente o Doutoramento em Ciência de Computadores. Os meus principais interesses de investigação centram-se na Teoria da Informação, Inteligência Artificial e Compressão, com foco na aplicação destas metodologias à genómica."
+  intro: "Sou investigador na Universidade de Aveiro. Trabalho numa pergunta antiga. Dado um conjunto de dados, qual é o programa mais curto que os poderia ter produzido? Esse programa é a melhor explicação dos dados e o melhor guia para o que vem a seguir, e em geral não pode ser calculado. Estudo quando é que, ainda assim, pode ser encontrado, e construo um motor que o encontra. Este trabalho é uma ponte entre a teoria da informação e a aprendizagem automática, onde estudo como os modelos memorizam e como aprendem a escrever código correto. É também uma ponte para a medicina, onde construo sistemas que permitem a hospitais e laboratórios aprender com os dados uns dos outros sem os partilhar."
   job_title: "Investigador & Cientista de Computação"
   basic_info: "Algumas informações básicas"
   city: "Cidade"
@@ -105,7 +105,7 @@ resume:
   subtitle: "Um breve resumo da minha experiência profissional e formação."
   view_cv: "Ver CV"
   summary: "Resumo"
-  summary_text: "Investigador em genómica federada, compressão de dados e IA biomédica. Foco em infraestruturas de dados com preservação de privacidade e métodos de teoria da informação aplicados à genómica e saúde."
+  summary_text: "Estudo quando é que se consegue encontrar o programa mais curto para um conjunto de dados, e construo um motor que o encontra. Também construo sistemas que permitem a hospitais e laboratórios aprender com os dados uns dos outros sem os partilhar."
   education: "Formação"
   awards: "Prémios"
   leadership: "Liderança"
@@ -128,6 +128,10 @@ resume:
   fhd_coordinator: "Coordenador da Comunidade FHD Portuguesa"
   fhd_org: "Comunidade de Dados Humanos Federados"
   # Experience
+  assistant_title: "Investigador Auxiliar"
+  assistant_institution: "IEETA, Universidade de Aveiro · Lugar permanente"
+  assistant_task1: "Teoria algorítmica da informação: SPTM, a procura do menor programa que gera uma sequência"
+  assistant_task2: "OMNIS, motor aberto de procura de programas, e a lei de conservação da procura (arXiv)"
   postdoc_title: "Investigador de Pós-Doutoramento"
   postdoc_institution: "IEETA, Universidade de Aveiro"
   postdoc_task1: "Líder técnico do nó GDI & FEGA Portugal"

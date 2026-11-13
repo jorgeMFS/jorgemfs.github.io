@@ -34,7 +34,7 @@ hero:
 about:
   eyebrow: "Profile"
   title: "About"
-  intro: "As a Research Fellow at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), I engage in cutting-edge computer science and engineering research. I hold a Master's in Bioengineering from the Faculty of Engineering at the University of Porto and have recently completed my PhD in Computer Science. My primary research interests revolve around Information Theory, Artificial Intelligence, and Compression, focusing on applying these methodologies to genomics."
+  intro: "I am a researcher at the University of Aveiro. I work on an old question. Given some data, what is the shortest program that could have produced it? That program is the best explanation of the data and the best guide to what comes next, and in general it cannot be computed. I study when it can be found anyway, and I build an engine that finds it. This work is a bridge between the theory of information and machine learning, where I study how models remember and how they learn to write correct code. It is also a bridge to medicine, where I build systems that let hospitals and laboratories learn from each other's data without sharing it."
   job_title: "Researcher & Computer Scientist"
   basic_info: "Some basic information"
   city: "City"
@@ -105,7 +105,7 @@ resume:
   subtitle: "A short resume of my work experience and education."
   view_cv: "View CV"
   summary: "Summary"
-  summary_text: "Researcher in federated genomics, data compression, and biomedical AI. Focus on privacy-preserving data infrastructures and information theory methods applied to genomics and healthcare."
+  summary_text: "I study when the shortest program for some data can be found, and I build an engine that finds it. I also build systems that let hospitals and laboratories learn from each other's data without sharing it."
   education: "Education"
   awards: "Awards"
   leadership: "Leadership"
@@ -128,6 +128,10 @@ resume:
   fhd_coordinator: "Portuguese FHD Community Coordinator"
   fhd_org: "Federated Human Data Community"
   # Experience
+  assistant_title: "Assistant Researcher"
+  assistant_institution: "IEETA, Aveiro University · Permanent position"
+  assistant_task1: "Algorithmic information theory: SPTM, a search for the smallest program that generates a sequence"
+  assistant_task2: "OMNIS, an open program-search engine, and the conservation law of program search (arXiv)"
   postdoc_title: "Postdoctoral Researcher"
   postdoc_institution: "IEETA, Aveiro University"
   postdoc_task1: "Technical lead for GDI & FEGA Portugal node"
