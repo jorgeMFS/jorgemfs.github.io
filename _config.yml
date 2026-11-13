@@ -28,6 +28,10 @@ exclude:
   - new/
   - "*-backup.md"
   - CLAUDE.md
+  - forms/
+  - convert_citations.py
+  - convert_citations.py.tmp
+  - generate_llms_full.py
 
 # Default layout for pages
 defaults:
