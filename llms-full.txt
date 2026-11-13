@@ -53,23 +53,23 @@ I enjoy working in a team, and I am open to national or international collaborat
 
 Research projects I'm involved with
 
-12
+16
 
 Journal Publications
 
-28
+29
 
 Conference Papers
 
-38
+42
 
 Repositories
 
-331
+444
 
 Citations
 
-9
+11
 
 h-index
 
@@ -244,7 +244,7 @@ A short resume of my work experience and education.
 
 Researcher in federated genomics, data compression, and biomedical AI. Focus on privacy-preserving data infrastructures and information theory methods applied to genomics and healthcare.
 
-- 43 publications • h-index 8 • 200+ citations
+- 51 publications • h-index 11 • 440+ citations
 - IEETA, Aveiro University
 
 ### Education
@@ -379,23 +379,23 @@ Gosto de trabalhar em equipa e estou aberto a colaborações nacionais ou intern
 
 Projetos de investigação em que participo
 
-12
+16
 
 Publicações em Revistas
 
-28
+29
 
 Artigos de Conferência
 
-38
+42
 
 Repositórios
 
-331
+444
 
 Citações
 
-9
+11
 
 Índice h
 
@@ -570,7 +570,7 @@ Um breve resumo da minha experiência profissional e formação.
 
 Investigador em genómica federada, compressão de dados e IA biomédica. Foco em infraestruturas de dados com preservação de privacidade e métodos de teoria da informação aplicados à genómica e saúde.
 
-- 43 publications • h-index 8 • 200+ citations
+- 51 publications • h-index 11 • 440+ citations
 - IEETA, Aveiro University
 
 ### Formação
@@ -745,19 +745,19 @@ FEUP, University of Porto
 
 ## Metrics
 
-43
+51
 
 Publications
 
-9
+11
 
 h-index
 
-330+
+440+
 
 Citations
 
-38
+42
 
 Repositories
 

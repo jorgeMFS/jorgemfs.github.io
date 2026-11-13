@@ -4,7 +4,7 @@
 
 ## About
 
-Jorge Miguel Silva is an Investigador Auxiliar (Assistant Researcher) at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), University of Aveiro. He holds a PhD in Computer Engineering (2023) and an MSc in Bioengineering from FEUP, University of Porto. His research spans information theory, data compression, genomics, federated learning, and AI governance. He has 43+ publications, an h-index of 9, and 330+ citations.
+Jorge Miguel Silva is an Investigador Auxiliar (Assistant Researcher) at the Institute of Electronics and Informatics Engineering of Aveiro (IEETA), University of Aveiro. He holds a PhD in Computer Engineering (2023) and an MSc in Bioengineering from FEUP, University of Porto. His research spans information theory, data compression, genomics, federated learning, and AI governance. He has 50+ publications, an h-index of 11, and 440+ citations.
 
 - [Homepage (EN)](https://jorgemfs.com/en/): Full academic profile, projects, publications, portfolio, and CV.
 - [Homepage (PT)](https://jorgemfs.com/pt/): Portuguese version of the academic profile.
