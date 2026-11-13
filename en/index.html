@@ -388,6 +388,7 @@ permalink: /en/
     "award": ["BioASQ Challenge 2023 Winner", "IEEE CBMS 2018 Best Student Paper"]
   }
   </script>
+  <link href="/assets/css/formulaDrops.css" rel="stylesheet">
 </head>
 
 <body class="font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
@@ -554,7 +555,7 @@ permalink: /en/
         <div class="mb-12" data-aos="fade-up">
           <p class="section-eyebrow">{{ t.about.eyebrow }}</p>
           <h2 class="text-3xl lg:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ t.about.title }}</h2>
-          <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl leading-relaxed">
+          <p class="text-gray-600 dark:text-gray-400 italic mt-2 max-w-2xl leading-relaxed fd-para">
             {{ t.about.intro }}
           </p>
         </div>
@@ -1359,6 +1360,41 @@ permalink: /en/
 
   <!-- Template Main JS File -->
   <script defer src="/assets/js/main.js"></script>
+  <!-- Falling formulas (decorative) -->
+  <script>
+  window.FORMULA_DROPS = {
+    maxOnScreen: 2,
+    intervalMs: 2600,
+    anchors: [
+      { scope: '#about .fd-para', phrase: 'computer science', trigger: 'auto', tex: ['U(p)=x', 'K(x)'] },
+      { scope: '#about .fd-para', phrase: 'Information Theory', trigger: 'auto', tex: ['H(X)', '\\textstyle -\\sum p\\log p'] },
+      { scope: '#about .fd-para', phrase: 'Artificial Intelligence', trigger: 'auto', tex: ['\\textstyle\\sum 2^{-|p|}', 'M(x)'] },
+      { scope: '#about .fd-para', phrase: 'Compression', trigger: 'auto', tex: ['\\mathrm{NCD}(x,y)', 'C(x)\\approx K(x)'] },
+      { scope: '#about .fd-para', phrase: 'genomics', trigger: 'auto', tex: ['\\{A,C,G,T\\}^{n}', '-\\log_2 P(x)'] },
+    { scope: '#selected_publications', phrase: 'workflow',                   trigger: 'auto', tex: ['f_3\\circ f_2\\circ f_1(x)'] },
+    { scope: '#selected_publications', phrase: 'taxonomic classification',   trigger: 'auto', tex: ['\\arg\\max_t P(t\\mid x)'] },
+    { scope: '#selected_publications', phrase: 'benchmarking',               trigger: 'auto', tex: ['F_1'] },
+    { scope: '#selected_publications', phrase: 'Federated',                  trigger: 'auto', tex: ['\\textstyle\\sum_k \\frac{n_k}{n} f_k'] },
+    { scope: '#selected_publications', phrase: 'alignment-free',             trigger: 'auto', tex: ['\\mathrm{NCD}(x,y)'] },
+    { scope: '#selected_publications', phrase: 'compression-based',          trigger: 'auto', tex: ['C(x)'] },
+    { scope: '#selected_publications', phrase: 'low-complexity regions',     trigger: 'auto', tex: ['-\\log_2 P(x_i)'] },
+    { scope: '#selected_publications', phrase: 'complexity landscape',       trigger: 'auto', tex: ['K(x)/|x|'] },
+    { scope: '#selected_publications', phrase: 'Compression-Based',          trigger: 'auto', tex: ['C(x)'] },
+    { scope: '#selected_publications', phrase: 'information-based measures', trigger: 'auto', tex: ['H(X)'] },
+    { scope: '#selected_publications', phrase: 'minimal sequences',          trigger: 'auto', tex: ['w\\notin x'] },
+    { scope: '#selected_publications', phrase: 'Algorithmic Complexity',     trigger: 'auto', tex: ['K(x)'] },
+    { scope: '#skills', phrase: 'Information Theory',    trigger: 'hover', tex: ['H(X)'] },
+    { scope: '#skills', phrase: 'Data Compression',      trigger: 'hover', tex: ['C(x)'] },
+    { scope: '#skills', phrase: 'Genomics',              trigger: 'hover', tex: ['\\{A,C,G,T\\}^{n}'] },
+    { scope: '#skills', phrase: 'Machine Learning',      trigger: 'hover', tex: ['\\theta \\leftarrow \\theta - \\eta\\nabla L'] },
+    { scope: '#skills', phrase: 'Federated Learning',    trigger: 'hover', tex: ['\\textstyle\\sum_k \\frac{n_k}{n} w_k'] },
+    { scope: '#skills', phrase: 'Privacy-Preserving ML', trigger: 'hover', tex: ['e^{\\varepsilon}'] }
+    ]
+  };
+  </script>
+  <script src="/assets/js/formulaSvgs.js" defer></script>
+  <script src="/assets/js/formulaDrops.js" defer></script>
+
 </body>
 
 </html>

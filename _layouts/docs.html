@@ -107,6 +107,7 @@
 
   <!-- Privacy-friendly analytics by Umami -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="065913f4-78fe-490e-aa4a-a840fdcf56f1"></script>
+  <link href="/assets/css/formulaDrops.css" rel="stylesheet">
 </head>
 <body>
 
@@ -368,5 +369,20 @@
       headings.forEach(function (h) { io.observe(h); });
     })();
   </script>
+  {% if page.url == "/federated-learning/" %}
+  <!-- Falling formulas (decorative) -->
+  <script>
+  window.FORMULA_DROPS = {
+    maxOnScreen: 2,
+    intervalMs: 2600,
+    anchors: [
+      { scope: ".prose", phrase: "aggregated model updates", trigger: "auto", tex: ["\\textstyle\\sum_k \\frac{n_k}{n} w_k"] },
+      { scope: ".prose", phrase: "privacy legislation", trigger: "auto", tex: ["e^{\\varepsilon}"] }
+    ]
+  };
+  </script>
+  <script src="/assets/js/formulaSvgs.js" defer></script>
+  <script src="/assets/js/formulaDrops.js" defer></script>
+  {% endif %}
 </body>
 </html>

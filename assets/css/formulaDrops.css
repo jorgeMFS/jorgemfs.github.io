@@ -1,0 +1,25 @@
+:root { --fd-color: #3b4fc4; }
+html.dark { --fd-color: #9fb0ff; }
+
+.fd-a { display: inline-block; position: relative; line-height: 1.15; transition: color .5s; }
+.fd-a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: currentColor; opacity: 0; transform: scaleX(0); transition: transform .6s, opacity .6s; }
+.fd-a.fd-hit { color: var(--fd-color); }
+.fd-a.fd-hit::after { transform: scaleX(1); opacity: .35; }
+
+.fd-f { position: absolute; left: 0; top: 0; z-index: 5; color: var(--fd-color); font-size: 11px;
+  line-height: 1; white-space: nowrap; pointer-events: none; transform-origin: 50% 100%;
+  will-change: transform, opacity; }
+.fd-f svg { display: block; }
+
+/* espaço entre linhas no primeiro parágrafo do About, para as fórmulas caberem entre linhas */
+#about .fd-para { line-height: 2.4; }
+
+
+/* páginas de texto corrido (Federated Learning): mais espaço entre linhas nos parágrafos com âncora */
+.prose p:has(> .fd-a) { line-height: 2.4; }
+
+/* telemóveis: fórmulas ligeiramente mais pequenas */
+@media (max-width: 640px) {
+  .fd-f { font-size: 10px; }
+}
