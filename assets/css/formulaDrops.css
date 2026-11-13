@@ -1,5 +1,5 @@
-:root { --fd-color: #3b4fc4; }
-html.dark { --fd-color: #9fb0ff; }
+:root { --fd-color: var(--tk-accent); }
+html.dark { --fd-color: var(--tk-accent); }
 
 .fd-a { display: inline-block; position: relative; line-height: 1.15; transition: color .5s; }
 .fd-a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
