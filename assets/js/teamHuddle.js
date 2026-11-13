@@ -8,6 +8,8 @@ const svg=document.createElementNS(NS,'svg');wrap.appendChild(svg);
 const mk=(tag,attrs,parent=svg)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.appendChild(e);return e;};
 function bleed(){wrap.style.marginRight='0px';const r=wrap.getBoundingClientRect();wrap.style.marginRight=-(document.documentElement.clientWidth-r.right)+'px';}
 bleed();addEventListener('resize',bleed);
+// o AOS anima a coluna com transições CSS: quando acabam, a pista passa a chegar mesmo à borda da janela
+addEventListener('transitionend',e=>{if(e.target.contains(wrap))bleed();},true);
 const G=100;
 mk('line',{class:'trk',x1:0,y1:G+1,x2:2000,y2:G+1});
 const cnt=mk('text',{class:'cnt',x:0,y:22,opacity:0});

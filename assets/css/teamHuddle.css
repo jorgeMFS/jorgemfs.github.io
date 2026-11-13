@@ -1,4 +1,4 @@
-  .hd-wrap{position:relative;height:110px;margin:16px 0 4px;cursor:pointer;user-select:none;overflow:hidden}
+  .hd-wrap{position:relative;height:104px;margin:16px 0 4px;cursor:pointer;user-select:none;overflow:hidden}
   .hd-wrap svg{width:100%;height:100%;overflow:visible}
   .hd-wrap .lim{stroke:var(--tk-accent);stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round;fill:none}
   .hd-wrap .hd{fill:var(--tk-accent)}
