@@ -107,7 +107,7 @@
 
   <!-- Privacy-friendly analytics by Umami -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="065913f4-78fe-490e-aa4a-a840fdcf56f1"></script>
-  <link href="/assets/css/formulaDrops.css" rel="stylesheet">
+  <link href="/assets/css/formulaDrops.css?v={{ site.time | date: '%Y%m%d%H%M' }}" rel="stylesheet">
 </head>
 <body>
 
@@ -381,8 +381,8 @@
     ]
   };
   </script>
-  <script src="/assets/js/formulaSvgs.js" defer></script>
-  <script src="/assets/js/formulaDrops.js" defer></script>
+  <script src="/assets/js/formulaSvgs.js?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+  <script src="/assets/js/formulaDrops.js?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
   {% endif %}
 </body>
 </html>
