@@ -34,7 +34,7 @@
   #back:hover{color:rgba(30,20,50,.8)}
   #panel{position:fixed;left:50%;bottom:34px;transform:translate(-50%,14px);z-index:40;width:min(94vw,600px);text-align:center;
     color:rgba(30,20,50,.62);font-size:11px;font-weight:300;letter-spacing:.5px;line-height:1.75;
-    opacity:0;pointer-events:none;transition:opacity 1.6s ease,transform 1.6s ease}
+    opacity:0;pointer-events:none;transition:opacity 1.1s ease,transform 1.1s ease}
   body.ready #panel{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
   #panel::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-46px;bottom:-34px;pointer-events:none;
     background:linear-gradient(to top,rgba(245,244,241,.94) 55%,rgba(245,244,241,0))}
@@ -49,11 +49,13 @@
   #chips button:hover{color:rgba(74,58,140,.95);border-bottom-color:rgba(74,58,140,.4)}
   #res{min-height:2.7em;margin-top:8px;color:rgba(74,58,140,.85)}
   #res small{display:block;color:rgba(30,20,50,.4);font-size:10px;letter-spacing:.3px}
-  #why{margin-top:10px;color:rgba(30,20,50,.5);font-size:10.5px}
+  #why{margin:0 0 14px;color:rgba(30,20,50,.58);font-size:11px}
   #links{margin-top:8px;font-size:10px;letter-spacing:3px}
   #links a{color:rgba(30,20,50,.5);text-decoration:none;margin:0 8px;border-bottom:1px solid rgba(30,20,50,.15);transition:color .2s}
   #links a:hover{color:rgba(74,58,140,.95)}
-  @media (max-width:560px){#panel{bottom:18px;font-size:10.5px}#panel input{font-size:13px;letter-spacing:3px}#why{display:none}}
+  #links button{background:none;border:0;border-bottom:1px solid rgba(30,20,50,.15);cursor:pointer;font:inherit;letter-spacing:3px;color:rgba(30,20,50,.5);margin:0 8px;padding:0;transition:color .2s}
+  #links button:hover{color:rgba(74,58,140,.95)}
+  @media (max-width:560px){#panel{bottom:14px;font-size:10px}#panel input{font-size:13px;letter-spacing:3px}#why{font-size:10px;margin-bottom:10px;line-height:1.6}#chips{margin-top:8px}}
 </style>
 </head>
 <body>
@@ -66,13 +68,13 @@
 <div id="prog"></div>
 <div id="meta"></div>
 
-<div id="panel" aria-live="polite">
+<div id="panel">
+  <div id="why">K(x) is the length of the shortest program that prints x. It cannot be computed, only searched for. What you watch here is that search, and the preprint is about what it costs.</div>
   <div class="lab">give it a sequence</div>
   <input id="seqIn" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120" placeholder="0 1 1 0 1 0 0 1" aria-label="A sequence of numbers">
   <div id="chips"></div>
-  <div id="res"></div>
-  <div id="why">K(x) is the length of the shortest program that prints x. It cannot be computed, only searched for. What you watched is that search, and the preprint is about what it costs.</div>
-  <div id="links"><a href="https://arxiv.org/abs/2606.13799" target="_blank" rel="noopener">preprint</a><a href="https://github.com/jorgeMFS/omnis" target="_blank" rel="noopener">OMNIS</a><a href="https://doi.org/10.5281/zenodo.20634955" target="_blank" rel="noopener">doi</a></div>
+  <div id="res" aria-live="polite"></div>
+  <div id="links"><a href="https://arxiv.org/abs/2606.13799" target="_blank" rel="noopener">preprint</a><a href="https://github.com/jorgeMFS/omnis" target="_blank" rel="noopener">OMNIS</a><a href="https://doi.org/10.5281/zenodo.20634955" target="_blank" rel="noopener">doi</a><button id="snd" type="button" aria-pressed="true">sound on</button></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
@@ -80,88 +82,36 @@
 (function(){
   "use strict";
 
-  // ─── AUDIO ENGINE — Interstellar Edition ───
-  var audioCtx = null;
-  var audioReady = false;
-  var masterGain = null;
-  var reverbNode = null;
-  var droneOscs = [];
-  var droneGain = null;
-  var droneFilter = null;
+  // ─── SOUND — a few soft pentatonic notes, nothing else ───
+  // No drone, no noise: each symbol that appears plays one gentle note, and each ring that locks plays a low one.
+  var audioCtx = null, master = null, verb = null;
+  var soundOn = true;
+  try { soundOn = localStorage.getItem("k-sound") !== "off"; } catch (e) {}
+  var SCALE = [0, 2, 4, 7, 9];           // major pentatonic: any order of notes stays consonant
 
-  function initAudio() {
-    if (audioReady) return;
-    try {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-
-      // Resume if suspended (browser autoplay policy)
-      if (audioCtx.state === "suspended") {
-        audioCtx.resume();
-      }
-
-      // Already set up nodes? Just need resume.
-      if (masterGain) { audioReady = true; return; }
-
-      // Master gain
-      masterGain = audioCtx.createGain();
-      masterGain.gain.value = 0.7;
-      masterGain.connect(audioCtx.destination);
-
-      // Convolution reverb (algorithmic — impulse response from noise)
-      reverbNode = createReverb(3.0, 2.5);
-      reverbNode.connect(masterGain);
-
-      // Drone layer — always-on organ pad, very quiet
-      droneGain = audioCtx.createGain();
-      droneGain.gain.value = 0;
-      droneFilter = audioCtx.createBiquadFilter();
-      droneFilter.type = "lowpass";
-      droneFilter.frequency.value = 200;
-      droneFilter.Q.value = 1;
-      droneGain.connect(droneFilter);
-      droneFilter.connect(masterGain);
-
-      // Organ drone: fundamental + 3 harmonics (like a pipe organ's principal stop)
-      var droneFreqs = [55, 110, 165, 220]; // A1 + octave + fifth + 2nd octave
-      var droneAmps = [0.4, 0.25, 0.12, 0.08];
-      for (var di = 0; di < droneFreqs.length; di++) {
-        var o = audioCtx.createOscillator();
-        var g = audioCtx.createGain();
-        o.type = di === 0 ? "sawtooth" : "sine";
-        o.frequency.value = droneFreqs[di];
-        g.gain.value = droneAmps[di];
-        o.connect(g);
-        g.connect(droneGain);
-        o.start();
-        droneOscs.push({ osc: o, gain: g, baseFreq: droneFreqs[di] });
-      }
-
-      audioReady = true;
-    } catch(e) { console.warn("Audio init failed:", e); }
-  }
-
-  // Build algorithmic reverb impulse response
   function createReverb(duration, decay) {
-    var sr = audioCtx.sampleRate;
-    var len = sr * duration;
+    var sr = audioCtx.sampleRate, len = Math.floor(sr * duration);
     var buf = audioCtx.createBuffer(2, len, sr);
     for (var ch = 0; ch < 2; ch++) {
       var data = buf.getChannelData(ch);
-      for (var i = 0; i < len; i++) {
-        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
-      }
+      for (var i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
     }
-    var conv = audioCtx.createConvolver();
-    conv.buffer = buf;
-    return conv;
+    var conv = audioCtx.createConvolver(); conv.buffer = buf; return conv;
   }
-
-  // Unlock audio — keep retrying on every interaction until it works
-  function tryInit() {
+  function initAudio() {
+    try {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        master = audioCtx.createGain(); master.gain.value = 0.55; master.connect(audioCtx.destination);
+        verb = createReverb(1.8, 3.4);
+        var wet = audioCtx.createGain(); wet.gain.value = 0.32; verb.connect(wet); wet.connect(master);
+      }
+      if (audioCtx.state === "suspended") audioCtx.resume();
+    } catch (e) {}
+  }
+  function tryInit() {                    // browsers only allow sound after a click, tap or key
     initAudio();
-    if (audioReady && audioCtx && audioCtx.state === "running") {
+    if (audioCtx && audioCtx.state === "running") {
       document.removeEventListener("click", tryInit);
       document.removeEventListener("touchstart", tryInit);
       document.removeEventListener("keydown", tryInit);
@@ -171,239 +121,30 @@
   document.addEventListener("touchstart", tryInit);
   document.addEventListener("keydown", tryInit);
 
-  // Update drone intensity (called every frame)
-  function updateDrone(intensity, filterFreq) {
-    if (!audioReady) return;
-    var t = audioCtx.currentTime;
-    droneGain.gain.linearRampToValueAtTime(intensity, t + 0.1);
-    droneFilter.frequency.linearRampToValueAtTime(filterFreq, t + 0.1);
+  function note(freq, vol, dur) {
+    if (!soundOn || !audioCtx || audioCtx.state !== "running") return;
+    var t = audioCtx.currentTime, g = audioCtx.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vol, t + 0.008);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    var o = audioCtx.createOscillator(); o.type = "sine"; o.frequency.value = freq;
+    var o2 = audioCtx.createOscillator(); o2.type = "sine"; o2.frequency.value = freq * 2;     // a faint octave: bell-like
+    var g2 = audioCtx.createGain(); g2.gain.value = 0.18;
+    o.connect(g); o2.connect(g2); g2.connect(g);
+    g.connect(master); g.connect(verb);
+    o.start(t); o2.start(t); o.stop(t + dur + 0.05); o2.stop(t + dur + 0.05);
   }
+  var semiHz = function (semi) { return 261.63 * Math.pow(2, semi / 12); };   // C4 = 261.63 Hz
 
-  // Detune drone for tension (locking phase)
-  function detuneDrone(amount) {
-    if (!audioReady) return;
-    for (var i = 0; i < droneOscs.length; i++) {
-      droneOscs[i].osc.detune.linearRampToValueAtTime(amount * (i + 1), audioCtx.currentTime + 0.3);
-    }
-  }
-
-  // ── THE CLOCK TICK — Interstellar's heartbeat ──
-  function tickSymbol(value, maxVal) {
-    if (!audioReady) return;
-    var t = audioCtx.currentTime;
-
-    // Layer 1: sharp transient click (the clock mechanism)
-    var clickBuf = audioCtx.createBuffer(1, audioCtx.sampleRate * 0.015, audioCtx.sampleRate);
-    var clickData = clickBuf.getChannelData(0);
-    for (var i = 0; i < clickData.length; i++) {
-      var env = Math.exp(-i / (audioCtx.sampleRate * 0.003));
-      clickData[i] = (Math.random() * 2 - 1) * env;
-    }
-    var clickSrc = audioCtx.createBufferSource();
-    clickSrc.buffer = clickBuf;
-    var clickGain = audioCtx.createGain();
-    clickGain.gain.value = 0.15;
-    var clickFilter = audioCtx.createBiquadFilter();
-    clickFilter.type = "highpass";
-    clickFilter.frequency.value = 2000;
-    clickSrc.connect(clickFilter);
-    clickFilter.connect(clickGain);
-    clickGain.connect(masterGain);
-    // Also send to reverb for tail
-    var clickRevGain = audioCtx.createGain();
-    clickRevGain.gain.value = 0.06;
-    clickFilter.connect(clickRevGain);
-    clickRevGain.connect(reverbNode);
-    clickSrc.start(t);
-
-    // Layer 2: tonal resonance — pitch mapped to symbol, organ-like
-    var osc = audioCtx.createOscillator();
-    var osc2 = audioCtx.createOscillator();
-    var toneGain = audioCtx.createGain();
-    // Pentatonic scale mapped to symbol value: C3, D3, E3, G3, A3, C4, D4, E4
-    var penta = [130.81, 146.83, 164.81, 196.00, 220.00, 261.63, 293.66, 329.63];
-    var idx = Math.round((value / Math.max(maxVal, 1)) * (penta.length - 1));
-    var freq = penta[idx];
-
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(freq, t);
-    osc2.type = "sine";
-    osc2.frequency.setValueAtTime(freq * 2.01, t); // slight detune on octave — shimmer
-
-    var oscGain1 = audioCtx.createGain();
-    var oscGain2 = audioCtx.createGain();
-    oscGain1.gain.value = 0.06;
-    oscGain2.gain.value = 0.025;
-    osc.connect(oscGain1);
-    osc2.connect(oscGain2);
-    oscGain1.connect(toneGain);
-    oscGain2.connect(toneGain);
-
-    toneGain.gain.setValueAtTime(0.001, t);
-    toneGain.gain.linearRampToValueAtTime(1, t + 0.005); // fast attack
-    toneGain.gain.exponentialRampToValueAtTime(0.3, t + 0.06);
-    toneGain.gain.exponentialRampToValueAtTime(0.001, t + 0.5); // long tail
-
-    toneGain.connect(masterGain);
-    // Send tone to reverb too
-    var toneRevGain = audioCtx.createGain();
-    toneRevGain.gain.value = 0.12;
-    toneGain.connect(toneRevGain);
-    toneRevGain.connect(reverbNode);
-
-    osc.start(t);
-    osc2.start(t);
-    osc.stop(t + 0.6);
-    osc2.stop(t + 0.6);
-  }
-
-  // ── LOCK — organ chord hit, building with each layer ──
-  function tickLock(layerIdx) {
-    if (!audioReady) return;
-    var t = audioCtx.currentTime;
-
-    // Each lock adds a note to the chord: C2, G2, C3
-    var chordFreqs = [65.41, 98.00, 130.81];
-    var baseFreq = chordFreqs[layerIdx];
-
-    // Organ chord: fundamental + 2nd + 3rd + 8th harmonic
-    var harmonics = [1, 2, 3, 8];
-    var hAmps = [0.12, 0.06, 0.04, 0.015];
-
-    for (var hi = 0; hi < harmonics.length; hi++) {
-      var o = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
-      o.type = hi === 0 ? "sawtooth" : "sine";
-      o.frequency.setValueAtTime(baseFreq * harmonics[hi], t);
-
-      g.gain.setValueAtTime(0.001, t);
-      g.gain.linearRampToValueAtTime(hAmps[hi], t + 0.02);
-      g.gain.exponentialRampToValueAtTime(hAmps[hi] * 0.6, t + 0.8);
-      g.gain.exponentialRampToValueAtTime(0.001, t + 2.5);
-
-      o.connect(g);
-      g.connect(masterGain);
-      // Heavy reverb
-      var rg = audioCtx.createGain();
-      rg.gain.value = 0.2;
-      g.connect(rg);
-      rg.connect(reverbNode);
-
-      o.start(t);
-      o.stop(t + 3);
-    }
-
-    // Sub-bass thud
-    var sub = audioCtx.createOscillator();
-    var subG = audioCtx.createGain();
-    sub.type = "sine";
-    sub.frequency.setValueAtTime(baseFreq * 0.5, t);
-    sub.frequency.exponentialRampToValueAtTime(baseFreq * 0.25, t + 0.4);
-    subG.gain.setValueAtTime(0.15, t);
-    subG.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
-    sub.connect(subG);
-    subG.connect(masterGain);
-    sub.start(t);
-    sub.stop(t + 0.6);
-
-    // Detune the drone upward with tension
-    detuneDrone((layerIdx + 1) * 15);
-  }
-
-  // ── SWELL — the organ builds during locked phase ──
-  var swellOscs = [];
-  function startSwell() {
-    if (!audioReady) return;
-    stopSwell();
-    var t = audioCtx.currentTime;
-
-    // Full organ chord: C2, G2, C3, E3, G3 — open voicing
-    var freqs = [65.41, 98.00, 130.81, 164.81, 196.00];
-    for (var fi = 0; fi < freqs.length; fi++) {
-      var o = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
-      o.type = fi < 2 ? "sawtooth" : "sine";
-      o.frequency.value = freqs[fi];
-      // Slow crescendo
-      g.gain.setValueAtTime(0.001, t);
-      g.gain.linearRampToValueAtTime(0.03 + fi * 0.005, t + 3);
-      o.connect(g);
-      g.connect(masterGain);
-      var rg = audioCtx.createGain();
-      rg.gain.value = 0.15;
-      g.connect(rg);
-      rg.connect(reverbNode);
-      o.start(t);
-      swellOscs.push({ osc: o, gain: g });
-    }
-  }
-
-  function stopSwell() {
-    var t = audioCtx.currentTime;
-    for (var i = 0; i < swellOscs.length; i++) {
-      try {
-        swellOscs[i].gain.gain.linearRampToValueAtTime(0.001, t + 1.5);
-        swellOscs[i].osc.stop(t + 2);
-      } catch(e) {}
-    }
-    swellOscs = [];
-  }
-
-  // ── RELEASE — the black hole: massive downward sweep + noise ──
-  function tickRelease() {
-    if (!audioReady) return;
-    var t = audioCtx.currentTime;
-
-    stopSwell();
-    detuneDrone(0); // reset drone tuning
-
-    // Descending sweep — like falling into Gargantua
-    for (var si = 0; si < 3; si++) {
-      var o = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
-      o.type = si === 0 ? "sawtooth" : "sine";
-      var startFreq = 400 - si * 100;
-      o.frequency.setValueAtTime(startFreq, t);
-      o.frequency.exponentialRampToValueAtTime(20, t + 3);
-      g.gain.setValueAtTime(0.06, t);
-      g.gain.linearRampToValueAtTime(0.08, t + 0.3); // brief swell
-      g.gain.exponentialRampToValueAtTime(0.001, t + 3.5);
-      o.connect(g);
-      g.connect(masterGain);
-      var rg = audioCtx.createGain();
-      rg.gain.value = 0.25;
-      g.connect(rg);
-      rg.connect(reverbNode);
-      o.start(t);
-      o.stop(t + 4);
-    }
-
-    // Filtered noise wash
-    var dur = 3;
-    var sr = audioCtx.sampleRate;
-    var buf = audioCtx.createBuffer(2, sr * dur, sr);
-    for (var ch = 0; ch < 2; ch++) {
-      var d = buf.getChannelData(ch);
-      for (var i = 0; i < d.length; i++) {
-        d[i] = (Math.random() * 2 - 1) * 0.02;
-      }
-    }
-    var noiseSrc = audioCtx.createBufferSource();
-    noiseSrc.buffer = buf;
-    var noiseFilter = audioCtx.createBiquadFilter();
-    noiseFilter.type = "bandpass";
-    noiseFilter.frequency.setValueAtTime(800, t);
-    noiseFilter.frequency.exponentialRampToValueAtTime(60, t + dur);
-    noiseFilter.Q.value = 3;
-    var noiseGain = audioCtx.createGain();
-    noiseGain.gain.setValueAtTime(0.12, t);
-    noiseGain.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    noiseSrc.connect(noiseFilter);
-    noiseFilter.connect(noiseGain);
-    noiseGain.connect(masterGain);
-    noiseGain.connect(reverbNode);
-    noiseSrc.start(t);
-  }
+  function tickSymbol(value) { note(semiHz(SCALE[value % 5] + 12 * (Math.floor(value / 5) % 2)), 0.07, 1.1); }
+  function tickLock(layerIdx) { note(semiHz([-12, -5, 4][layerIdx % 3]), 0.09, 1.7); }
+  function updateDrone() {}               // the old drone, swell and "black hole" sweep are gone
+  function detuneDrone() {}
+  function startSwell() {}
+  function stopSwell() {}
+  function tickRelease() {}
+  window.kSound = function (on) { soundOn = on; try { localStorage.setItem("k-sound", on ? "on" : "off"); } catch (e) {} if (on) tryInit(); return soundOn; };
+  window.kSoundIsOn = function () { return soundOn; };
 
   // ─── THREE.js SETUP ───
   var scene = new THREE.Scene();
@@ -505,7 +246,6 @@
   var lastLockTime = 0;
   var curProg = null;
   var forced = null;          // a program asked for by the visitor: used on the next cycle
-  var firstDone = false;      // the info layer appears after the first cycle
   var prevTime = performance.now() / 1000;
 
   // Typewriter state
@@ -724,7 +464,6 @@
       // Hold for 1.5s after last symbol, then release
       var holdAfter = seqDone ? (now - lastTickTime) : 0;
       if (seqDone && holdAfter > 1.5) {
-        if (!firstDone) { firstDone = true; document.body.classList.add("ready"); }
         phase = 3;
         phaseStart = now;
         tickRelease();
@@ -781,6 +520,7 @@
   }
 
   // the visitor's own program: starts on the next cycle (straight away if the rings are idle)
+  setTimeout(function () { document.body.classList.add("ready"); }, 250);   // the text and the input are there from the start
   window.kRun = function (p) { forced = p; if (phase === 0) timer = 100; };
   animate();
 })();
@@ -864,6 +604,10 @@
   function parse(str) { return str.split(/[^0-9]+/).filter(Boolean).map(Number).filter(function (v) { return v <= 100000; }); }
   EXAMPLES.forEach(function (e) { var b = document.createElement("button"); b.type = "button"; b.textContent = e[0];
     b.addEventListener("click", function () { var x = e[1](); input.value = x.join(" "); run(x); }); chips.appendChild(b); });
+  var snd = document.getElementById("snd");
+  function paintSnd() { var on = window.kSoundIsOn && window.kSoundIsOn(); snd.textContent = on ? "sound on" : "sound off"; snd.setAttribute("aria-pressed", on ? "true" : "false"); }
+  snd.addEventListener("click", function () { window.kSound(!window.kSoundIsOn()); paintSnd(); });
+  paintSnd();
   input.addEventListener("keydown", function (ev) { if (ev.key === "Enter") run(parse(input.value)); });
 })();
 </script>
